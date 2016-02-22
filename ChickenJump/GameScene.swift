@@ -83,78 +83,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     var rainstormSceneRainSP: SKNode!
     
     //MARK: 从sks场景文件获取node
-    let Long_SectionNode:SKNode = {
+    let long_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Long_Section.sks")!
         let node = scene.childNodeWithName("longSection")!
         
         return node
     }()
     
-    let Long_KnifeSectionNode:SKNode = {
+    let long_KnifeSectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Long_KnifeSection.sks")!
         let node = scene.childNodeWithName("long_KnifeSection")!
         
         return node
     }()
     
-    let Short_SectionNode:SKNode = {
-        let scene = SKScene(fileNamed: "Short_Section.sks")!
-        let node = scene.childNodeWithName("shortSection")!
-        
-        return node
-    }()
-    
-    let Gradient_SectionNode:SKNode = {
-        let scene = SKScene(fileNamed: "Gradient_Section.sks")!
-        let node = scene.childNodeWithName("gradientSection")!
-        
-        return node
-    }()
-    
-    let Door_SectionNode:SKNode = {
+    let door_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Door_Section.sks")!
         let node = scene.childNodeWithName("doorSection")!
         
         return node
     }()
     
-    let Down_SectionNode:SKNode = {
+    let down_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Down_Section.sks")!
         let node = scene.childNodeWithName("downSection")!
         
         return node
     }()
     
-    let MovingBridgeX_SectionNode:SKNode = {
-        let scene = SKScene(fileNamed: "MovingBridgeX_Section.sks")!
+    let movingBridgeX_SectionNode:SKNode = {
+        let scene = SKScene(fileNamed: "BridgeMovingInX_Section.sks")!
         let node = scene.childNodeWithName("movingBrdgeX")!
         
         return node
     }()
     
-    let CylinderB_SectionNode:SKNode = {
-        let scene = SKScene(fileNamed: "CylinderB_Section.sks")!
-        let node = scene.childNodeWithName("cylinderBSection")!
-        
-        return node
-    }()
-    
-    let invisible_Section:SKNode = {
-        let scene = SKScene(fileNamed: "invisible_Section.sks")!
-        let node = scene.childNodeWithName("invisibleNode")!
-        
-        return node
-    }()
-    
-    let activitiesGear_Section:SKNode = {
-        let scene = SKScene(fileNamed: "ActivitiesGear_Section.sks")!
-        let node = scene.childNodeWithName("activitiesGear")!
-        
-        return node
-    }()
-    
     let spring_Section:SKNode = {
-        let scene = SKScene(fileNamed: "spring_Section.sks")!
+        let scene = SKScene(fileNamed: "Spring_Section.sks")!
         let node = scene.childNodeWithName("springNode")!
         
         return node
@@ -654,42 +619,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     // 前层
     func initPlaygroud() {
         
-        let nodeLong_Section = createPlatfromNodeWithSKS(self.Long_SectionNode)
+        let nodeLong_Section = createPlatfromNodeWithSKS(self.long_SectionNode)
         self.platfromArray.append(nodeLong_Section)
         
-        let nodeLong_KnifeSection = createPlatfromNodeWithSKS(self.Long_KnifeSectionNode)
+        let nodeLong_KnifeSection = createPlatfromNodeWithSKS(self.long_KnifeSectionNode)
         self.platfromArray.append(nodeLong_KnifeSection)
-        
-//        let nodeShort_Section = createPlatfromNodeWithSKS(self.Short_SectionNode)
-//        self.platfromArray.append(nodeShort_Section)
-//        
-//        let nodeGradient_Section = createPlatfromNodeWithSKS(self.Gradient_SectionNode)
-//        self.platfromArray.append(nodeGradient_Section)
-        
-        let nodeDoor_Section = createPlatfromNodeWithSKS(self.Door_SectionNode)
+
+        let nodeDoor_Section = createPlatfromNodeWithSKS(self.door_SectionNode)
         self.platfromArray.append(nodeDoor_Section)
         
-        let nodeDown_Section = createPlatfromNodeWithSKS(self.Down_SectionNode)
+        let nodeDown_Section = createPlatfromNodeWithSKS(self.down_SectionNode)
         self.platfromArray.append(nodeDown_Section)
         
-        let nodeMovingBridgeX_Section = createPlatfromNodeWithSKS(self.MovingBridgeX_SectionNode)
+        let nodeMovingBridgeX_Section = createPlatfromNodeWithSKS(self.movingBridgeX_SectionNode)
         self.platfromArray.append(nodeMovingBridgeX_Section)
-        
-        let nodeCylinderB_Section = createPlatfromNodeWithSKS(self.CylinderB_SectionNode)
-        self.platfromArray.append(nodeCylinderB_Section)
-        
-        let nodeinvisible_Section = createPlatfromNodeWithSKS(self.invisible_Section)
-        self.platfromArray.append(nodeinvisible_Section)
-        
-        let nodeActivitiesGear_Section = createPlatfromNodeWithSKS(self.activitiesGear_Section)
-        self.platfromArray.append(nodeActivitiesGear_Section)
         
         let nodeSpring_Section = createPlatfromNodeWithSKS(self.spring_Section)
         self.platfromArray.append(nodeSpring_Section)
         
         let nodeBridgeMovingInY_Section = createPlatfromNodeWithSKS(self.bridgeMovingInY_Section)
         self.platfromArray.append(nodeBridgeMovingInY_Section)
-        
         
         print("selfplatfromArray \(self.platfromArray.count) ")
 

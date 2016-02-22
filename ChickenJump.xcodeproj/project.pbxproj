@@ -17,19 +17,13 @@
 		A07594341C7AEE21005FF82F /* CharactersUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594331C7AEE21005FF82F /* CharactersUIViewController.swift */; };
 		A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594351C7AEE28005FF82F /* SettingsViewController.swift */; };
 		A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594371C7AEE2F005FF82F /* GamePauseUIViewController.swift */; };
-		A075943A1C7AEE38005FF82F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594391C7AEE38005FF82F /* GameScene.sks */; };
 		A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075943C1C7AEE59005FF82F /* Long_Section.sks */; };
 		A075943F1C7AEE61005FF82F /* Long_KnifeSection.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */; };
-		A07594411C7AEE69005FF82F /* Short_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594401C7AEE69005FF82F /* Short_Section.sks */; };
-		A07594431C7AEE75005FF82F /* Gradient_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594421C7AEE75005FF82F /* Gradient_Section.sks */; };
 		A07594451C7AEE80005FF82F /* Door_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594441C7AEE80005FF82F /* Door_Section.sks */; };
 		A07594471C7AEE88005FF82F /* Down_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594461C7AEE88005FF82F /* Down_Section.sks */; };
-		A07594491C7AEE91005FF82F /* CylinderB_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594481C7AEE91005FF82F /* CylinderB_Section.sks */; };
-		A075944B1C7AEE9E005FF82F /* invisible_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075944A1C7AEE9E005FF82F /* invisible_Section.sks */; };
-		A075944D1C7AEEA6005FF82F /* ActivitiesGear_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075944C1C7AEEA6005FF82F /* ActivitiesGear_Section.sks */; };
-		A075944F1C7AEEAE005FF82F /* MovingBridgeX_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075944E1C7AEEAE005FF82F /* MovingBridgeX_Section.sks */; };
+		A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */; };
 		A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594501C7AEEB7005FF82F /* BridgeMovingInY_Section.sks */; };
-		A07594531C7AEEC8005FF82F /* spring_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594521C7AEEC8005FF82F /* spring_Section.sks */; };
+		A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594521C7AEEC8005FF82F /* Spring_Section.sks */; };
 		A07594551C7AEEE3005FF82F /* GameSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */; };
 		A07594571C7AEF03005FF82F /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594561C7AEF03005FF82F /* Definition.swift */; };
 		A07594591C7AEF0A005FF82F /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594581C7AEF0A005FF82F /* GameState.swift */; };
@@ -114,19 +108,13 @@
 		A07594331C7AEE21005FF82F /* CharactersUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersUIViewController.swift; sourceTree = "<group>"; };
 		A07594351C7AEE28005FF82F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A07594371C7AEE2F005FF82F /* GamePauseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePauseUIViewController.swift; sourceTree = "<group>"; };
-		A07594391C7AEE38005FF82F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		A075943C1C7AEE59005FF82F /* Long_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Long_Section.sks; sourceTree = "<group>"; };
 		A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Long_KnifeSection.sks; sourceTree = "<group>"; };
-		A07594401C7AEE69005FF82F /* Short_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Short_Section.sks; sourceTree = "<group>"; };
-		A07594421C7AEE75005FF82F /* Gradient_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Gradient_Section.sks; sourceTree = "<group>"; };
 		A07594441C7AEE80005FF82F /* Door_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Door_Section.sks; sourceTree = "<group>"; };
 		A07594461C7AEE88005FF82F /* Down_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Down_Section.sks; sourceTree = "<group>"; };
-		A07594481C7AEE91005FF82F /* CylinderB_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CylinderB_Section.sks; sourceTree = "<group>"; };
-		A075944A1C7AEE9E005FF82F /* invisible_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = invisible_Section.sks; sourceTree = "<group>"; };
-		A075944C1C7AEEA6005FF82F /* ActivitiesGear_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActivitiesGear_Section.sks; sourceTree = "<group>"; };
-		A075944E1C7AEEAE005FF82F /* MovingBridgeX_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MovingBridgeX_Section.sks; sourceTree = "<group>"; };
+		A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BridgeMovingInX_Section.sks; sourceTree = "<group>"; };
 		A07594501C7AEEB7005FF82F /* BridgeMovingInY_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BridgeMovingInY_Section.sks; sourceTree = "<group>"; };
-		A07594521C7AEEC8005FF82F /* spring_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spring_Section.sks; sourceTree = "<group>"; };
+		A07594521C7AEEC8005FF82F /* Spring_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spring_Section.sks; sourceTree = "<group>"; };
 		A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSpriteNode.swift; sourceTree = "<group>"; };
 		A07594561C7AEF03005FF82F /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		A07594581C7AEF0A005FF82F /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -231,15 +219,11 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
+				A08386C91C7AF511008A7502 /* Motion */,
+				A08386C81C7AF49C008A7502 /* UI */,
+				A08386C71C7AF485008A7502 /* Model */,
 				A075945A1C7AEF18005FF82F /* Resources */,
 				A075943B1C7AEE49005FF82F /* SceneFiles */,
-				A07594371C7AEE2F005FF82F /* GamePauseUIViewController.swift */,
-				A07594581C7AEF0A005FF82F /* GameState.swift */,
-				A07594561C7AEF03005FF82F /* Definition.swift */,
-				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
-				A07594351C7AEE28005FF82F /* SettingsViewController.swift */,
-				A07594331C7AEE21005FF82F /* CharactersUIViewController.swift */,
-				A07594311C7AEE19005FF82F /* Shake.swift */,
 				A075942F1C7AEE0C005FF82F /* GameScene.swift */,
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
@@ -255,19 +239,13 @@
 		A075943B1C7AEE49005FF82F /* SceneFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A07594391C7AEE38005FF82F /* GameScene.sks */,
 				A075943C1C7AEE59005FF82F /* Long_Section.sks */,
 				A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */,
-				A07594401C7AEE69005FF82F /* Short_Section.sks */,
-				A07594421C7AEE75005FF82F /* Gradient_Section.sks */,
 				A07594441C7AEE80005FF82F /* Door_Section.sks */,
 				A07594461C7AEE88005FF82F /* Down_Section.sks */,
-				A07594481C7AEE91005FF82F /* CylinderB_Section.sks */,
-				A075944A1C7AEE9E005FF82F /* invisible_Section.sks */,
-				A075944C1C7AEEA6005FF82F /* ActivitiesGear_Section.sks */,
-				A075944E1C7AEEAE005FF82F /* MovingBridgeX_Section.sks */,
+				A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */,
 				A07594501C7AEEB7005FF82F /* BridgeMovingInY_Section.sks */,
-				A07594521C7AEEC8005FF82F /* spring_Section.sks */,
+				A07594521C7AEEC8005FF82F /* Spring_Section.sks */,
 			);
 			name = SceneFiles;
 			sourceTree = "<group>";
@@ -430,6 +408,34 @@
 			path = PlayerAnimationTextureAlats.atlasc;
 			sourceTree = "<group>";
 		};
+		A08386C71C7AF485008A7502 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A07594581C7AEF0A005FF82F /* GameState.swift */,
+				A07594561C7AEF03005FF82F /* Definition.swift */,
+				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A08386C81C7AF49C008A7502 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A07594371C7AEE2F005FF82F /* GamePauseUIViewController.swift */,
+				A07594351C7AEE28005FF82F /* SettingsViewController.swift */,
+				A07594331C7AEE21005FF82F /* CharactersUIViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		A08386C91C7AF511008A7502 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				A07594311C7AEE19005FF82F /* Shake.swift */,
+			);
+			name = Motion;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,7 +497,6 @@
 				A07594B71C7AF014005FF82F /* playerMagic.sks in Resources */,
 				A07594891C7AEF43005FF82F /* RuningBgMusic.mp3 in Resources */,
 				A07594761C7AEF43005FF82F /* bgm_mini.mp3 in Resources */,
-				A075943A1C7AEE38005FF82F /* GameScene.sks in Resources */,
 				A07594871C7AEF43005FF82F /* Rain.mp3 in Resources */,
 				A07594771C7AEF43005FF82F /* buttonTouchSound.mp3 in Resources */,
 				A075943F1C7AEE61005FF82F /* Long_KnifeSection.sks in Resources */,
@@ -501,7 +506,6 @@
 				A075947C1C7AEF43005FF82F /* inGame_action_jump.mp3 in Resources */,
 				A07594A51C7AEFC9005FF82F /* BGSpriteTextureAlats.plist in Resources */,
 				A07594AF1C7AEFF2005FF82F /* pixe.png in Resources */,
-				A075944D1C7AEEA6005FF82F /* ActivitiesGear_Section.sks in Resources */,
 				A07594921C7AEF53005FF82F /* eatcycle.wav in Resources */,
 				A07594751C7AEF43005FF82F /* bg_country.mp3 in Resources */,
 				A07594ED1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png in Resources */,
@@ -510,11 +514,10 @@
 				A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */,
 				A07594791C7AEF43005FF82F /* crash.mp3 in Resources */,
 				A07594A91C7AEFD3005FF82F /* PlatfromTextureAlats.1.png in Resources */,
-				A075944B1C7AEE9E005FF82F /* invisible_Section.sks in Resources */,
 				A07594851C7AEF43005FF82F /* jump.mp3 in Resources */,
 				A07594B91C7AF01D005FF82F /* Rain.sks in Resources */,
 				A07594451C7AEE80005FF82F /* Door_Section.sks in Resources */,
-				A07594531C7AEEC8005FF82F /* spring_Section.sks in Resources */,
+				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A075947F1C7AEF43005FF82F /* inGame_efx_invisibleStart.mp3 in Resources */,
 				A075947B1C7AEF43005FF82F /* gamebgmusicA.mp3 in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
@@ -531,10 +534,9 @@
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
 				A075948C1C7AEF43005FF82F /* ThunderSound.mp3 in Resources */,
 				A07594AA1C7AEFD3005FF82F /* PlatfromTextureAlats.plist in Resources */,
-				A07594431C7AEE75005FF82F /* Gradient_Section.sks in Resources */,
 				A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */,
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,
-				A075944F1C7AEEAE005FF82F /* MovingBridgeX_Section.sks in Resources */,
+				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948D1C7AEF43005FF82F /* catch_star01.caf in Resources */,
 				A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */,
@@ -547,10 +549,8 @@
 				A07594821C7AEF43005FF82F /* inGame_event_deathMonster_1.mp3 in Resources */,
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
 				A075947A1C7AEF43005FF82F /* dieSound.mp3 in Resources */,
-				A07594411C7AEE69005FF82F /* Short_Section.sks in Resources */,
 				A07594B31C7AF000005FF82F /* Bow.sks in Resources */,
 				A07594BB1C7AF037005FF82F /* Snow.sks in Resources */,
-				A07594491C7AEE91005FF82F /* CylinderB_Section.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,10 +683,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
 				INFOPLIST_FILE = ChickenJump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.ChickenJump;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "abfa7ead-e655-4651-a9d2-95c499f417ab";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -697,10 +700,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
 				INFOPLIST_FILE = ChickenJump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.ChickenJump;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "20c32bae-31db-47f5-9633-e68202efd7dd";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 			};
 			name = Release;
@@ -724,6 +730,7 @@
 				A07594251C7AECBB005FF82F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

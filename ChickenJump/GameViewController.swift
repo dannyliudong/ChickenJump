@@ -117,10 +117,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
-        
-        //GameScene(fileNamed:"GameScene") // size:Screen_Size
-        
-        GameState.sharedInstance.gameScene = GameScene(fileNamed:"GameScene")
+                
+        GameState.sharedInstance.gameScene = GameScene(size: Screen_Size)//GameScene(fileNamed:"GameScene")
         
         if let scene = GameState.sharedInstance.gameScene {
             

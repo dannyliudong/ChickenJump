@@ -10,8 +10,8 @@ import UIKit
 import SpriteKit
 
 //MARK: Defined 单位
-var Screen_Width:CGFloat = 1024 // 宽
-var Screen_Height:CGFloat = 1024 // 高
+var Screen_Width:CGFloat = 960 // 宽
+var Screen_Height:CGFloat = 960 // 高
 
 let Screen_Size:CGSize = CGSizeMake(Screen_Width, Screen_Height)
 let Screen_Center:CGPoint = CGPointMake(Screen_Width/2, Screen_Height/2)
@@ -103,16 +103,11 @@ enum GameBGSongAudioName: String {
 enum PlatformContactType:UInt32 {
     case Long_Section = 0       // 一长段
     case Long_KnifeSection
-    case Short_Section          // 一短段
-    case Gradient_Section       // 台阶
     case Down_Section           // 踩踏 掉落
     case Door_Section           // 开关门
-    case MovingBridgeX_Section
-    case CylinderB_Section
-    case invisible_Section      // 隐形的
-    case ActivitiesGear_Section
     case Spring_Section         // 弹簧
-    case bridgeMovingInY_Section  // 上下移动
+    case BridgeMovingInX_Section
+    case BridgeMovingInY_Section  // 上下移动
 }
 
 /**
@@ -339,7 +334,7 @@ func randomTreeTexture() ->SKTexture {
 
 func randomPlatformContactType(type:PlatformContactType) ->PlatformContactType {
     
-    let typeValue = UInt32(CGFloat.random(min: 0, max: 12))
+    let typeValue = UInt32(CGFloat.random(min: 0, max: 7))
     print("a typeValue \(typeValue)")
     print("type.rawValue  \(type.rawValue)")
     
@@ -347,17 +342,12 @@ func randomPlatformContactType(type:PlatformContactType) ->PlatformContactType {
         print("类型 不同")
         switch typeValue {
         case 0: return PlatformContactType.Long_Section
-        case 1: return PlatformContactType.Short_Section
-        case 2: return PlatformContactType.Gradient_Section
+        case 1: return PlatformContactType.Long_KnifeSection
+        case 2: return PlatformContactType.Door_Section
         case 3: return PlatformContactType.Down_Section
-        case 4: return PlatformContactType.Door_Section
-        case 5: return PlatformContactType.MovingBridgeX_Section
-        case 6: return PlatformContactType.CylinderB_Section
-        case 7: return PlatformContactType.Long_KnifeSection
-        case 8: return PlatformContactType.invisible_Section
-        case 9: return PlatformContactType.ActivitiesGear_Section
-        case 10: return PlatformContactType.Spring_Section
-        case 11: return PlatformContactType.bridgeMovingInY_Section
+        case 4: return PlatformContactType.Spring_Section
+        case 5: return PlatformContactType.BridgeMovingInX_Section
+        case 6: return PlatformContactType.BridgeMovingInY_Section
         default: return PlatformContactType.Long_Section
         }
     } else {
@@ -376,19 +366,14 @@ func randomPlatformContactType(type:PlatformContactType) ->PlatformContactType {
 }
 
 func randomPlatformContactType() ->PlatformContactType {
-    switch arc4random() % 12 {
+    switch arc4random() % 7 {
     case 0: return PlatformContactType.Long_Section
-    case 1: return PlatformContactType.Short_Section
-    case 2: return PlatformContactType.Gradient_Section
+    case 1: return PlatformContactType.Long_KnifeSection
+    case 2: return PlatformContactType.Door_Section
     case 3: return PlatformContactType.Down_Section
-    case 4: return PlatformContactType.Door_Section
-    case 5: return PlatformContactType.MovingBridgeX_Section
-    case 6: return PlatformContactType.CylinderB_Section
-    case 7: return PlatformContactType.Long_KnifeSection
-    case 8: return PlatformContactType.invisible_Section
-    case 9: return PlatformContactType.ActivitiesGear_Section
-    case 10: return PlatformContactType.Spring_Section
-    case 11: return PlatformContactType.bridgeMovingInY_Section
+    case 4: return PlatformContactType.BridgeMovingInX_Section
+    case 5: return PlatformContactType.BridgeMovingInY_Section
+    case 6: return PlatformContactType.Spring_Section
     default: return PlatformContactType.Long_Section
     }
 }
