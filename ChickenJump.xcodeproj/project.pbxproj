@@ -75,12 +75,7 @@
 		A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C11C7AF094005FF82F /* SKColor+Extensions.swift */; };
 		A07594C81C7AF094005FF82F /* SKEmitterNode+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C21C7AF094005FF82F /* SKEmitterNode+Extras.swift */; };
 		A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C31C7AF094005FF82F /* SKTAudio.swift */; };
-		A07594CA1C7AF094005FF82F /* SpriteKit-Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C41C7AF094005FF82F /* SpriteKit-Spring.swift */; };
 		A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */; };
-		A07594D01C7AF0C5005FF82F /* ColorDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594CF1C7AF0C5005FF82F /* ColorDefinition.swift */; };
-		A07594D21C7AF0CC005FF82F /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D11C7AF0CC005FF82F /* Hue.swift */; };
-		A07594D41C7AF0D3005FF82F /* Luminosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D31C7AF0D3005FF82F /* Luminosity.swift */; };
-		A07594D61C7AF0DB005FF82F /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D51C7AF0DB005FF82F /* RandomColor.swift */; };
 		A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */; };
 		A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594D91C7AF14D005FF82F /* GameKit.framework */; };
 		A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
@@ -92,6 +87,8 @@
 		A07594E91C7AF203005FF82F /* POCRunTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */; };
 		A07594ED1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */; };
 		A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */; };
+		A07800AD1C7C536B006B189D /* General_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07800AC1C7C536B006B189D /* General_Section.sks */; };
+		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,12 +163,7 @@
 		A07594C11C7AF094005FF82F /* SKColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKColor+Extensions.swift"; sourceTree = "<group>"; };
 		A07594C21C7AF094005FF82F /* SKEmitterNode+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKEmitterNode+Extras.swift"; sourceTree = "<group>"; };
 		A07594C31C7AF094005FF82F /* SKTAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
-		A07594C41C7AF094005FF82F /* SpriteKit-Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Spring.swift"; sourceTree = "<group>"; };
 		A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekPagedViewController.swift; sourceTree = "<group>"; };
-		A07594CF1C7AF0C5005FF82F /* ColorDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDefinition.swift; sourceTree = "<group>"; };
-		A07594D11C7AF0CC005FF82F /* Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hue.swift; sourceTree = "<group>"; };
-		A07594D31C7AF0D3005FF82F /* Luminosity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Luminosity.swift; sourceTree = "<group>"; };
-		A07594D51C7AF0DB005FF82F /* RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyGameCenter.swift; sourceTree = "<group>"; };
 		A07594D91C7AF14D005FF82F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -183,6 +175,8 @@
 		A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = POCRunTextureAlats.plist; sourceTree = "<group>"; };
 		A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerAnimationTextureAlats.1.png; sourceTree = "<group>"; };
 		A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PlayerAnimationTextureAlats.plist; sourceTree = "<group>"; };
+		A07800AC1C7C536B006B189D /* General_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = General_Section.sks; sourceTree = "<group>"; };
+		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +233,7 @@
 		A075943B1C7AEE49005FF82F /* SceneFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A07800AC1C7C536B006B189D /* General_Section.sks */,
 				A075943C1C7AEE59005FF82F /* Long_Section.sks */,
 				A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */,
 				A07594441C7AEE80005FF82F /* Door_Section.sks */,
@@ -246,6 +241,7 @@
 				A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */,
 				A07594501C7AEEB7005FF82F /* BridgeMovingInY_Section.sks */,
 				A07594521C7AEEC8005FF82F /* Spring_Section.sks */,
+				A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */,
 			);
 			name = SceneFiles;
 			sourceTree = "<group>";
@@ -360,7 +356,6 @@
 				A07594C11C7AF094005FF82F /* SKColor+Extensions.swift */,
 				A07594C21C7AF094005FF82F /* SKEmitterNode+Extras.swift */,
 				A07594C31C7AF094005FF82F /* SKTAudio.swift */,
-				A07594C41C7AF094005FF82F /* SpriteKit-Spring.swift */,
 			);
 			name = SKTUtils;
 			sourceTree = "<group>";
@@ -370,20 +365,8 @@
 			children = (
 				A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */,
 				A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */,
-				A07594CE1C7AF0B8005FF82F /* RandomColorSwift */,
 			);
 			name = Helper;
-			sourceTree = "<group>";
-		};
-		A07594CE1C7AF0B8005FF82F /* RandomColorSwift */ = {
-			isa = PBXGroup;
-			children = (
-				A07594D51C7AF0DB005FF82F /* RandomColor.swift */,
-				A07594D31C7AF0D3005FF82F /* Luminosity.swift */,
-				A07594D11C7AF0CC005FF82F /* Hue.swift */,
-				A07594CF1C7AF0C5005FF82F /* ColorDefinition.swift */,
-			);
-			name = RandomColorSwift;
 			sourceTree = "<group>";
 		};
 		A07594E11C7AF203005FF82F /* POCRunTextureAlats.atlasc */ = {
@@ -506,6 +489,7 @@
 				A075947C1C7AEF43005FF82F /* inGame_action_jump.mp3 in Resources */,
 				A07594A51C7AEFC9005FF82F /* BGSpriteTextureAlats.plist in Resources */,
 				A07594AF1C7AEFF2005FF82F /* pixe.png in Resources */,
+				A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */,
 				A07594921C7AEF53005FF82F /* eatcycle.wav in Resources */,
 				A07594751C7AEF43005FF82F /* bg_country.mp3 in Resources */,
 				A07594ED1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png in Resources */,
@@ -540,6 +524,7 @@
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948D1C7AEF43005FF82F /* catch_star01.caf in Resources */,
 				A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */,
+				A07800AD1C7C536B006B189D /* General_Section.sks in Resources */,
 				A07594801C7AEF43005FF82F /* inGame_efx_spring.mp3 in Resources */,
 				A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */,
 				A07594811C7AEF43005FF82F /* inGame_event_blockMove.mp3 in Resources */,
@@ -563,7 +548,6 @@
 			files = (
 				A07594341C7AEE21005FF82F /* CharactersUIViewController.swift in Sources */,
 				A07594571C7AEF03005FF82F /* Definition.swift in Sources */,
-				A07594D41C7AF0D3005FF82F /* Luminosity.swift in Sources */,
 				A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */,
 				A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */,
 				A07594DE1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift in Sources */,
@@ -571,7 +555,6 @@
 				A075942E1C7AEE03005FF82F /* GameViewController.swift in Sources */,
 				A07594C81C7AF094005FF82F /* SKEmitterNode+Extras.swift in Sources */,
 				A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */,
-				A07594D21C7AF0CC005FF82F /* Hue.swift in Sources */,
 				A075949E1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift in Sources */,
 				A07594321C7AEE19005FF82F /* Shake.swift in Sources */,
 				A075942C1C7AED47005FF82F /* AppDelegate.swift in Sources */,
@@ -580,12 +563,9 @@
 				A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */,
 				A07594C51C7AF094005FF82F /* MyUtils.swift in Sources */,
 				A07594591C7AEF0A005FF82F /* GameState.swift in Sources */,
-				A07594D61C7AF0DB005FF82F /* RandomColor.swift in Sources */,
-				A07594D01C7AF0C5005FF82F /* ColorDefinition.swift in Sources */,
 				A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */,
 				A07594E01C7AF1F9005FF82F /* POCRunTextureAlats.swift in Sources */,
 				A07594551C7AEEE3005FF82F /* GameSpriteNode.swift in Sources */,
-				A07594CA1C7AF094005FF82F /* SpriteKit-Spring.swift in Sources */,
 				A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -75,7 +75,6 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode{
 //    node.shadowCastBitMask = ShadowCastBitMask.MainShadow
     node.zPosition = 60
     node.colorBlendFactor = 0
-    node.color = randomColor()
     
 //    let physicsSize: CGSize = CGSizeMake(40, 70)
     node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(28, 64))//SKPhysicsBody(rectangleOfSize: texture.size())

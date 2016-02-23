@@ -181,13 +181,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
     //MARK: Did Move To View
     override func didMoveToView(view: SKView) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "restartGame", name: "restartGameNotification", object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.restartGame), name: "restartGameNotification", object:nil)
         
         // 监测天气变化
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sunnyNotificationFunc", name: "SunnyNotification", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rainNotificationFunc", name: "RainNotification", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "snowNotificationFunc", name: "SnowNotification", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sandstormNotificationFunc", name: "SandstormNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.sunnyNotificationFunc), name: "SunnyNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.rainNotificationFunc), name: "RainNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.snowNotificationFunc), name: "SnowNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.sandstormNotificationFunc), name: "SandstormNotification", object: nil)
         
         self.physicsWorld.gravity = CGVectorMake( 0.0, Scene_Gravity)
         self.physicsWorld.contactDelegate = self
@@ -202,10 +202,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: 手势
     func addGesture(){
         
-        let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleTap(_:)))
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
         
         leftSwipe.direction = .Left
         rightSwipe.direction = .Right
@@ -650,7 +650,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.screenNodeA.position =  CGPointMake(0, PlatformHight)
         addChild(screenNodeA)
 
-        self.screenNodeB = platfromArray[0].copy() as! SKNode
+        self.screenNodeB = platfromArray[5].copy() as! SKNode
         self.screenNodeB.position =  CGPointMake(Screen_Width,PlatformHight)
         addChild(screenNodeB)
 
@@ -917,7 +917,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }()
         
         let water = GameSpriteNodeWithWaterBackgroud(waterColor)
-        water.position = CGPointMake(Screen_Width * 0.5, water.height * 0.5)
+        water.position = CGPointMake(Screen_Width * 0.5, water.size.height * 0.5)
         
         addChild(water)
     }
@@ -1773,7 +1773,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let angle = Double(CGFloat.random(min: -25, max: 35))
         flash.zRotation = CGFloat( angle * M_PI / 180)
         flash.zPosition = -100
-        flash.position = CGPointMake(Screen_Width/2, Screen_Height - flash.height)
+        flash.position = CGPointMake(Screen_Width/2, Screen_Height - flash.size.height)
         flashLightNode.addChild(flash)
         
         let halo = SKSpriteNode(imageNamed: "flashhalo")
@@ -1823,7 +1823,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func createBarrier(){
         let randomEnemyX = CGFloat.random(min: 20, max: CGFloat(Screen_Width))
         
-        let bow = SKSpriteNode(color: randomColor(), size: CGSizeMake(30, 30))
+        let bow = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(30, 30))
         bow.name = "enemy"
         bow.position = CGPointMake(randomEnemyX, 0)
         bow.zPosition = 50
@@ -1853,7 +1853,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     // 移动的火球
     func createFireBallActivity() {
         
-        let spcolor = randomColor(Hue.Orange, luminosity: Luminosity.Light)
+        let spcolor = UIColor.whiteColor()
         let texture = SKTexture(imageNamed: "star")
         let fireBall = SKSpriteNode(texture: texture, color: spcolor, size: texture.size())//SKSpriteNode(imageNamed: "pixe")
         fireBall.position = CGPointMake(Screen_Width * 1.2, CGFloat.random(min: 100, max: Screen_Height))
@@ -1893,7 +1893,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func createJumpEmeny() {
         
-        let spcolor = randomColor(Hue.Blue, luminosity: Luminosity.Light)
+        let spcolor = UIColor.whiteColor()
         let texture = SKTexture(imageNamed: "pixe")
         let fireBall = SKSpriteNode(texture: texture, color: spcolor, size: texture.size())//SKSpriteNode(imageNamed: "pixe")
         fireBall.position = CGPointMake(Screen_Width * 1.2, CGFloat.random(min: 0, max: Screen_Height))
@@ -2018,10 +2018,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         levelCountLabel.text = "Land \(hillLevelScore)"
         addChild(levelCountLabel)
         
-        let scaleIn = SKAction.scaleTo(3, duration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.2)
-        let scaleOut = SKAction.scaleTo(1, duration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.2)
+        let scaleIn = SKAction.scaleTo(3, duration: 1.5)
+        let scaleOut = SKAction.scaleTo(1, duration: 0.5)
         let location = CGPointMake(20, Screen_Height)
-        let move = SKAction.moveTo(location, duration: 0.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.2)
+        let move = SKAction.moveTo(location, duration: 0.5)
         let done = SKAction.removeFromParent()
         
         levelCountLabel.runAction(SKAction.sequence([scaleIn, scaleOut, move, done])) { () -> Void in
@@ -2037,7 +2037,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("playerMagic")
         self.magicNode = SKEmitterNode(fileNamed: "playerMagic.sks") //EngineFire
         self.magicNode.particleTexture!.filteringMode = .Nearest
-        self.magicNode.position = CGPointMake(-playerNode.width * 0.5, -playerNode.height * 0.5)
+        self.magicNode.position = CGPointMake(-playerNode.size.width * 0.5, -playerNode.size.height * 0.5)
         self.magicNode.zPosition = 0
         self.magicNode.targetNode = self
         
@@ -2051,7 +2051,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: 长按手势
     func customLongPressGesture() {
         // 长按手势操作
-        longPressGestureLeve1 = UILongPressGestureRecognizer(target: self, action: "longPressGestureLeve1Action:")
+        longPressGestureLeve1 = UILongPressGestureRecognizer(target: self, action: #selector(GameScene.longPressGestureLeve1Action(_:)))
         longPressGestureLeve1.minimumPressDuration = 0.2
         //longPressGesture.allowableMovement = CGFloat(10)
         

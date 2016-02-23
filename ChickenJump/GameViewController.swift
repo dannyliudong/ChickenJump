@@ -89,23 +89,24 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.settingsButton.layer.cornerRadius  = Button_CornerRadius
         self.pauseButton.layer.cornerRadius  = Button_CornerRadius
         
-        self.leaderboardsButton.layer.cornerRadius  = Button_CornerRadius
-        self.shareGameButton.layer.cornerRadius  = Button_CornerRadius
-        self.tryAgainButton.layer.cornerRadius  = Button_CornerRadius
+        self.leaderboardsButton.layer.cornerRadius = Button_CornerRadius
+        self.shareGameButton.layer.cornerRadius = Button_CornerRadius
+        self.tryAgainButton.layer.cornerRadius = Button_CornerRadius
         
         self.hiddenGameOverButtons()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showHomeButton", name: "showHomeButtonNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: "pauseGameNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showHomeButton), name: "showHomeButtonNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startGameNotificationAction", name: "startGameAnimationNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.pauseGame), name: "pauseGameNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameOverNotificationAction", name: "gameOverNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.startGameNotificationAction), name: "startGameAnimationNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recoveryGameNotificationAction", name: "recoveryGameNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.gameOverNotificationAction), name: "gameOverNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadingisDoneAction", name: "loadingisDoneNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.recoveryGameNotificationAction), name: "recoveryGameNotification", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.loadingisDoneAction), name: "loadingisDoneNotification", object: nil)
         
         let skView = self.view as! SKView
         
@@ -118,7 +119,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
                 
-        GameState.sharedInstance.gameScene = GameScene(size: Screen_Size)//GameScene(fileNamed:"GameScene")
+        GameState.sharedInstance.gameScene = GameScene(fileNamed:"GameScene")
         
         if let scene = GameState.sharedInstance.gameScene {
             
@@ -367,7 +368,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     //MARK: 恢复游戏场景
     func recoveryGameNotificationAction() {
         
-       self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimerMessage", userInfo: nil, repeats: true)
+       self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameViewController.showTimerMessage), userInfo: nil, repeats: true)
         
 //        let delayInSeconds:Double = 1
 //        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
@@ -611,7 +612,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         closeButton = UIButton(frame: CGRect(x: 25, y:  25, width: 25, height: 25))
         //add a cross shaped graphics into your project to use as close button
         closeButton.setBackgroundImage(UIImage(named: "homeButton_back"), forState: UIControlState.Normal)
-        closeButton.addTarget(self, action: Selector("close"), forControlEvents: UIControlEvents.TouchDown)
+        closeButton.addTarget(self, action: #selector(GameViewController.close), forControlEvents: UIControlEvents.TouchDown)
         
         self.view.addSubview(closeButton)
         
