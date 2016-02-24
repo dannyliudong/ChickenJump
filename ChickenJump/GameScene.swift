@@ -74,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
 //    private var playergroundNode:SKNode!
     
-    private var playerNode: SKSpriteNode!
+    private var playerNode: Player!
     private var magicNode: SKEmitterNode!
     
     var walkAction:SKAction!
@@ -680,6 +680,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     
+    //MARK: 随机创建平台
+    func createPlatfromByRandom() -> SKNode {
+        switch arc4random() % 7 {
+        case 0:
+            let longSectionNode = LongSectionNode(wallTexture: SKTexture(imageNamed:""), walltopTexture: SKTexture(imageNamed:""), floorTexture: SKTexture(imageNamed:""), color: getWallColorWith(SceneLandType.Amazon))
+            
+            return longSectionNode
+        default:
+            return SKNode()
+        }
+    }
+    
     //MARK: 从SKS文件创建场景
     func createPlatfromNodeWithSKS(node:SKNode) ->SKNode {
         
@@ -1145,7 +1157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     //MARK: 设置纹理 : 根据指定的类型 设置纹理
-    func setPlatformTextureWithFloor(type: SceneLandType) ->SKTexture{
+    func setPlatformTextureWithFloor(type: SceneLandType) ->SKTexture {
         switch type {
         case .Amazon:
             
@@ -1937,27 +1949,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     var powerBox:SKSpriteNode!
     let lifeLineLength:CGFloat = 300
     
-    func createPlayer(){
-//        let offset = max(Screen_Width, Screen_Height)
-        
-        self.playerNode = GameSpriteNodeWithPlayerNode(choseChaterName(playertype)) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(playerOffset, 400 ) //playerHight + playerNode.height * 0.5
-        //        playerNode.zRotation = CGFloat.toAngle(-10)
+    func createPlayer(){        
+        self.playerNode = Player(texture: SKTexture(imageNamed:"pixelMan"), color: SKColor.whiteColor())
+        self.playerNode.position = CGPointMake(playerOffset, 400 )
         self.playerNode.zPosition = 220
         
-        
-        addChild(playerNode)
-        
-        //        let line = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(5, Screen_Height))
-        //        line.alpha = 0.1
-        //        line.position = playerNode.position
-        //        addChild(line)
-
+        self.addChild(playerNode)
         
     }
     
 //    var playershadow:SKSpriteNode!
-    
     
     func choseChaterName(type:PlayerType) ->SKTexture{
         switch type {
@@ -2185,6 +2186,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         contactFloorEvent(node)
                         playerMagic(node)
+                        
+                        self.playerNode.doStayAnimation()
                         
                     case CollisionCategoryBitmask.Gold :
                         print("Contact Gold")
@@ -2719,6 +2722,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: update
     override func update(currentTime: CFTimeInterval) {
+        
         //天气
         updateWater()
         
@@ -2754,11 +2758,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                updataEmeny()
             }
             
-//            print("screenNodeA X: \(self.screenNodeA.position.x)")
-//            print("screenNodeB X: \(self.screenNodeB.position.x)")
-//            
-//            print("player X: \(playerNode.position.x)")
-            
+        } else {
+//            print("GameState.sharedInstance.gameOver is ture")
+            return
         }
         
     }

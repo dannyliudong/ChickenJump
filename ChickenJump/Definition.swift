@@ -20,11 +20,10 @@ let Button_CornerRadius:CGFloat = 5 // 按钮圆角值
 
 //MARK: 碰撞位
 /**
-
-- parameter input: An Int number
-
-- returns: The string represents the input number
-*/
+ - parameter input: An Int number
+ 
+ - returns: The string represents the input number
+ */
 struct CollisionCategoryBitmask {
     
     static let None:       UInt32 = 0
@@ -94,21 +93,7 @@ enum GameBGSongAudioName: String {
 }
 
 
-/**
- 踩踏台 拼接方式
-- 类型 LongSection: 长段
-- 类型 ShortSection: 短段
-- 类型 Gradient: 台阶样式
-*/
-enum PlatformContactType:UInt32 {
-    case Long_Section = 0       // 一长段
-    case Long_KnifeSection
-    case Down_Section           // 踩踏 掉落
-    case Door_Section           // 开关门
-    case Spring_Section         // 弹簧
-    case BridgeMovingInX_Section
-    case BridgeMovingInY_Section  // 上下移动
-}
+
 
 /**
  角色 类型
@@ -130,50 +115,6 @@ enum BGDetphType:UInt32 {
 
 //MARK: game configuration
 
-//MARK: 场景颜色
-let SkyColor_Amazon:UIColor = SKColorWithRGB(23, g: 109, b: 158) // 普通山
-let SkyColor_Amazon_A:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-let SkyColor_Amazon_B:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-let SkyColor_Amazon_C:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-
-let SkyColor_Grove:UIColor = SKColorWithRGB(171, g: 169, b: 14) // 树林
-let SkyColor_Grove_A:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-let SkyColor_Grove_B:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-let SkyColor_Grove_C:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-
-let SkyColor_Volcanic:UIColor = SKColorWithRGB(163, g: 66, b: 8) // 火山
-let SkyColor_Volcanic_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_Volcanic_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_Volcanic_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-
-let SkyColor_LahontanValley:UIColor = SKColorWithRGB(176, g: 99, b: 0) // 大峡谷
-let SkyColor_LahontanValley_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_LahontanValley_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_LahontanValley_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-
-let SkyColor_SnowMountain:UIColor = SKColorWithRGB(3, g: 96, b: 127) // 积雪覆盖
-let SkyColor_SnowMountain_A:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-let SkyColor_SnowMountain_B:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-
-let SkyColor_MayaPyramid:UIColor = SKColorWithRGB(56, g: 190, b: 244) // 玛雅金字塔
-let SkyColor_MayaPyramid_A:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-let SkyColor_MayaPyramid_B:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-
-let SkyColor_Nightsky:UIColor = SKColorWithRGB(14, g: 0, b: 70)  // 夜晚
-let SkyColor_Nightsky_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_Nightsky_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-
-let SkyColor_Iceberg:UIColor = SKColorWithRGB(5, g: 70, b: 109) // 冰山
-let SkyColor_Iceberg_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_Iceberg_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-
-let SkyColor_BuildingShenshe:UIColor = SKColorWithRGB(153, g: 106, b: 6) // 神社建筑
-let SkyColor_BuildingShenshe_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_BuildingShenshe_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-
-let SkyColor_Cemetery:UIColor = SKColorWithRGB(76, g: 79, b: 95) // 墓地
-let SkyColor_Cemetery_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_Cemetery_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
 
 //MARK: 自定义天空颜色
 

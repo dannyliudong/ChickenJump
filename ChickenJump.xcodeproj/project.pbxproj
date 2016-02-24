@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
+		A012BD9A1C7D95E000E5061D /* GameTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD991C7D95E000E5061D /* GameTexture.swift */; };
+		A018A27F1C7D401C004FF1B2 /* GameSceneObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */; };
+		A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */; };
+		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
+		A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */; };
+		A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
 		A07594271C7AECFC005FF82F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594261C7AECFC005FF82F /* Main.storyboard */; };
 		A07594291C7AED06005FF82F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594281C7AED06005FF82F /* LaunchScreen.storyboard */; };
@@ -92,6 +99,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
+		A012BD991C7D95E000E5061D /* GameTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTexture.swift; sourceTree = "<group>"; };
+		A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneObjectNode.swift; sourceTree = "<group>"; };
+		A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSpriteObjectNode.swift; sourceTree = "<group>"; };
+		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongSectionNode.swift; sourceTree = "<group>"; };
+		A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnifeSectionNode.swift; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A075941B1C7AECBB005FF82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A07594201C7AECBB005FF82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +206,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A05C4AD41C7DB41300F03332 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */,
+				A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
@@ -394,9 +417,15 @@
 		A08386C71C7AF485008A7502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A05C4AD41C7DB41300F03332 /* Entities */,
 				A07594581C7AEF0A005FF82F /* GameState.swift */,
 				A07594561C7AEF03005FF82F /* Definition.swift */,
+				A012BD971C7D8D7000E5061D /* GameColor.swift */,
+				A018A2821C7D4263004FF1B2 /* Player.swift */,
+				A012BD991C7D95E000E5061D /* GameTexture.swift */,
 				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
+				A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */,
+				A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -552,20 +581,27 @@
 				A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */,
 				A07594DE1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift in Sources */,
 				A07594301C7AEE0C005FF82F /* GameScene.swift in Sources */,
+				A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */,
 				A075942E1C7AEE03005FF82F /* GameViewController.swift in Sources */,
 				A07594C81C7AF094005FF82F /* SKEmitterNode+Extras.swift in Sources */,
 				A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */,
+				A018A2831C7D4263004FF1B2 /* Player.swift in Sources */,
+				A012BD9A1C7D95E000E5061D /* GameTexture.swift in Sources */,
 				A075949E1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift in Sources */,
 				A07594321C7AEE19005FF82F /* Shake.swift in Sources */,
+				A018A27F1C7D401C004FF1B2 /* GameSceneObjectNode.swift in Sources */,
 				A075942C1C7AED47005FF82F /* AppDelegate.swift in Sources */,
 				A07594A01C7AEFC0005FF82F /* PlatfromTextureAlats.swift in Sources */,
+				A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */,
 				A07594C61C7AF094005FF82F /* SKAction+Extensions.swift in Sources */,
 				A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */,
 				A07594C51C7AF094005FF82F /* MyUtils.swift in Sources */,
+				A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */,
 				A07594591C7AEF0A005FF82F /* GameState.swift in Sources */,
 				A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */,
 				A07594E01C7AF1F9005FF82F /* POCRunTextureAlats.swift in Sources */,
 				A07594551C7AEEE3005FF82F /* GameSpriteNode.swift in Sources */,
+				A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */,
 				A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
