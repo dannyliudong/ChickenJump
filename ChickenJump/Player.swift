@@ -15,7 +15,6 @@ class Player: SKNode {
     
     init(texture:SKTexture, color:SKColor) {
         
-        
         self.size = texture.size()
 
         let node = SKSpriteNode(texture: texture, color: color, size: texture.size())

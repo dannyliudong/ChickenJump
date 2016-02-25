@@ -307,14 +307,13 @@ func randomPlatformContactType(type:PlatformContactType) ->PlatformContactType {
 }
 
 func randomPlatformContactType() ->PlatformContactType {
-    switch arc4random() % 7 {
+    switch arc4random() % 6 {
     case 0: return PlatformContactType.Long_Section
-    case 1: return PlatformContactType.Long_KnifeSection
+    case 1: return PlatformContactType.Spring_Section
     case 2: return PlatformContactType.Door_Section
     case 3: return PlatformContactType.Down_Section
     case 4: return PlatformContactType.BridgeMovingInX_Section
     case 5: return PlatformContactType.BridgeMovingInY_Section
-    case 6: return PlatformContactType.Spring_Section
     default: return PlatformContactType.Long_Section
     }
 }
@@ -327,8 +326,6 @@ func randomPlatformHight() ->CGFloat {
     default :return CGFloat(0)
     }
 }
-
-
 
 // 求角色移动所需的时间
 func playMovingTime(p1:CGPoint, p2:CGPoint, speed:CGFloat) ->CGFloat{

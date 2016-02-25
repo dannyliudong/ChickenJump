@@ -119,7 +119,7 @@ let WallColor_Volcanic_A:UIColor = SKColorWithRGB(163, g: 66, b: 8) // 火山
 let WallColor_Volcanic_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
 let WallColor_Volcanic_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
 
-let WallColor_LahontanValley_A:UIColor = SKColorWithRGB(176, g: 99, b: 0) // 大峡谷
+let WallColor_LahontanValley_A:UIColor = SKColorWithRGB(120, g: 53, b: 255) // 大峡谷
 let WallColor_LahontanValley_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
 let WallColor_LahontanValley_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
 

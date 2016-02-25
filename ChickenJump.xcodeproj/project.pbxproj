@@ -25,7 +25,6 @@
 		A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594351C7AEE28005FF82F /* SettingsViewController.swift */; };
 		A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594371C7AEE2F005FF82F /* GamePauseUIViewController.swift */; };
 		A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075943C1C7AEE59005FF82F /* Long_Section.sks */; };
-		A075943F1C7AEE61005FF82F /* Long_KnifeSection.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */; };
 		A07594451C7AEE80005FF82F /* Door_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594441C7AEE80005FF82F /* Door_Section.sks */; };
 		A07594471C7AEE88005FF82F /* Down_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07594461C7AEE88005FF82F /* Down_Section.sks */; };
 		A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */; };
@@ -94,7 +93,6 @@
 		A07594E91C7AF203005FF82F /* POCRunTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */; };
 		A07594ED1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */; };
 		A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */; };
-		A07800AD1C7C536B006B189D /* General_Section.sks in Resources */ = {isa = PBXBuildFile; fileRef = A07800AC1C7C536B006B189D /* General_Section.sks */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +118,6 @@
 		A07594351C7AEE28005FF82F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A07594371C7AEE2F005FF82F /* GamePauseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePauseUIViewController.swift; sourceTree = "<group>"; };
 		A075943C1C7AEE59005FF82F /* Long_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Long_Section.sks; sourceTree = "<group>"; };
-		A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Long_KnifeSection.sks; sourceTree = "<group>"; };
 		A07594441C7AEE80005FF82F /* Door_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Door_Section.sks; sourceTree = "<group>"; };
 		A07594461C7AEE88005FF82F /* Down_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Down_Section.sks; sourceTree = "<group>"; };
 		A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BridgeMovingInX_Section.sks; sourceTree = "<group>"; };
@@ -189,7 +186,6 @@
 		A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = POCRunTextureAlats.plist; sourceTree = "<group>"; };
 		A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerAnimationTextureAlats.1.png; sourceTree = "<group>"; };
 		A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PlayerAnimationTextureAlats.plist; sourceTree = "<group>"; };
-		A07800AC1C7C536B006B189D /* General_Section.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = General_Section.sks; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,9 +252,7 @@
 		A075943B1C7AEE49005FF82F /* SceneFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A07800AC1C7C536B006B189D /* General_Section.sks */,
 				A075943C1C7AEE59005FF82F /* Long_Section.sks */,
-				A075943E1C7AEE61005FF82F /* Long_KnifeSection.sks */,
 				A07594441C7AEE80005FF82F /* Door_Section.sks */,
 				A07594461C7AEE88005FF82F /* Down_Section.sks */,
 				A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */,
@@ -511,7 +505,6 @@
 				A07594761C7AEF43005FF82F /* bgm_mini.mp3 in Resources */,
 				A07594871C7AEF43005FF82F /* Rain.mp3 in Resources */,
 				A07594771C7AEF43005FF82F /* buttonTouchSound.mp3 in Resources */,
-				A075943F1C7AEE61005FF82F /* Long_KnifeSection.sks in Resources */,
 				A07594291C7AED06005FF82F /* LaunchScreen.storyboard in Resources */,
 				A07594881C7AEF43005FF82F /* RainSound.mp3 in Resources */,
 				A07594841C7AEF43005FF82F /* inGame_function_star.mp3 in Resources */,
@@ -553,7 +546,6 @@
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948D1C7AEF43005FF82F /* catch_star01.caf in Resources */,
 				A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */,
-				A07800AD1C7C536B006B189D /* General_Section.sks in Resources */,
 				A07594801C7AEF43005FF82F /* inGame_efx_spring.mp3 in Resources */,
 				A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */,
 				A07594811C7AEF43005FF82F /* inGame_event_blockMove.mp3 in Resources */,

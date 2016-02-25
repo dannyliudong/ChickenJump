@@ -68,7 +68,7 @@ func GameSpriteNodeWithGold(texture:SKTexture) ->SKSpriteNode {
 }
 
 //MARK: 角色
-func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode{
+func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     
     let node = SKSpriteNode(imageNamed: "pixelMan")//SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(64, 64))
 //    node.setScale(0.9)

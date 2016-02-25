@@ -16,7 +16,6 @@ import SpriteKit
  */
 enum PlatformContactType:UInt32 {
     case Long_Section = 0       // 一长段
-    case Long_KnifeSection
     case Down_Section           // 踩踏 掉落
     case Door_Section           // 开关门
     case Spring_Section         // 弹簧
