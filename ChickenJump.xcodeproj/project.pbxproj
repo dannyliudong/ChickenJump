@@ -12,6 +12,7 @@
 		A018A27F1C7D401C004FF1B2 /* GameSceneObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */; };
 		A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
+		A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02223491C7FFD98004B9D75 /* PlatfromNode.swift */; };
 		A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */; };
 		A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneObjectNode.swift; sourceTree = "<group>"; };
 		A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSpriteObjectNode.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A02223491C7FFD98004B9D75 /* PlatfromNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatfromNode.swift; sourceTree = "<group>"; };
 		A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongSectionNode.swift; sourceTree = "<group>"; };
 		A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnifeSectionNode.swift; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,6 +420,7 @@
 				A018A2821C7D4263004FF1B2 /* Player.swift */,
 				A012BD991C7D95E000E5061D /* GameTexture.swift */,
 				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
+				A02223491C7FFD98004B9D75 /* PlatfromNode.swift */,
 				A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */,
 				A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */,
 			);
@@ -567,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */,
 				A07594341C7AEE21005FF82F /* CharactersUIViewController.swift in Sources */,
 				A07594571C7AEF03005FF82F /* Definition.swift in Sources */,
 				A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */,

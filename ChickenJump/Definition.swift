@@ -93,8 +93,6 @@ enum GameBGSongAudioName: String {
 }
 
 
-
-
 /**
  角色 类型
  */
@@ -115,6 +113,14 @@ enum BGDetphType:UInt32 {
 
 //MARK: game configuration
 
+//MARK: node 宽度
+
+let Long_SectionWidth:CGFloat = 64.0
+let Door_SectionWidth:CGFloat = 64.0 * 4
+let Down_SectionWidth:CGFloat = 64.0 * 3
+let BridgeMovingInX_SectionWidth:CGFloat = 64.0 * 5
+let BridgeMovingInY_SectionWidth:CGFloat = 64.0 * 3
+let Spring_SectionWidth:CGFloat = 64.0 * 5
 
 //MARK: 自定义天空颜色
 
@@ -134,7 +140,7 @@ let PlatformHight:CGFloat = 0//Screen_Height * 0.1
 
 //MARK: Custom UIView
 let Blur_ViewAlpha:CGFloat = 0.0
-let View_MaskAlpha:CGFloat = 0.75
+let View_MaskAlpha:CGFloat = 0.5
 
 let Font_Name:String = "HelveticaNeue"
 
@@ -253,57 +259,6 @@ func randomGoldTexture() ->SKTexture {
     case 4: return SKTexture(imageNamed: "goldE")
     default :return SKTexture(imageNamed: "goldA")
     }
-}
-
-func randomZhuZhiTexture() ->SKTexture {
-    switch arc4random() % 2 {
-    case 0: return SKTexture(imageNamed: "buildingPillarC")
-    case 1: return SKTexture(imageNamed: "buildingPillarC")
-    default :return SKTexture(imageNamed: "buildingPillarC")
-    }
-}
-
-func randomTreeTexture() ->SKTexture {
-    switch arc4random() % 3 {
-    case 0: return SKTexture(imageNamed: "treea")
-    case 1: return SKTexture(imageNamed: "treeb")
-    case 2: return SKTexture(imageNamed: "treec")
-    default :return SKTexture(imageNamed: "treea")
-    }
-}
-
-
-func randomPlatformContactType(type:PlatformContactType) ->PlatformContactType {
-    
-    let typeValue = UInt32(CGFloat.random(min: 0, max: 7))
-    print("a typeValue \(typeValue)")
-    print("type.rawValue  \(type.rawValue)")
-    
-    if typeValue != type.rawValue {
-        print("类型 不同")
-        switch typeValue {
-        case 0: return PlatformContactType.Long_Section
-        case 1: return PlatformContactType.Long_KnifeSection
-        case 2: return PlatformContactType.Door_Section
-        case 3: return PlatformContactType.Down_Section
-        case 4: return PlatformContactType.Spring_Section
-        case 5: return PlatformContactType.BridgeMovingInX_Section
-        case 6: return PlatformContactType.BridgeMovingInY_Section
-        default: return PlatformContactType.Long_Section
-        }
-    } else {
-        print("类型 相同")
-        return randomPlatformContactType(type)
-    }
-    
-    
-//    switch arc4random() % 3 {
-//    case 0: return PlatformContactType.Long_Section
-//    case 1: return PlatformContactType.Short_Section
-//    case 2: return PlatformContactType.Gradient_Section
-//    case 3: return PlatformContactType.Down_Section
-//    default :return PlatformContactType.Long_Section
-//    }
 }
 
 func randomPlatformContactType() ->PlatformContactType {

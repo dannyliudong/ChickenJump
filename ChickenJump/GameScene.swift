@@ -89,49 +89,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     let long_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Long_Section.sks")!
         let node = scene.childNodeWithName("longSection")!
-        
+
         return node
     }()
-    
-//    let long_KnifeSectionNode:SKNode = {
-//        let scene = SKScene(fileNamed: "Long_KnifeSection.sks")!
-//        let node = scene.childNodeWithName("long_KnifeSection")!
-//        
-//        return node
-//    }()
     
     let door_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Door_Section.sks")!
         let node = scene.childNodeWithName("doorSection")!
-        
+//        node.nodeSize = CGSizeMake(256, 256)
         return node
     }()
     
     let down_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Down_Section.sks")!
         let node = scene.childNodeWithName("downSection")!
-        
+//        node.nodeSize = CGSizeMake(192, 256)
         return node
     }()
     
     let bridgeMovingInX_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "BridgeMovingInX_Section.sks")!
         let node = scene.childNodeWithName("movingBrdgeX")!
-        
+//        node.nodeSize = CGSizeMake(256, 256)
         return node
     }()
     
     let bridgeMovingInY_Section:SKNode = {
         let scene = SKScene(fileNamed: "BridgeMovingInY_Section.sks")!
         let node = scene.childNodeWithName("bridgeMovingInYNode")!
-        
+//        node.nodeSize = CGSizeMake(192, 256)
         return node
     }()
     
     let spring_Section:SKNode = {
         let scene = SKScene(fileNamed: "Spring_Section.sks")!
-        let node = scene.childNodeWithName("springNode")!
-        
+        let node = scene.childNodeWithName("springNode")! //as! PlatfromNode
+//        node.nodeSize = CGSizeMake(320, 256)
         return node
     }()
     
@@ -202,11 +195,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.addGesture()
         self.setupGame()
         
-        let SKNodeA = self.childNodeWithName("SKNodeA")
-        print("SKNodeA .position\(SKNodeA?.position)")
         
-        let SKNodeAChildrenPosition = convertPoint(self.position, fromNode: (SKNodeA?.children.first)!) // 父 － 自
-        print("SKNodeA children .position\(SKNodeAChildrenPosition)")
+
     }
     
     //MARK: 手势
@@ -280,13 +270,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK:-----------------------------  SetupGame
     func setupGame() {
         
+//        let testScene = SKScene(fileNamed: "Long_Section.sks")
+//        let testNode = testScene?.childNodeWithName("longSection")
+//        
+//        print("testNode Postion \(testNode?.position)")
+        
+        platfromInterval = 0
         self.gameScore = 0
         
         self.platfromArray.removeAll()
         self.platfromsWidthUpdateArray.removeAll()
         
         self.playergroundNode = SKNode()
-        self.playergroundNode.position = CGPointMake(-64, 0)
+        self.playergroundNode.position = CGPointMake(0, 0)
         self.addChild(playergroundNode)
         
         self.setupColorsAndSceneLandAndWeather() // 设置颜色 天气
@@ -660,20 +656,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("selfplatfromArray \(self.platfromArray.count) ")
     }
     
+    
+    
     func randomPlatfromNode() ->(SKNode, CGFloat) {
         switch arc4random() % 6 {
         case 0:
-            return (self.long_SectionNode, 64.0)
+            return (self.long_SectionNode, Long_SectionWidth)
         case 1:
-            return (self.door_SectionNode, 64.0 * 4)
+            return (self.door_SectionNode, Door_SectionWidth)
         case 2:
-            return (self.down_SectionNode, 64.0 * 3)
+            return (self.down_SectionNode, Down_SectionWidth)
         case 3:
-            return (self.bridgeMovingInX_SectionNode, 64.0 * 4)
+            return (self.bridgeMovingInX_SectionNode, BridgeMovingInX_SectionWidth)
         case 4:
-            return (self.bridgeMovingInY_Section, 64.0 * 3)
+            return (self.bridgeMovingInY_Section, BridgeMovingInY_SectionWidth)
         case 5:
-            return (self.spring_Section, 64.0 * 5)
+            return (self.spring_Section, Spring_SectionWidth)
         default:
             print("randomPlatfromNode error")
             return (SKNode(), 0)
@@ -700,25 +698,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func setupStartPlatfroms() {
         
-        var lastNodeX:CGFloat = 0
+        var lastNodeX:CGFloat = -64
         
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
 
         for i in 0...14 {
             print("i \(i)")
-            let node = longSectionNode.copy() as! SKNode
-            node.position.x = lastNodeX + 64
-
-            lastNodeX = node.position.x
+            let node = longSectionNode.copy() as! SKNode // 复制一排
+            
             self.playergroundNode.addChild(node)
             
             self.platfromsWidthUpdateArray.append((node, 64))
             
-            print("platfromsUpdateArray \(platfromsWidthUpdateArray.count)")
+            node.position.x = lastNodeX + 64
             
-            let firstNode = self.platfromsWidthUpdateArray.first?.0
-            let convertNode = convertPoint(self.position, fromNode: firstNode!)
-            print("firstNode \(convertNode.x)")
+            lastNodeX = node.position.x
+            
+//            if let firstNode = self.platfromsWidthUpdateArray.first {
+//                let convertNode = convertPoint(self.position, fromNode: firstNode.0)
+//                print("firstNode \(convertNode.x)")
+//            }
+
         }
         
 //        self.screenNodeA = platfromArray[0].copy() as! SKNode
@@ -736,40 +736,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("实时刷新关卡地图")
         
         // 移除最前面一个
-        self.platfromsWidthUpdateArray.removeAtIndex(0)
+        self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
+        self.platfromsWidthUpdateArray.first?.0.removeFromParent() // 从场景中移除
         
+        // 增加一个新的放到最后面
         let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
         let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
         
-        let lastNodeX = self.platfromsWidthUpdateArray.last?.0.position.x
-        node.position.x = lastNodeX! + nodeAndWidth.1
-//        lastNodeX = node.position.x
-        self.platfromsWidthUpdateArray.append((nodeAndWidth.0, nodeAndWidth.1))
+        // 获取最后一个位置
+        
+        if let lastNode = self.platfromsWidthUpdateArray.last?.0 {
+            let convertNode = convertPoint(self.position, fromNode: lastNode)
+            node.position.x = convertNode.x + nodeAndWidth.1 * 0.5
+
+        }
+        self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
         
         self.playergroundNode.addChild(node)
         
         print("platfromsUpdateArray \(platfromsWidthUpdateArray.count)")
     }
-    
-    
-    func createStartPlatfroms() {
-        print("创建起始关卡地图")
-        
-        var lastNodeX:CGFloat = 0
-        
-        for i in 0...14 {
-            print("i \(i)")
-            let node = LongSectionNode(wallTexture: SKTexture(imageNamed:"wall"),
-                                       walltopTexture: SKTexture(imageNamed:"floor"),
-                                       floorTexture: SKTexture(imageNamed:"floorPhy"),
-                                       color: UIColor.blackColor()) //WallColor_LahontanValley_A
-            
-            node.position.x = lastNodeX + 64
-            lastNodeX = node.position.x
-            self.playergroundNode.addChild(node)
-        }
-    }
-
     
     //MARK: 天气场景
     func observerWeather() {
@@ -793,26 +779,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
     }
-    
-    
-    //MARK: 随机创建平台
-    func createPlatfromByRandom() -> SKNode {
-        switch arc4random() % 7 {
-        case 0:
-            let longSectionNode = LongSectionNode(wallTexture: SKTexture(imageNamed:""), walltopTexture: SKTexture(imageNamed:""), floorTexture: SKTexture(imageNamed:""), color: getWallColorWith(SceneLandType.Amazon))
-            
-            return longSectionNode
-        default:
-            return SKNode()
-        }
-    }
-    
-    
-    
+
     //MARK: 从SKS文件创建场景
     func createPlatfromNodeWithSKS(node:SKNode) ->SKNode {
         
         let platfromNode = node.copy() as! SKNode
+        
         
         if let nodes = platfromNode.childNodeWithName("floorNodes") {
 
@@ -846,7 +818,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(64 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
+                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
                 
                 _node.runAction(sequence)
             }
@@ -915,6 +887,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithDownFloor(self.land)
                 
+                _node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(32, _node.size.height))
+                _node.physicsBody?.dynamic = false
+                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
+                _node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+
                 _node.physicsBody?.friction = 0
                 _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
@@ -966,6 +943,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 node.physicsBody?.charge = 0
             }
         }
+        
         return platfromNode
     }
 
@@ -1743,7 +1721,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func snowNotificationFunc() {
         // 雪
-//        sceneWithSnow()
+        self.sceneWithSnow()
 //        sceneWithSunMoon()
     }
     
@@ -2379,12 +2357,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                            if !node.children.isEmpty {
-                                for i in node.children {
-                                    i.physicsBody?.dynamic = true
-                                }
-                            }
+//                            if !node.children.isEmpty {
+//                                for i in node.children {
+//                                    i.physicsBody?.dynamic = true
+//                                }
+//                            }
                             node.physicsBody?.dynamic = true
+
                         }
                         
                     case CollisionCategoryBitmask.Invisible:
@@ -2819,7 +2798,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     // 记录playergroundNode
     
-//    var platfromInterval:CGFloat!
+    var platfromInterval:CGFloat = 0
     
     //MARK: update
     override func update(currentTime: CFTimeInterval) {
@@ -2837,38 +2816,67 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             if !self.platfromsWidthUpdateArray.isEmpty {
                 
-//                platfromInterval = self.platfromsWidthUpdateArray.first?.1
-                
-                let firstNode = self.platfromsWidthUpdateArray.first?.0
-//                let convertNode = convertPoint((firstNode?.position)!, toNode: self)
-                let convertNode = convertPoint(self.position, fromNode: firstNode!)
-
-                print("最后一个node \(convertPoint(self.position, fromNode: (self.platfromsWidthUpdateArray.last?.0)!))")
-                print("convertNode \(convertNode.x)")
-
-                if convertNode.x < -(self.platfromsWidthUpdateArray.first?.1)! {
+                if platfromInterval <= 0 {
+                    //更新Platfroms
+                    print("更新Platfroms")
                     
-                    print("删除")
-                    //  如果第一个node的位置小于自身宽度， 移除自己
-                    self.updatePlatfroms()
-
-//                    self.platfromsWidthUpdateArray.removeAtIndex(0)
-                    print("platfromsWidthUpdateArray cout \(platfromsWidthUpdateArray.count)")
+                    // 增加一个新的放到最后面
+                    let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
+                    let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
                     
+                    let lastNode = self.platfromsWidthUpdateArray.last
+                    
+                    self.playergroundNode.addChild(node)
+                    node.position.x = lastNode!.0.position.x+(lastNode?.1)!
+                    
+                    self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
+                    
+//                    self.updatePlatfroms()
+                    
+                    // 移除最前面一个
+                    self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
+                    self.platfromsWidthUpdateArray.first?.0.removeFromParent() // 从场景中移除
+                    
+                    self.platfromInterval = (self.platfromsWidthUpdateArray.last?.1)!
+
+                } else {
+//                    print("platfromInterval \(platfromInterval)")
+                    
+                    self.platfromInterval -= ScrollBG_Move_Speed
                 }
-                
             }
             
-            playergroundNode.position.x -= ScrollBG_Move_Speed
-        
             
-            
-//            if playergroundNode.position.x {
+//            if let lastNode = platfromsWidthUpdateArray.last?.0 {
 //                
+//                let lastNodeConvertPoint = convertPoint(self.position, fromNode: lastNode)
+//                print("lastNodeConvertPoint \(lastNodeConvertPoint)")
+//                if lastNodeConvertPoint.x == Screen_Width {
+//                    
+//                    //                        self.updatePlatfroms()
+//                    
+//                    // 移除最前面一个
+//                    self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
+//                    self.platfromsWidthUpdateArray.last?.0.removeFromParent() //  从场景中移除
+//                    
+//                    // 增加一个新的放到最后面
+//                    let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
+//                    let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
+//                    
+//                    let lastNodeX = self.platfromsWidthUpdateArray.last!.0.position.x
+//                    node.position.x = lastNodeX + nodeAndWidth.1 * 0.5
+//                    //        lastNodeX = node.position.x
+//                    self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
+//                    
+//                    self.playergroundNode.addChild(node)
+//                    
+//                    print("platfromsUpdateArray \(platfromsWidthUpdateArray.count)")
+//                    
+//                }
 //            }
+
             
-            
-            
+            playergroundNode.position.x -= ScrollBG_Move_Speed
             
             GameState.sharedInstance.lifeTimeCount -= 0.003
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)

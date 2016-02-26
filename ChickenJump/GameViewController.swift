@@ -123,7 +123,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         if let scene = GameState.sharedInstance.gameScene {
             
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             skView.presentScene(scene)
             
             scene.gameSceneDelegate = self
@@ -354,6 +354,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             let skView = self.view as! SKView
             skView.paused = true
             
+            GameState.sharedInstance.isLoadingDone = false
+            
 //            NSNotificationCenter.defaultCenter().postNotificationName("pauseGameNotification", object: nil)
             
             let vc = storyboard?.instantiateViewControllerWithIdentifier("GamePauseUI") as! GamePauseUIViewController
@@ -368,6 +370,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     //MARK: 恢复游戏场景
     func recoveryGameNotificationAction() {
         
+        // 一秒调用一次
        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameViewController.showTimerMessage), userInfo: nil, repeats: true)
         
 //        let delayInSeconds:Double = 1
@@ -382,10 +385,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         
     }
-    
-    
-
-    
     
     // 倒计时
     func showTimerMessage() {
@@ -407,6 +406,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             let gameview = self.view as! SKView
             gameview.paused = false
             
+            GameState.sharedInstance.isLoadingDone = true
+
             self.pauseButton.hidden = false
         }
     }
