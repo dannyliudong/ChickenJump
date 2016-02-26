@@ -707,20 +707,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let nodeParent = SKNode()
         
-        for i in 0...14 {
+        for i in 0...count {
             print("i \(i)")
             let node = longSectionNode.copy() as! SKNode // 复制一排
             node.position.x = lastNodeX + 64
             nodeParent.addChild(node)
             
             lastNodeX = node.position.x
-            
         }
-//        self.platfromsWidthUpdateArray.append((nodeParent, 64 * CGFloat(count)))
-
-        
         return nodeParent
-        
     }
     
     func updatePlatfroms() {
@@ -2710,7 +2705,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             let dt1 = Int(arc4random_uniform(20))
             if dt1 == 1 { createStarStar() } // 星星
             
-            let dt2 = Int(arc4random_uniform(3000))
+            let dt2 = Int(arc4random_uniform(1000))
             if dt2 == 1 { createMeteor() } // 流星
         }
         // 下雨
