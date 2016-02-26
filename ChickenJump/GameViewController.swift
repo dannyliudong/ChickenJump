@@ -123,7 +123,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         if let scene = GameState.sharedInstance.gameScene {
             
-            scene.scaleMode = .AspectFit
+            scene.scaleMode = .AspectFill
             skView.presentScene(scene)
             
             scene.gameSceneDelegate = self
