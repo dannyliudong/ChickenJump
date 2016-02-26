@@ -661,7 +661,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func randomPlatfromNode() ->(SKNode, CGFloat) {
         switch arc4random() % 6 {
         case 0:
-            return (self.long_SectionNode, Long_SectionWidth)
+            let count = Int(CGFloat.random(min: 3, max: 8))
+            return (createLongSectionWith(count), Long_SectionWidth * CGFloat(count))
         case 1:
             return (self.door_SectionNode, Door_SectionWidth)
         case 2:
@@ -677,24 +678,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             return (SKNode(), 0)
         }
     }
-    
-//    func getPlatfromTypeWidth(type:PlatformContactType) -> CGFloat {
-//        switch type {
-//        case .Long_Section:
-//            return 64.0
-//        case .Down_Section:
-//            return 64.0 * 3
-//        case .Door_Section:
-//            return 64.0 * 4
-//        case .Spring_Section:
-//            return 64.0 * 5
-//        case .BridgeMovingInX_Section:
-//            return 64.0 * 4
-//        case .BridgeMovingInY_Section:
-//            return 64.0 * 3
-//        }
-//    }
-    
     
     func setupStartPlatfroms() {
         
@@ -713,22 +696,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             node.position.x = lastNodeX + 64
             
             lastNodeX = node.position.x
-            
-//            if let firstNode = self.platfromsWidthUpdateArray.first {
-//                let convertNode = convertPoint(self.position, fromNode: firstNode.0)
-//                print("firstNode \(convertNode.x)")
-//            }
 
         }
+    }
+    
+    func createLongSectionWith(count:Int) -> SKNode {
+        var lastNodeX:CGFloat = -64
         
-//        self.screenNodeA = platfromArray[0].copy() as! SKNode
-//        self.screenNodeA.position =  CGPointMake(0, PlatformHight)
-//        addChild(screenNodeA)
-//
-//        self.screenNodeB = platfromArray[4].copy() as! SKNode
-//        self.screenNodeB.position =  CGPointMake(Screen_Width,PlatformHight)
-//        addChild(screenNodeB)
+        let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
+        
+        let nodeParent = SKNode()
+        
+        for i in 0...14 {
+            print("i \(i)")
+            let node = longSectionNode.copy() as! SKNode // 复制一排
+            node.position.x = lastNodeX + 64
+            nodeParent.addChild(node)
+            
+            lastNodeX = node.position.x
+            
+        }
+//        self.platfromsWidthUpdateArray.append((nodeParent, 64 * CGFloat(count)))
 
+        
+        return nodeParent
+        
     }
     
     func updatePlatfroms() {
