@@ -13,6 +13,8 @@
 		A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
 		A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02223491C7FFD98004B9D75 /* PlatfromNode.swift */; };
+		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
+		A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496EB1C818CE50033D1A9 /* chicken.mp3 */; };
 		A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */; };
 		A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSpriteObjectNode.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A02223491C7FFD98004B9D75 /* PlatfromNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatfromNode.swift; sourceTree = "<group>"; };
+		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
+		A03496EB1C818CE50033D1A9 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chicken.mp3; sourceTree = "<group>"; };
 		A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongSectionNode.swift; sourceTree = "<group>"; };
 		A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnifeSectionNode.swift; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +282,8 @@
 		A075945B1C7AEF22005FF82F /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				A03496EB1C818CE50033D1A9 /* chicken.mp3 */,
+				A03496E91C818B600033D1A9 /* eagleSound.mp3 */,
 				A075948E1C7AEF53005FF82F /* crash.wav */,
 				A075948F1C7AEF53005FF82F /* eatcycle.wav */,
 				A07594901C7AEF53005FF82F /* Get.wav */,
@@ -553,8 +559,10 @@
 				A07594E91C7AF203005FF82F /* POCRunTextureAlats.plist in Resources */,
 				A07594821C7AEF43005FF82F /* inGame_event_deathMonster_1.mp3 in Resources */,
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
+				A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */,
 				A075947A1C7AEF43005FF82F /* dieSound.mp3 in Resources */,
 				A07594B31C7AF000005FF82F /* Bow.sks in Resources */,
+				A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */,
 				A07594BB1C7AF037005FF82F /* Snow.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

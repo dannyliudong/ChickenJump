@@ -125,7 +125,6 @@ let Spring_SectionWidth:CGFloat = 64.0 * 5
 //MARK: 自定义天空颜色
 
 //MARK: 游戏控制
-let ScrollBG_Move_Speed:CGFloat = 1.0
 //let Player_Move_Speed:CGFloat = 5.0
 let BG_Cycle_Width_Ratio: CGFloat = 1.0
 

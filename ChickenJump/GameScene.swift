@@ -30,6 +30,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     private let playerOffset:CGFloat = 64 * 4 + 32 // 角色在屏幕中的偏移位置
     
+    //场景移动速度
+    private var ScrollBG_Move_Speed:CGFloat = 1.0
+
     // MARK: private game data
     private var gameScore: CGFloat = 0 // 分数
     private var hillLevelScore:Int = 0
@@ -170,6 +173,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     let waterSoundAction = SKAction.playSoundFileNamed("luoshui.mp3", waitForCompletion: false)
     let downSoundAction = SKAction.playSoundFileNamed("inGame_event_deathMonster_1.mp3", waitForCompletion: false)
     let springSoundAction = SKAction.playSoundFileNamed("springSound.mp3", waitForCompletion: false)
+    
+    let eagleSoundAction = SKAction.playSoundFileNamed("eagleSound.mp3", waitForCompletion: false)
+    let chickenSoundAction = SKAction.playSoundFileNamed("chicken.mp3", waitForCompletion: false)
+    
     
 //    let rainSoundAction = SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false)
     let thunderSoundAction = SKAction.playSoundFileNamed("ThunderSound.mp3", waitForCompletion: false)
@@ -722,26 +729,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         // 实时刷新关卡地图
         print("实时刷新关卡地图")
         
-        // 移除最前面一个
-        self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
-        self.platfromsWidthUpdateArray.first?.0.removeFromParent() // 从场景中移除
-        
         // 增加一个新的放到最后面
         let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
         let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
         
-        // 获取最后一个位置
-        
-        if let lastNode = self.platfromsWidthUpdateArray.last?.0 {
-            let convertNode = convertPoint(self.position, fromNode: lastNode)
-            node.position.x = convertNode.x + nodeAndWidth.1 * 0.5
-
-        }
-        self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
+        let lastNode = self.platfromsWidthUpdateArray.last
         
         self.playergroundNode.addChild(node)
+        node.position.x = lastNode!.0.position.x+(lastNode?.1)!
         
-        print("platfromsUpdateArray \(platfromsWidthUpdateArray.count)")
+        self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
+        
+        
+        // 如果第一个 位置在左场景外
+        let firstNodePostionInScene = convertPoint(self.position, fromNode: (platfromsWidthUpdateArray.first?.0)!)
+        if firstNodePostionInScene.x <= -64 {
+            // 移除最前面一个
+            self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
+            self.platfromsWidthUpdateArray.first?.0.removeFromParent() // 从场景中移除
+        }
+        
     }
     
     //MARK: 天气场景
@@ -2276,6 +2283,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         contactFloorEvent(node)
                         playerMagic(node)
                         
+                        
+                        // 角色长时间不动时 会发出叫声
+                        
+//                        let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 3.0)))
+//                        
+//                        runAction(SKAction.sequence([wait, chickenSoundAction]))
+                        
 //                        self.playerNode.doStayAnimation()
                         
                     case CollisionCategoryBitmask.Gold :
@@ -2295,8 +2309,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         self.showParticlesForEnemy(self.playerNode.position) // 爆炸特效
                         if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
                         
+                        self.gameEndPlayerDeath()
                         self.gameEnd()
-                        
                         //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         //
                         //                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -2311,8 +2325,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         if GameState.sharedInstance.musicState { runAction(waterSoundAction) }
                         
+                        self.gameEndPlayerDeath()
                         self.gameEnd()
-                        
                         
                         //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         //                        self.showParticlesForEnemy(self.playerNode) // 爆炸特效
@@ -2499,16 +2513,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         if longPressGestureLeve1 != nil {
             self.view?.removeGestureRecognizer(longPressGestureLeve1)
         }
-                
         
         //  用dispatch_after推迟任务
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            
-            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
-            
-            self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
-        }
+//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+//        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//            
+//            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
+//            
+//            self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+//        }
         
 //        SKTAudio.sharedInstance().pauseBackgroundMusic()
         
@@ -2527,9 +2540,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             NSNotificationCenter.defaultCenter().postNotificationName("gameOverNotification", object: nil)
         }
         
-        
-        
     }
+    
+    func gameEndPlayerDeath() {
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
+        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+            
+            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
+            self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+        }
+    }
+    
+    
     
     //MARK:  游戏结束 显示广告页， 弹出观看广告赢金币按钮
     func showiAd() {
@@ -2784,8 +2806,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     
     // 记录playergroundNode
-    
-    var platfromInterval:CGFloat = 0
+    var platfromInterval:CGFloat = 0 // 与playergroundNode 移动的位置同步
     
     //MARK: update
     override func update(currentTime: CFTimeInterval) {
@@ -2807,72 +2828,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     //更新Platfroms
                     print("更新Platfroms")
                     
-                    // 增加一个新的放到最后面
-                    let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
-                    let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
-                    
-                    let lastNode = self.platfromsWidthUpdateArray.last
-                    
-                    self.playergroundNode.addChild(node)
-                    node.position.x = lastNode!.0.position.x+(lastNode?.1)!
-                    
-                    self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
-                    
-//                    self.updatePlatfroms()
-                    
-                    // 移除最前面一个
-                    self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
-                    self.platfromsWidthUpdateArray.first?.0.removeFromParent() // 从场景中移除
+                    self.updatePlatfroms()
                     
                     self.platfromInterval = (self.platfromsWidthUpdateArray.last?.1)!
 
                 } else {
-//                    print("platfromInterval \(platfromInterval)")
-                    
                     self.platfromInterval -= ScrollBG_Move_Speed
                 }
             }
             
+            let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
+            print("playerPostionInScene \(playerPostionInScene.x)")
             
-//            if let lastNode = platfromsWidthUpdateArray.last?.0 {
-//                
-//                let lastNodeConvertPoint = convertPoint(self.position, fromNode: lastNode)
-//                print("lastNodeConvertPoint \(lastNodeConvertPoint)")
-//                if lastNodeConvertPoint.x == Screen_Width {
-//                    
-//                    //                        self.updatePlatfroms()
-//                    
-//                    // 移除最前面一个
-//                    self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
-//                    self.platfromsWidthUpdateArray.last?.0.removeFromParent() //  从场景中移除
-//                    
-//                    // 增加一个新的放到最后面
-//                    let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
-//                    let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
-//                    
-//                    let lastNodeX = self.platfromsWidthUpdateArray.last!.0.position.x
-//                    node.position.x = lastNodeX + nodeAndWidth.1 * 0.5
-//                    //        lastNodeX = node.position.x
-//                    self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
-//                    
-//                    self.playergroundNode.addChild(node)
-//                    
-//                    print("platfromsUpdateArray \(platfromsWidthUpdateArray.count)")
-//                    
-//                }
-//            }
-
+            if playerPostionInScene.x >= Screen_Width * 0.6 {
+                ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
+            } else {
+                ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
+            }
             
             playergroundNode.position.x -= ScrollBG_Move_Speed
             
             GameState.sharedInstance.lifeTimeCount -= 0.003
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)
             
+            
+            // 如果停留时间过长 被老鹰叼走 游戏结束
             if GameState.sharedInstance.lifeTimeCount <= 0 {
+
+                if GameState.sharedInstance.musicState { self.runAction(self.eagleSoundAction) }
                 
-                self.shakeCarema() //  震屏
-                if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
                 self.gameEnd()
+
+                let eagle = SKSpriteNode(imageNamed: "eagle")
+                eagle.position = CGPointMake(Screen_Width + eagle.size.width, Screen_Height)
+                eagle.zPosition = 300
+                addChild(eagle)
+                
+                let flymove = SKAction.moveTo(CGPointMake(-200, 200), duration: 2.0)
+                let remove = SKAction.removeFromParent()
+                eagle.runAction(SKAction.sequence([flymove, remove]))
+                
+                //  用dispatch_after推迟任务
+//                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
+//                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//                    
+//                }
+                
+                self.gameEndPlayerDeath()
+
             }
             
             if  GameState.sharedInstance.isLoadingDone  {
