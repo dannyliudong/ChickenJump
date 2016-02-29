@@ -232,7 +232,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
             print("Swipe Left")
-            touchControll(CGVectorMake(-Player_Jump_Width * 2, Player_Jump_Hight))
+            touchControll(CGVectorMake(-Player_Jump_Width, Player_Jump_Hight))
         }
     }
     
@@ -847,11 +847,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         if let node = platfromNode.childNodeWithName("door") {
             
             if let keyNode = node.childNodeWithName("doorkeynode") {
-                keyNode.position.y = 50//CGFloat.random(min: 50, max: 100)
+                
+                let ketX:CGFloat = {
+                    switch arc4random() % 2 {
+                    case 0 :
+                        return -64.0
+                    case 1:
+                        return -128.0
+                    default :
+                        return 0.0
+                    }
+                }()
+                
+                let ketY = CGFloat.random(min: -100, max: 50)
+
+                keyNode.position = CGPointMake(ketX, ketY)//CGFloat.random(min: -100, max: 50)
             }
             print("finde child doorkeynode ")
         }
-        
         
         
         if let nodes = platfromNode.childNodeWithName("wallNodes") {
@@ -1858,15 +1871,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         //        flashLightNode.hidden = true
         
         //        let flashX = CGFloat.random(min: 20, max: Screen_Width)
-        let flashscale = CGFloat.random(min: 0.4, max: 0.6)
+        let flashscale = CGFloat.random(min: 0.6, max: 0.8)
         
         let flash = SKSpriteNode(texture: randomFlashTexture())
         flash.setScale(flashscale)
-        flash.anchorPoint = CGPointMake(0.5, 0)
-        let angle = Double(CGFloat.random(min: -25, max: 35))
-        flash.zRotation = CGFloat( angle * M_PI / 180)
+        flash.anchorPoint = CGPointMake(0.5, -0.1)
+//        let angle = Double(CGFloat.random(min: -25, max: 35))
+        flash.zRotation = CGFloat.toAngle(Double(CGFloat.random(min: -25, max: 35)))//CGFloat( angle * M_PI / 180)
         flash.zPosition = -100
-        flash.position = CGPointMake(Screen_Width/2, Screen_Height - flash.size.height)
+        flash.position = CGPointMake(CGFloat.random(min: Screen_Width * 0.2, max: Screen_Width * 0.8), Screen_Height - flash.size.height)
         flashLightNode.addChild(flash)
         
         let halo = SKSpriteNode(imageNamed: "flashhalo")
@@ -2328,7 +2341,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Enemy")
                         
                         self.shakeCarema() //  震屏
-                        self.showParticlesForEnemy(self.playerNode.position) // 爆炸特效
+                        self.showParticlesForEnemy(node.position) // 爆炸特效
                         if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
                         
                         self.gameEndPlayerDeath()
@@ -2343,7 +2356,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Wather")
                         
                         self.shakeCarema() //  震屏
-                        self.showParticlesForEnemy(self.playerNode.position) // 爆炸特效
+                        let playerConvert = convertPoint(self.position, fromNode: self.playerNode)
+                        self.showParticlesForEnemy(playerConvert) // 爆炸特效
                         
                         if GameState.sharedInstance.musicState { runAction(waterSoundAction) }
                         
@@ -2374,7 +2388,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         if GameState.sharedInstance.musicState { self.runAction(downSoundAction) }
                         
-                        let delay:Double = 0.2
+                        let delay:Double = 0.3
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
