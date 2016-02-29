@@ -117,7 +117,7 @@ enum BGDetphType:UInt32 {
 
 let Long_SectionWidth:CGFloat = 64.0
 let Door_SectionWidth:CGFloat = 64.0 * 4
-let Down_SectionWidth:CGFloat = 64.0 * 3
+let Down_SectionWidth:CGFloat = 64.0 * 2
 let BridgeMovingInX_SectionWidth:CGFloat = 64.0 * 5
 let BridgeMovingInY_SectionWidth:CGFloat = 64.0 * 3
 let Spring_SectionWidth:CGFloat = 64.0 * 5
