@@ -13,7 +13,7 @@ import SpriteKit
 //MARK: 模拟水
 func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     
-    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(980, Screen_Height * 0.2))
+    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(970, BG_hight))
     wather.zPosition = -30
     wather.colorBlendFactor = 1.0
     wather.alpha = 1
@@ -70,40 +70,40 @@ func GameSpriteNodeWithGold(texture:SKTexture) ->SKSpriteNode {
 //MARK: 角色
 func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     
-    let node = SKSpriteNode(imageNamed: "pixelMan")//SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(64, 64))
+    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 10))//SKSpriteNode(imageNamed: "pixelMan")
+    
+    print("pixelMan size \(node.size)")
+    
 //    node.setScale(0.9)
 //    node.shadowCastBitMask = ShadowCastBitMask.MainShadow
     node.zPosition = 60
     node.colorBlendFactor = 0
     
-//    let physicsSize: CGSize = CGSizeMake(40, 70)
-    node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(28, 64))//SKPhysicsBody(rectangleOfSize: texture.size())
+    node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size)//SKPhysicsBody(rectangleOfSize: CGSizeMake(28, 64))
     node.physicsBody?.dynamic = true
     node.physicsBody?.allowsRotation = false
     
     node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
     node.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Normal_Floor |
                                             CollisionCategoryBitmask.Down_Floor |
-                                            CollisionCategoryBitmask.Invisible |
                                             CollisionCategoryBitmask.Wather |
                                             CollisionCategoryBitmask.Enemy |
                                             CollisionCategoryBitmask.DoorKey_Button |
                                             CollisionCategoryBitmask.Spring |
-                                            CollisionCategoryBitmask.Pinned |
                                             CollisionCategoryBitmask.Gold
     
-    
-    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
-                                            CollisionCategoryBitmask.Down_Floor |
-                                            CollisionCategoryBitmask.Invisible |
-                                            CollisionCategoryBitmask.Pinned
+//    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor
     
     node.physicsBody?.friction = 0
     node.physicsBody?.charge = 0
     node.physicsBody?.restitution = 0
     node.physicsBody?.linearDamping = 0
     node.physicsBody?.angularDamping = 0
-        
+    
+    let sprite = SKSpriteNode(imageNamed: "pixelMan")
+    sprite.position = CGPointMake(0, sprite.size.height * 0.5 - node.size.height * 0.5)
+    node.addChild(sprite)
+    
     return node
 }
 

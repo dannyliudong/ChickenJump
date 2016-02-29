@@ -232,21 +232,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
             print("Swipe Left")
-            touchControll(CGVectorMake(-Player_Jump_Width, Player_Jump_Hight))
-
-        } else if (sender.direction == .Right) {
-            print("Swipe Right")
-            touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
-
-        } else if (sender.direction == .Up) {
-            print("Swipe Up")
-            touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
-
-        } else if (sender.direction == .Down) {
-            print("Swipe Down")
-            touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
+            touchControll(CGVectorMake(-Player_Jump_Width * 2, Player_Jump_Hight))
         }
-        
     }
     
     
@@ -669,7 +656,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         switch arc4random() % 6 {
         case 0:
             let count = Int(CGFloat.random(min: 3, max: 8))
-            return (createLongSectionWith(count), Long_SectionWidth * CGFloat(count))
+            return (createLongSectionWith(count), Long_SectionWidth * CGFloat(count + 1))
         case 1:
             return (self.door_SectionNode, Door_SectionWidth)
         case 2:
@@ -736,7 +723,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let lastNode = self.platfromsWidthUpdateArray.last
         
         self.playergroundNode.addChild(node)
-        node.position.x = lastNode!.0.position.x+(lastNode?.1)!
+        node.position.x = lastNode!.0.position.x + (lastNode?.1)!
         
         self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
         
@@ -787,11 +774,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
                 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
+                _node.physicsBody?.friction = 1
+                _node.physicsBody?.charge = 100
                 _node.physicsBody?.restitution = 0
                 _node.physicsBody?.linearDamping = 0
                 _node.physicsBody?.angularDamping = 0
+                
             }
         }
         
@@ -802,14 +790,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
-                
-                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Normal_Floor
+            
                 _node.physicsBody?.friction = 0
                 _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
                 _node.physicsBody?.linearDamping = 0
                 _node.physicsBody?.angularDamping = 0
-                
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
                 let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
@@ -826,8 +812,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
-                
-                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Normal_Floor
+
                 _node.physicsBody?.friction = 0
                 _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
@@ -835,11 +820,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 6, time: NSTimeInterval(CGFloat.random(min: 2.0, max: 4.0)))])
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 5, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
                 
                 _node.runAction(sequence)
             }
         }
+        
+        
+        if let nodes = platfromNode.childNodeWithName("downFloorNodes") {
+            
+            for node in nodes.children {
+                
+                let _node = node as! SKSpriteNode
+                _node.texture = setPlatformTextureWithDownFloor(self.land)
+
+                _node.physicsBody?.friction = 0
+                _node.physicsBody?.charge = 0
+                _node.physicsBody?.restitution = 0
+                _node.physicsBody?.linearDamping = 0
+                _node.physicsBody?.angularDamping = 0
+            }
+        }
+        
+        // 设置钥匙的 随机高度
+        if let node = platfromNode.childNodeWithName("door") {
+            
+            if let keyNode = node.childNodeWithName("doorkeynode") {
+                keyNode.position.y = 50//CGFloat.random(min: 50, max: 100)
+            }
+            print("finde child doorkeynode ")
+        }
+        
+        
         
         if let nodes = platfromNode.childNodeWithName("wallNodes") {
             for node in nodes.children {
@@ -873,26 +885,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
         }
         
-        
-        if let nodes = platfromNode.childNodeWithName("downFloorNodes") {
-            
-            for node in nodes.children {
-                
-                let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithDownFloor(self.land)
-                
-                _node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(32, _node.size.height))
-                _node.physicsBody?.dynamic = false
-                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
-                _node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
-                _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
-            }
-        }
         
         if let nodes = platfromNode.childNodeWithName("hiddenNodes") {
             
@@ -916,7 +909,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             for node in nodes.children {
                 
                 let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithSpring(self.land)
+                _node.color = UIColor.clearColor()
                 
                 _node.physicsBody?.friction = 0
                 _node.physicsBody?.charge = 0
@@ -926,17 +919,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
         }
         
-        if let nodes = platfromNode.childNodeWithName("skphyNodes") {
-            
-            for node in nodes.children {
-                
-                node.physicsBody?.friction = 0
-                node.physicsBody?.restitution = 0
-                node.physicsBody?.linearDamping = 0
-                node.physicsBody?.angularDamping = 0
-                node.physicsBody?.charge = 0
-            }
-        }
+//        if let nodes = platfromNode.childNodeWithName("skphyNodes") {
+//            
+//            for node in nodes.children {
+//                
+//                node.physicsBody?.friction = 0
+//                node.physicsBody?.restitution = 0
+//                node.physicsBody?.linearDamping = 0
+//                node.physicsBody?.angularDamping = 0
+//                node.physicsBody?.charge = 0
+//            }
+//        }
         
         return platfromNode
     }
@@ -1920,6 +1913,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK:随机障碍物
     
+    // 掉落的怪物 会砸死角色 (砸在地面上时，成为地面子物体，跟随地面移动)
+    func createEmenyDown(){
+        let randomEnemyX = CGFloat.random(min: 64.0 * 4 , max: 64.0 * 12)
+        
+        let node = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(30, 30))
+        node.position = CGPointMake(randomEnemyX, Screen_Height * 1.2)
+        node.zPosition = 200
+        
+        addChild(node)
+        
+        node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size)
+        node.physicsBody?.dynamic = true
+        node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Enemy
+        node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor
+        node.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Normal_Floor
+        
+        node.physicsBody?.mass = 0
+        node.physicsBody?.friction = 1.0  // 摩擦
+        node.physicsBody?.charge = 1000
+        node.physicsBody?.restitution = 100
+        node.physicsBody?.linearDamping = 10
+        node.physicsBody?.angularDamping = 10
+        
+//        node.runAction(SKAction.moveToY(<#T##y: CGFloat##CGFloat#>, duration: <#T##NSTimeInterval#>))
+        
+//        node.physicsBody?.applyImpulse(CGVectorMake(50, 0))
+//        node.runAction(SKAction.removeFromParentAfterDelay(3.5))
+    }
+    
     // 构建怪物 1 弹射怪物
     func createBarrier(){
         let randomEnemyX = CGFloat.random(min: 20, max: CGFloat(Screen_Width))
@@ -1933,21 +1955,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         bow.physicsBody = SKPhysicsBody(rectangleOfSize: bow.size)
         bow.physicsBody?.dynamic = true
-//        bow.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Enemy
+        //        bow.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Enemy
         bow.physicsBody?.collisionBitMask = 0
         bow.physicsBody?.contactTestBitMask = 0
         
         
         bow.physicsBody?.applyImpulse(CGVectorMake(50, 0))
         bow.runAction(SKAction.removeFromParentAfterDelay(1.5))
-
         
-//        let moveDonw = SKAction.moveToY(Screen_Height * 1.2, duration: 2.0)
-//        let done = SKAction.removeFromParentAfterDelay(1.5)
-//        
-//        let seuqueAction = SKAction.sequence([moveDonw,done])
-//        
-//        bow.runAction(SKAction.repeatActionForever(seuqueAction))
+        
+        //        let moveDonw = SKAction.moveToY(Screen_Height * 1.2, duration: 2.0)
+        //        let done = SKAction.removeFromParentAfterDelay(1.5)
+        //
+        //        let seuqueAction = SKAction.sequence([moveDonw,done])
+        //
+        //        bow.runAction(SKAction.repeatActionForever(seuqueAction))
         
     }
     
@@ -2041,7 +2063,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func createPlayer() {
         
         self.playerNode = GameSpriteNodeWithPlayerNode(choseChaterName(playertype)) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(playerOffset, 400 ) //playerHight + playerNode.height * 0.5
+        self.playerNode.position = CGPointMake(playerOffset, 300 ) //playerHight + playerNode.height * 0.5
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
         addChild(playerNode)
@@ -2130,17 +2152,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
     
     //MARK: 魔法飘带
-    func playerMagic(node:SKNode) {
+    func playerMagic(position:CGPoint) {
         print("playerMagic")
         self.magicNode = SKEmitterNode(fileNamed: "playerMagic.sks") //EngineFire
         self.magicNode.particleTexture!.filteringMode = .Nearest
-        self.magicNode.position = CGPointMake(-playerNode.size.width * 0.5, -playerNode.size.height * 0.5)
-        self.magicNode.zPosition = 0
+//        self.magicNode.position = position//CGPointMake(-playerNode.size.width * 0.5, -playerNode.size.height * 0.5)
+        self.magicNode.zPosition = 400
         self.magicNode.targetNode = self
         
         self.playerNode.addChild(self.magicNode)
         
-        magicNode.runAction(SKAction.removeFromParentAfterDelay(1.5))
+        
+        
+        magicNode.runAction(SKAction.removeFromParentAfterDelay(3.5))
        
     }
     
@@ -2253,8 +2277,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         GameState.sharedInstance.canJump = true
         
-        playerNode.removeFromParent()
-        playerNode.position = CGPointMake(0, 32)
+        self.playerNode.removeFromParent()
+        self.playerNode.position = CGPointMake(0, 32)
+        
         node.addChild(playerNode)
     }
     
@@ -2281,7 +2306,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Floor")
                         
                         contactFloorEvent(node)
-                        playerMagic(node)
+                        playerMagic(node.position)
                         
                         
                         // 角色长时间不动时 会发出叫声
@@ -2299,8 +2324,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         node.runAction(getGoldAction)
                         
-                        GameState.sharedInstance.gold += 1
-                        self.gameSceneDelegate?.updateGold(Int(GameState.sharedInstance.gold))
+//                        GameState.sharedInstance.gold += 1
+//                        self.gameSceneDelegate?.updateGold(Int(GameState.sharedInstance.gold))
                         
                     case CollisionCategoryBitmask.Enemy :
                         print("Contact Enemy")
@@ -2337,8 +2362,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         //                    })
                         
                     case CollisionCategoryBitmask.DoorKey_Button:
-                        print("Contact 开关门")
-                        
+                        print("Contact 开门 按钮")
                         node.runAction(doorKeyAction)
                         
                         if GameState.sharedInstance.musicState { self.runAction(getdoorKeySoundAction)}
@@ -2350,7 +2374,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact 踩踏 下落")
                         contactFloorEvent(node)
                         
-                        playerMagic(node)
+                        playerMagic(node.position)
                         
                         if GameState.sharedInstance.musicState { self.runAction(downSoundAction) }
                         
@@ -2370,7 +2394,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Invisible:
                         print("Contact 隐形的")
                         contactFloorEvent(node)
-                        playerMagic(node)
+                        playerMagic(node.position)
                         
                         node.hidden = false
                         
@@ -2379,9 +2403,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                        contactFloorEvent(node)
 //                        playerMagic(node)
                         
-                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 200))
+                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 10))
 
-                        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64*3, Player_Jump_Hight), duration: 0.1))
+                        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, Player_Jump_Hight), duration: 0.1))
                         
                         if GameState.sharedInstance.musicState { self.runAction(springSoundAction) }
                         
@@ -2389,7 +2413,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact胶水")
                         
                         contactFloorEvent(node)
-                        playerMagic(node)
+                        playerMagic(node.position)
                         
                     default:
                         break
@@ -2546,7 +2570,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
             
-            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
+            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 20))
             self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
         }
     }
@@ -2760,12 +2784,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func exceedTopScroeTip() {
         let label = SKLabelNode(fontNamed: Font_Name)
-        label.text = "破纪录"
+        label.text = "新纪录\(0)"
         label.fontSize = 30
-        label.position = Screen_Center
-        addChild(label)
+        label.position = CGPointMake(Screen_Width * 1.5, Screen_Height * 0.7)
+        self.playergroundNode.addChild(label)
         
-        label.runAction(SKAction.removeFromParentAfterDelay(2.0))
+        label.runAction(SKAction.removeFromParentAfterDelay(10.0))
     }
     
     
@@ -2777,7 +2801,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         // 如果分数达到最高分 屏幕显示名字
         if Int(self.gameScore) == GameState.sharedInstance.gamecenterSelfTopScore {
             print("破纪录")
-            //                exceedTopScroeTip()
+            exceedTopScroeTip()
         }
         
         //        let score:CGFloat = max(gameScore, playerNode.position.x)
@@ -2796,7 +2820,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let dt = Int(arc4random_uniform(200))
         if dt == 1 {
             createBarrier()
-//            createFireBallActivity()
+        }
+    }
+    
+    func updateEmenyDown() {
+        
+        let dt = Int(arc4random_uniform(200))
+        if dt == 1 {
+            createEmenyDown()
         }
     }
     
@@ -2824,7 +2855,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             if !self.platfromsWidthUpdateArray.isEmpty {
                 
-                if platfromInterval <= 0 {
+                if platfromInterval <= 64 {
                     //更新Platfroms
                     print("更新Platfroms")
                     
@@ -2838,13 +2869,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
-            print("playerPostionInScene \(playerPostionInScene.x)")
+            ScrollBG_Move_Speed = playerPostionInScene.x * 0.008
             
-            if playerPostionInScene.x >= Screen_Width * 0.6 {
-                ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
-            } else {
-                ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
-            }
+//            if playerPostionInScene.x <= Screen_Width * 0.3 {
+//                ScrollBG_Move_Speed = 0.5
+//            } else {
+//                ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
+//            }
             
             playergroundNode.position.x -= ScrollBG_Move_Speed
             
@@ -2890,6 +2921,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 //update 敌人
 //                updataEmeny()
+//                updateEmenyDown()
             }
             
         } else {

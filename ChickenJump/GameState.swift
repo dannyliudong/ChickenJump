@@ -12,9 +12,10 @@ import UIKit
 class GameState {
     
     var currentScore:Int
-    var gold:Int
+//    var gold:Int
 //    var localHighScore: Int
-    var gamecenterSelfTopScore:Int
+    var gamecenterSelfTopScore:Int?
+    var gameCenterPlayerName:String?
     
     var lifeTimeCount:Float
     
@@ -40,7 +41,7 @@ class GameState {
         self.currentScore = 0
         self.gamecenterSelfTopScore = 0
         self.lifeTimeCount = 1.0
-        self.gold = 0
+//        self.gold = 0
     
         self.musicState = true
     }
@@ -54,10 +55,12 @@ class GameState {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(currentScore, forKey: "currentScore")
         
-        self.gamecenterSelfTopScore = max(gamecenterSelfTopScore, currentScore)
-        defaults.setInteger(gamecenterSelfTopScore, forKey: "gamecenterSelfTopScore")
+        if let score = gamecenterSelfTopScore {
+            self.gamecenterSelfTopScore = max(score, currentScore)
+            defaults.setInteger(gamecenterSelfTopScore!, forKey: "gamecenterSelfTopScore")
+        }
         
-        defaults.setInteger(self.gold, forKey: "myGold")
+//        defaults.setInteger(self.gold, forKey: "myGold")
         
         // 保存设置状态
         defaults.setBool(musicState, forKey: "musicState")

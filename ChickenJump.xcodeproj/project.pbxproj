@@ -12,6 +12,7 @@
 		A018A27F1C7D401C004FF1B2 /* GameSceneObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */; };
 		A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
+		A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */; };
 		A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02223491C7FFD98004B9D75 /* PlatfromNode.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
 		A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496EB1C818CE50033D1A9 /* chicken.mp3 */; };
@@ -104,6 +105,7 @@
 		A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneObjectNode.swift; sourceTree = "<group>"; };
 		A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSpriteObjectNode.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A02223491C7FFD98004B9D75 /* PlatfromNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatfromNode.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
 		A03496EB1C818CE50033D1A9 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chicken.mp3; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
+				A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
 				A075942A1C7AED47005FF82F /* ChickenJump-Bridging-Header.h */,
@@ -559,6 +562,7 @@
 				A07594E91C7AF203005FF82F /* POCRunTextureAlats.plist in Resources */,
 				A07594821C7AEF43005FF82F /* inGame_event_deathMonster_1.mp3 in Resources */,
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
+				A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */,
 				A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */,
 				A075947A1C7AEF43005FF82F /* dieSound.mp3 in Resources */,
 				A07594B31C7AF000005FF82F /* Bow.sks in Resources */,
@@ -698,7 +702,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
 				INFOPLIST_FILE = ChickenJump/Info.plist;
@@ -716,7 +719,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
 				INFOPLIST_FILE = ChickenJump/Info.plist;

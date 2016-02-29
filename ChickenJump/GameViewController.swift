@@ -82,8 +82,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         EGC.sharedInstance(self)
         EGC.debugMode = true
         
-        print("my gold:  \(GameState.sharedInstance.gold)")
-        self.goldDisplayLabel.text = "\(GameState.sharedInstance.gold)★"
+//        print("my gold:  \(GameState.sharedInstance.gold)")
+//        self.goldDisplayLabel.text = "\(GameState.sharedInstance.gold)★"
         
         self.characterButton.layer.cornerRadius  = Button_CornerRadius
         self.settingsButton.layer.cornerRadius  = Button_CornerRadius
@@ -445,7 +445,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        let topScroe:Int = max(GameState.sharedInstance.localHighScore, gameCenterHighScore)
         
         self.currentScoreLalbel.text = "\(GameState.sharedInstance.currentScore)"
-        self.topScroeLabel.text = "TOP:\(GameState.sharedInstance.gamecenterSelfTopScore)"
+        
+        if let score = GameState.sharedInstance.gamecenterSelfTopScore {
+            self.topScroeLabel.text = "TOP:\(score)"
+        }
         
         
         // 游戏结束 截屏
