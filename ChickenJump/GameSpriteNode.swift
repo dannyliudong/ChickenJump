@@ -70,7 +70,7 @@ func GameSpriteNodeWithGold(texture:SKTexture) ->SKSpriteNode {
 //MARK: 角色
 func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     
-    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 10))//SKSpriteNode(imageNamed: "pixelMan")
+    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(20, 48))//SKSpriteNode(imageNamed: "pixelMan")
     
     print("pixelMan size \(node.size)")
     
@@ -79,7 +79,7 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     node.zPosition = 60
     node.colorBlendFactor = 0
     
-    node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size)//SKPhysicsBody(rectangleOfSize: CGSizeMake(28, 64))
+    node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size) //CGSizeMake(28, 64)
     node.physicsBody?.dynamic = true
     node.physicsBody?.allowsRotation = false
     
@@ -92,7 +92,7 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
                                             CollisionCategoryBitmask.Spring |
                                             CollisionCategoryBitmask.Gold
     
-//    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor
+    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor | CollisionCategoryBitmask.Down_Floor
     
     node.physicsBody?.friction = 0
     node.physicsBody?.charge = 0

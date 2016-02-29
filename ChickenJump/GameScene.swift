@@ -766,19 +766,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let platfromNode = node.copy() as! SKNode
         
-        
         if let nodes = platfromNode.childNodeWithName("floorNodes") {
 
             for node in nodes.children {
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
-                
-                _node.physicsBody?.friction = 1
-                _node.physicsBody?.charge = 100
-                _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
                 
             }
         }
@@ -790,17 +783,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
-            
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
-                _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
                 let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
                 
                 _node.runAction(sequence)
+                
+//                let phy = _node.children.first
+//                phy!.physicsBody?.friction = 0
+//                phy!.physicsBody?.charge = 0
+//                phy!.physicsBody?.restitution = 0
+//                phy!.physicsBody?.linearDamping = 0
+//                phy!.physicsBody?.angularDamping = 0
             }
         }
         
@@ -812,17 +806,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
-
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
-                _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
                 let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 5, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
                 
                 _node.runAction(sequence)
+                
+//                let phy = _node.children.first
+//                phy!.physicsBody?.friction = 0
+//                phy!.physicsBody?.charge = 0
+//                phy!.physicsBody?.restitution = 0
+//                phy!.physicsBody?.linearDamping = 0
+//                phy!.physicsBody?.angularDamping = 0
             }
         }
         
@@ -833,6 +828,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithDownFloor(self.land)
+                _node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(48, 20), center: CGPointMake(0, _node.size.height * 0.3))
+                _node.physicsBody?.dynamic = false
+                _node.physicsBody?.allowsRotation = false
+                
+                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
+                _node.physicsBody?.collisionBitMask = 0
 
                 _node.physicsBody?.friction = 0
                 _node.physicsBody?.charge = 0
@@ -885,8 +886,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
         }
         
-
-        
         if let nodes = platfromNode.childNodeWithName("hiddenNodes") {
             
             for node in nodes.children {
@@ -894,12 +893,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
                 
-                _node.hidden = true
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
-                _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+//                _node.hidden = true
+//                _node.physicsBody?.friction = 0
+//                _node.physicsBody?.charge = 0
+//                _node.physicsBody?.restitution = 0
+//                _node.physicsBody?.linearDamping = 0
+//                _node.physicsBody?.angularDamping = 0
 
             }
         }
@@ -910,26 +909,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.color = UIColor.clearColor()
-                
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
-                _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+
+//                _node.physicsBody?.friction = 0
+//                _node.physicsBody?.charge = 0
+//                _node.physicsBody?.restitution = 0
+//                _node.physicsBody?.linearDamping = 0
+//                _node.physicsBody?.angularDamping = 0
             }
         }
         
-//        if let nodes = platfromNode.childNodeWithName("skphyNodes") {
-//            
-//            for node in nodes.children {
-//                
-//                node.physicsBody?.friction = 0
-//                node.physicsBody?.restitution = 0
-//                node.physicsBody?.linearDamping = 0
-//                node.physicsBody?.angularDamping = 0
-//                node.physicsBody?.charge = 0
-//            }
-//        }
+        if let nodes = platfromNode.childNodeWithName("skphyNodes") {
+            
+            for node in nodes.children {
+                
+                node.physicsBody?.friction = 0
+                node.physicsBody?.restitution = 0
+                node.physicsBody?.linearDamping = 0
+                node.physicsBody?.angularDamping = 0
+                node.physicsBody?.charge = 0
+            }
+        }
         
         return platfromNode
     }
@@ -2152,17 +2151,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
     
     //MARK: 魔法飘带
-    func playerMagic(position:CGPoint) {
+    func playerMagic() {
         print("playerMagic")
         self.magicNode = SKEmitterNode(fileNamed: "playerMagic.sks") //EngineFire
         self.magicNode.particleTexture!.filteringMode = .Nearest
-//        self.magicNode.position = position//CGPointMake(-playerNode.size.width * 0.5, -playerNode.size.height * 0.5)
+        self.magicNode.position = CGPointMake(-playerNode.size.width, -playerNode.size.height * 0.5)
         self.magicNode.zPosition = 400
         self.magicNode.targetNode = self
         
-        self.playerNode.addChild(self.magicNode)
-        
-        
+        addChild(self.magicNode)
         
         magicNode.runAction(SKAction.removeFromParentAfterDelay(3.5))
        
@@ -2306,7 +2303,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Floor")
                         
                         contactFloorEvent(node)
-                        playerMagic(node.position)
+                        playerMagic()
                         
                         
                         // 角色长时间不动时 会发出叫声
@@ -2373,8 +2370,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Down_Floor:
                         print("Contact 踩踏 下落")
                         contactFloorEvent(node)
-                        
-                        playerMagic(node.position)
+                        playerMagic()
                         
                         if GameState.sharedInstance.musicState { self.runAction(downSoundAction) }
                         
@@ -2382,19 +2378,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-//                            if !node.children.isEmpty {
-//                                for i in node.children {
-//                                    i.physicsBody?.dynamic = true
-//                                }
-//                            }
                             node.physicsBody?.dynamic = true
-
                         }
                         
                     case CollisionCategoryBitmask.Invisible:
                         print("Contact 隐形的")
                         contactFloorEvent(node)
-                        playerMagic(node.position)
+                        playerMagic()
                         
                         node.hidden = false
                         
@@ -2403,9 +2393,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                        contactFloorEvent(node)
 //                        playerMagic(node)
                         
-                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 10))
+                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 100))
 
-                        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, Player_Jump_Hight), duration: 0.1))
+                        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, Player_Jump_Hight), duration: 0.2))
                         
                         if GameState.sharedInstance.musicState { self.runAction(springSoundAction) }
                         
@@ -2413,7 +2403,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact胶水")
                         
                         contactFloorEvent(node)
-                        playerMagic(node.position)
+                        playerMagic()
                         
                     default:
                         break
@@ -2604,10 +2594,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func playerMoveAnimation(vector:CGVector) {
         
-        playerNode.moveToParent(self)
+//        playerNode.moveToParent(self)
         
         //duration 大于等于 0.2 时， 出现错误
-        self.playerNode.runAction(SKAction.moveBy(vector, duration: 0.1))
+        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 30))
+        self.playerNode.runAction(SKAction.moveBy(vector, duration: 0.2))
         
         if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
 
