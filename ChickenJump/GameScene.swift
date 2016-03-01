@@ -679,7 +679,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
 
-        for i in 0...14 {
+        for i in 0...8 {
             print("i \(i)")
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
@@ -2789,14 +2789,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func exceedTopScroeTip() {
         let label = SKLabelNode(fontNamed: Font_Name)
-        label.text = "新纪录\(0)"
+        label.text = "新纪录\(GameState.sharedInstance.gamecenterSelfTopScore)"
         label.fontSize = 30
-        label.position = CGPointMake(Screen_Width * 1.5, Screen_Height * 0.7)
+        label.position = CGPointMake(Screen_Width * 1.1, Screen_Height * 0.7)
         self.playergroundNode.addChild(label)
         
         label.runAction(SKAction.removeFromParentAfterDelay(10.0))
     }
-    
     
     //MARK: 更新 分数
     func updateGameScore() {

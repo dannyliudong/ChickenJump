@@ -37,14 +37,15 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     @IBOutlet weak var goldDisplayLabel: UILabel!
     
     @IBOutlet weak var replayButton: UIButton!
+//    @IBOutlet weak var showReplay: UIButton!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var secondsElapsed:Int = 3
     private var timer:NSTimer!
     
-    var gameScreenCapture:UIImage?
-    
+//    var gameScreenCapture:UIImage?
+    var screenshotsImage:UIImage?
     
 //    var gameScene:GameScene!
     
@@ -73,13 +74,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let vc = storyboard?.instantiateViewControllerWithIdentifier("LoadingVC") as! LoadingViewController
-//        vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-//        self.presentViewController(vc, animated: false) { () -> Void in
-//            
-//        }
-        
-        
         EGC.sharedInstance(self)
         EGC.debugMode = true
         
@@ -95,7 +89,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.tryAgainButton.layer.cornerRadius = Button_CornerRadius
         
         self.hiddenGameOverButtons()
-        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showHomeButton), name: "showHomeButtonNotification", object: nil)
         
@@ -150,7 +143,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
     }
     
-    // 展示游戏排行榜
+    //MARK: 展示游戏排行榜
     @IBAction func showGameCenterLeaderboard(sender: UIButton, forEvent event: UIEvent) {
 
         if EGC.isPlayerIdentified {
@@ -161,10 +154,27 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             
         } else {
             print("game center 未登录")
-            self.leaderboardsButton.backgroundColor = UIColor.lightGrayColor()
+            
+//            let alertController = UIAlertController(title: "Recording", message: "Do you wish to discard or view your gameplay recording?", preferredStyle: .Alert)
+//            
+//            let discardAction = UIAlertAction(title: "OK", style: .Default) { (action: UIAlertAction) in
+//                RPScreenRecorder.sharedRecorder().discardRecordingWithHandler({ () -> Void in
+//                    // Executed once recording has successfully been discarded
+//                })
+//            }
+//            
+//            let viewAction = UIAlertAction(title: "View", style: .Default, handler: { (action: UIAlertAction) -> Void in
+////                self.buttonWindow.rootViewController?.presentViewController(previewController!, animated: true, completion: nil)
+//            })
+//            
+//            alertController.addAction(discardAction)
+//            alertController.addAction(viewAction)
+            
+            let alertView = UIAlertView(title: "排行榜", message: "请登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
+            alertView.show()
+            
             EGC.sharedInstance(self)
             EGC.debugMode = true
-
         }
 
     }
@@ -294,10 +304,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         {
             let messageStr:String  = "Mr.J \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore)分"
             //            let WXimg: UIImage = UIImage(named: "wxlogo")!
-            let icon:UIImage = UIImage(named: "LaunchLogo")!
+//            var screenView:UIImage! // = UIImage(named: "LaunchLogo")!
             
-            //            let image = gameScreenCapture!
-            let shareItems:Array = [messageStr, icon, myWebsite]
+            
+            let shareItems:Array = [messageStr, self.screenshotsImage!, myWebsite]
             let activityController = UIActivityViewController(activityItems:shareItems, applicationActivities: nil)
             if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
                 activityController.popoverPresentationController?.sourceView = self.view
@@ -308,11 +318,29 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     
     // 截屏
-    func screenCapture(view:UIView) ->UIImage {
-        let rect = view.frame
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        view.layer.renderInContext(context!)
+    func screenCapture() ->UIImage {
+ 
+//        let screenView = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(false)
+//        
+//        UIGraphicsBeginImageContextWithOptions(screenView.frame.size, false, 0.0)
+//        screenView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+        
+        
+//        let keyWindow = UIApplication.sharedApplication().keyWindow
+//        let rect = keyWindow?.bounds
+//        UIGraphicsBeginImageContext((rect?.size)!)
+//        let context = UIGraphicsGetCurrentContext()
+//        keyWindow?.layer.renderInContext(context!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+        
+        let view = self.view
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -497,10 +525,12 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.settingsButton.hidden = true
         self.characterButton.hidden = true
         
-        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+//        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+        
         self.replayButton.hidden = false
         
-        
+//        self.showReplay.hidden = true
+
     }
     
     //MARK: 主页按钮
@@ -512,6 +542,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     //MARK: 游戏结束 结束界面
     func gameOverNotificationAction() {
         
+        if GameState.sharedInstance.isRecording {
+            self.stopRecording()
+        }
+        
 //        let topScroe:Int = max(GameState.sharedInstance.localHighScore, gameCenterHighScore)
         
         self.currentScoreLalbel.text = "\(GameState.sharedInstance.currentScore)"
@@ -520,9 +554,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             self.topScroeLabel.text = "TOP:\(score)"
         }
         
-        
         // 游戏结束 截屏
-//        gameScreenCapture = screenCapture(self.view)
+        self.screenshotsImage = screenCapture()
         
         let delayInSeconds = 0.5
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
@@ -573,6 +606,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.goldDisplayLabel.hidden = true
         
         self.replayButton.hidden = true
+        
+//        self.showReplay.hidden = true
     
     }
     
@@ -595,6 +630,9 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         self.goldDisplayLabel.hidden = true
         
+        self.replayButton.hidden = true
+        
+//        self.showReplay.hidden = false
 
 
     }
@@ -611,6 +649,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.pauseButton.hidden = true
         
         self.settingsButton.hidden = false
+        
+        self.replayButton.hidden = false
 //        self.characterButton.hidden = false
         
         //  用dispatch_after推迟任务
@@ -637,6 +677,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        print("updateLifeTime \(progressView.progress)")
     }
     
+    //MARK: Game Center 授权
     //MARK: Player conected to Game Center, Delegate Func of Easy Game Center
     func EGCAuthentified(authentified:Bool) {
         
@@ -669,6 +710,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             print("game center 未授权登陆")
             self.topScroeLabel.hidden = true
             self.leaderboardsButton.backgroundColor = UIColor.grayColor()
+            
+            EGC.sharedInstance(self)
+            EGC.delegate = self
+            
         }
     }
     

@@ -53,12 +53,13 @@ class SettingsViewController: UIViewController {
         
 //        self.musicButton.setImage(UIImage(named: "homeButton_sound_off"), forState: UIControlState.Normal)
         
-        let music = GameState.sharedInstance.musicState
+//        let music = GameState.sharedInstance.musicState
         
-        if music {
+        if GameState.sharedInstance.musicState {
             self.musicButton.setImage(UIImage(named: "homeButton_sound"), forState: UIControlState.Normal)
             
         } else {
+            
             self.musicButton.setImage(UIImage(named: "homeButton_sound_off"), forState: UIControlState.Normal)
         }
         

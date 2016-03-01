@@ -13,7 +13,7 @@ import SpriteKit
 //MARK: 模拟水
 func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     
-    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(970, BG_hight))
+    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(970, Screen_Height * 0.1))
     wather.zPosition = -30
     wather.colorBlendFactor = 1.0
     wather.alpha = 1

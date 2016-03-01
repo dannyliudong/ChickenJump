@@ -188,7 +188,7 @@
                                 <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djA-Kp-8bM">
-                                <rect key="frame" x="562" y="70" width="30" height="22"/>
+                                <rect key="frame" x="562" y="74" width="30" height="22"/>
                                 <state key="normal" image="cameraOff"/>
                                 <connections>
                                     <action selector="replayAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hhc-Xt-so2"/>
@@ -226,7 +226,7 @@
                             <constraint firstItem="K1M-gU-vch" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="10" id="oMh-uW-H1l"/>
                             <constraint firstAttribute="trailing" secondItem="djA-Kp-8bM" secondAttribute="trailing" constant="8" id="p11-ZO-IGF"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="jEx-70-fdt" secondAttribute="bottom" constant="10" id="pU4-IM-PLw"/>
-                            <constraint firstItem="djA-Kp-8bM" firstAttribute="top" secondItem="Xbe-t4-et4" secondAttribute="bottom" constant="12" id="rFG-YV-byU"/>
+                            <constraint firstItem="djA-Kp-8bM" firstAttribute="top" secondItem="Xbe-t4-et4" secondAttribute="bottom" constant="16" id="rFG-YV-byU"/>
                             <constraint firstItem="Xbe-t4-et4" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" id="u4a-yd-oOh"/>
                             <constraint firstItem="BOu-9h-Hou" firstAttribute="leading" secondItem="mQl-Sc-H5o" secondAttribute="leading" id="x6C-c8-sxw"/>
                             <constraint firstItem="EgE-5X-UQj" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="xz5-jE-WSc"/>
@@ -251,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2164" y="438"/>
+            <point key="canvasLocation" x="-2084" y="416"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="CNM-cC-8S6">

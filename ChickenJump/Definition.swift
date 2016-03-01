@@ -11,7 +11,7 @@ import SpriteKit
 
 //MARK: Defined 单位
 var Screen_Width:CGFloat = 960 // 宽
-var Screen_Height:CGFloat = 640 // 高
+var Screen_Height:CGFloat = 960 // 高
 
 let Screen_Size:CGSize = CGSizeMake(Screen_Width, Screen_Height)
 let Screen_Center:CGPoint = CGPointMake(Screen_Width/2, Screen_Height/2)

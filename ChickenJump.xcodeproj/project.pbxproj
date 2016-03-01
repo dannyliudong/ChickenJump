@@ -16,6 +16,11 @@
 		A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02223491C7FFD98004B9D75 /* PlatfromNode.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
 		A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496EB1C818CE50033D1A9 /* chicken.mp3 */; };
+		A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC73E1C856CF70027A83E /* UIKit.framework */; };
+		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
+		A04AC75B1C8572610027A83E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7561C8572610027A83E /* libWeChatSDK.a */; };
+		A04AC75C1C8572620027A83E /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = A04AC7571C8572610027A83E /* read_me.txt */; };
+		A04AC7601C8573D40027A83E /* UIView+SwCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AC75F1C8573D40027A83E /* UIView+SwCapture.swift */; };
 		A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */; };
 		A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
@@ -109,6 +114,12 @@
 		A02223491C7FFD98004B9D75 /* PlatfromNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatfromNode.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
 		A03496EB1C818CE50033D1A9 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chicken.mp3; sourceTree = "<group>"; };
+		A04AC73E1C856CF70027A83E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A04AC7561C8572610027A83E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		A04AC7571C8572610027A83E /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		A04AC75E1C8573D40027A83E /* SwViewCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwViewCapture.h; sourceTree = "<group>"; };
+		A04AC75F1C8573D40027A83E /* UIView+SwCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SwCapture.swift"; sourceTree = "<group>"; };
 		A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongSectionNode.swift; sourceTree = "<group>"; };
 		A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnifeSectionNode.swift; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,14 +211,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */,
+				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
 				A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */,
 				A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */,
+				A04AC75B1C8572610027A83E /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A04AC7461C856FDE0027A83E /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A04AC7561C8572610027A83E /* libWeChatSDK.a */,
+				A04AC7571C8572610027A83E /* read_me.txt */,
+			);
+			name = WeChatSDK;
+			sourceTree = "<group>";
+		};
+		A04AC75D1C8573350027A83E /* SwViewCapture */ = {
+			isa = PBXGroup;
+			children = (
+				A04AC75E1C8573D40027A83E /* SwViewCapture.h */,
+				A04AC75F1C8573D40027A83E /* UIView+SwCapture.swift */,
+			);
+			name = SwViewCapture;
+			sourceTree = "<group>";
+		};
 		A05C4AD41C7DB41300F03332 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +252,8 @@
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
+				A04AC7401C856D1A0027A83E /* CoreGraphics.framework */,
+				A04AC73E1C856CF70027A83E /* UIKit.framework */,
 				A07594DB1C7AF153005FF82F /* iAd.framework */,
 				A07594D91C7AF14D005FF82F /* GameKit.framework */,
 				A075940F1C7AECBB005FF82F /* ChickenJump */,
@@ -238,6 +272,8 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
+				A04AC75D1C8573350027A83E /* SwViewCapture */,
+				A04AC7461C856FDE0027A83E /* WeChatSDK */,
 				A08386C91C7AF511008A7502 /* Motion */,
 				A08386C81C7AF49C008A7502 /* UI */,
 				A08386C71C7AF485008A7502 /* Model */,
@@ -543,6 +579,7 @@
 				A075947E1C7AEF43005FF82F /* inGame_efx_coinGenerate.mp3 in Resources */,
 				A07594E61C7AF203005FF82F /* POCRunTextureAlats.1.png in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
+				A04AC75C1C8572620027A83E /* read_me.txt in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
 				A07594911C7AEF53005FF82F /* crash.wav in Resources */,
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
@@ -581,6 +618,7 @@
 				A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */,
 				A07594341C7AEE21005FF82F /* CharactersUIViewController.swift in Sources */,
 				A07594571C7AEF03005FF82F /* Definition.swift in Sources */,
+				A04AC7601C8573D40027A83E /* UIView+SwCapture.swift in Sources */,
 				A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */,
 				A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */,
 				A07594DE1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift in Sources */,
@@ -707,6 +745,11 @@
 				INFOPLIST_FILE = ChickenJump/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChickenJump/WeChatSharing/Resources",
+					"$(PROJECT_DIR)/ChickenJump",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "abfa7ead-e655-4651-a9d2-95c499f417ab";
@@ -724,6 +767,11 @@
 				INFOPLIST_FILE = ChickenJump/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChickenJump/WeChatSharing/Resources",
+					"$(PROJECT_DIR)/ChickenJump",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "20c32bae-31db-47f5-9633-e68202efd7dd";
