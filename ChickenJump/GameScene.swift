@@ -13,6 +13,7 @@ import SpriteKit
     func updateHUD(score: Int)
     func updateGold(gold:Int)
     func updateLifeTime(time:Float)
+    func gameOverScreenshots()
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate {
@@ -2342,6 +2343,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         self.gameEndPlayerDeath()
                         self.gameEnd()
+                        
+//                        self.gameSceneDelegate?.gameOverScreenshots()
+                        
                         //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         //
                         //                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -2359,6 +2363,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         self.gameEndPlayerDeath()
                         self.gameEnd()
+                        
+//                        self.gameSceneDelegate?.gameOverScreenshots()
                         
                         //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         //                        self.showParticlesForEnemy(self.playerNode) // 爆炸特效

@@ -306,8 +306,13 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             //            let WXimg: UIImage = UIImage(named: "wxlogo")!
 //            var screenView:UIImage! // = UIImage(named: "LaunchLogo")!
             
+            var shareItems = [AnyObject]()
+            if let image = self.screenshotsImage {
+                shareItems = [messageStr, image, myWebsite]
+            } else {
+                shareItems = [messageStr, myWebsite]
+            }
             
-            let shareItems:Array = [messageStr, self.screenshotsImage!, myWebsite]
             let activityController = UIActivityViewController(activityItems:shareItems, applicationActivities: nil)
             if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
                 activityController.popoverPresentationController?.sourceView = self.view
@@ -317,27 +322,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     }
     
     
-    // 截屏
-    func screenCapture() ->UIImage {
-        
-        self.pauseButton.hidden = true
-        self.replayButton.hidden = true
-        self.progressView.hidden = true
-        self.scoreLabel.hidden = true
-        
-        self.currentScoreLalbel.hidden = false
-        self.topScroeLabel.hidden = false
-        
-        let view = self.view
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
-        
-        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return image
-    }
+
     
 
     // 设置
@@ -540,15 +525,11 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
 //        let topScroe:Int = max(GameState.sharedInstance.localHighScore, gameCenterHighScore)
         
-        self.currentScoreLalbel.text = "\(GameState.sharedInstance.currentScore)"
-        
-        if let score = GameState.sharedInstance.gamecenterSelfTopScore {
-            self.topScroeLabel.text = "TOP:\(score)"
-        }
+
         
         // 游戏结束 截屏
         
-        self.screenshotsImage = screenCapture()
+//        self.screenshotsImage = getScreenCapture()
         
         
         // 合成带logo图片
@@ -591,6 +572,34 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //            vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
 //            self.presentViewController(vc, animated: true) { () -> Void in }
 //        }
+    }
+    
+    func gameOverScreenshots() {
+        print("gameOverScreenshots")
+        
+        self.screenshotsImage = getScreenCapture()
+    }
+    
+    //MARK: 截屏
+    func getScreenCapture() ->UIImage {
+        
+        self.pauseButton.hidden = true
+        self.replayButton.hidden = true
+        self.progressView.hidden = true
+        self.scoreLabel.hidden = true
+        
+        self.currentScoreLalbel.hidden = false
+        self.topScroeLabel.hidden = false
+        
+        let view = self.view
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+        
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
     }
     
     func hiddenGameOverButtons(){
@@ -676,6 +685,13 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     func updateHUD(score:Int) {
         self.scoreLabel.text = "\(score)"
         self.scoreLabel.setNeedsDisplay()
+        
+        self.currentScoreLalbel.text = "\(GameState.sharedInstance.currentScore)"
+        
+        if let score = GameState.sharedInstance.gamecenterSelfTopScore {
+            self.topScroeLabel.text = "TOP:\(score)"
+        }
+        
     }
     
     func updateGold(gold: Int) {
