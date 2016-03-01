@@ -131,8 +131,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         return node
     }()
     
-
-    
     //MARK: SKAction
 
     let getGoldAction:SKAction = {
@@ -202,8 +200,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.addGesture()
         self.setupGame()
         
-        
-
     }
     
     //MARK: 手势
@@ -276,7 +272,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.platfromsWidthUpdateArray.removeAll()
         
         self.playergroundNode = SKNode()
-        self.playergroundNode.position = CGPointMake(0, 0)
+        self.playergroundNode.position = CGPointMake(0, PlatformHight)
         self.addChild(playergroundNode)
         
         self.setupColorsAndSceneLandAndWeather() // 设置颜色 天气
@@ -585,7 +581,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     // 背景
     func initBackgroud() {
-        createBG_layer()
+//        createBG_layer()
         
         if self.land == .Amazon || self.land == .Volcanic || self.land == .SnowMountain || self.land == .Iceberg || self.land == .Nightsky {
             createBG_HillDepth0_Layer()
@@ -679,7 +675,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
 
-        for i in 0...8 {
+        for i in 0...15 {
             print("i \(i)")
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
@@ -1028,7 +1024,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         addChild(water)
     }
     
-    // 背景颜色层
+    // 背景渐变层
     func createBG_layer() {
         
         let texture = SKTexture(imageNamed: "BGLayer")
@@ -2075,7 +2071,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func createPlayer() {
         
         self.playerNode = GameSpriteNodeWithPlayerNode(choseChaterName(playertype)) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(playerOffset, 300 ) //playerHight + playerNode.height * 0.5
+        self.playerNode.position = CGPointMake(playerOffset, Screen_Height * 0.5) //playerHight + playerNode.height * 0.5
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
         addChild(playerNode)
@@ -2873,7 +2869,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
-            ScrollBG_Move_Speed = playerPostionInScene.x * 0.008
+            ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             
 //            if playerPostionInScene.x <= Screen_Width * 0.3 {
 //                ScrollBG_Move_Speed = 0.5

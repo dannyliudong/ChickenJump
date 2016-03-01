@@ -20,6 +20,9 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    @IBOutlet weak var replayButton: UIButton!
+    //    @IBOutlet weak var showReplay: UIButton!
+    
     @IBOutlet weak var leaderboardsButton: UIButton!
     @IBOutlet weak var shareGameButton: UIButton!
     @IBOutlet weak var tryAgainButton: UIButton!
@@ -35,10 +38,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     @IBOutlet weak var lblTimerMessage: UILabel!
     
     @IBOutlet weak var goldDisplayLabel: UILabel!
-    
-    @IBOutlet weak var replayButton: UIButton!
-//    @IBOutlet weak var showReplay: UIButton!
-    
+        
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var secondsElapsed:Int = 3
@@ -113,7 +113,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
                 
-        GameState.sharedInstance.gameScene = GameScene(fileNamed:"GameScene")
+        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
         
         if let scene = GameState.sharedInstance.gameScene {
             
@@ -292,7 +292,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     }
     
     
-    
     //MARK: 分享游戏Aciton
     @IBAction func shareGameSocialNetwork(sender: UIButton) {
         print("shareGameSocialNetwork ")
@@ -302,7 +301,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     func shareGame() {
         if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/frank2016/id941582714?l=zh&ls=1&mt=8")
         {
-            let messageStr:String  = "Mr.J \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore)分"
+            
+            let messageStr:String  = "#\(Game_NameString)# \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore!)分"
             //            let WXimg: UIImage = UIImage(named: "wxlogo")!
 //            var screenView:UIImage! // = UIImage(named: "LaunchLogo")!
             
@@ -319,26 +319,18 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     // 截屏
     func screenCapture() ->UIImage {
- 
-//        let screenView = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(false)
-//        
-//        UIGraphicsBeginImageContextWithOptions(screenView.frame.size, false, 0.0)
-//        screenView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-//        
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
         
+        self.pauseButton.hidden = true
+        self.replayButton.hidden = true
+        self.progressView.hidden = true
+        self.scoreLabel.hidden = true
         
-//        let keyWindow = UIApplication.sharedApplication().keyWindow
-//        let rect = keyWindow?.bounds
-//        UIGraphicsBeginImageContext((rect?.size)!)
-//        let context = UIGraphicsGetCurrentContext()
-//        keyWindow?.layer.renderInContext(context!)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
+        self.currentScoreLalbel.hidden = false
+        self.topScroeLabel.hidden = false
         
         let view = self.view
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+        
         view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -555,7 +547,27 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         }
         
         // 游戏结束 截屏
+        
         self.screenshotsImage = screenCapture()
+        
+        
+        // 合成带logo图片
+
+//        if let image = screenshotsImage {
+//            
+//            let nameLogog:UIImage = UIImage(named: "namelogo")!
+//            
+//            UIGraphicsBeginImageContext(self.view.bounds.size)
+//           image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
+//            nameLogog.drawInRect(CGRectMake(60, 60, nameLogog.size.width, nameLogog.size.height))
+//            
+//            screenshotsImage = UIGraphicsGetImageFromCurrentImageContext()
+//            
+//            UIGraphicsEndImageContext()
+//            
+//        }
+        
+        
         
         let delayInSeconds = 0.5
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))

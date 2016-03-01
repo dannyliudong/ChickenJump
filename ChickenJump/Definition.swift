@@ -10,8 +10,8 @@ import UIKit
 import SpriteKit
 
 //MARK: Defined 单位
-var Screen_Width:CGFloat = 960 // 宽
-var Screen_Height:CGFloat = 960 // 高
+var Screen_Width:CGFloat = 1136 // 宽
+var Screen_Height:CGFloat = 640 // 高
 
 let Screen_Size:CGSize = CGSizeMake(Screen_Width, Screen_Height)
 let Screen_Center:CGPoint = CGPointMake(Screen_Width/2, Screen_Height/2)
@@ -85,7 +85,8 @@ enum PlaygroundComponents:Int {
     case BB
 }
 
-let GameBGSong = "bg_country.mp3"
+
+
 
 enum GameBGSongAudioName: String {
     case NormalAudioName = "bg_country.mp3"
@@ -135,11 +136,15 @@ let Player_Jump_Hight:CGFloat = 64
 let Scene_Gravity:CGFloat = -60.0
 
 let BG_hight:CGFloat = Screen_Height * 0.2
-let PlatformHight:CGFloat = 0//Screen_Height * 0.1
+let PlatformHight:CGFloat = -Screen_Height * 0.2//Screen_Height * 0.1
 
 //MARK: Custom UIView
 let Blur_ViewAlpha:CGFloat = 0.0
 let View_MaskAlpha:CGFloat = 0.5
+
+let Game_NameString = "Mr.J"
+let GameBGSong = "bg_country.mp3"
+
 
 let Font_Name:String = "HelveticaNeue"
 
