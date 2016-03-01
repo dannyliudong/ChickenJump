@@ -303,7 +303,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         //        customLongPressGesture()
         //        createSceneMainLights()
 
-        GameState.sharedInstance.gameOver = true
+//        GameState.sharedInstance.gameOver = true
         GameState.sharedInstance.isLoadingDone = true
         
         GameState.sharedInstance.lifeTimeCount = 1.2
@@ -2517,7 +2517,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 开始游戏
     func startGame() {
-        print("startGame()")
+        print("startGame()...")
         NSNotificationCenter.defaultCenter().postNotificationName("startGameAnimationNotification", object: nil)
         
         self.guideFigerNode.removeFromParent()

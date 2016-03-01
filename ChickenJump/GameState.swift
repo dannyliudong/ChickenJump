@@ -23,6 +23,8 @@ class GameState {
     var isLoadingDone:Bool = true
     var canJump:Bool = true
     
+    var isRecording:Bool = false
+    
     var gameScene:GameScene?
     
     // 用户设置的状态

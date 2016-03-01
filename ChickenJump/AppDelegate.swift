@@ -33,9 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //  读取用户的设置信息
             let userDefaults = NSUserDefaults.standardUserDefaults()
             
-            if (GameState.sharedInstance.gamecenterSelfTopScore != nil) {
-                GameState.sharedInstance.gamecenterSelfTopScore = userDefaults.integerForKey("gamecenterSelfTopScore")
-            }
+//            if (GameState.sharedInstance.gamecenterSelfTopScore != nil) {
+//                GameState.sharedInstance.gamecenterSelfTopScore = userDefaults.integerForKey("gamecenterSelfTopScore")
+//            }
             GameState.sharedInstance.musicState = userDefaults.boolForKey("musicState")
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")
         }

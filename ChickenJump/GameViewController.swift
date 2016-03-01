@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 import iAd
-
+import ReplayKit
 
 
 class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneDelegate, EGCDelegate {
@@ -36,6 +36,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     @IBOutlet weak var goldDisplayLabel: UILabel!
     
+    @IBOutlet weak var replayButton: UIButton!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -282,17 +283,20 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     
     
-    // 分享游戏
+    //MARK: 分享游戏Aciton
     @IBAction func shareGameSocialNetwork(sender: UIButton) {
         print("shareGameSocialNetwork ")
-        
+        shareGame()
+    }
+    
+    func shareGame() {
         if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/frank2016/id941582714?l=zh&ls=1&mt=8")
         {
-            let messageStr:String  = "Play this game with me"
-//            let WXimg: UIImage = UIImage(named: "wxlogo")!
+            let messageStr:String  = "Mr.J \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore)分"
+            //            let WXimg: UIImage = UIImage(named: "wxlogo")!
             let icon:UIImage = UIImage(named: "LaunchLogo")!
             
-//            let image = gameScreenCapture!
+            //            let image = gameScreenCapture!
             let shareItems:Array = [messageStr, icon, myWebsite]
             let activityController = UIActivityViewController(activityItems:shareItems, applicationActivities: nil)
             if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -300,8 +304,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             }
             self.presentViewController(activityController, animated: true,completion: nil)
         }
-        
     }
+    
     
     // 截屏
     func screenCapture(view:UIView) ->UIImage {
@@ -340,6 +344,68 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.presentViewController(vc, animated: false) { () -> Void in
             
         }
+    }
+    
+    
+    //MARK: 录像
+    @IBAction func replayAction(sender: UIButton) {
+        print("replayAction")
+        
+        if !GameState.sharedInstance.isRecording {
+            self.startRecording()
+        } else if GameState.sharedInstance.isRecording {
+            self.stopRecording()
+        }
+        
+    }
+    
+    //开始录像
+    func startRecording() {
+        let recorder = RPScreenRecorder.sharedRecorder()
+        recorder.delegate = self;
+        
+        recorder.startRecordingWithMicrophoneEnabled(true) { (error) -> Void in
+            if let error = error {
+                print(error.localizedDescription)
+                self.alert(error.localizedDescription)
+            } else {
+//                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
+                
+                self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
+                GameState.sharedInstance.isRecording = true
+            }
+        }
+    }
+    
+    //停止录像
+    func stopRecording() {
+//        pauseGame()
+        
+        let recorder = RPScreenRecorder.sharedRecorder()
+        
+        recorder.stopRecordingWithHandler { (previewController, error) -> Void in
+            if let error = error {
+                print(error.localizedDescription)
+                self.alert(error.localizedDescription)
+            } else {
+//                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .Plain, target: self, action: #selector(ViewController.startRecording))
+                
+                self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+                GameState.sharedInstance.isRecording = false
+                
+                if let preview = previewController {
+                    preview.previewControllerDelegate = self
+                    self.presentViewController(preview, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func alert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     //MARK: 暂停游戏场景
@@ -431,6 +497,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.settingsButton.hidden = true
         self.characterButton.hidden = true
         
+        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+        self.replayButton.hidden = false
+        
+        
     }
     
     //MARK: 主页按钮
@@ -501,6 +571,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.lblTimerMessage.hidden = true
         
         self.goldDisplayLabel.hidden = true
+        
+        self.replayButton.hidden = true
     
     }
     
@@ -523,6 +595,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         self.goldDisplayLabel.hidden = true
         
+
+
     }
     
 //    func showGameCenterLeaderboards() {
@@ -681,3 +755,33 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 
     
 }
+
+
+//MARK: ReplayKit Extension
+extension GameViewController: RPScreenRecorderDelegate {
+    func screenRecorderDidChangeAvailability(screenRecorder: RPScreenRecorder) {
+        print("screen recorder did change availability")
+    }
+    
+    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
+        print("screen recorder did stop recording : \(error.localizedDescription)")
+    }
+}
+
+extension GameViewController: RPPreviewViewControllerDelegate {
+    func previewControllerDidFinish(previewController: RPPreviewViewController) {
+        print("preview controller did finish")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func previewController(previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
+        print("preview controller did finish with activity types : \(activityTypes)")
+        if activityTypes.contains("com.apple.UIKit.activity.SaveToCameraRoll") {
+            // video has saved to camera roll
+        } else {
+            // cancel
+        }
+    }
+}
+
+
