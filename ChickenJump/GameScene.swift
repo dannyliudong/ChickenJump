@@ -2344,6 +2344,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         self.gameEndPlayerDeath()
                         self.gameEnd()
                         
+                        let delay:Double = 0.2
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+                        
+                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                            self.gameSceneDelegate?.gameOverScreenshots()
+                        }
+                        
 //                        self.gameSceneDelegate?.gameOverScreenshots()
                         
                         //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
@@ -2364,7 +2371,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         self.gameEndPlayerDeath()
                         self.gameEnd()
                         
-//                        self.gameSceneDelegate?.gameOverScreenshots()
+                        let delay:Double = 0.2
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+                        
+                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                            self.gameSceneDelegate?.gameOverScreenshots()
+                        }
                         
                         //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                         //                        self.showParticlesForEnemy(self.playerNode) // 爆炸特效
@@ -2414,12 +2426,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, Player_Jump_Hight), duration: 0.2))
                         
                         if GameState.sharedInstance.musicState { self.runAction(springSoundAction) }
-                        
-                    case CollisionCategoryBitmask.Pinned:
-                        print("Contact胶水")
-                        
-                        contactFloorEvent(node)
-                        playerMagic()
+
                         
                     default:
                         break

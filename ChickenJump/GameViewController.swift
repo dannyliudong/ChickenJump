@@ -523,14 +523,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             self.stopRecording()
         }
         
-//        let topScroe:Int = max(GameState.sharedInstance.localHighScore, gameCenterHighScore)
-        
-
-        
         // 游戏结束 截屏
-        
-//        self.screenshotsImage = getScreenCapture()
-        
+//        self.screenshotsImage = getScreenCapture()        
         
         // 合成带logo图片
 

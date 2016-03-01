@@ -33,13 +33,10 @@ class Player: SKNode {
             CollisionCategoryBitmask.Enemy |
             CollisionCategoryBitmask.DoorKey_Button |
             CollisionCategoryBitmask.Spring |
-            CollisionCategoryBitmask.Pinned |
             CollisionCategoryBitmask.Gold
         
-        node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
-            CollisionCategoryBitmask.Down_Floor |
-            CollisionCategoryBitmask.Invisible |
-            CollisionCategoryBitmask.Pinned
+//        node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
+//            CollisionCategoryBitmask.Down_Floor
         
         node.physicsBody?.friction = 0
         node.physicsBody?.charge = 0

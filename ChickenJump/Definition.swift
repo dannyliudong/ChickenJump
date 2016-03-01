@@ -39,7 +39,6 @@ struct CollisionCategoryBitmask {
     static let Wather:UInt32 =          0b10000000 // 128
     static let Invisible:UInt32 =       0b100000000 // 256
     static let Spring:UInt32 =          0b1000000000 // 512
-    static let Pinned:UInt32 =          0b10000000000 // 1024
     
 }
 
