@@ -151,7 +151,7 @@ let FloorPhybodyWidth:CGFloat = 48
 let FloorPhybodyHight:CGFloat = 10
 
 //MARK: Game Center leaderboardIdentifier
-let Leader_Board_Identifier:String = "frank"
+let Leader_Board_Identifier:String = "ChickenScore"
 
 //MARK: light color
 let Light_AmbientColor_Day:UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
