@@ -13,7 +13,7 @@ import SpriteKit
 //MARK: 模拟水
 func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     
-    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(970, Screen_Height * 0.1))
+    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(970, Screen_Height * 0.2))
     wather.zPosition = -30
     wather.colorBlendFactor = 1.0
     wather.alpha = 1
@@ -84,6 +84,8 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     node.physicsBody?.allowsRotation = false
     
     node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
+    
+    //  碰撞事件通知
     node.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Normal_Floor |
                                             CollisionCategoryBitmask.Down_Floor |
                                             CollisionCategoryBitmask.Wather |
@@ -91,8 +93,11 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
                                             CollisionCategoryBitmask.DoorKey_Button |
                                             CollisionCategoryBitmask.Spring |
                                             CollisionCategoryBitmask.Gold
-    
-    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor | CollisionCategoryBitmask.Down_Floor
+    //  碰撞位置影响
+    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
+                                            CollisionCategoryBitmask.Down_Floor |
+                                            CollisionCategoryBitmask.Wather |
+                                            CollisionCategoryBitmask.Spring
     
     node.physicsBody?.friction = 0
     node.physicsBody?.charge = 0

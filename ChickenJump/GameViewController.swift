@@ -142,8 +142,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             
             let alertView = UIAlertView(title: "排行榜", message: "请登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
             alertView.show()
-            
-            EGC.delegate = self
         }
 
     }
@@ -679,10 +677,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         } else {
             print("game center 未授权登陆")
             self.topScroeLabel.hidden = true
-            
-            EGC.sharedInstance(self)
-            EGC.delegate = self
-            
         }
     }
     
