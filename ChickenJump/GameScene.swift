@@ -2344,20 +2344,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         self.gameEndPlayerDeath()
                         self.gameEnd()
                         
-                        let delay:Double = 0.2
+                        let delay:Double = 0.05
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
                             self.gameSceneDelegate?.gameOverScreenshots()
                         }
                         
-//                        self.gameSceneDelegate?.gameOverScreenshots()
-                        
-                        //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-                        //
-                        //                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        //                        })
-                        //                    })
                         
                     case CollisionCategoryBitmask.Wather :
                         print("Contact Wather")
@@ -2371,20 +2364,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         self.gameEndPlayerDeath()
                         self.gameEnd()
                         
-                        let delay:Double = 0.2
+                        let delay:Double = 0.1
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
                             self.gameSceneDelegate?.gameOverScreenshots()
                         }
-                        
-                        //                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-                        //                        self.showParticlesForEnemy(self.playerNode) // 爆炸特效
-                        //
-                        //                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        //                            self.gameEnd()
-                        //                        })
-                        //                    })
                         
                     case CollisionCategoryBitmask.DoorKey_Button:
                         print("Contact 开门 按钮")
@@ -2568,14 +2553,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         self.gameSceneDelegate?.updateHUD(Int(self.gameScore))
         
+        NSNotificationCenter.defaultCenter().postNotificationName("gameOverNotification", object: nil)
+
+        
         //  用dispatch_after推迟任务
-        let delayInSeconds = 0.5
-        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-            //            self.showiAd()
-            
-            NSNotificationCenter.defaultCenter().postNotificationName("gameOverNotification", object: nil)
-        }
+//        let delayInSeconds = 0.5
+//        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
+//        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+//            //            self.showiAd()
+//            NSNotificationCenter.defaultCenter().postNotificationName("gameOverNotification", object: nil)
+//        }
         
     }
     

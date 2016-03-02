@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 //MARK: Defined 单位
-var Screen_Width:CGFloat = 1136 // 宽
+var Screen_Width:CGFloat = 960 // 宽
 var Screen_Height:CGFloat = 640 // 高
 
 let Screen_Size:CGSize = CGSizeMake(Screen_Width, Screen_Height)
@@ -117,7 +117,7 @@ enum BGDetphType:UInt32 {
 
 let Long_SectionWidth:CGFloat = 64.0
 let Door_SectionWidth:CGFloat = 64.0 * 4
-let Down_SectionWidth:CGFloat = 64.0 * 2
+let Down_SectionWidth:CGFloat = 64.0 * 3
 let BridgeMovingInX_SectionWidth:CGFloat = 64.0 * 5
 let BridgeMovingInY_SectionWidth:CGFloat = 64.0 * 3
 let Spring_SectionWidth:CGFloat = 64.0 * 5
@@ -135,7 +135,7 @@ let Player_Jump_Hight:CGFloat = 64
 let Scene_Gravity:CGFloat = -60.0
 
 let BG_hight:CGFloat = Screen_Height * 0.2
-let PlatformHight:CGFloat = -Screen_Height * 0.2//Screen_Height * 0.1
+let PlatformHight:CGFloat = -Screen_Height * 0.1//Screen_Height * 0.1
 
 //MARK: Custom UIView
 let Blur_ViewAlpha:CGFloat = 0.0

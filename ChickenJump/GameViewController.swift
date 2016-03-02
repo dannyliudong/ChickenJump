@@ -105,9 +105,9 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         let skView = self.view as! SKView
         
         // Configure the view.
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.showsDrawCount = true
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
+//        skView.showsDrawCount = true
 //        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
@@ -543,8 +543,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        }
         
         
-        
-        let delayInSeconds = 0.5
+        let delayInSeconds = 2.0
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
