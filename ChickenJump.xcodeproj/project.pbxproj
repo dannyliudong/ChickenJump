@@ -8,21 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
-		A012BD9A1C7D95E000E5061D /* GameTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD991C7D95E000E5061D /* GameTexture.swift */; };
-		A018A27F1C7D401C004FF1B2 /* GameSceneObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */; };
-		A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
 		A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */; };
-		A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02223491C7FFD98004B9D75 /* PlatfromNode.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
 		A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496EB1C818CE50033D1A9 /* chicken.mp3 */; };
 		A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC73E1C856CF70027A83E /* UIKit.framework */; };
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
-		A04AC75B1C8572610027A83E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7561C8572610027A83E /* libWeChatSDK.a */; };
-		A04AC75C1C8572620027A83E /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = A04AC7571C8572610027A83E /* read_me.txt */; };
-		A04AC7601C8573D40027A83E /* UIView+SwCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AC75F1C8573D40027A83E /* UIView+SwCapture.swift */; };
-		A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */; };
-		A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */; };
+		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
 		A07594271C7AECFC005FF82F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594261C7AECFC005FF82F /* Main.storyboard */; };
 		A075942C1C7AED47005FF82F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075942B1C7AED47005FF82F /* AppDelegate.swift */; };
@@ -93,35 +85,18 @@
 		A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */; };
 		A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594D91C7AF14D005FF82F /* GameKit.framework */; };
 		A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
-		A07594DE1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594DD1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift */; };
-		A07594E01C7AF1F9005FF82F /* POCRunTextureAlats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594DF1C7AF1F9005FF82F /* POCRunTextureAlats.swift */; };
-		A07594E61C7AF203005FF82F /* POCRunTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594E21C7AF203005FF82F /* POCRunTextureAlats.1.png */; };
-		A07594E71C7AF203005FF82F /* POCRunTextureAlats.1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594E31C7AF203005FF82F /* POCRunTextureAlats.1@2x.png */; };
-		A07594E81C7AF203005FF82F /* POCRunTextureAlats.1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594E41C7AF203005FF82F /* POCRunTextureAlats.1@3x.png */; };
-		A07594E91C7AF203005FF82F /* POCRunTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */; };
-		A07594ED1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */; };
-		A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
-		A012BD991C7D95E000E5061D /* GameTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTexture.swift; sourceTree = "<group>"; };
-		A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneObjectNode.swift; sourceTree = "<group>"; };
-		A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSpriteObjectNode.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		A02223491C7FFD98004B9D75 /* PlatfromNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatfromNode.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
 		A03496EB1C818CE50033D1A9 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chicken.mp3; sourceTree = "<group>"; };
 		A04AC73E1C856CF70027A83E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A04AC7561C8572610027A83E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		A04AC7571C8572610027A83E /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
-		A04AC75E1C8573D40027A83E /* SwViewCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwViewCapture.h; sourceTree = "<group>"; };
-		A04AC75F1C8573D40027A83E /* UIView+SwCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SwCapture.swift"; sourceTree = "<group>"; };
-		A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongSectionNode.swift; sourceTree = "<group>"; };
-		A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnifeSectionNode.swift; sourceTree = "<group>"; };
+		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A075941B1C7AECBB005FF82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A07594201C7AECBB005FF82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -195,14 +170,6 @@
 		A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyGameCenter.swift; sourceTree = "<group>"; };
 		A07594D91C7AF14D005FF82F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		A07594DD1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerAnimationTextureAlats.swift; path = ../PlayerAnimationTextureAlats.swift; sourceTree = "<group>"; };
-		A07594DF1C7AF1F9005FF82F /* POCRunTextureAlats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = POCRunTextureAlats.swift; path = ../POCRunTextureAlats.swift; sourceTree = "<group>"; };
-		A07594E21C7AF203005FF82F /* POCRunTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = POCRunTextureAlats.1.png; sourceTree = "<group>"; };
-		A07594E31C7AF203005FF82F /* POCRunTextureAlats.1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "POCRunTextureAlats.1@2x.png"; sourceTree = "<group>"; };
-		A07594E41C7AF203005FF82F /* POCRunTextureAlats.1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "POCRunTextureAlats.1@3x.png"; sourceTree = "<group>"; };
-		A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = POCRunTextureAlats.plist; sourceTree = "<group>"; };
-		A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerAnimationTextureAlats.1.png; sourceTree = "<group>"; };
-		A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PlayerAnimationTextureAlats.plist; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,11 +178,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
 				A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */,
 				A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */,
-				A04AC75B1C8572610027A83E /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,33 +192,29 @@
 		A04AC7461C856FDE0027A83E /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A04AC7561C8572610027A83E /* libWeChatSDK.a */,
-				A04AC7571C8572610027A83E /* read_me.txt */,
 			);
 			name = WeChatSDK;
 			sourceTree = "<group>";
 		};
-		A04AC75D1C8573350027A83E /* SwViewCapture */ = {
+		A06716EA1C86D40A00D4F519 /* WeChatSharing */ = {
 			isa = PBXGroup;
 			children = (
-				A04AC75E1C8573D40027A83E /* SwViewCapture.h */,
-				A04AC75F1C8573D40027A83E /* UIView+SwCapture.swift */,
+				A06716EB1C86D40A00D4F519 /* Resources */,
 			);
-			name = SwViewCapture;
+			path = WeChatSharing;
 			sourceTree = "<group>";
 		};
-		A05C4AD41C7DB41300F03332 /* Entities */ = {
+		A06716EB1C86D40A00D4F519 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A05C4AD51C7DB42600F03332 /* LongSectionNode.swift */,
-				A05C4AD71C7DB6C100F03332 /* KnifeSectionNode.swift */,
 			);
-			name = Entities;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
+				A05486A51C86BDD9001EB526 /* GameplayKit.framework */,
 				A04AC7401C856D1A0027A83E /* CoreGraphics.framework */,
 				A04AC73E1C856CF70027A83E /* UIKit.framework */,
 				A07594DB1C7AF153005FF82F /* iAd.framework */,
@@ -272,7 +235,8 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
-				A04AC75D1C8573350027A83E /* SwViewCapture */,
+				A06716EA1C86D40A00D4F519 /* WeChatSharing */,
+				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A04AC7461C856FDE0027A83E /* WeChatSDK */,
 				A08386C91C7AF511008A7502 /* Motion */,
 				A08386C81C7AF49C008A7502 /* UI */,
@@ -308,11 +272,9 @@
 		A075945A1C7AEF18005FF82F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A07594BE1C7AF058005FF82F /* SKTUtils */,
 				A07594AB1C7AEFE1005FF82F /* Particles */,
 				A075949C1C7AEFAD005FF82F /* BGSprite */,
-				A07594941C7AEF6D005FF82F /* PlayerSprite */,
 				A075945B1C7AEF22005FF82F /* Sound */,
 			);
 			name = Resources;
@@ -353,15 +315,6 @@
 				A07594741C7AEF43005FF82F /* catch_star01.caf */,
 			);
 			name = Sound;
-			sourceTree = "<group>";
-		};
-		A07594941C7AEF6D005FF82F /* PlayerSprite */ = {
-			isa = PBXGroup;
-			children = (
-				A07594EA1C7AF223005FF82F /* PlayerAnimationTextureAlats.atlasc */,
-				A07594E11C7AF203005FF82F /* POCRunTextureAlats.atlasc */,
-			);
-			name = PlayerSprite;
 			sourceTree = "<group>";
 		};
 		A075949C1C7AEFAD005FF82F /* BGSprite */ = {
@@ -430,41 +383,14 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
-		A07594E11C7AF203005FF82F /* POCRunTextureAlats.atlasc */ = {
-			isa = PBXGroup;
-			children = (
-				A07594DF1C7AF1F9005FF82F /* POCRunTextureAlats.swift */,
-				A07594E21C7AF203005FF82F /* POCRunTextureAlats.1.png */,
-				A07594E31C7AF203005FF82F /* POCRunTextureAlats.1@2x.png */,
-				A07594E41C7AF203005FF82F /* POCRunTextureAlats.1@3x.png */,
-				A07594E51C7AF203005FF82F /* POCRunTextureAlats.plist */,
-			);
-			path = POCRunTextureAlats.atlasc;
-			sourceTree = "<group>";
-		};
-		A07594EA1C7AF223005FF82F /* PlayerAnimationTextureAlats.atlasc */ = {
-			isa = PBXGroup;
-			children = (
-				A07594DD1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift */,
-				A07594EB1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png */,
-				A07594EC1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist */,
-			);
-			path = PlayerAnimationTextureAlats.atlasc;
-			sourceTree = "<group>";
-		};
 		A08386C71C7AF485008A7502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A05C4AD41C7DB41300F03332 /* Entities */,
 				A07594581C7AEF0A005FF82F /* GameState.swift */,
 				A07594561C7AEF03005FF82F /* Definition.swift */,
 				A012BD971C7D8D7000E5061D /* GameColor.swift */,
 				A018A2821C7D4263004FF1B2 /* Player.swift */,
-				A012BD991C7D95E000E5061D /* GameTexture.swift */,
 				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
-				A02223491C7FFD98004B9D75 /* PlatfromNode.swift */,
-				A018A27E1C7D401C004FF1B2 /* GameSceneObjectNode.swift */,
-				A018A2801C7D4057004FF1B2 /* GameSpriteObjectNode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -558,7 +484,6 @@
 				A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */,
 				A07594921C7AEF53005FF82F /* eatcycle.wav in Resources */,
 				A07594751C7AEF43005FF82F /* bg_country.mp3 in Resources */,
-				A07594ED1C7AF223005FF82F /* PlayerAnimationTextureAlats.1.png in Resources */,
 				A075947D1C7AEF43005FF82F /* inGame_action_smashStart.mp3 in Resources */,
 				A07594471C7AEE88005FF82F /* Down_Section.sks in Resources */,
 				A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */,
@@ -571,15 +496,11 @@
 				A075947F1C7AEF43005FF82F /* inGame_efx_invisibleStart.mp3 in Resources */,
 				A075947B1C7AEF43005FF82F /* gamebgmusicA.mp3 in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
-				A07594E81C7AF203005FF82F /* POCRunTextureAlats.1@3x.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
 				A07594931C7AEF53005FF82F /* Get.wav in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
-				A07594E71C7AF203005FF82F /* POCRunTextureAlats.1@2x.png in Resources */,
 				A075947E1C7AEF43005FF82F /* inGame_efx_coinGenerate.mp3 in Resources */,
-				A07594E61C7AF203005FF82F /* POCRunTextureAlats.1.png in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
-				A04AC75C1C8572620027A83E /* read_me.txt in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
 				A07594911C7AEF53005FF82F /* crash.wav in Resources */,
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
@@ -590,13 +511,11 @@
 				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948D1C7AEF43005FF82F /* catch_star01.caf in Resources */,
-				A07594EE1C7AF223005FF82F /* PlayerAnimationTextureAlats.plist in Resources */,
 				A07594801C7AEF43005FF82F /* inGame_efx_spring.mp3 in Resources */,
 				A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */,
 				A07594811C7AEF43005FF82F /* inGame_event_blockMove.mp3 in Resources */,
 				A075948B1C7AEF43005FF82F /* ThunderAndLighning.mp3 in Resources */,
 				A07594A41C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png in Resources */,
-				A07594E91C7AF203005FF82F /* POCRunTextureAlats.plist in Resources */,
 				A07594821C7AEF43005FF82F /* inGame_event_deathMonster_1.mp3 in Resources */,
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
 				A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */,
@@ -615,35 +534,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A022234A1C7FFD98004B9D75 /* PlatfromNode.swift in Sources */,
 				A07594341C7AEE21005FF82F /* CharactersUIViewController.swift in Sources */,
 				A07594571C7AEF03005FF82F /* Definition.swift in Sources */,
-				A04AC7601C8573D40027A83E /* UIView+SwCapture.swift in Sources */,
 				A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */,
 				A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */,
-				A07594DE1C7AF1EC005FF82F /* PlayerAnimationTextureAlats.swift in Sources */,
 				A07594301C7AEE0C005FF82F /* GameScene.swift in Sources */,
 				A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */,
 				A075942E1C7AEE03005FF82F /* GameViewController.swift in Sources */,
 				A07594C81C7AF094005FF82F /* SKEmitterNode+Extras.swift in Sources */,
 				A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */,
 				A018A2831C7D4263004FF1B2 /* Player.swift in Sources */,
-				A012BD9A1C7D95E000E5061D /* GameTexture.swift in Sources */,
 				A075949E1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift in Sources */,
 				A07594321C7AEE19005FF82F /* Shake.swift in Sources */,
-				A018A27F1C7D401C004FF1B2 /* GameSceneObjectNode.swift in Sources */,
 				A075942C1C7AED47005FF82F /* AppDelegate.swift in Sources */,
 				A07594A01C7AEFC0005FF82F /* PlatfromTextureAlats.swift in Sources */,
-				A05C4AD81C7DB6C100F03332 /* KnifeSectionNode.swift in Sources */,
 				A07594C61C7AF094005FF82F /* SKAction+Extensions.swift in Sources */,
 				A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */,
 				A07594C51C7AF094005FF82F /* MyUtils.swift in Sources */,
-				A05C4AD61C7DB42600F03332 /* LongSectionNode.swift in Sources */,
 				A07594591C7AEF0A005FF82F /* GameState.swift in Sources */,
 				A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */,
-				A07594E01C7AF1F9005FF82F /* POCRunTextureAlats.swift in Sources */,
 				A07594551C7AEEE3005FF82F /* GameSpriteNode.swift in Sources */,
-				A018A2811C7D4057004FF1B2 /* GameSpriteObjectNode.swift in Sources */,
 				A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

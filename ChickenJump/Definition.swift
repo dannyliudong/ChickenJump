@@ -150,6 +150,8 @@ let Font_Name:String = "HelveticaNeue"
 let FloorPhybodyWidth:CGFloat = 48
 let FloorPhybodyHight:CGFloat = 10
 
+let AppStoreURL:String = "https://itunes.apple.com/us/app/frank2016/id941582714?l=zh&ls=1&mt=8"
+
 //MARK: Game Center leaderboardIdentifier
 let Leader_Board_Identifier:String = "ChickenScore"
 
@@ -168,7 +170,6 @@ struct LightingBitMask {
     static let MainLight:UInt32 = 1
     static let BGLight:UInt32 = 10
     static let FlashLight:UInt32 = 20
-    
 }
 
 struct ShadowCastBitMask {
@@ -184,7 +185,6 @@ func GCDSwift(){
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             //这里返回主线程，写需要主线程执行的代码
             print("这里返回主线程，写需要主线程执行的代码")
-            
             
         })
     })
@@ -241,49 +241,6 @@ func randomFlashTexture() ->SKTexture {
     case 3: return SKTexture(imageNamed: "flashD")
     case 4: return SKTexture(imageNamed: "flashE")
     default: return SKTexture(imageNamed: "flashA")
-    }
-}
-
-
-func randomCloudTexture() ->SKTexture {
-    switch arc4random() % 4 {
-    case 0: return SKTexture(imageNamed: "cloud1")
-    case 1: return SKTexture(imageNamed: "cloud2")
-    case 2: return SKTexture(imageNamed: "cloud3")
-    case 3: return SKTexture(imageNamed: "cloud4")
-    default :return SKTexture(imageNamed: "cloud1")
-    }
-}
-
-func randomGoldTexture() ->SKTexture {
-    switch arc4random() % 5 {
-    case 0: return SKTexture(imageNamed: "goldA")
-    case 1: return SKTexture(imageNamed: "goldB")
-    case 2: return SKTexture(imageNamed: "goldC")
-    case 3: return SKTexture(imageNamed: "goldD")
-    case 4: return SKTexture(imageNamed: "goldE")
-    default :return SKTexture(imageNamed: "goldA")
-    }
-}
-
-func randomPlatformContactType() ->PlatformContactType {
-    switch arc4random() % 6 {
-    case 0: return PlatformContactType.Long_Section
-    case 1: return PlatformContactType.Spring_Section
-    case 2: return PlatformContactType.Door_Section
-    case 3: return PlatformContactType.Down_Section
-    case 4: return PlatformContactType.BridgeMovingInX_Section
-    case 5: return PlatformContactType.BridgeMovingInY_Section
-    default: return PlatformContactType.Long_Section
-    }
-}
-
-
-func randomPlatformHight() ->CGFloat {
-    switch arc4random() % 2 {
-    case 0: return CGFloat(80)
-    case 1: return CGFloat(100)
-    default :return CGFloat(0)
     }
 }
 

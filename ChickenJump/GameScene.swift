@@ -21,9 +21,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     let bgSheet = BGSpriteTextureAltas()
     let platfromAtlats = PlatfromTextureAlats()
 
-    let sheet = PlayerAnimationTextureAlats()
-    let poc = POCRunTextureAlats()
-
     weak var gameSceneDelegate: GameSceneDelegate?
     
     // MARK: Properties let
@@ -35,10 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     private var ScrollBG_Move_Speed:CGFloat = 1.0
 
     // MARK: private game data
-    private var gameScore: CGFloat = 0 // 分数
+
     private var hillLevelScore:Int = 0
-//    private var playing:Bool = false
-//    private var canJump:Bool = true
     
     private var playertype:PlayerType!
     
@@ -53,12 +48,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     private var treesColor:  UIColor!
     private var floorColor:   UIColor!
     private var wallColor:   UIColor!
-    
-    private var cloudLayerA_node: SKNode!
-    private var cloudLayerB_node: SKNode!
-    
-    private var fogLayerA_node:SKNode!
-    private var fogLayerB_node:SKNode!
     
     var flashLightNode:SKNode!
     
@@ -181,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     let thunderSoundAction = SKAction.playSoundFileNamed("ThunderSound.mp3", waitForCompletion: false)
     
     //MARK: 场景UI 手势
-    private var longPressGestureLeve1:UILongPressGestureRecognizer! // 长按手势 0.1秒
+//    private var longPressGestureLeve1:UILongPressGestureRecognizer! // 长按手势 0.1秒
 
     //MARK: Did Move To View
     override func didMoveToView(view: SKView) {
@@ -266,8 +255,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //        
 //        print("testNode Postion \(testNode?.position)")
         
-        platfromInterval = 0
-        self.gameScore = 0
+        self.platfromInterval = 0
+        GameState.sharedInstance.currentScore = 0
         
         self.platfromArray.removeAll()
         self.platfromsWidthUpdateArray.removeAll()
@@ -652,7 +641,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func randomPlatfromNode() ->(SKNode, CGFloat) {
         switch arc4random() % 6 {
         case 0:
-            let count = Int(CGFloat.random(min: 3, max: 8))
+            let count = Int(CGFloat.random(min: 1, max: 3))
             return (createLongSectionWith(count), Long_SectionWidth * CGFloat(count + 1))
         case 1:
             return (self.door_SectionNode, Door_SectionWidth)
@@ -676,8 +665,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
 
-        for i in 0...15 {
-            print("i \(i)")
+        for _ in 0...15 {
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
             self.playergroundNode.addChild(node)
@@ -714,8 +702,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("实时刷新关卡地图")
         
         // 增加一个新的放到最后面
-        let nodeAndWidth:(SKNode, CGFloat) = randomPlatfromNode()
-        let node = createPlatfromNodeWithSKS(nodeAndWidth.0)
+        let nodeAndWidth:(SKNode, CGFloat) = self.randomPlatfromNode()
+        
+        let node = self.createPlatfromNodeWithSKS(nodeAndWidth.0)
         
         let lastNode = self.platfromsWidthUpdateArray.last
         
@@ -724,9 +713,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         self.platfromsWidthUpdateArray.append((node, nodeAndWidth.1))
         
-        
         // 如果第一个 位置在左场景外
-        let firstNodePostionInScene = convertPoint(self.position, fromNode: (platfromsWidthUpdateArray.first?.0)!)
+        let firstNodePostionInScene = self.convertPoint(self.position, fromNode: (self.platfromsWidthUpdateArray.first?.0)!)
         if firstNodePostionInScene.x <= -64 {
             // 移除最前面一个
             self.platfromsWidthUpdateArray.removeAtIndex(0) // 从数组中移除
@@ -946,26 +934,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 场景边缘
     func sceneEdgeBottom() {
-        
-        let edgeBottom = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(Screen_Width, 10))
-        edgeBottom.position = CGPointMake(Screen_Width * 0.5, 0)
-        edgeBottom.physicsBody = SKPhysicsBody(rectangleOfSize: edgeBottom.size)
-        edgeBottom.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Enemy
-        edgeBottom.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
-        edgeBottom.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.None
-        
-        edgeBottom.physicsBody?.dynamic = false
-        edgeBottom.physicsBody?.allowsRotation = false
-        
-        edgeBottom.physicsBody?.friction = 0
-        edgeBottom.physicsBody?.restitution = 0
-        
-        edgeBottom.physicsBody?.linearDamping = 0
-        edgeBottom.physicsBody?.angularDamping = 0
-        
-        edgeBottom.physicsBody?.charge = 0
-        
-        addChild(edgeBottom)
         
         let edgeLeft = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(10, Screen_Height))
         edgeLeft.position = CGPointMake(0, Screen_Height * 0.5)
@@ -1604,54 +1572,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
     }
-        
-    //MARK: 云
-    func createBG_CloudLayerA(count: Int, position:CGPoint) {
-        cloudLayerA_node = SKNode()
-        cloudLayerA_node.position = position
-        addChild(cloudLayerA_node)
-        
-        for _ in 0 ..< count {
-            
-            let cloudNode = SKSpriteNode(texture: randomCloudTexture())
-            cloudNode.alpha = 0.3
-            cloudNode.setScale(CGFloat.random(min: 0.2, max: 0.6))
-            cloudNode.zPosition = CGFloat.random(min: -200, max: -120)
-            cloudNode.position = CGPointMake(CGFloat.random(min: 0, max: Screen_Width), Screen_Height * CGFloat.random(min: 0.6, max: 0.9))
-            cloudLayerA_node.addChild(cloudNode)
-            
-        }
-        
-    }
-    
-    func createBG_CloudLayerB(count: Int, position:CGPoint) {
-        cloudLayerB_node = SKNode()
-        cloudLayerB_node.position = position
-        addChild(cloudLayerB_node)
-        
-        for _ in 0 ..< count {
-            let cloudNode = SKSpriteNode(texture: randomCloudTexture())
-            cloudNode.alpha = 0.3
-            cloudNode.setScale(CGFloat.random(min: 0.2, max: 0.6))
-            cloudNode.zPosition = CGFloat.random(min: -200, max: -120)
-            cloudNode.position = CGPointMake(CGFloat.random(min: 0, max: Screen_Width), Screen_Height * CGFloat.random(min: 0.6, max: 0.9))
-            cloudLayerB_node.addChild(cloudNode)
-            
-        }
-        
-    }
-    
-    // 树
-    func createTree(texture:SKTexture) ->SKSpriteNode{
-        
-        let tree = SKSpriteNode(texture: texture, color: treesColor, size: texture.size())
-        tree.colorBlendFactor = SceneSprite_ColorBlendFactor_Mountain
-        tree.zPosition = 50
-        tree.anchorPoint = CGPointMake(0.5, 0)
-        
-        return tree
-    }
-    
     
     
     //MARK: ------------------------------------灯光
@@ -1678,7 +1598,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         BGLight.shadowColor = Light_ShadowColor//UIColor(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 0.3)
         addChild(BGLight)
         
-        
     }
     
     func flashLight() {
@@ -1691,7 +1610,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         flashLight.lightColor = UIColor(red: 1.0/255, green: 1.0/255, blue: 0.0/255, alpha: 0.5)
         flashLight.shadowColor = Light_ShadowColor//UIColor(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 0.3)
         addChild(flashLight)
-        
         
         flashLight.runAction(SKAction.removeFromParentAfterDelay(1))
     }
@@ -1770,22 +1688,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         rainstormSceneRainSP.position = CGPointMake(Screen_Width/2, Screen_Height)
         addChild(rainstormSceneRainSP)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            //这里写需要大量时间的代码
-            
-            let rainEmitter = SKEmitterNode.emitterNamed("Rain")
-            rainEmitter.position = CGPointMake(0, Screen_Height * 3)
-            rainEmitter.alpha = 0.5
-            self.rainstormSceneRainSP.addChild(rainEmitter)
-            
-//            SKTAudio.sharedInstance().playSoundEffect("RainSound.mp3")
-            
-            self.runAction(SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false))
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //这里返回主线程，写需要主线程执行的代码
-            })
-        })
+        let rainEmitter = SKEmitterNode.emitterNamed("Rain")
+        rainEmitter.position = CGPointMake(0, Screen_Height * 3)
+        rainEmitter.alpha = 0.5
+        self.rainstormSceneRainSP.addChild(rainEmitter)
+        
+        SKTAudio.sharedInstance().playSoundEffect("RainSound.mp3")
+        
+//        self.runAction(SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false))
         
         
         
@@ -1794,58 +1704,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     // 雪
     func sceneWithSnow() {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            //这里写需要大量时间的代码
-            
-            let snow = SKEmitterNode.emitterNamed("Snow")
-            snow.position = CGPointMake(Screen_Width/2, Screen_Height * 1.2)
-            snow.alpha = 0.7
-            snow.zRotation = CGFloat(-5 * M_PI / 180)
-
-            self.addChild(snow)
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //这里返回主线程，写需要主线程执行的代码
-            })
-        })
+        let snow = SKEmitterNode.emitterNamed("Snow")
+        snow.position = CGPointMake(Screen_Width/2, Screen_Height * 1.2)
+        snow.alpha = 0.7
+        snow.zRotation = CGFloat(-5 * M_PI / 180)
         
-        
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-//            //这里写需要大量时间的代码
-//            
-//            if let snow = SKEmitterNode(fileNamed: "Snow") {
-//                snow.zPosition = 0
-//                snow.alpha = 0.7
-//                
-//                snow.zRotation = CGFloat(-5 * M_PI / 180)
-//                snow.position = CGPointMake(Screen_Width/2, Screen_Height * 1.2)
-//                
-//                self.addChild(snow)
-//            }
-//            
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                //这里返回主线程，写需要主线程执行的代码
-//            })
-//        })
-    
+        self.addChild(snow)
         
     }
     
     // 飘叶
     func sceneWithSandstorm() {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            //这里写需要大量时间的代码
-            
-            let rainEmitter = SKEmitterNode.emitterNamed("Sandstorm")
-            rainEmitter.position = CGPointMake(Screen_Width, Screen_Height)
-            rainEmitter.alpha = 1.0
-            self.addChild(rainEmitter)
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //这里返回主线程，写需要主线程执行的代码
-            })
-        })
+        let rainEmitter = SKEmitterNode.emitterNamed("Sandstorm")
+        rainEmitter.position = CGPointMake(Screen_Width, Screen_Height)
+        rainEmitter.alpha = 1.0
+        self.addChild(rainEmitter)
         
         
 //        if let sand = SKEmitterNode(fileNamed: "Sandstorm") {
@@ -2071,7 +1945,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func createPlayer() {
         
-        self.playerNode = GameSpriteNodeWithPlayerNode(choseChaterName(playertype)) //choseChaterName(playertype)
+        self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan")) //choseChaterName(playertype)
         self.playerNode.position = CGPointMake(playerOffset, Screen_Height * 0.5) //playerHight + playerNode.height * 0.5
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
@@ -2087,22 +1961,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
 //    var playershadow:SKSpriteNode!
     
-    func choseChaterName(type:PlayerType) ->SKTexture{
-        switch type {
-        case .A: return sheet.katoonA01()
-        case .B: return poc.PocRuning1()
-        case .C: return sheet.katoonA01()
-            
-        }
-    }
+//    func choseChaterName(type:PlayerType) ->SKTexture{
+//        switch type {
+//        case .A: return sheet.katoonA01()
+//        case .B: return poc.PocRuning1()
+//        case .C: return sheet.katoonA01()
+//            
+//        }
+//    }
     
-    func choseChaterAnimation(type:PlayerType) ->[SKTexture] {
-        switch type {
-        case .A: return sheet.katoonA()
-        case .B: return poc.PocRuning()
-        case .C: return sheet.katoonA()
-        }
-    }
+//    func choseChaterAnimation(type:PlayerType) ->[SKTexture] {
+//        switch type {
+//        case .A: return sheet.katoonA()
+//        case .B: return poc.PocRuning()
+//        case .C: return sheet.katoonA()
+//        }
+//    }
     
     func playerLocus(count: Int, length:CGFloat) {
         for _ in 0 ..< count {
@@ -2177,32 +2051,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     
     //MARK: 长按手势
-    func customLongPressGesture() {
-        // 长按手势操作
-        longPressGestureLeve1 = UILongPressGestureRecognizer(target: self, action: #selector(GameScene.longPressGestureLeve1Action(_:)))
-        longPressGestureLeve1.minimumPressDuration = 0.2
-        //longPressGesture.allowableMovement = CGFloat(10)
-        
-        self.view?.addGestureRecognizer(longPressGestureLeve1)
-        
-    }
+//    func customLongPressGesture() {
+//        // 长按手势操作
+//        longPressGestureLeve1 = UILongPressGestureRecognizer(target: self, action: #selector(GameScene.longPressGestureLeve1Action(_:)))
+//        longPressGestureLeve1.minimumPressDuration = 0.2
+//        //longPressGesture.allowableMovement = CGFloat(10)
+//        
+//        self.view?.addGestureRecognizer(longPressGestureLeve1)
+//        
+//    }
     
     //    var isLongPress:Bool = false // 是否在长按屏幕
-    func longPressGestureLeve1Action(sender:UILongPressGestureRecognizer) {
-        
-        print("长按屏幕Leve1")
-        if sender.state == UIGestureRecognizerState.Began {
-            
-            //            playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 300))
-            //
-            //            if GameState.sharedInstance.musicState { self.runAction(jumpSoundAction) }
-            //            contactFloorEvent()
-        }
-        
-        if sender.state == UIGestureRecognizerState.Ended {
-            
-        }
-    }
+//    func longPressGestureLeve1Action(sender:UILongPressGestureRecognizer) {
+//        
+//        print("长按屏幕Leve1")
+//        if sender.state == UIGestureRecognizerState.Began {
+//            
+//            //            playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 300))
+//            //
+//            //            if GameState.sharedInstance.musicState { self.runAction(jumpSoundAction) }
+//            //            contactFloorEvent()
+//        }
+//        
+//        if sender.state == UIGestureRecognizerState.Ended {
+//            
+//        }
+//    }
     
     //  引导手指
     func figerNode() {
@@ -2338,38 +2212,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Enemy")
                         
                         self.shakeCarema() //  震屏
-                        self.showParticlesForEnemy(node.position) // 爆炸特效
-                        if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
                         
                         self.gameEndPlayerDeath()
-                        self.gameEnd()
-                        
-                        let delay:Double = 0.05
+                        self.showParticlesForEnemy(node.position) // 爆炸特效
+                        self.gameSceneDelegate?.gameOverScreenshots()
+
+                        if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
+
+                        let delay:Double = 0.2
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                            self.gameSceneDelegate?.gameOverScreenshots()
+                            self.gameEnd()
                         }
-                        
+
                         
                     case CollisionCategoryBitmask.Wather :
                         print("Contact Wather")
                         
                         self.shakeCarema() //  震屏
-                        let playerConvert = convertPoint(self.position, fromNode: self.playerNode)
-                        self.showParticlesForEnemy(playerConvert) // 爆炸特效
-                        
-                        if GameState.sharedInstance.musicState { runAction(waterSoundAction) }
                         
                         self.gameEndPlayerDeath()
-                        self.gameEnd()
+                        self.showParticlesForEnemy(convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
+                        self.gameSceneDelegate?.gameOverScreenshots()
                         
-                        let delay:Double = 0.1
+                        if GameState.sharedInstance.musicState { runAction(waterSoundAction) }
+
+                        let delay:Double = 0.2
                         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
                         
                         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                            self.gameSceneDelegate?.gameOverScreenshots()
+                            self.gameEnd()
                         }
+
                         
                     case CollisionCategoryBitmask.DoorKey_Button:
                         print("Contact 开门 按钮")
@@ -2406,7 +2281,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                        contactFloorEvent(node)
 //                        playerMagic(node)
                         
-                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 100))
+                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, -Scene_Gravity * 1.2))
 
                         self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, Player_Jump_Hight), duration: 0.2))
                         
@@ -2518,7 +2393,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         self.playerNode.physicsBody?.dynamic = true
         
-        self.playerMoveAnimation(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
+//        self.playerMoveAnimation(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
         
         GameState.sharedInstance.gameOver = false
 //        GameState.sharedInstance.isLoadingDone = false
@@ -2532,50 +2407,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         GameState.sharedInstance.canJump = false
         GameState.sharedInstance.isLoadingDone = false
         
-        if longPressGestureLeve1 != nil {
-            self.view?.removeGestureRecognizer(longPressGestureLeve1)
-        }
-        
-        //  用dispatch_after推迟任务
-//        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-//        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-//            
-//            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
-//            
-//            self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
-//        }
-        
 //        SKTAudio.sharedInstance().pauseBackgroundMusic()
         
+        self.gameSceneDelegate?.updateHUD(GameState.sharedInstance.currentScore)
+        
         // 保存游戏状态 分数等信息
-        GameState.sharedInstance.currentScore = Int(gameScore)
         GameState.sharedInstance.saveState()
         
-        self.gameSceneDelegate?.updateHUD(Int(self.gameScore))
-        
         NSNotificationCenter.defaultCenter().postNotificationName("gameOverNotification", object: nil)
-
-        
-        //  用dispatch_after推迟任务
-//        let delayInSeconds = 0.5
-//        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-//        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-//            //            self.showiAd()
-//            NSNotificationCenter.defaultCenter().postNotificationName("gameOverNotification", object: nil)
-//        }
         
     }
     
     func gameEndPlayerDeath() {
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            
-            self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 20))
-            self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
-        }
+        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 20))
+        self.playerNode.physicsBody?.allowsRotation = true
+        self.playerNode.zRotation = CGFloat.random(min: -35, max: 35)
+        
+        self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
     }
-    
-    
     
     //MARK:  游戏结束 显示广告页， 弹出观看广告赢金币按钮
     func showiAd() {
@@ -2785,7 +2634,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func exceedTopScroeTip() {
         let label = SKLabelNode(fontNamed: Font_Name)
-        label.text = "新纪录\(GameState.sharedInstance.gamecenterSelfTopScore)"
+        label.text = "\(GameState.sharedInstance.gameCenterPlayerName)"
         label.fontSize = 30
         label.position = CGPointMake(Screen_Width * 1.1, Screen_Height * 0.7)
         self.playergroundNode.addChild(label)
@@ -2795,17 +2644,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 更新 分数
     func updateGameScore() {
-        self.gameScore += 1
-        gameSceneDelegate?.updateHUD(Int(self.gameScore))
+        GameState.sharedInstance.currentScore += 1
+        gameSceneDelegate?.updateHUD(GameState.sharedInstance.currentScore)
         
         // 如果分数达到最高分 屏幕显示名字
-        if Int(self.gameScore) == GameState.sharedInstance.gamecenterSelfTopScore {
+        if GameState.sharedInstance.currentScore > GameState.sharedInstance.gamecenterSelfTopScore {
+            GameState.sharedInstance.gamecenterSelfTopScore = GameState.sharedInstance.currentScore
+            
+            // 如果当前分数大于game center 分数 上传新的游戏分数
+            EGC.reportScoreLeaderboard(leaderboardIdentifier: Leader_Board_Identifier, score: GameState.sharedInstance.gamecenterSelfTopScore!)
             print("破纪录")
             exceedTopScroeTip()
         }
-        
-        //        let score:CGFloat = max(gameScore, playerNode.position.x)
-        //        self.gameScore = CGFloat(score * 0.02)
+
     }
     
     //MARK: 金币

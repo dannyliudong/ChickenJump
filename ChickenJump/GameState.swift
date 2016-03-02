@@ -12,15 +12,13 @@ import UIKit
 class GameState {
     
     var currentScore:Int
-//    var gold:Int
-//    var localHighScore: Int
     var gamecenterSelfTopScore:Int?
     var gameCenterPlayerName:String?
     
     var lifeTimeCount:Float
     
     var gameOver:Bool = true // 游戏结束
-    var isLoadingDone:Bool = true
+    var isLoadingDone:Bool = true // 场景加载完成
     var canJump:Bool = true
     
     var isRecording:Bool = false
@@ -43,9 +41,9 @@ class GameState {
         self.currentScore = 0
         self.gamecenterSelfTopScore = 0
         self.lifeTimeCount = 1.0
-//        self.gold = 0
     
         self.musicState = true
+        
     }
     
     func saveState() {
@@ -55,13 +53,16 @@ class GameState {
         
         // Store in user defaults
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(currentScore, forKey: "currentScore")
         
-        if let score = gamecenterSelfTopScore {
-            self.gamecenterSelfTopScore = max(score, currentScore)
-            defaults.setInteger(gamecenterSelfTopScore!, forKey: "gamecenterSelfTopScore")
+        if let score = gamecenterSelfTopScore{
+            self.gamecenterSelfTopScore = max(currentScore, score)
+            defaults.setInteger(score, forKey: "gamecenterSelfTopScore")
         }
-        
+
+        if let name = gameCenterPlayerName {
+            defaults.setObject(name, forKey: "gameCenterPlayerName")
+        }
+
 //        defaults.setInteger(self.gold, forKey: "myGold")
         
         // 保存设置状态

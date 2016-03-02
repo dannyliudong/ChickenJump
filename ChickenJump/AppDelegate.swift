@@ -33,17 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //  读取用户的设置信息
             let userDefaults = NSUserDefaults.standardUserDefaults()
             
-//            if (GameState.sharedInstance.gamecenterSelfTopScore != nil) {
-//                GameState.sharedInstance.gamecenterSelfTopScore = userDefaults.integerForKey("gamecenterSelfTopScore")
-//            }
+            GameState.sharedInstance.gamecenterSelfTopScore = userDefaults.integerForKey("gamecenterSelfTopScore")
+            GameState.sharedInstance.gameCenterPlayerName = userDefaults.stringForKey("gameCenterPlayerName")
             GameState.sharedInstance.musicState = userDefaults.boolForKey("musicState")
+            
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")
         }
         
         UIViewController.prepareInterstitialAds()
-        
-        
-        
         return true
     }
 
@@ -70,6 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    
 }
 

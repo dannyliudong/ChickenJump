@@ -44,26 +44,15 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     private var secondsElapsed:Int = 3
     private var timer:NSTimer!
     
-//    var gameScreenCapture:UIImage?
     var screenshotsImage:UIImage?
-    
-//    var gameScene:GameScene!
     
     //MARK: iAd
     
     var interstitialAd:ADInterstitialAd!
     var interstitialAdView: UIView = UIView()
     var closeButton:UIButton!
-    
-//    var gameCenterHighScore:Int = 0
 
-//    var cloudHighScore:Int?
-//    var topHighScore:Int?
-    
-//    var loadingView:UIView!
-    
     override func viewWillAppear(animated: Bool) {
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -76,9 +65,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         EGC.sharedInstance(self)
         EGC.debugMode = true
-        
-//        print("my gold:  \(GameState.sharedInstance.gold)")
-//        self.goldDisplayLabel.text = "\(GameState.sharedInstance.gold)★"
         
         self.characterButton.layer.cornerRadius  = Button_CornerRadius
         self.settingsButton.layer.cornerRadius  = Button_CornerRadius
@@ -108,7 +94,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        skView.showsFPS = true
 //        skView.showsNodeCount = true
 //        skView.showsDrawCount = true
-//        skView.showsPhysics = true
+        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
@@ -136,7 +122,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     @IBAction func payGoldContinueGame(sender: UIButton) {
         // 支付金币 继续游戏
-        
     }
     
     @IBAction func giftAction(sender: UIButton) {
@@ -155,26 +140,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         } else {
             print("game center 未登录")
             
-//            let alertController = UIAlertController(title: "Recording", message: "Do you wish to discard or view your gameplay recording?", preferredStyle: .Alert)
-//            
-//            let discardAction = UIAlertAction(title: "OK", style: .Default) { (action: UIAlertAction) in
-//                RPScreenRecorder.sharedRecorder().discardRecordingWithHandler({ () -> Void in
-//                    // Executed once recording has successfully been discarded
-//                })
-//            }
-//            
-//            let viewAction = UIAlertAction(title: "View", style: .Default, handler: { (action: UIAlertAction) -> Void in
-////                self.buttonWindow.rootViewController?.presentViewController(previewController!, animated: true, completion: nil)
-//            })
-//            
-//            alertController.addAction(discardAction)
-//            alertController.addAction(viewAction)
-            
             let alertView = UIAlertView(title: "排行榜", message: "请登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
             alertView.show()
             
-            EGC.sharedInstance(self)
-            EGC.debugMode = true
+            EGC.delegate = self
         }
 
     }
@@ -217,8 +186,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             })
         }
         
-        
-        
     }
     
     // 重置游戏
@@ -242,16 +209,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         NSNotificationCenter.defaultCenter().postNotificationName("restartGameNotification", object: nil)
         
 //        loadingTransitionsAnimation()
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            // 通知重置游戏场景
-
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                self.maskView.hidden = true
-//                self.hiddenGameOverButtons()
-//                self.resetHomeUINotificationAction()
-            })
-        })
         
         // 点击重现开始游戏 出现过场动画
         // 当场景创建完成之后， 再消失动画， 开始游戏
@@ -291,15 +248,14 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 
     }
     
-    
     //MARK: 分享游戏Aciton
     @IBAction func shareGameSocialNetwork(sender: UIButton) {
         print("shareGameSocialNetwork ")
-        shareGame()
+        shareGameActivity()
     }
     
-    func shareGame() {
-        if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/frank2016/id941582714?l=zh&ls=1&mt=8")
+    func shareGameActivity() {
+        if let myWebsite = NSURL(string: AppStoreURL)
         {
             
             let messageStr:String  = "#\(Game_NameString)# \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore!)分"
@@ -543,17 +499,11 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        }
         
         
-        let delayInSeconds = 2.0
+        let delayInSeconds = 1.0
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
-        }
-        
-        if GameState.sharedInstance.currentScore > GameState.sharedInstance.gamecenterSelfTopScore {
-            // 如果本地最高分数大于game center 分数 上传新的游戏分数
-            EGC.reportScoreLeaderboard(leaderboardIdentifier: Leader_Board_Identifier, score: GameState.sharedInstance.currentScore)
-            print("\n[LeaderboardsActions] Score send to Game Center \(EGC.isPlayerIdentified)")
         }
         
 //        let delayInSeconds = 0.5
@@ -648,7 +598,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
 //        self.showReplay.hidden = false
 
-
     }
     
 //    func showGameCenterLeaderboards() {
@@ -719,8 +668,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
                 if let tupleIsOk = tupleHighScore {
                     
                     GameState.sharedInstance.gamecenterSelfTopScore = tupleIsOk.score
-//                    GameState.sharedInstance.gold = 
-                    
+                    GameState.sharedInstance.gameCenterPlayerName = tupleIsOk.playerName
+                                        
                     print("Player Name : \(tupleIsOk.playerName)")
                     print("Score : \(tupleIsOk.score)")
                     print("Rank :\(tupleIsOk.rank)")
@@ -730,7 +679,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         } else {
             print("game center 未授权登陆")
             self.topScroeLabel.hidden = true
-            self.leaderboardsButton.backgroundColor = UIColor.grayColor()
             
             EGC.sharedInstance(self)
             EGC.delegate = self
