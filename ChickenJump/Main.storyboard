@@ -193,14 +193,6 @@
                                     <action selector="pauseGameAction:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Oy8-Jv-xTX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpJ-by-sI3">
-                                <rect key="frame" x="267" y="112" width="66" height="37"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="1" height="2"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgE-5X-UQj">
                                 <rect key="frame" x="276" y="72" width="48" height="30"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="20"/>
@@ -219,10 +211,8 @@
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="Wfq-Yd-Lkk" secondAttribute="bottom" constant="10" id="HA9-wk-Kgl"/>
                             <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="leading" secondItem="8EP-jd-QXu" secondAttribute="trailing" constant="20" id="Ilr-wf-PqZ"/>
                             <constraint firstItem="SAv-uz-pVl" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="Jbg-Pc-LhW"/>
-                            <constraint firstItem="GpJ-by-sI3" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="JyO-MK-yaN"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="8EP-jd-QXu" secondAttribute="bottom" constant="10" id="W0x-vd-otD"/>
                             <constraint firstItem="jEx-70-fdt" firstAttribute="leading" secondItem="Wfq-Yd-Lkk" secondAttribute="trailing" constant="20" id="Ww9-Xm-Yi9"/>
-                            <constraint firstItem="GpJ-by-sI3" firstAttribute="top" secondItem="EgE-5X-UQj" secondAttribute="bottom" constant="10" id="aeK-oh-icX"/>
                             <constraint firstItem="xqy-pu-jM1" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="bVV-DS-u3K"/>
                             <constraint firstItem="BOu-9h-Hou" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" symbolic="YES" id="bfq-ON-g9a"/>
                             <constraint firstItem="Z4o-bK-0ZL" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="f3o-Xe-rFB"/>
@@ -242,6 +232,7 @@
                             <constraint firstItem="EgE-5X-UQj" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="xz5-jE-WSc"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="characterButton" destination="Z4o-bK-0ZL" id="04Q-SV-WYQ"/>
                         <outlet property="currentScoreLalbel" destination="xqy-pu-jM1" id="vXK-r2-SIe"/>

@@ -165,7 +165,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     let eagleSoundAction = SKAction.playSoundFileNamed("eagleSound.mp3", waitForCompletion: false)
     let chickenSoundAction = SKAction.playSoundFileNamed("chicken.mp3", waitForCompletion: false)
     
-    
 //    let rainSoundAction = SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false)
     let thunderSoundAction = SKAction.playSoundFileNamed("ThunderSound.mp3", waitForCompletion: false)
     
@@ -221,7 +220,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             touchControll(CGVectorMake(-Player_Jump_Width, Player_Jump_Hight))
         }
     }
-    
     
     func touchControll(vector:CGVector) {
         
@@ -635,7 +633,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         print("selfplatfromArray \(self.platfromArray.count) ")
     }
-    
     
     
     func randomPlatfromNode() ->(SKNode, CGFloat) {

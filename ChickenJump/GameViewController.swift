@@ -462,7 +462,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //                self.logo = nil
 //        }
         
-        self.progressView.hidden = false
+        self.progressView.hidden = true
 
         self.scoreLabel.hidden = false
         self.pauseButton.hidden = false
