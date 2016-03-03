@@ -10,8 +10,8 @@ import UIKit
 import SpriteKit
 
 //MARK: Defined 单位
-var Screen_Width:CGFloat = 960 // 宽
-var Screen_Height:CGFloat = 640 // 高
+var Screen_Width:CGFloat = 640 // 宽
+var Screen_Height:CGFloat = 1136 // 高
 
 let Screen_Size:CGSize = CGSizeMake(Screen_Width, Screen_Height)
 let Screen_Center:CGPoint = CGPointMake(Screen_Width/2, Screen_Height/2)
@@ -134,8 +134,9 @@ let Player_Jump_Hight:CGFloat = 64
 //let Player_Jump_HightAdd:CGFloat = 65
 let Scene_Gravity:CGFloat = -60.0
 
-let BG_hight:CGFloat = Screen_Height * 0.2
-let PlatformHight:CGFloat = -Screen_Height * 0.1//Screen_Height * 0.1
+let BG_hight:CGFloat = Screen_Height * 0.4
+let PlatformHight:CGFloat = Screen_Height * 0.1
+let PlayerStartHigth:CGFloat = 64.0 * 7
 
 //MARK: Custom UIView
 let Blur_ViewAlpha:CGFloat = 0.0

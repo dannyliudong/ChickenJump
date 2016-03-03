@@ -171,7 +171,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //    let rainSoundAction = SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false)
     let thunderSoundAction = SKAction.playSoundFileNamed("ThunderSound.mp3", waitForCompletion: false)
     
-    //MARK: 场景UI 手势
 //    private var longPressGestureLeve1:UILongPressGestureRecognizer! // 长按手势 0.1秒
 
     //MARK: Did Move To View
@@ -194,7 +193,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
     }
     
-    //MARK: 手势
+    //MARK: 自定义手势
     func addGesture(){
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleTap(_:)))
@@ -214,6 +213,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("handle Tap")
         touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
 
+        self.tapEffectsForTouchAtLocation(Screen_Center)
+        
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
@@ -568,7 +569,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     // 背景
     func initBackgroud() {
-//        createBG_layer()
+        createBG_layer()
         
         if self.land == .Amazon || self.land == .Volcanic || self.land == .SnowMountain || self.land == .Iceberg || self.land == .Nightsky {
             createBG_HillDepth0_Layer()
@@ -636,7 +637,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func randomPlatfromNode() ->(SKNode, CGFloat) {
         switch arc4random() % 6 {
         case 0:
-            let count = Int(CGFloat.random(min: 1, max: 3))
+            let count = Int(CGFloat.random(min: 0, max: 2))
             return (createLongSectionWith(count), Long_SectionWidth * CGFloat(count + 1))
         case 1:
             return (self.door_SectionNode, Door_SectionWidth)
@@ -660,7 +661,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
 
-        for _ in 0...15 {
+        let count = Int(Screen_Width / 64)
+        for _ in 0...count {
+            
+            print("setupStartPlatfroms  \(count)")
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
             self.playergroundNode.addChild(node)
@@ -681,8 +685,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let nodeParent = SKNode()
         
-        for i in 0...count {
-            print("i \(i)")
+        for _ in 0...count {
+            
             let node = longSectionNode.copy() as! SKNode // 复制一排
             node.position.x = lastNodeX + 64
             nodeParent.addChild(node)
@@ -976,7 +980,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let waterColor: UIColor = {
             switch self.land {
-                
             case .Amazon:
                 return SKColorWithRGB(66, g: 185, b: 254)
             case .Grove:
@@ -1001,17 +1004,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }()
         
         let water = GameSpriteNodeWithWaterBackgroud(waterColor)
-        water.position = CGPointMake(Screen_Width * 0.5, water.size.height * 0.5)
-        
         addChild(water)
     }
     
     // 背景渐变层
     func createBG_layer() {
         
-        let texture = SKTexture(imageNamed: "BGLayer")
-        let bg = SKSpriteNode(texture: texture, color: self.skyColor, size: Screen_Size)
-        bg.position = CGPointMake(Screen_Width * 0.5, Screen_Height * 0.5)
+        let texture = SKTexture(imageNamed: "BGLayerLine")
+        let bg = SKSpriteNode(texture: texture, color: self.skyColor, size: CGSizeMake(Screen_Width * 1.01, texture.size().height))
+        bg.position = CGPointMake(Screen_Width * 0.5, Screen_Height * 1.01)
+        bg.anchorPoint = CGPointMake(0.5, 1)
         bg.zPosition = -300
         bg.colorBlendFactor = SceneSprite_ColorBlendFactor_Mountain
         
@@ -1071,7 +1073,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 ScaleRadio = CGFloat.random(min: 1.6, max: 1.8)
 
             case .LayerB:
-                count =  Int(CGFloat.random(min: 2, max: 3))
+                count =  Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1, max: 1.4)
             }
@@ -1079,35 +1081,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         case .Grove:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 2, max: 4))
-                dt = CGFloat.random(min: 100, max: 200)
+                count = Int(CGFloat.random(min: 1, max: 2))
+                dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
                 
             case .LayerB:
-                count =  Int(CGFloat.random(min: 4, max: 6))
-                dt = CGFloat.random(min: 50, max: 80)
+                count =  Int(CGFloat.random(min: 2, max: 3))
+                dt = CGFloat.random(min: 30, max: 50)
                 ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
             }
             
         case .Volcanic:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 2, max: 3))
+                count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min:100, max: 200)
                 ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 3, max: 4))
+                count =  Int(CGFloat.random(min: 0, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
         case .LahontanValley:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 2, max: 3))
+                count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min:100, max: 150)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 3, max: 4))
+                count =  Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
             }
@@ -1118,51 +1120,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 dt = CGFloat.random(min:100, max: 200)
                 ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 2, max: 4))
+                count =  Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
         case .MayaPyramid:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 2, max: 3))
+                count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min:100, max: 200)
                 ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 2, max: 4))
+                count =  Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
         case .Iceberg:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 2, max: 3))
+                count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min:100, max: 200)
                 ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 3, max: 5))
+                count =  Int(CGFloat.random(min: 0, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
             }
         case .BuildingShenshe:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 2, max: 3))
+                count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 100, max: 200)
-                ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
+                ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 2, max: 4))
+                count =  Int(CGFloat.random(min: 0, max: 2))
                 dt = CGFloat.random(min: 50, max: 80)
-                ScaleRadio = CGFloat.random(min: 0.4, max: 0.6)
+                ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
             }
         case .Cemetery:
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 3, max: 4))
+                count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 100, max: 200)
                 ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 4, max: 5))
+                count =  Int(CGFloat.random(min: 1, max: 3))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 0.4, max: 0.5)
             }
@@ -1172,11 +1174,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             switch depth {
             case .LayerA:
-                count = Int(CGFloat.random(min: 1, max: 2))
+                count = Int(CGFloat.random(min: 0, max: 1))
                 dt = CGFloat.random(min:100, max: 200)
                 ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             case .LayerB:
-                count =  Int(CGFloat.random(min: 2, max: 3))
+                count =  Int(CGFloat.random(min: 0, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1, max: 1.2)
             }
@@ -1959,7 +1961,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func createPlayer() {
         
         self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan")) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(playerOffset, Screen_Height * 0.5) //playerHight + playerNode.height * 0.5
+        self.playerNode.position = CGPointMake(playerOffset, PlayerStartHigth) //playerHight + playerNode.height * 0.5
         self.playerNode.xScale = -1
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
@@ -2045,11 +2047,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
     }
-    
-
-    
-
-    
     
     //MARK: 长按手势
 //    func customLongPressGesture() {
@@ -2361,6 +2358,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         if let view = sceneView {
             view.shakeC(5, delta: 8, interval: 0.02, shakeDirection: ShakeDirection.ShakeDirectionVertical)
         }
+    }
+    
+    // 水波特效
+    func showWaterWave(rect:CGRect) {
+        let shapeNode = SKShapeNode()
+        
+        let path = UIBezierPath(rect: rect)//UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 10, height: 10))
+        shapeNode.path = path.CGPath
+        
+//        shapeNode.position = point
+        shapeNode.strokeColor = SKColorWithRGBA(255, g: 255, b: 255, a: 196)
+        shapeNode.lineWidth = 1
+        shapeNode.antialiased = false
+        shapeNode.zPosition = 100
+        addChild(shapeNode)
+        // 3
+        let duration = 1.0
+        let scaleAction = SKAction.scaleTo(20.0, duration: duration)
+        scaleAction.timingMode = .EaseOut
+        shapeNode.runAction(SKAction.sequence(
+            [scaleAction, SKAction.removeFromParent()]))
+        // 4
+        let fadeAction = SKAction.fadeOutWithDuration(duration)
+        fadeAction.timingMode = .EaseOut
+        shapeNode.runAction(fadeAction)
     }
     
     // 点击特效
@@ -2746,7 +2768,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
-            ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
+            ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
             
 //            if playerPostionInScene.x <= Screen_Width * 0.3 {
 //                ScrollBG_Move_Speed = 0.5

@@ -13,15 +13,16 @@ import SpriteKit
 //MARK: 模拟水
 func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     
-    let wather = SKSpriteNode(texture: SKTexture(imageNamed: "waterBg"), color: clolor, size: CGSizeMake(970, Screen_Height * 0.2))
+    let wather = SKSpriteNode(color: clolor, size: CGSizeMake(Screen_Width * 1.01, Screen_Height * 0.2))
     wather.zPosition = -30
-    wather.colorBlendFactor = 1.0
+    wather.position = CGPointMake(Screen_Width * 0.5, wather.size.height * 0.5)
+//    wather.colorBlendFactor = 1.0
     wather.alpha = 1
     
-    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height))
+    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height * 0.5), center: CGPointMake(0.5, 0))
     wather.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Wather
-    wather.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
-    wather.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.None
+//    wather.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+//    wather.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.None
     
     wather.physicsBody?.dynamic = false
     wather.physicsBody?.allowsRotation = false
@@ -33,6 +34,7 @@ func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     wather.physicsBody?.angularDamping = 0
     
     wather.physicsBody?.charge = 0
+    
     
 //        wather.lightingBitMask = 1
 //        wather.shadowCastBitMask = 1

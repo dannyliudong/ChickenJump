@@ -32,6 +32,7 @@
                             <constraint firstItem="Po4-yM-KBy" firstAttribute="centerY" secondItem="Qer-C4-PGw" secondAttribute="centerY" id="HnN-ef-67O"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="pauseButton" destination="Po4-yM-KBy" id="bhd-uf-AKx"/>
                     </connections>
@@ -143,7 +144,7 @@
                                     <constraint firstAttribute="height" constant="48" id="wPp-CL-Su7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
-                                <state key="normal" title="排行榜"/>
+                                <state key="normal" image="homeButton_Leaderboard"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6uX-nR-Nn9"/>
@@ -252,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2154" y="416"/>
+            <point key="canvasLocation" x="-2080" y="407"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="CNM-cC-8S6">
@@ -332,6 +333,7 @@
                             <constraint firstItem="EnQ-tV-ebg" firstAttribute="top" secondItem="cKf-6W-mJe" secondAttribute="bottom" constant="50" id="tQ6-qp-wDE"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="RecordButton" destination="hfF-z2-n5x" id="XbG-Gg-Fd0"/>
                         <outlet property="RecordLabel" destination="ovV-cB-5YI" id="QHG-TL-xon"/>
@@ -407,6 +409,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B7l-7W-PMb"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="closeButton" destination="pFT-Rq-YzN" id="i4W-5K-B7V"/>
                         <outlet property="pageControl" destination="S0l-RR-wbi" id="AQN-It-MXB"/>
@@ -421,6 +424,7 @@
     <resources>
         <image name="avatar_bg_line" width="10" height="384"/>
         <image name="cameraOff" width="41" height="30"/>
+        <image name="homeButton_Leaderboard" width="40" height="28"/>
         <image name="homeButton_Record" width="42" height="42"/>
         <image name="homeButton_back" width="50" height="50"/>
         <image name="homeButton_continue" width="42" height="42"/>
