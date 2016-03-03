@@ -1806,6 +1806,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
     }
     
+    //MARK: 开场危险物
     
     
     //MARK:随机障碍物
@@ -2049,20 +2050,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
 
     
-    //MARK: 魔法飘带
-    func playerMagic() {
-        print("playerMagic")
-        self.magicNode = SKEmitterNode(fileNamed: "playerMagic.sks") //EngineFire
-        self.magicNode.particleTexture!.filteringMode = .Nearest
-        self.magicNode.position = CGPointMake(-playerNode.size.width, -playerNode.size.height * 0.5)
-        self.magicNode.zPosition = 400
-        self.magicNode.targetNode = self
-        
-        addChild(self.magicNode)
-        
-        magicNode.runAction(SKAction.removeFromParentAfterDelay(3.5))
-       
-    }
+
     
     
     //MARK: 长按手势
@@ -2097,12 +2085,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func figerNode() {
         guideFigerNode = SKNode()
         
-        guideFigerNode.zPosition = 300
-        guideFigerNode.position = CGPoint(x: Screen_Width/2, y: Screen_Height/8)
-        addChild(guideFigerNode)
+        self.guideFigerNode.zPosition = 300
+        self.setScale(1.2)
+        self.guideFigerNode.position = CGPoint(x: Screen_Width * 0.6, y: Screen_Height * 0.3)
+        self.addChild(guideFigerNode)
         
         let fingerSprite = SKSpriteNode(imageNamed: "touch01")
-        guideFigerNode.addChild(fingerSprite)
+        self.guideFigerNode.addChild(fingerSprite)
         
         var fingersps = [SKTexture]()
         fingersps.append(SKTexture(imageNamed: "touch01"))
@@ -2113,7 +2102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let fingerTouchSequence = SKAction.repeatActionForever(SKAction.sequence([fingerTouchAni]))
         fingerSprite.runAction(fingerTouchSequence)
     }
-    
     
     func createStarStar() {
         // 在屏幕上随机生成100-200个星星
@@ -2202,7 +2190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Floor")
                         
                         contactFloorEvent(node)
-                        playerMagic()
+                        playerMagic(convertPoint(self.position, fromNode: self.playerNode))
                         
                         
                         // 角色长时间不动时 会发出叫声
@@ -2283,7 +2271,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Down_Floor:
                         print("Contact 踩踏 下落")
                         contactFloorEvent(node)
-                        playerMagic()
+                        playerMagic(convertPoint(self.position, fromNode: self.playerNode))
                         
                         if GameState.sharedInstance.musicState { self.runAction(downSoundAction) }
                         
@@ -2297,7 +2285,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Invisible:
                         print("Contact 隐形的")
                         contactFloorEvent(node)
-                        playerMagic()
+                        playerMagic(convertPoint(self.position, fromNode: self.playerNode))
                         
                         node.hidden = false
                         
@@ -2328,6 +2316,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     //MARK: 粒子特效
+    
+    //MARK: 魔法飘带
+    func playerMagic(postion:CGPoint) {
+        print("playerMagic")
+        self.magicNode = SKEmitterNode(fileNamed: "playerMagic.sks") //EngineFire
+        self.magicNode.particleTexture!.filteringMode = .Nearest
+        self.magicNode.position = CGPointMake(postion.x - 50, postion.y)
+        self.magicNode.zPosition = 400
+        self.magicNode.targetNode = self
+        
+        addChild(self.magicNode)
+        
+        magicNode.runAction(SKAction.removeFromParentAfterDelay(3.5))
+        
+    }
     
     func lightsUpAnimation() {
         let maskView = SKSpriteNode(color: UIColor.blackColor(), size: self.size)
