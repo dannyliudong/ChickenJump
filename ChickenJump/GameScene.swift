@@ -2667,13 +2667,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     func exceedTopScroeTip() {
-        let label = SKLabelNode(fontNamed: Font_Name)
-        label.text = "\(GameState.sharedInstance.gameCenterPlayerName)"
-        label.fontSize = 30
-        label.position = CGPointMake(Screen_Width * 1.1, Screen_Height * 0.7)
-        self.playergroundNode.addChild(label)
-        
-        label.runAction(SKAction.removeFromParentAfterDelay(10.0))
+        print("破纪录")
+        if let name = GameState.sharedInstance.gameCenterPlayerName {
+            let label = SKLabelNode(fontNamed: Font_Name)
+            label.text = "\(name)"
+            label.fontSize = 30
+            label.position = CGPointMake(Screen_Width * 1.1, Screen_Height * 0.8)
+            self.playergroundNode.addChild(label)
+            
+            let wait = SKAction.waitForDuration(10)
+            let alp = SKAction.fadeAlphaTo(0, duration: 1.0)
+            let remove = SKAction.removeFromParent()
+            label.runAction(SKAction.sequence([wait, alp, remove]))
+            
+            print("破纪录  label \(label.position.x)")
+
+        }
     }
     
     //MARK: 更新 分数
@@ -2687,9 +2696,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             // 如果当前分数大于game center 分数 上传新的游戏分数
             EGC.reportScoreLeaderboard(leaderboardIdentifier: Leader_Board_Identifier, score: GameState.sharedInstance.gamecenterSelfTopScore!)
-            print("破纪录")
+            
             exceedTopScroeTip()
+
         }
+        
+
 
     }
     

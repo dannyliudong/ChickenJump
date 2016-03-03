@@ -665,6 +665,7 @@
 				PROVISIONING_PROFILE = "abfa7ead-e655-4651-a9d2-95c499f417ab";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -686,6 +687,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "20c32bae-31db-47f5-9633-e68202efd7dd";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

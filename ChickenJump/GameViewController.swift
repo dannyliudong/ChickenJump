@@ -109,6 +109,20 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             scene.gameSceneDelegate = self
         }
         
+        // 获取game center 存档最高分数
+        EGC.getHighScore(leaderboardIdentifier: Leader_Board_Identifier) { (tupleHighScore) in
+            if let tupleIsOk = tupleHighScore {
+                GameState.sharedInstance.gamecenterSelfTopScore = tupleIsOk.score
+                GameState.sharedInstance.gameCenterPlayerName = tupleIsOk.playerName
+                
+                print("Player Name : \(tupleIsOk.playerName)")
+                print("Score : \(tupleIsOk.score)")
+                print("Rank :\(tupleIsOk.rank)") // 排名
+            } else {
+                print("EGC.getHighScore  error")
+            }
+        }
+        
     }
     
     // Init iAd
