@@ -488,7 +488,13 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     func gameOverNotificationAction() {
         
         if GameState.sharedInstance.isRecording {
-            self.stopRecording()
+            
+            let delayInSeconds = 1.0
+            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
+            
+            dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+                self.stopRecording()
+            }
         }
         
         // 游戏结束 截屏

@@ -634,7 +634,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("selfplatfromArray \(self.platfromArray.count) ")
     }
     
-    
     func randomPlatfromNode() ->(SKNode, CGFloat) {
         switch arc4random() % 6 {
         case 0:
