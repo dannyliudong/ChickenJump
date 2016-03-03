@@ -1084,12 +1084,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             case .LayerA:
                 count = Int(CGFloat.random(min: 1, max: 2))
                 dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
+                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
                 
             case .LayerB:
-                count =  Int(CGFloat.random(min: 2, max: 3))
+                count =  Int(CGFloat.random(min: 2, max: 4))
                 dt = CGFloat.random(min: 30, max: 50)
-                ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
+                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
             
         case .Volcanic:
