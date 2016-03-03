@@ -158,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: Sound Action
     let jumpSoundAction = SKAction.playSoundFileNamed("inGame_action_jump.mp3", waitForCompletion: false)
     let getGlodSoundAction = SKAction.playSoundFileNamed("inGame_function_star.mp3", waitForCompletion: false)
-    let getdoorKeySoundAction = SKAction.playSoundFileNamed("inGame_event_relayReach.mp3", waitForCompletion: false)
+    let getdoorKeySoundAction = SKAction.playSoundFileNamed("catch_star02.mp3", waitForCompletion: false)
     
     let enemySoundAction = SKAction.playSoundFileNamed("dieSound.mp3", waitForCompletion: false)
     let waterSoundAction = SKAction.playSoundFileNamed("luoshui.mp3", waitForCompletion: false)
@@ -212,7 +212,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func handleTap(sender:UITapGestureRecognizer){
         print("handle Tap")
         touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
-        self.tapEffectsForTouchAtLocation(Screen_Center)
+        showWaterWave(CGRectMake(0, 0, 50, 50), point: convertPoint(self.position, fromNode: playerNode))
         
     }
     
@@ -2362,13 +2362,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     // 水波特效
-    func showWaterWave(rect:CGRect) {
+    func showWaterWave(rect:CGRect, point: CGPoint) {
         let shapeNode = SKShapeNode()
         
         let path = UIBezierPath(rect: rect)//UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 10, height: 10))
         shapeNode.path = path.CGPath
         
-//        shapeNode.position = point
+        shapeNode.position = point
         shapeNode.strokeColor = SKColorWithRGBA(255, g: 255, b: 255, a: 196)
         shapeNode.lineWidth = 1
         shapeNode.antialiased = false
