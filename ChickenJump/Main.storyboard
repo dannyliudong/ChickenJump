@@ -323,6 +323,18 @@
                                     <action selector="recordAction:" destination="BzE-cZ-HLf" eventType="touchUpInside" id="E9C-Sn-3HR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESIGEND BY LIUDONG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxl-mz-cXf">
+                                <rect key="frame" x="231" y="539" width="138" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LINKING GAMES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcI-Yl-hja">
+                                <rect key="frame" x="253" y="561" width="93.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -330,10 +342,14 @@
                             <constraint firstItem="45x-1Q-yD7" firstAttribute="top" secondItem="8Z0-x1-J36" secondAttribute="bottom" constant="20" id="5F8-SB-EHw"/>
                             <constraint firstItem="hfF-z2-n5x" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="H5e-1H-RfV"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="top" secondItem="XWe-HB-6db" secondAttribute="bottom" constant="30" id="R3M-3t-Th3"/>
+                            <constraint firstItem="Fxl-mz-cXf" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="UXE-SV-x9w"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="centerY" secondItem="Itr-7U-GgV" secondAttribute="centerY" id="XVf-cd-sox"/>
+                            <constraint firstItem="XcI-Yl-hja" firstAttribute="top" secondItem="Fxl-mz-cXf" secondAttribute="bottom" constant="8" id="afS-Wl-zfU"/>
                             <constraint firstItem="45x-1Q-yD7" firstAttribute="leading" secondItem="Itr-7U-GgV" secondAttribute="leadingMargin" id="bBA-8h-YY7"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="cc0-f0-rDs"/>
+                            <constraint firstItem="XcI-Yl-hja" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="elP-jP-kpU"/>
                             <constraint firstItem="hfF-z2-n5x" firstAttribute="top" secondItem="Qu6-Dr-4ab" secondAttribute="bottom" constant="30" id="h6U-Hs-hsa"/>
+                            <constraint firstItem="4b2-Ml-RrW" firstAttribute="top" secondItem="XcI-Yl-hja" secondAttribute="bottom" constant="24" id="nzC-ja-fe7"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -436,7 +452,7 @@
         <image name="homeButton_language" width="42" height="42"/>
         <image name="homeButton_pause" width="40" height="40"/>
         <image name="homeButton_setting" width="30" height="30"/>
-        <image name="homeButton_share" width="26" height="30"/>
+        <image name="homeButton_share" width="25" height="30"/>
         <image name="homeButton_sound" width="42" height="42"/>
         <image name="homeButton_try" width="37" height="27"/>
     </resources>
