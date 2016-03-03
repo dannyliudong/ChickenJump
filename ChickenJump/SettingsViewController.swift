@@ -14,11 +14,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var RecordButton: UIButton!
-    
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var SoundLabel: UILabel!
-    @IBOutlet weak var RecordLabel: UILabel!
-    
 
     override func viewWillAppear(animated: Bool) {
         
@@ -26,12 +21,7 @@ class SettingsViewController: UIViewController {
         self.musicButton.alpha = 0
         self.languageButton.alpha = 0
         self.RecordButton.alpha = 0
-        
-        self.languageLabel.alpha = 0
-        self.SoundLabel.alpha = 0
-        self.RecordLabel.alpha = 0
-        
-        
+
         UIView.animateWithDuration(0.1) { () -> Void in
             self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: View_MaskAlpha)
             
@@ -39,10 +29,6 @@ class SettingsViewController: UIViewController {
             self.musicButton.alpha = 1
             self.languageButton.alpha = 1
             self.RecordButton.alpha = 1
-            
-            self.languageLabel.alpha = 1
-            self.SoundLabel.alpha = 1
-            self.RecordLabel.alpha = 1
 
         }
     }
@@ -81,10 +67,6 @@ class SettingsViewController: UIViewController {
             self.musicButton.alpha = 0
             self.languageButton.alpha = 0
             self.RecordButton.alpha = 0
-            
-            self.languageLabel.alpha = 0
-            self.SoundLabel.alpha = 0
-            self.RecordLabel.alpha = 0
             
             NSNotificationCenter.defaultCenter().postNotificationName("showHomeButtonNotification", object: nil)
 

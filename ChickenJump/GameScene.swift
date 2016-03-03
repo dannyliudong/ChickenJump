@@ -212,7 +212,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func handleTap(sender:UITapGestureRecognizer){
         print("handle Tap")
         touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
-
         self.tapEffectsForTouchAtLocation(Screen_Center)
         
     }
@@ -220,8 +219,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
             touchControll(CGVectorMake(-Player_Jump_Width, Player_Jump_Hight))
-            
+        } else {
+            touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
         }
+
     }
     
     func touchControll(vector:CGVector) {

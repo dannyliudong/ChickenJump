@@ -32,6 +32,7 @@
                             <constraint firstItem="Po4-yM-KBy" firstAttribute="centerY" secondItem="Qer-C4-PGw" secondAttribute="centerY" id="HnN-ef-67O"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="pauseButton" destination="Po4-yM-KBy" id="bhd-uf-AKx"/>
@@ -39,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bn-po-tsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2154" y="-279"/>
+            <point key="canvasLocation" x="-2086" y="-277"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -54,38 +55,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEx-70-fdt">
-                                <rect key="frame" x="360" y="542" width="80" height="48"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="380" y="411" width="80" height="69"/>
                                 <rect key="contentStretch" x="0.20000000000000001" y="0.20000000000000001" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Vnu-dx-BA0"/>
                                     <constraint firstAttribute="width" constant="80" id="daG-wk-GRg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
-                                <state key="normal" title="再试"/>
+                                <size key="titleShadowOffset" width="1" height="2"/>
+                                <state key="normal" image="homeButton_try" backgroundImage="buttonbgbig">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Vnu-dx-BA0"/>
+                                        <exclude reference="daG-wk-GRg"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="tryAgainGameAction:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="15t-Yt-wsl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQl-Sc-H5o">
-                                <rect key="frame" x="20" y="542" width="48" height="48"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQl-Sc-H5o">
+                                <rect key="frame" x="20" y="538" width="60" height="52"/>
                                 <rect key="contentStretch" x="0.20000000000000001" y="0.20000000000000001" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="SDf-rt-Y39"/>
                                     <constraint firstAttribute="height" constant="48" id="fkg-kd-cZx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="40"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="⚙"/>
+                                <size key="titleShadowOffset" width="1" height="2"/>
+                                <state key="normal" image="homeButton_setting" backgroundImage="buttonbg"/>
                                 <state key="disabled">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SDf-rt-Y39"/>
+                                        <exclude reference="fkg-kd-cZx"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="settingsAction:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="AFw-2B-fUe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOu-9h-Hou">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOu-9h-Hou">
                                 <rect key="frame" x="20" y="28" width="23" height="51"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Medium" family="PingFang HK" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,43 +134,29 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-Yd-Lkk">
-                                <rect key="frame" x="260" y="542" width="80" height="48"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="260" y="411" width="80" height="69"/>
                                 <rect key="contentStretch" x="0.20000000000000001" y="0.20000000000000001" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="jBC-WP-ysu"/>
                                     <constraint firstAttribute="width" constant="80" id="rLj-Hd-IQf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
-                                <state key="normal" title="分享"/>
+                                <size key="titleShadowOffset" width="1" height="2"/>
+                                <state key="normal" image="homeButton_share" backgroundImage="buttonbgbig">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jBC-WP-ysu"/>
+                                        <exclude reference="rLj-Hd-IQf"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="shareGameSocialNetwork:" destination="BV1-FR-VrT" eventType="touchUpInside" id="P0d-ow-OnY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EP-jd-QXu">
-                                <rect key="frame" x="160" y="542" width="80" height="48"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <rect key="contentStretch" x="0.20000000000000001" y="0.20000000000000001" width="1" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="1tb-EJ-uVd"/>
-                                    <constraint firstAttribute="height" constant="48" id="6uX-nR-Nn9"/>
-                                    <constraint firstAttribute="width" constant="90" id="JqM-t8-Thf"/>
-                                    <constraint firstAttribute="height" constant="48" id="wPp-CL-Su7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
-                                <state key="normal" image="homeButton_Leaderboard"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="6uX-nR-Nn9"/>
-                                        <exclude reference="JqM-t8-Thf"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="showGameCenterLeaderboard:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="mOv-2D-h8J"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0★" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IF-uz-VCA">
-                                <rect key="frame" x="488" y="28" width="48" height="42"/>
+                                <rect key="frame" x="492" y="8" width="48" height="42"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -172,8 +172,8 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="K1M-gU-vch">
-                                <rect key="frame" x="225" y="30" width="150" height="3"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="K1M-gU-vch">
+                                <rect key="frame" x="225" y="30" width="150" height="2.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="gCI-2I-26S"/>
                                 </constraints>
@@ -181,15 +181,15 @@
                                 <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djA-Kp-8bM">
-                                <rect key="frame" x="551" y="84" width="41" height="30"/>
-                                <state key="normal" image="cameraOff"/>
+                                <rect key="frame" x="552" y="60" width="40" height="40"/>
+                                <state key="normal" image="cameraOff" backgroundImage="buttonbgRect"/>
                                 <connections>
                                     <action selector="replayAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hhc-Xt-so2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbe-t4-et4">
-                                <rect key="frame" x="548" y="28" width="40" height="40"/>
-                                <state key="normal" image="homeButton_pause"/>
+                                <rect key="frame" x="552" y="8" width="40" height="40"/>
+                                <state key="normal" image="homeButton_pause" backgroundImage="buttonbgRect"/>
                                 <connections>
                                     <action selector="pauseGameAction:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Oy8-Jv-xTX"/>
                                 </connections>
@@ -202,18 +202,44 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EP-jd-QXu">
+                                <rect key="frame" x="140" y="411" width="80" height="69"/>
+                                <rect key="contentStretch" x="0.20000000000000001" y="0.20000000000000001" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="1tb-EJ-uVd"/>
+                                    <constraint firstAttribute="height" constant="48" id="6uX-nR-Nn9"/>
+                                    <constraint firstAttribute="width" constant="90" id="JqM-t8-Thf"/>
+                                    <constraint firstAttribute="height" constant="48" id="wPp-CL-Su7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
+                                <size key="titleShadowOffset" width="1" height="2"/>
+                                <state key="normal" image="homeButton_Leaderboard" backgroundImage="buttonbgbig">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1tb-EJ-uVd"/>
+                                        <exclude reference="6uX-nR-Nn9"/>
+                                        <exclude reference="JqM-t8-Thf"/>
+                                        <exclude reference="wPp-CL-Su7"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="showGameCenterLeaderboard:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="mOv-2D-h8J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EgE-5X-UQj" firstAttribute="top" secondItem="xqy-pu-jM1" secondAttribute="bottom" id="2jb-UG-Npq"/>
-                            <constraint firstAttribute="trailing" secondItem="Xbe-t4-et4" secondAttribute="trailing" constant="12" id="3nb-XF-4dS"/>
+                            <constraint firstAttribute="trailing" secondItem="Xbe-t4-et4" secondAttribute="trailing" constant="8" id="3nb-XF-4dS"/>
                             <constraint firstItem="9IF-uz-VCA" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" id="4CE-yg-8KC"/>
                             <constraint firstItem="xqy-pu-jM1" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="topMargin" id="9WI-6n-6eu"/>
-                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="Wfq-Yd-Lkk" secondAttribute="bottom" constant="10" id="HA9-wk-Kgl"/>
-                            <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="leading" secondItem="8EP-jd-QXu" secondAttribute="trailing" constant="20" id="Ilr-wf-PqZ"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="Wfq-Yd-Lkk" secondAttribute="bottom" constant="120" id="HA9-wk-Kgl"/>
+                            <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="leading" secondItem="8EP-jd-QXu" secondAttribute="trailing" constant="40" id="Ilr-wf-PqZ"/>
                             <constraint firstItem="SAv-uz-pVl" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="Jbg-Pc-LhW"/>
-                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="8EP-jd-QXu" secondAttribute="bottom" constant="10" id="W0x-vd-otD"/>
-                            <constraint firstItem="jEx-70-fdt" firstAttribute="leading" secondItem="Wfq-Yd-Lkk" secondAttribute="trailing" constant="20" id="Ww9-Xm-Yi9"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="8EP-jd-QXu" secondAttribute="bottom" constant="120" id="W0x-vd-otD"/>
+                            <constraint firstItem="jEx-70-fdt" firstAttribute="leading" secondItem="Wfq-Yd-Lkk" secondAttribute="trailing" constant="40" id="Ww9-Xm-Yi9"/>
                             <constraint firstItem="xqy-pu-jM1" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="bVV-DS-u3K"/>
                             <constraint firstItem="BOu-9h-Hou" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" symbolic="YES" id="bfq-ON-g9a"/>
                             <constraint firstItem="Z4o-bK-0ZL" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="f3o-Xe-rFB"/>
@@ -226,13 +252,14 @@
                             <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="mkb-V3-zcN"/>
                             <constraint firstItem="K1M-gU-vch" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="10" id="oMh-uW-H1l"/>
                             <constraint firstAttribute="trailing" secondItem="djA-Kp-8bM" secondAttribute="trailing" constant="8" id="p11-ZO-IGF"/>
-                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="jEx-70-fdt" secondAttribute="bottom" constant="10" id="pU4-IM-PLw"/>
-                            <constraint firstItem="djA-Kp-8bM" firstAttribute="top" secondItem="Xbe-t4-et4" secondAttribute="bottom" constant="16" id="rFG-YV-byU"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="jEx-70-fdt" secondAttribute="bottom" constant="120" id="pU4-IM-PLw"/>
+                            <constraint firstItem="djA-Kp-8bM" firstAttribute="top" secondItem="Xbe-t4-et4" secondAttribute="bottom" constant="12" id="rFG-YV-byU"/>
                             <constraint firstItem="Xbe-t4-et4" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" id="u4a-yd-oOh"/>
                             <constraint firstItem="BOu-9h-Hou" firstAttribute="leading" secondItem="mQl-Sc-H5o" secondAttribute="leading" id="x6C-c8-sxw"/>
                             <constraint firstItem="EgE-5X-UQj" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="xz5-jE-WSc"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="characterButton" destination="Z4o-bK-0ZL" id="04Q-SV-WYQ"/>
@@ -267,7 +294,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45x-1Q-yD7">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45x-1Q-yD7">
                                 <rect key="frame" x="20" y="40" width="50" height="50"/>
                                 <state key="normal" image="homeButton_back"/>
                                 <connections>
@@ -296,51 +323,25 @@
                                     <action selector="recordAction:" destination="BzE-cZ-HLf" eventType="touchUpInside" id="E9C-Sn-3HR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnQ-tV-ebg">
-                                <rect key="frame" x="341" y="288" width="50" height="24"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKf-6W-mJe">
-                                <rect key="frame" x="341" y="214" width="78" height="24"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovV-cB-5YI">
-                                <rect key="frame" x="341" y="362" width="47" height="24"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ovV-cB-5YI" firstAttribute="leading" secondItem="hfF-z2-n5x" secondAttribute="trailing" constant="20" id="0pt-f6-TpB"/>
                             <constraint firstItem="XWe-HB-6db" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="0pt-oK-17l"/>
                             <constraint firstItem="45x-1Q-yD7" firstAttribute="top" secondItem="8Z0-x1-J36" secondAttribute="bottom" constant="20" id="5F8-SB-EHw"/>
                             <constraint firstItem="hfF-z2-n5x" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="H5e-1H-RfV"/>
-                            <constraint firstItem="cKf-6W-mJe" firstAttribute="leading" secondItem="XWe-HB-6db" secondAttribute="trailing" constant="20" id="MJn-H1-UW3"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="top" secondItem="XWe-HB-6db" secondAttribute="bottom" constant="30" id="R3M-3t-Th3"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="centerY" secondItem="Itr-7U-GgV" secondAttribute="centerY" id="XVf-cd-sox"/>
-                            <constraint firstItem="ovV-cB-5YI" firstAttribute="top" secondItem="EnQ-tV-ebg" secondAttribute="bottom" constant="50" id="aV8-4D-PDL"/>
                             <constraint firstItem="45x-1Q-yD7" firstAttribute="leading" secondItem="Itr-7U-GgV" secondAttribute="leadingMargin" id="bBA-8h-YY7"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="cc0-f0-rDs"/>
                             <constraint firstItem="hfF-z2-n5x" firstAttribute="top" secondItem="Qu6-Dr-4ab" secondAttribute="bottom" constant="30" id="h6U-Hs-hsa"/>
-                            <constraint firstItem="EnQ-tV-ebg" firstAttribute="centerY" secondItem="Itr-7U-GgV" secondAttribute="centerY" id="lfh-t8-H3O"/>
-                            <constraint firstItem="EnQ-tV-ebg" firstAttribute="leading" secondItem="Qu6-Dr-4ab" secondAttribute="trailing" constant="20" id="mfs-TB-eYT"/>
-                            <constraint firstItem="EnQ-tV-ebg" firstAttribute="top" secondItem="cKf-6W-mJe" secondAttribute="bottom" constant="50" id="tQ6-qp-wDE"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="RecordButton" destination="hfF-z2-n5x" id="XbG-Gg-Fd0"/>
-                        <outlet property="RecordLabel" destination="ovV-cB-5YI" id="QHG-TL-xon"/>
-                        <outlet property="SoundLabel" destination="EnQ-tV-ebg" id="DVK-QT-PFv"/>
                         <outlet property="closeButton" destination="45x-1Q-yD7" id="her-5c-VUl"/>
                         <outlet property="languageButton" destination="XWe-HB-6db" id="wFn-Wc-ICz"/>
-                        <outlet property="languageLabel" destination="cKf-6W-mJe" id="TC2-sc-DAk"/>
                         <outlet property="musicButton" destination="Qu6-Dr-4ab" id="yOY-wL-YOy"/>
                     </connections>
                 </viewController>
@@ -387,7 +388,7 @@
                                     <constraint firstItem="tgu-q5-xa7" firstAttribute="top" secondItem="07G-AD-5IG" secondAttribute="top" id="jm5-OL-WiG"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-Rq-YzN">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-Rq-YzN">
                                 <rect key="frame" x="20" y="28" width="50" height="50"/>
                                 <state key="normal" image="homeButton_back"/>
                                 <connections>
@@ -409,6 +410,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B7l-7W-PMb"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="closeButton" destination="pFT-Rq-YzN" id="i4W-5K-B7V"/>
@@ -423,13 +425,19 @@
     </scenes>
     <resources>
         <image name="avatar_bg_line" width="10" height="384"/>
-        <image name="cameraOff" width="41" height="30"/>
+        <image name="buttonbg" width="60" height="52"/>
+        <image name="buttonbgRect" width="40" height="40"/>
+        <image name="buttonbgbig" width="80" height="69"/>
+        <image name="cameraOff" width="30" height="22"/>
         <image name="homeButton_Leaderboard" width="40" height="28"/>
         <image name="homeButton_Record" width="42" height="42"/>
         <image name="homeButton_back" width="50" height="50"/>
         <image name="homeButton_continue" width="42" height="42"/>
         <image name="homeButton_language" width="42" height="42"/>
         <image name="homeButton_pause" width="40" height="40"/>
+        <image name="homeButton_setting" width="30" height="30"/>
+        <image name="homeButton_share" width="26" height="30"/>
         <image name="homeButton_sound" width="42" height="42"/>
+        <image name="homeButton_try" width="37" height="27"/>
     </resources>
 </document>

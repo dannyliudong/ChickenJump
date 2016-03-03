@@ -326,6 +326,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         if !GameState.sharedInstance.isRecording {
             self.startRecording()
+
         } else if GameState.sharedInstance.isRecording {
             self.stopRecording()
         }
@@ -334,6 +335,9 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     //开始录像
     func startRecording() {
+        
+        self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
+        
         let recorder = RPScreenRecorder.sharedRecorder()
         recorder.delegate = self;
         
@@ -344,7 +348,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             } else {
 //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
                 
-                self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
                 GameState.sharedInstance.isRecording = true
             }
         }
@@ -353,6 +356,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     //停止录像
     func stopRecording() {
 //        pauseGame()
+        
+        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
         let recorder = RPScreenRecorder.sharedRecorder()
         
@@ -363,11 +368,11 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             } else {
 //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .Plain, target: self, action: #selector(ViewController.startRecording))
                 
-                self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
                 GameState.sharedInstance.isRecording = false
                 
                 if let preview = previewController {
                     preview.previewControllerDelegate = self
+                    preview.prefersStatusBarHidden()
                     self.presentViewController(preview, animated: true, completion: nil)
                 }
             }
