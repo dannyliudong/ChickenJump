@@ -23,6 +23,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
     weak var gameSceneDelegate: GameSceneDelegate?
     
+    
+    private var loadingView:SKSpriteNode!
+    
     // MARK: Properties let
     private var currentLevel: Int = 0
     
@@ -205,7 +208,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         view!.addGestureRecognizer(tap)
         view!.addGestureRecognizer(leftSwipe)
         view!.addGestureRecognizer(rightSwipe)
-        
     }
     
     func handleTap(sender:UITapGestureRecognizer){
@@ -216,8 +218,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
-            print("Swipe Left")
             touchControll(CGVectorMake(-Player_Jump_Width, Player_Jump_Hight))
+            
         }
     }
     
@@ -252,7 +254,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //        let testNode = testScene?.childNodeWithName("longSection")
 //        
 //        print("testNode Postion \(testNode?.position)")
-        
         self.platfromInterval = 0
         GameState.sharedInstance.currentScore = 0
         
@@ -289,9 +290,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
 //        GameState.sharedInstance.gameOver = true
         GameState.sharedInstance.isLoadingDone = true
-        
         GameState.sharedInstance.lifeTimeCount = 1.2
-
         
         // 2. 游戏开始后的音乐
         let music = GameState.sharedInstance.musicState
@@ -1052,7 +1051,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         //        halo.alpha = 0.6
         //        bg_HillDepth0_node.addChild(halo)
         
-        
     }
     
     //MARK: 背景移动层
@@ -1707,7 +1705,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         rainEmitter.alpha = 0.5
         self.rainstormSceneRainSP.addChild(rainEmitter)
         
-        SKTAudio.sharedInstance().playSoundEffect("RainSound.mp3")
+        SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.NormalAudioName.rawValue)
         
 //        self.runAction(SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false))
         
@@ -2190,7 +2188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         print("Contact Floor")
                         
                         contactFloorEvent(node)
-                        playerMagic(convertPoint(self.position, fromNode: self.playerNode))
+                        showplayerMagic(convertPoint(self.position, fromNode: self.playerNode))
                         
                         
                         // 角色长时间不动时 会发出叫声
@@ -2271,7 +2269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Down_Floor:
                         print("Contact 踩踏 下落")
                         contactFloorEvent(node)
-                        playerMagic(convertPoint(self.position, fromNode: self.playerNode))
+                        showplayerMagic(convertPoint(self.position, fromNode: self.playerNode))
                         
                         if GameState.sharedInstance.musicState { self.runAction(downSoundAction) }
                         
@@ -2285,7 +2283,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Invisible:
                         print("Contact 隐形的")
                         contactFloorEvent(node)
-                        playerMagic(convertPoint(self.position, fromNode: self.playerNode))
+                        showplayerMagic(convertPoint(self.position, fromNode: self.playerNode))
                         
                         node.hidden = false
                         
@@ -2317,10 +2315,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 粒子特效
     
-    //MARK: 魔法飘带
-    func playerMagic(postion:CGPoint) {
+    //MARK: 踩踏地面特效
+    func showplayerMagic(postion:CGPoint) {
         print("playerMagic")
-        self.magicNode = SKEmitterNode(fileNamed: "playerMagic.sks") //EngineFire
+        self.magicNode = SKEmitterNode.emitterNamed("playerMagic")
         self.magicNode.particleTexture!.filteringMode = .Nearest
         self.magicNode.position = CGPointMake(postion.x - 50, postion.y)
         self.magicNode.zPosition = 400
@@ -2328,29 +2326,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         addChild(self.magicNode)
         
-        magicNode.runAction(SKAction.removeFromParentAfterDelay(3.5))
+        magicNode.runAction(SKAction.removeFromParentAfterDelay(1.8))
         
     }
     
-    func lightsUpAnimation() {
-        let maskView = SKSpriteNode(color: UIColor.blackColor(), size: self.size)
-        maskView.alpha = 0
-        self.addChild(maskView)
+    // 灾难特效
+    func showDistress(postion:CGPoint) {
+        let emitter = SKEmitterNode.emitterNamed("distressParticle")
+        emitter.particleTexture!.filteringMode = .Nearest
+        emitter.position = position//CGPointMake(playerNode.position.x + self.playerNode.size.width, playerNode.position.y + 50)
+        emitter.zPosition = 300
         
-        UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { 
-            maskView.alpha = 1
-            }) { (done) in
-                //
-        }
+        addChild(emitter)
         
-    }
-    
-    //  撞击震屏
-    func shakeCarema() {
-        let sceneView = self.view
-        if let view = sceneView {
-            view.shakeC(5, delta: 8, interval: 0.02, shakeDirection: ShakeDirection.ShakeDirectionVertical)
-        }
+//        emitter.runAction(SKAction.removeFromParentAfterDelay(1.8))
     }
     
     // 爆炸特效
@@ -2364,23 +2353,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         addChild(emitter)
         
         emitter.runAction(SKAction.removeFromParentAfterDelay(1.8))
-        
     }
     
-    // 踩踏地面特效
-    func showParticlesForTreadFloor(node: SKNode) {
-        
-        let emitter = SKEmitterNode.emitterNamed("treadFloor")
-        emitter.particleTexture!.filteringMode = .Nearest
-        emitter.position = CGPointMake(node.position.x, node.position.y - 30)
-        emitter.zPosition = 300
-        
-        self.playerNode.addChild(emitter)
-        
-        emitter.runAction(SKAction.removeFromParentAfterDelay(0.5))
-        
+    //  震屏
+    func shakeCarema() {
+        let sceneView = self.view
+        if let view = sceneView {
+            view.shakeC(5, delta: 8, interval: 0.02, shakeDirection: ShakeDirection.ShakeDirectionVertical)
+        }
     }
-    
     
     // 点击特效
     func tapEffectsForTouchAtLocation(location: CGPoint) {
@@ -2786,14 +2767,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 self.gameEnd()
 
-                let eagle = SKSpriteNode(imageNamed: "eagle")
-                eagle.position = CGPointMake(Screen_Width + eagle.size.width, Screen_Height)
-                eagle.zPosition = 300
-                addChild(eagle)
-                
-                let flymove = SKAction.moveTo(CGPointMake(-200, 200), duration: 2.0)
-                let remove = SKAction.removeFromParent()
-                eagle.runAction(SKAction.sequence([flymove, remove]))
+//                let eagle = SKSpriteNode(imageNamed: "eagle")
+//                eagle.position = CGPointMake(Screen_Width + eagle.size.width, Screen_Height)
+//                eagle.zPosition = 300
+//                addChild(eagle)
+//                
+//                let flymove = SKAction.moveTo(CGPointMake(-200, 200), duration: 2.0)
+//                let remove = SKAction.removeFromParent()
+//                eagle.runAction(SKAction.sequence([flymove, remove]))
                 
                 //  用dispatch_after推迟任务
 //                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
