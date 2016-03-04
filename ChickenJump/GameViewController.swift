@@ -63,6 +63,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
         EGC.sharedInstance(self)
         EGC.debugMode = true
@@ -785,9 +786,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }
-    
-    
+    }    
 
     
 }

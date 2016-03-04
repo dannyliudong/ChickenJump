@@ -128,11 +128,11 @@ let Spring_SectionWidth:CGFloat = 64.0 * 5
 //let Player_Move_Speed:CGFloat = 5.0
 let BG_Cycle_Width_Ratio: CGFloat = 1.0
 
-let Player_Jump_Width:CGFloat = 64
+let Player_Jump_Width:CGFloat = 48
 let Player_Jump_Hight:CGFloat = 64
 
 //let Player_Jump_HightAdd:CGFloat = 65
-let Scene_Gravity:CGFloat = -60.0
+let Scene_Gravity:CGFloat = -80.0
 
 let BG_hight:CGFloat = Screen_Height * 0.3
 let PlatformHight:CGFloat = Screen_Height * 0.15

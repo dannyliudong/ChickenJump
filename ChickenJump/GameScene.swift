@@ -564,7 +564,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let count = Int(Screen_Width / 64)
         for _ in 0...count-1 {
             
-            print("setupStartPlatfroms  \(count)")
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
             self.playergroundNode.addChild(node)
@@ -625,11 +624,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 实时刷新关卡地图 增加一个新的放到最后面
     func updatePlatfroms() {
-        print("实时刷新关卡地图")
         
-        let interval = platfromsTupleUpdateArray.last?.1
-        
-        print("platfromInterval \(interval)")
 
         if platfromInterval <= 10 {
             //更新Platfroms
@@ -690,7 +685,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         if let firstNode = platfromsTupleUpdateArray.first {
             let firstNodePostionInScene = self.convertPoint(self.position, fromNode: firstNode.0)
-            print("firstNodePostionInScene  \(firstNodePostionInScene)")
             
             // 如果第一个node的相对场景位置 <= -自身宽度 视为出屏幕
             if firstNodePostionInScene.x <= -firstNode.1 {
@@ -699,7 +693,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
         }
         
-        print("platfromsTupleUpdateArray:count \(platfromsTupleUpdateArray.count)")
     }
     
     //MARK: 天气场景
@@ -741,11 +734,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
                 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+
+//                _node.physicsBody?.friction = 0
+//                _node.physicsBody?.charge = 0
+//                _node.physicsBody?.linearDamping = 0
+//                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
                 let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
@@ -764,14 +758,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
                 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 5, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 5, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.0)))])
                 
                 _node.runAction(sequence)
                 
@@ -791,11 +786,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
                 _node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None //  对任何物体碰撞直接穿过
 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
             }
         }
         
@@ -845,11 +841,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                _node.s
                 _node.texture = platfromAtlats.kifne()
                 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
                 let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(380, time: NSTimeInterval(CGFloat.random(min: 2.5, max: 4.0)))])
@@ -865,11 +862,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = platfromAtlats.kifne()
                 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
             }
         }
         
@@ -897,11 +895,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.color = UIColor.clearColor()
 
-                _node.physicsBody?.friction = 0
-                _node.physicsBody?.charge = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
             }
         }
         
@@ -909,15 +908,118 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             for _node in nodes.children {
                 
-                _node.physicsBody?.friction = 0
                 _node.physicsBody?.restitution = 0
-                _node.physicsBody?.linearDamping = 0
-                _node.physicsBody?.angularDamping = 0
-                _node.physicsBody?.charge = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
             }
         }
         
         return platfromNode
+    }
+    
+    
+    // 只更改关卡位置 动画 不设置纹理
+    func setAnimiation (platfromNode:SKNode)  {
+        
+        // 左右移动的平台
+        if let nodes = platfromNode.childNodeWithName("floorMoveXNodes") {
+            
+            for node in nodes.children {
+                
+                let _node = node as! SKSpriteNode
+                _node.texture = setPlatformTextureWithFloor(self.land)
+                
+                _node.physicsBody?.restitution = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
+                
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
+                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
+                
+                _node.runAction(sequence)
+                
+            }
+        }
+        
+        // 上下移动的平台
+        
+        if let nodes = platfromNode.childNodeWithName("floorMoveYNodes") {
+            
+            for node in nodes.children {
+                
+                let _node = node as! SKSpriteNode
+                _node.texture = setPlatformTextureWithFloor(self.land)
+                
+                _node.physicsBody?.restitution = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
+                
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 5, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
+                
+                _node.runAction(sequence)
+                
+            }
+        }
+        
+        // 设置钥匙的 随机高度
+        if let node = platfromNode.childNodeWithName("door") {
+            
+            if let keyNode = node.childNodeWithName("doorkeynode") {
+                
+                keyNode.physicsBody?.friction = 0
+                keyNode.physicsBody?.charge = 0
+                keyNode.physicsBody?.restitution = 0
+                keyNode.physicsBody?.linearDamping = 0
+                keyNode.physicsBody?.angularDamping = 0
+                
+                let ketX:CGFloat = {
+                    switch arc4random() % 2 {
+                    case 0 :
+                        return -64.0
+                    case 1:
+                        return -128.0
+                    default :
+                        return 0.0
+                    }
+                }()
+                
+                let ketY = CGFloat.random(min: -100, max: 50)
+                
+                keyNode.position = CGPointMake(ketX, ketY)//CGFloat.random(min: -100, max: 50)
+            }
+            print("finde child doorkeynode ")
+        }
+        
+        if let nodes = platfromNode.childNodeWithName("knifeNodes") {
+            
+            for node in nodes.children {
+                
+                let _node = node as! SKSpriteNode
+                
+                _node.physicsBody?.restitution = 0
+                
+                //                _node.physicsBody?.friction = 0
+                //                _node.physicsBody?.charge = 0
+                //                _node.physicsBody?.linearDamping = 0
+                //                _node.physicsBody?.angularDamping = 0
+                
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(380, time: NSTimeInterval(CGFloat.random(min: 2.5, max: 4.0)))])
+                _node.runAction(sequence)
+                
+            }
+        }
+
     }
 
     
@@ -2002,11 +2104,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("contactFloorEvent")
         
         GameState.sharedInstance.canJump = true
-        self.isFloor = true
-//        self.playerNode.removeFromParent()
-//        self.playerNode.position = CGPointMake(0, 32)
-//        
-//        node.addChild(playerNode)
+        
+        self.playerNode.removeFromParent()
+        self.playerNode.position = CGPointMake(0, 32)
+        
+        node.addChild(playerNode)
         
     }
     
@@ -2506,7 +2608,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
 
-    var isFloor = false
+//    var isFloor = false
     
     //MARK: update
     override func update(currentTime: CFTimeInterval) {
@@ -2532,9 +2634,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             playergroundNode.position.x -= ScrollBG_Move_Speed
             
-            if isFloor {
-                playerNode.position.x -= ScrollBG_Move_Speed
-            }
+//            if isFloor {
+//                playerNode.position.x -= ScrollBG_Move_Speed
+//            }
             
             
             GameState.sharedInstance.lifeTimeCount -= 0.003
