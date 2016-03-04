@@ -1152,12 +1152,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         case .Grove:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
+                count = Int.random(min: 2, max: 3)
                 dt = CGFloat.random(min: 50, max: 100)
                 ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
                 
             case .LayerB:
-                count =  Int.random(min: 2, max: 4)
+                count =  Int.random(min: 3, max: 5)
                 dt = CGFloat.random(min: 30, max: 50)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
