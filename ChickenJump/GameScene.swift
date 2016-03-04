@@ -2412,9 +2412,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
         self.playerNode.yScale = -1
         
-        
-        self.playerNode.moveToParent(self.playergroundNode)
-
+//        self.playerNode.moveToParent(self)
         
 //        self.playerNode.physicsBody?.allowsRotation = true
 //        
@@ -2647,14 +2645,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             self.updatePlatfroms()
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
-            ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             
-            if playerPostionInScene.x >= Screen_Width * 0.8 {
+            if playerPostionInScene.x >= Screen_Width * 0.2 {
+                ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
+
+            } else if playerPostionInScene.x >= Screen_Width * 0.8 {
                 ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
-            } 
-            
-            
-            
+
+            } else {
+                ScrollBG_Move_Speed = 0.2
+            }
+
             playergroundNode.position.x -= ScrollBG_Move_Speed
             
 //            if isFloor {

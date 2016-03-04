@@ -96,7 +96,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        skView.showsFPS = true
 //        skView.showsNodeCount = true
 //        skView.showsDrawCount = true
-        skView.showsPhysics = true
+//        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
@@ -338,7 +338,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     //开始录像
     func startRecording() {
         
-        self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
         
         let recorder = RPScreenRecorder.sharedRecorder()
         recorder.delegate = self;
@@ -349,7 +348,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
                 self.alert(error.localizedDescription)
             } else {
 //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
-                
+                self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
+
                 GameState.sharedInstance.isRecording = true
             }
         }
@@ -359,7 +359,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     func stopRecording() {
 //        pauseGame()
         
-        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
         let recorder = RPScreenRecorder.sharedRecorder()
         
@@ -369,7 +368,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
                 self.alert(error.localizedDescription)
             } else {
 //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .Plain, target: self, action: #selector(ViewController.startRecording))
-                
+                self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+
                 GameState.sharedInstance.isRecording = false
                 
                 if let preview = previewController {
@@ -594,7 +594,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         self.goldDisplayLabel.hidden = true
         
-        self.replayButton.hidden = true
+        self.replayButton.hidden = false
         
 //        self.showReplay.hidden = true
     
