@@ -163,13 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A04AC7461C856FDE0027A83E /* WeChatSDK */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = WeChatSDK;
-			sourceTree = "<group>";
-		};
 		A06716EA1C86D40A00D4F519 /* WeChatSharing */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +204,6 @@
 			children = (
 				A06716EA1C86D40A00D4F519 /* WeChatSharing */,
 				A07594CB1C7AF0A8005FF82F /* Helper */,
-				A04AC7461C856FDE0027A83E /* WeChatSDK */,
 				A08386C91C7AF511008A7502 /* Motion */,
 				A08386C81C7AF49C008A7502 /* UI */,
 				A08386C71C7AF485008A7502 /* Model */,
@@ -232,8 +224,8 @@
 		A075943B1C7AEE49005FF82F /* SceneFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A075943C1C7AEE59005FF82F /* Long_Section.sks */,
 				A0B314021C884A9000E0F164 /* BGLayer.sks */,
+				A075943C1C7AEE59005FF82F /* Long_Section.sks */,
 				A07594441C7AEE80005FF82F /* Door_Section.sks */,
 				A07594461C7AEE88005FF82F /* Down_Section.sks */,
 				A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */,
@@ -247,7 +239,6 @@
 		A075945A1C7AEF18005FF82F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A07594BE1C7AF058005FF82F /* SKTUtils */,
 				A07594AB1C7AEFE1005FF82F /* Particles */,
 				A075949C1C7AEFAD005FF82F /* BGSprite */,
 				A075945B1C7AEF22005FF82F /* Sound */,
@@ -338,6 +329,7 @@
 		A07594CB1C7AF0A8005FF82F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A07594BE1C7AF058005FF82F /* SKTUtils */,
 				A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */,
 				A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */,
 			);

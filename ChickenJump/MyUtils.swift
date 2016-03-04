@@ -121,5 +121,13 @@ extension CGFloat {
     
 }
 
+extension Int {
+    static func random(min min:Int, max: Int) ->Int {
+        assert(min < max, "min < max ")
+        return Int(arc4random_uniform(UInt32(max) - UInt32(min) ) + UInt32(min))
+
+    }
+    
+}
 
 
