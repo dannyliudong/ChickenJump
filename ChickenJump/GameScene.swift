@@ -1071,7 +1071,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             case .BuildingShenshe:
                 return SKColorWithRGB(12, g: 155, b: 206)
             case .Cemetery:
-                return SKColorWithRGB(88, g: 118, b: 144)
+                return SKColorWithRGB(38, g: 56, b: 85)
             case .Nightsky:
                 return SKColorWithRGB(105, g: 10, b: 188)
             }
@@ -2403,12 +2403,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     func gameEndPlayerDeath() {
+        
         self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
 
-//        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
-        self.playerNode.physicsBody?.dynamic = false
+//        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 30))
         
+        self.playerNode.physicsBody?.dynamic = false
+
         self.playerNode.yScale = -1
+        
+        
+        self.playerNode.moveToParent(self.playergroundNode)
+
         
 //        self.playerNode.physicsBody?.allowsRotation = true
 //        
