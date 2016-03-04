@@ -49,7 +49,7 @@ let SkyColor_BuildingShenshe:UIColor = SKColorWithRGB(153, g: 106, b: 6) // 神�
 let SkyColor_BuildingShenshe_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
 let SkyColor_BuildingShenshe_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
 
-let SkyColor_Cemetery:UIColor = SKColorWithRGB(76, g: 79, b: 95) // 墓地
+let SkyColor_Cemetery:UIColor = SKColorWithRGB(42, g: 45, b: 62) // 墓地
 let SkyColor_Cemetery_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
 let SkyColor_Cemetery_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
 
@@ -147,250 +147,250 @@ let WallColor_Nightsky_A:UIColor = SKColorWithRGB(14, g: 0, b: 70)  // 夜晚
 let WallColor_Nightsky_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
 let WallColor_Nightsky_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
 
-func getFloorColorWith(type:SceneLandType) -> UIColor {
-    switch type {
-    case .Amazon:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_Amazon_A
-        case 1:
-            return FloorColor_Amazon_B
-        case 2:
-            return FloorColor_Amazon_C
-        default:
-            return UIColor.redColor()
-        }
-    case .Grove:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_Grove_A
-        case 1:
-            return FloorColor_Grove_B
-        case 2:
-            return FloorColor_Grove_C
-        default:
-            return UIColor.redColor()
-        }
-    case .Volcanic:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_Volcanic_A
-        case 1:
-            return FloorColor_Volcanic_B
-        case 2:
-            return FloorColor_Volcanic_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .LahontanValley:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_LahontanValley_A
-        case 1:
-            return FloorColor_LahontanValley_B
-        case 2:
-            return FloorColor_LahontanValley_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .SnowMountain:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_SnowMountain_A
-        case 1:
-            return FloorColor_SnowMountain_B
-        case 2:
-            return FloorColor_SnowMountain_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .MayaPyramid:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_MayaPyramid_A
-        case 1:
-            return FloorColor_MayaPyramid_B
-        case 2:
-            return FloorColor_MayaPyramid_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .Iceberg:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_Iceberg_A
-        case 1:
-            return FloorColor_Iceberg_B
-        case 2:
-            return FloorColor_Iceberg_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .BuildingShenshe:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_BuildingShenshe_A
-        case 1:
-            return FloorColor_BuildingShenshe_B
-        case 2:
-            return FloorColor_BuildingShenshe_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .Cemetery:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_Cemetery_A
-        case 1:
-            return FloorColor_Cemetery_B
-        case 2:
-            return FloorColor_Cemetery_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .Nightsky:
-        switch arc4random() % 3 {
-        case 0:
-            return FloorColor_Nightsky_A
-        case 1:
-            return FloorColor_Nightsky_B
-        case 2:
-            return FloorColor_Nightsky_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    }
-}
+//func getFloorColorWith(type:SceneLandType) -> UIColor {
+//    switch type {
+//    case .Amazon:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_Amazon_A
+//        case 1:
+//            return FloorColor_Amazon_B
+//        case 2:
+//            return FloorColor_Amazon_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//    case .Grove:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_Grove_A
+//        case 1:
+//            return FloorColor_Grove_B
+//        case 2:
+//            return FloorColor_Grove_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//    case .Volcanic:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_Volcanic_A
+//        case 1:
+//            return FloorColor_Volcanic_B
+//        case 2:
+//            return FloorColor_Volcanic_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .LahontanValley:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_LahontanValley_A
+//        case 1:
+//            return FloorColor_LahontanValley_B
+//        case 2:
+//            return FloorColor_LahontanValley_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .SnowMountain:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_SnowMountain_A
+//        case 1:
+//            return FloorColor_SnowMountain_B
+//        case 2:
+//            return FloorColor_SnowMountain_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .MayaPyramid:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_MayaPyramid_A
+//        case 1:
+//            return FloorColor_MayaPyramid_B
+//        case 2:
+//            return FloorColor_MayaPyramid_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .Iceberg:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_Iceberg_A
+//        case 1:
+//            return FloorColor_Iceberg_B
+//        case 2:
+//            return FloorColor_Iceberg_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .BuildingShenshe:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_BuildingShenshe_A
+//        case 1:
+//            return FloorColor_BuildingShenshe_B
+//        case 2:
+//            return FloorColor_BuildingShenshe_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .Cemetery:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_Cemetery_A
+//        case 1:
+//            return FloorColor_Cemetery_B
+//        case 2:
+//            return FloorColor_Cemetery_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .Nightsky:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return FloorColor_Nightsky_A
+//        case 1:
+//            return FloorColor_Nightsky_B
+//        case 2:
+//            return FloorColor_Nightsky_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    }
+//}
 
-func getWallColorWith(type:SceneLandType) -> UIColor {
-    switch type {
-    case .Amazon:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_Amazon_A
-        case 1:
-            return WallColor_Amazon_B
-        case 2:
-            return WallColor_Amazon_C
-        default:
-            return UIColor.redColor()
-        }
-    case .Grove:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_Grove_A
-        case 1:
-            return WallColor_Grove_B
-        case 2:
-            return WallColor_Grove_C
-        default:
-            return UIColor.redColor()
-        }
-    case .Volcanic:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_Volcanic_A
-        case 1:
-            return WallColor_Volcanic_B
-        case 2:
-            return WallColor_Volcanic_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .LahontanValley:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_LahontanValley_A
-        case 1:
-            return WallColor_LahontanValley_B
-        case 2:
-            return WallColor_LahontanValley_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .SnowMountain:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_SnowMountain_A
-        case 1:
-            return WallColor_SnowMountain_B
-        case 2:
-            return WallColor_SnowMountain_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .MayaPyramid:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_MayaPyramid_A
-        case 1:
-            return WallColor_MayaPyramid_B
-        case 2:
-            return WallColor_MayaPyramid_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .Iceberg:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_Iceberg_A
-        case 1:
-            return WallColor_Iceberg_B
-        case 2:
-            return WallColor_Iceberg_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .BuildingShenshe:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_BuildingShenshe_A
-        case 1:
-            return WallColor_BuildingShenshe_B
-        case 2:
-            return WallColor_BuildingShenshe_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .Cemetery:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_Cemetery_A
-        case 1:
-            return WallColor_Cemetery_B
-        case 2:
-            return WallColor_Cemetery_C
-        default:
-            return UIColor.redColor()
-        }
-        
-    case .Nightsky:
-        switch arc4random() % 3 {
-        case 0:
-            return WallColor_Nightsky_A
-        case 1:
-            return WallColor_Nightsky_B
-        case 2:
-            return WallColor_Nightsky_C
-        default:
-            return UIColor.redColor()
-        }
-    }
-}
+//func getWallColorWith(type:SceneLandType) -> UIColor {
+//    switch type {
+//    case .Amazon:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_Amazon_A
+//        case 1:
+//            return WallColor_Amazon_B
+//        case 2:
+//            return WallColor_Amazon_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//    case .Grove:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_Grove_A
+//        case 1:
+//            return WallColor_Grove_B
+//        case 2:
+//            return WallColor_Grove_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//    case .Volcanic:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_Volcanic_A
+//        case 1:
+//            return WallColor_Volcanic_B
+//        case 2:
+//            return WallColor_Volcanic_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .LahontanValley:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_LahontanValley_A
+//        case 1:
+//            return WallColor_LahontanValley_B
+//        case 2:
+//            return WallColor_LahontanValley_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .SnowMountain:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_SnowMountain_A
+//        case 1:
+//            return WallColor_SnowMountain_B
+//        case 2:
+//            return WallColor_SnowMountain_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .MayaPyramid:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_MayaPyramid_A
+//        case 1:
+//            return WallColor_MayaPyramid_B
+//        case 2:
+//            return WallColor_MayaPyramid_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .Iceberg:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_Iceberg_A
+//        case 1:
+//            return WallColor_Iceberg_B
+//        case 2:
+//            return WallColor_Iceberg_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .BuildingShenshe:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_BuildingShenshe_A
+//        case 1:
+//            return WallColor_BuildingShenshe_B
+//        case 2:
+//            return WallColor_BuildingShenshe_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .Cemetery:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_Cemetery_A
+//        case 1:
+//            return WallColor_Cemetery_B
+//        case 2:
+//            return WallColor_Cemetery_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//        
+//    case .Nightsky:
+//        switch arc4random() % 3 {
+//        case 0:
+//            return WallColor_Nightsky_A
+//        case 1:
+//            return WallColor_Nightsky_B
+//        case 2:
+//            return WallColor_Nightsky_C
+//        default:
+//            return UIColor.redColor()
+//        }
+//    }
+//}
 
 
 

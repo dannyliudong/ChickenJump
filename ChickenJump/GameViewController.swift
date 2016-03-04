@@ -53,6 +53,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     var closeButton:UIButton!
 
     override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -103,7 +104,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         if let scene = GameState.sharedInstance.gameScene {
             
-            scene.scaleMode = .AspectFit
+            scene.scaleMode = .AspectFill
             skView.presentScene(scene)
             
             scene.gameSceneDelegate = self
@@ -785,6 +786,8 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    
 
     
 }

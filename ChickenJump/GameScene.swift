@@ -495,11 +495,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     // 背景
     func initBackgroud() {
-        createBG_layer()
+//        createBG_layer()
         
-        if self.land == .Amazon || self.land == .Volcanic || self.land == .SnowMountain || self.land == .Iceberg || self.land == .Nightsky {
-            createBG_HillDepth0_Layer()
-        }
+//        if self.land == .Amazon || self.land == .Volcanic || self.land == .SnowMountain || self.land == .Iceberg || self.land == .Nightsky {
+//            createBG_HillDepth0_Layer()
+//        }
         
         // 近层
         self.bg_HillDepth1_A_node = createBG_Hill_Layer(BGDetphType.LayerA, zPosition: -50)
@@ -1667,7 +1667,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //        let angle = Double(CGFloat.random(min: -25, max: 35))
         flash.zRotation = CGFloat.toAngle(Double(CGFloat.random(min: -25, max: 35)))//CGFloat( angle * M_PI / 180)
         flash.zPosition = -100
-        flash.position = CGPointMake(CGFloat.random(min: Screen_Width * 0.2, max: Screen_Width * 0.8), Screen_Height - flash.size.height)
+        flash.position = CGPointMake(CGFloat.random(min: Screen_Width * 0.2, max: Screen_Width * 0.8), Screen_Height * 1.01)
         flashLightNode.addChild(flash)
         
         let halo = SKSpriteNode(imageNamed: "flashhalo")
@@ -1859,7 +1859,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: --------------------构建player
     func createPlayer() {
         self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan")) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(playerOffset, PlayerStartHigth) //playerHight + playerNode.height * 0.5
+        self.playerNode.position = CGPointMake(Screen_Width * 0.5, PlayerStartHigth) //playerHight + playerNode.height * 0.5
         self.playerNode.xScale = -1
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
@@ -2520,7 +2520,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             self.updatePlatfroms()
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
-            ScrollBG_Move_Speed = playerPostionInScene.x * 0.008
+            ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             
             if playerPostionInScene.x >= Screen_Width * 0.8 {
                 ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
