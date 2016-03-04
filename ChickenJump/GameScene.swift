@@ -2412,7 +2412,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
         self.playerNode.yScale = -1
         
-//        self.playerNode.moveToParent(self)
+        self.playerNode.moveToParent(self)
         
 //        self.playerNode.physicsBody?.allowsRotation = true
 //        
