@@ -71,7 +71,6 @@
 		A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
 		A0B313C21C881D8700E0F164 /* distressParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C01C881D8700E0F164 /* distressParticle.sks */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
-		A0B314031C884A9000E0F164 /* BGLayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0B314021C884A9000E0F164 /* BGLayer.sks */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
@@ -143,7 +142,6 @@
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A0B313C01C881D8700E0F164 /* distressParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = distressParticle.sks; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		A0B314021C884A9000E0F164 /* BGLayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BGLayer.sks; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,7 +222,6 @@
 		A075943B1C7AEE49005FF82F /* SceneFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A0B314021C884A9000E0F164 /* BGLayer.sks */,
 				A075943C1C7AEE59005FF82F /* Long_Section.sks */,
 				A07594441C7AEE80005FF82F /* Door_Section.sks */,
 				A07594461C7AEE88005FF82F /* Down_Section.sks */,
@@ -448,7 +445,6 @@
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
 				A075948C1C7AEF43005FF82F /* ThunderSound.mp3 in Resources */,
 				A07594AA1C7AEFD3005FF82F /* PlatfromTextureAlats.plist in Resources */,
-				A0B314031C884A9000E0F164 /* BGLayer.sks in Resources */,
 				A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */,
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,
 				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,

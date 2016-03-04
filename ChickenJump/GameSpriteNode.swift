@@ -13,14 +13,13 @@ import SpriteKit
 //MARK: 模拟水
 func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     
-    let wather = SKSpriteNode(color: clolor, size: CGSizeMake(Screen_Width * 1.01, Screen_Height * 0.4))
+    let wather = SKSpriteNode(color: clolor, size: CGSizeMake(Screen_Width * 1.01, Screen_Height * 0.2))
     wather.zPosition = -30
     wather.position = CGPointMake(Screen_Width * 0.5, wather.size.height * 0.5)
 //    wather.colorBlendFactor = 1.0
     wather.alpha = 1
     
-    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height * 0.6),
-                                       center: CGPointMake(0.0, -wather.size.height * 0.5))
+    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height))
     wather.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Wather
 //    wather.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
 //    wather.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.None
