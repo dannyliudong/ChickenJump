@@ -13,13 +13,14 @@ import SpriteKit
 //MARK: 模拟水
 func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     
-    let wather = SKSpriteNode(color: clolor, size: CGSizeMake(Screen_Width * 1.01, Screen_Height * 0.2))
+    let wather = SKSpriteNode(color: clolor, size: CGSizeMake(Screen_Width * 1.01, Screen_Height * 0.3))
     wather.zPosition = -30
-    wather.position = CGPointMake(Screen_Width * 0.5, wather.size.height * 0.5)
+    wather.position = CGPointMake(Screen_Width * 0.5, BG_hight)
+    wather.anchorPoint = CGPointMake(0.5, 1)
 //    wather.colorBlendFactor = 1.0
     wather.alpha = 1
     
-    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height))
+    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height) , center: CGPointMake(0, -wather.size.height * 0.5))
     wather.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Wather
 //    wather.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
 //    wather.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.None
@@ -71,7 +72,7 @@ func GameSpriteNodeWithGold(texture:SKTexture) ->SKSpriteNode {
 //MARK: 角色
 func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     
-    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 30))//SKSpriteNode(imageNamed: "pixelMan")
+    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 60))//SKSpriteNode(imageNamed: "pixelMan")
     
     print("pixelMan size \(node.size)")
     
@@ -81,7 +82,7 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     node.colorBlendFactor = 0
     
     node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size) //CGSizeMake(28, 64)
-    node.physicsBody?.dynamic = true
+    node.physicsBody?.dynamic = false
     node.physicsBody?.allowsRotation = false
     
     node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
@@ -95,6 +96,9 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
                                             CollisionCategoryBitmask.Spring |
                                             CollisionCategoryBitmask.Gold
     //  碰撞位置影响
+    
+//    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+    
     node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
                                             CollisionCategoryBitmask.Down_Floor |
                                             CollisionCategoryBitmask.Wather |

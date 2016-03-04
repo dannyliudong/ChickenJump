@@ -2002,11 +2002,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         print("contactFloorEvent")
         
         GameState.sharedInstance.canJump = true
+        self.isFloor = true
+//        self.playerNode.removeFromParent()
+//        self.playerNode.position = CGPointMake(0, 32)
+//        
+//        node.addChild(playerNode)
         
-        self.playerNode.removeFromParent()
-        self.playerNode.position = CGPointMake(0, 32)
-        
-        node.addChild(playerNode)
     }
     
     
@@ -2271,7 +2272,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         self.playerNode.physicsBody?.dynamic = true
         
-        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 20))
+//        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 20))
         self.playerNode.xScale = 1
 
 //        self.playerMoveAnimation(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
@@ -2505,6 +2506,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
 
+    var isFloor = false
     
     //MARK: update
     override func update(currentTime: CFTimeInterval) {
@@ -2526,7 +2528,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
             } 
             
+            
+            
             playergroundNode.position.x -= ScrollBG_Move_Speed
+            
+            if isFloor {
+                playerNode.position.x -= ScrollBG_Move_Speed
+            }
+            
             
             GameState.sharedInstance.lifeTimeCount -= 0.003
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)
