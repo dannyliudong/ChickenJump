@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")
         }
         
-        UIViewController.prepareInterstitialAds()
+//        UIViewController.prepareInterstitialAds()
         return true
     }
 

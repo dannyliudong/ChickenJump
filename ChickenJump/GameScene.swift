@@ -2403,13 +2403,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     func gameEndPlayerDeath() {
-        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 20))
-        self.playerNode.physicsBody?.allowsRotation = true
+        self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+
+//        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(-5, 50))
+        self.playerNode.physicsBody?.dynamic = false
+        
+        self.playerNode.yScale = -1
+        
+//        self.playerNode.physicsBody?.allowsRotation = true
+//        
+//        self.playerNode.zRotation = 25//CGFloat.random(min: 25, max: 60)
+//
+//        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(-30, 60), duration: 0.5))
+//        
+        let delay:Double = 1.0
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        
+        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+            self.playerNode.physicsBody?.dynamic = true
+        }
+        
 //        self.playerNode.xScale = -1
 //        self.playerNode.yScale = 0.2
 //        self.playerNode.zRotation = CGFloat.random(min: -35, max: 35)
         
-        self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
     }
     
     //MARK:  游戏结束 显示广告页， 弹出观看广告赢金币按钮

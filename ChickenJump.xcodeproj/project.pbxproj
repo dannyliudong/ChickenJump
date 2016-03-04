@@ -200,7 +200,6 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
-				A0D65CEF1C89B4670017F98F /* MLeaksFinder */,
 				A06716EA1C86D40A00D4F519 /* WeChatSharing */,
 				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A08386C91C7AF511008A7502 /* Motion */,
@@ -362,13 +361,6 @@
 				A07594311C7AEE19005FF82F /* Shake.swift */,
 			);
 			name = Motion;
-			sourceTree = "<group>";
-		};
-		A0D65CEF1C89B4670017F98F /* MLeaksFinder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = MLeaksFinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
