@@ -562,7 +562,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
         
         let count = Int(Screen_Width / 64)
-        for _ in 0...count-1 {
+        for _ in 0...count {
             
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
@@ -2412,7 +2412,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
         self.playerNode.yScale = -1
         
-        self.playerNode.moveToParent(self)
+//        self.playerNode.moveToParent(self)
         
 //        self.playerNode.physicsBody?.allowsRotation = true
 //        
