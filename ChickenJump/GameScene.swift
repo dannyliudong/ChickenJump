@@ -921,9 +921,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         return platfromNode
     }
     
-    
-   
-    
     //MARK: 场景边缘
     func sceneEdgeBottom() {
         
@@ -2547,14 +2544,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
             
-            if playerPostionInScene.x >= Screen_Width * 0.2 {
-                ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
+            if playerPostionInScene.x <= Screen_Width * 0.3 {
+                ScrollBG_Move_Speed = 0.5
 
-            } else if playerPostionInScene.x >= Screen_Width * 0.8 {
+            } else if playerPostionInScene.x >= Screen_Width * 0.6 {
                 ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
 
             } else {
-                ScrollBG_Move_Speed = 0.2
+                ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             }
 
             playergroundNode.position.x -= ScrollBG_Move_Speed
@@ -2564,7 +2561,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //            }
             
             
-            GameState.sharedInstance.lifeTimeCount -= 0.003
+            GameState.sharedInstance.lifeTimeCount -= 0.005
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)
             
             // 如果停留时间过长 游戏结束

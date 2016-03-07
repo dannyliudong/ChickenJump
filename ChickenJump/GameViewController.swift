@@ -15,6 +15,8 @@ import ReplayKit
 class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneDelegate, EGCDelegate {
     
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var loadingBGView: UIImageView!
+    @IBOutlet weak var loadingLogoView: UIImageView!
     
     @IBOutlet weak var characterButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -39,7 +41,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     @IBOutlet weak var goldDisplayLabel: UILabel!
         
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var secondsElapsed:Int = 3
     private var timer:NSTimer!
@@ -51,9 +52,35 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     var interstitialAd:ADInterstitialAd!
     var interstitialAdView: UIView = UIView()
     var closeButton:UIButton!
+    
+    func showLoading() {
+        
+        UIView.animateWithDuration(2.0, animations: {
+            self.loadingBGView.alpha = 1
+            self.loadingLogoView.alpha = 1
+            
+            }, completion: { (done) in
+                print("showLoading")
+                
+                self.loadingLogoView.center.x += 100
+        })
+    }
+    
+    func disappearLoading() {
+        
+        UIView.animateWithDuration(2.0, animations: {
+            self.loadingBGView.alpha = 0
+            self.loadingLogoView.alpha = 0
+            }, completion: { (done) in
+                self.loadingLogoView.center.x += 500
+                print("disappearLoading")
+        })
+    }
 
+    
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -80,7 +107,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showHomeButton), name: "showHomeButtonNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.pauseGame), name: "pauseGameNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.pauseGame), name: "pauseGameNotification", object: nil) // 后台挂起时发出
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.startGameNotificationAction), name: "startGameAnimationNotification", object: nil)
         
@@ -101,14 +128,38 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
                 
-        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
+//        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
+//        
+//        if let scene = GameState.sharedInstance.gameScene {
+//            
+//            scene.scaleMode = .AspectFill
+//            skView.presentScene(scene)
+//            
+//            scene.gameSceneDelegate = self
+//        }
+        self.showLoading()
         
-        if let scene = GameState.sharedInstance.gameScene {
+        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
             
-            scene.scaleMode = .AspectFill
-            skView.presentScene(scene)
+            // this blocks the thread it is on
             
-            scene.gameSceneDelegate = self
+            GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
+            
+            if let scene = GameState.sharedInstance.gameScene {
+                
+                scene.scaleMode = .AspectFill
+                skView.presentScene(scene)
+                
+                scene.gameSceneDelegate = self
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                if GameState.sharedInstance.isLoadingDone {
+                    self.disappearLoading()
+                }
+            }
         }
         
         // 获取game center 存档最高分数
@@ -160,6 +211,13 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             alertView.show()
         }
 
+        
+//        let vc = storyboard?.instantiateViewControllerWithIdentifier("LeaderBoardVC") as! LeaderBoardViewController
+//        vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+//        self.presentViewController(vc, animated: true) { () -> Void in
+//            
+//        }
+        
     }
     
     //MARK: loading Transitions
@@ -205,48 +263,28 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
-//        self.loadingView = UIView(frame: self.view.frame)
-//        self.loadingView.alpha = 0
-//        self.loadingView.backgroundColor = UIColor.whiteColor()
-//        self.view.addSubview(self.loadingView)
-//
-//        UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-//            self.loadingView.alpha = 1
-//            }) { (done ) -> Void in
-//        }
-        
-        self.spinner.startAnimating()
-        
         self.hiddenGameOverButtons()
         self.resetHomeUINotificationAction()
         
         NSNotificationCenter.defaultCenter().postNotificationName("restartGameNotification", object: nil)
         
-//        loadingTransitionsAnimation()
-        
-        // 点击重现开始游戏 出现过场动画
-        // 当场景创建完成之后， 再消失动画， 开始游戏
-        
-        
-//        UIView.animateWithDuration(1.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-//            loadingView.alpha = 1
-//            }) { (done) -> Void in
-//                loadingView.removeFromSuperview()
-//        }
-        
-        //  用dispatch_after推迟任务
-//        let delayInSeconds = 0.5
-//        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-//        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-//
-//        }
         
     }
     
     
     func loadingisDoneAction() {
         
-        self.spinner.stopAnimating()
+//        UIView.animateWithDuration(2.0, animations: {
+//            self.loadingLogoView.center.x += 500
+//            
+//            }, completion: { (done) in
+//                self.loadingBGView.alpha = 0
+//                self.loadingLogoView.alpha = 0
+//                
+//                self.hiddenGameOverButtons()
+//                self.resetHomeUINotificationAction()
+//        })
+        
         
 //        let gameView = self.view as! SKView
 //        gameView.presentScene(GameState.sharedInstance.gameScene)
@@ -271,7 +309,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     func shareGameActivity() {
         if let myWebsite = NSURL(string: AppStoreURL)
         {
-            
             let messageStr:String  = "#\(Game_NameString)# \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore!)分"
             //            let WXimg: UIImage = UIImage(named: "wxlogo")!
 //            var screenView:UIImage! // = UIImage(named: "LaunchLogo")!
@@ -469,7 +506,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //                self.logo = nil
 //        }
         
-        self.progressView.hidden = true
+        self.progressView.hidden = false
 
         self.scoreLabel.hidden = false
         self.pauseButton.hidden = false

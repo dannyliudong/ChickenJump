@@ -22,7 +22,7 @@ func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
     wather.colorBlendFactor = 1.0
     wather.alpha = 1
     
-    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height) , center: CGPointMake(0, -wather.size.height * 0.6))
+    wather.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(wather.size.width, wather.size.height) , center: CGPointMake(0, -wather.size.height * 0.5))
     wather.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Wather
     wather.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
     

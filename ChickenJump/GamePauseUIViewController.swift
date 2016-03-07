@@ -44,7 +44,7 @@ class GamePauseUIViewController: UIViewController {
             NSNotificationCenter.defaultCenter().postNotificationName("recoveryGameNotification", object: nil)
 
             }) { (done) -> Void in
-                self.dismissViewControllerAnimated(false) { () -> Void in
+                self.dismissViewControllerAnimated(true) { () -> Void in
                     
                 }
         }

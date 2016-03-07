@@ -17,21 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="CNL-O7-l9i">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="acR-Cv-hiu">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="odI-2f-abD">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="acR-Cv-hiu" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="1Kb-s9-OhN"/>
+                            <constraint firstItem="acR-Cv-hiu" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="644-G5-RxR"/>
                             <constraint firstItem="odI-2f-abD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Bc6-Gt-IE8"/>
-                            <constraint firstAttribute="trailing" secondItem="CNL-O7-l9i" secondAttribute="trailing" id="N7h-AD-Vsq"/>
+                            <constraint firstItem="acR-Cv-hiu" firstAttribute="centerX" secondItem="odI-2f-abD" secondAttribute="centerX" id="SnX-ZQ-jYb"/>
                             <constraint firstItem="odI-2f-abD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eWO-dF-lIP"/>
-                            <constraint firstItem="CNL-O7-l9i" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="k24-WE-Miq"/>
-                            <constraint firstItem="CNL-O7-l9i" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="sxu-pb-S7q"/>
-                            <constraint firstItem="CNL-O7-l9i" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tD9-vF-OKO"/>
+                            <constraint firstItem="acR-Cv-hiu" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="tmq-cE-Gau"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

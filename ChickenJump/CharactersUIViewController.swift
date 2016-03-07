@@ -34,7 +34,7 @@ class CharactersUIViewController: UIViewController {
             
             }) { (done) -> Void in
                 
-                self.dismissViewControllerAnimated(false) { () -> Void in
+                self.dismissViewControllerAnimated(true) { () -> Void in
                 }
         }
         
