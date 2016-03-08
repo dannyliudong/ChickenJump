@@ -2519,6 +2519,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         // 如果分数达到最高分 屏幕显示名字
         if GameState.sharedInstance.currentScore > GameState.sharedInstance.gamecenterSelfTopScore {
             GameState.sharedInstance.gamecenterSelfTopScore = GameState.sharedInstance.currentScore
+            GameState.sharedInstance.saveState()
             
             // 如果当前分数大于game center 分数 上传新的游戏分数
             EGC.reportScoreLeaderboard(leaderboardIdentifier: Leader_Board_Identifier, score: GameState.sharedInstance.gamecenterSelfTopScore!)

@@ -252,10 +252,14 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
+        self.scoreLabel.text = "0"
+        self.currentScoreLalbel.text = "0"
+        
         self.showLoading()
         
         self.hiddenGameOverButtons()
         self.resetHomeUINotificationAction()
+        
         
         //等待场景加载完成后 消失
         let delayInSeconds:Double = 2
