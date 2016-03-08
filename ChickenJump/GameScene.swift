@@ -62,6 +62,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     var rainstormSceneRainSP: SKNode!
     
+    
+    //MARK: 共享纹理
+    
+    private var floorTexture:SKTexture! //= setPlatformTextureWithFloor(self.land)
+    
+    private var wallTexture1:SKTexture!
+    private var wallTexture2:SKTexture!
+    private var wallTexture3:SKTexture!
+    private var wallTexture4:SKTexture!
+    
+//    let wallTexture1 = setPlatformTextureWithWall(self.land)
+//    let wallTexture2 = setPlatformTextureWithWall(self.land)
+//    let wallTexture3 = setPlatformTextureWithWall(self.land)
+//    let wallTexture4 = setPlatformTextureWithWall(self.land)
+//    
+    
     //MARK: 从sks场景文件获取node
     let long_SectionNode:SKNode = {
         let scene = SKScene(fileNamed: "Long_Section.sks")!
@@ -230,6 +246,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.addChild(playergroundNode)
         
         self.setupColorsAndSceneLandAndWeather() // 设置颜色 天气
+        self.setGlobalPlatfrmoTexture()
         
         self.initBackgroud()
         
@@ -383,6 +400,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.backgroundColor = skyColor
         
         observerWeather()
+    }
+    
+    func setGlobalPlatfrmoTexture() {
+        self.floorTexture = setPlatformTextureWithFloor(self.land)
+        
+        self.wallTexture1 = setPlatformTextureWithWall(self.land)
+        self.wallTexture2 = setPlatformTextureWithWall(self.land)
+        self.wallTexture3 = setPlatformTextureWithWall(self.land)
+        self.wallTexture4 = setPlatformTextureWithWall(self.land)
     }
     
     /**
@@ -724,8 +750,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
     }
 
-    //MARK: 从SKS文件创建场景
+    //MARK: 从SKS文件创建场景 设置场景纹理
     func createPlatfromNodeWithSKS(node:SKNode) ->SKNode {
+        
+//        let floorTexture = setPlatformTextureWithFloor(self.land)
+//        
+//        let wallTexture1 = setPlatformTextureWithWall(self.land)
+//        let wallTexture2 = setPlatformTextureWithWall(self.land)
+//        let wallTexture3 = setPlatformTextureWithWall(self.land)
+//        let wallTexture4 = setPlatformTextureWithWall(self.land)
         
         let platfromNode = node.copy() as! SKNode
         
@@ -734,7 +767,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             for node in nodes.children {
                 
                 let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithFloor(self.land)
+                _node.texture = floorTexture
             }
         }
         
@@ -744,19 +777,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             for node in nodes.children {
                 
                 let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithFloor(self.land)
+                _node.texture = floorTexture//setPlatformTextureWithFloor(self.land)
                 
                 _node.physicsBody?.restitution = 0
-
-//                _node.physicsBody?.friction = 0
-//                _node.physicsBody?.charge = 0
-//                _node.physicsBody?.linearDamping = 0
-//                _node.physicsBody?.angularDamping = 0
-                
-//                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
-//                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
-//                
-//                _node.runAction(sequence)
                 
             }
         }
@@ -768,7 +791,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             for node in nodes.children {
                 
                 let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithFloor(self.land)
+                _node.texture = floorTexture//setPlatformTextureWithFloor(self.land)
                 
 //                _node.physicsBody?.restitution = 0
                 
@@ -837,13 +860,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             print("finde child doorkeynode ")
         }
         
-        
+        // 设置纹理层次
         if let nodes = platfromNode.childNodeWithName("wallNodes") {
-            for node in nodes.children {
-                
-                let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithWall(self.land)
+            
+            if let wall1 = nodes.childNodeWithName("wallChildNode1") {
+                for node in wall1.children {
+                    let _node = node as! SKSpriteNode
+                    _node.texture = wallTexture1
+                }
             }
+            
+            if let wall2 = nodes.childNodeWithName("wallChildNode2") {
+                for node in wall2.children {
+                    let _node = node as! SKSpriteNode
+                    _node.texture = wallTexture2
+                }
+            }
+            
+            if let wall3 = nodes.childNodeWithName("wallChildNode3") {
+                for node in wall3.children {
+                    let _node = node as! SKSpriteNode
+                    _node.texture = wallTexture3
+                }
+            }
+            
+            if let wall4 = nodes.childNodeWithName("wallChildNode4") {
+                for node in wall4.children {
+                    let _node = node as! SKSpriteNode
+                    _node.texture = wallTexture4
+                }
+            }
+            
         }
         
         if let nodes = platfromNode.childNodeWithName("knifeNodes") {
@@ -889,7 +936,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             for node in nodes.children {
                 
                 let _node = node as! SKSpriteNode
-                _node.texture = setPlatformTextureWithFloor(self.land)
+                _node.texture = floorTexture//setPlatformTextureWithFloor(self.land)
                 
 //                _node.hidden = true
 //                _node.physicsBody?.friction = 0
@@ -908,12 +955,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.color = UIColor.clearColor()
 
-//                _node.physicsBody?.restitution = 0
+                _node.physicsBody?.restitution = 0.2
                 
-                //                _node.physicsBody?.friction = 0
-                //                _node.physicsBody?.charge = 0
-                //                _node.physicsBody?.linearDamping = 0
-                //                _node.physicsBody?.angularDamping = 0
             }
         }
         
@@ -922,11 +965,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             for _node in nodes.children {
                 
                 _node.physicsBody?.restitution = 0.2
-                
-                //                _node.physicsBody?.friction = 0
-                //                _node.physicsBody?.charge = 0
-                //                _node.physicsBody?.linearDamping = 0
-                //                _node.physicsBody?.angularDamping = 0
+
             }
         }
         
