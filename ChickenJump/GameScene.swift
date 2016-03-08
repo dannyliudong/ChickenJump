@@ -2575,21 +2575,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
             
             if playerPostionInScene.x <= Screen_Width * 0.3 {
-                ScrollBG_Move_Speed = 0.5
+                self.ScrollBG_Move_Speed = 0.5
 
             } else if playerPostionInScene.x >= Screen_Width * 0.6 {
-                ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
+                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
 
             } else {
-                ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
+                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             }
 
-            playergroundNode.position.x -= ScrollBG_Move_Speed
-            
-//            if isFloor {
-//                playerNode.position.x -= ScrollBG_Move_Speed
-//            }
-            
+            self.playergroundNode.position.x -= ScrollBG_Move_Speed
             
             GameState.sharedInstance.lifeTimeCount -= 0.005
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)
@@ -2600,8 +2595,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 if GameState.sharedInstance.musicState { self.runAction(self.eagleSoundAction) }
                 
                 self.gameEnd()
+                
+                self.playerNode.physicsBody?.applyImpulse(CGVectorMake(5, 30))
 
-                self.gameEndPlayerDeath()
+                let delay:Double = 0.1
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+                
+                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                    self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+                    
+                    self.playerNode.physicsBody?.dynamic = false
+
+                    let delay:Double = 0.5
+                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+                    
+                    dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                        self.playerNode.physicsBody?.dynamic = true
+                    }
+
+                }
             }
             
         } else {
