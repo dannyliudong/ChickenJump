@@ -40,7 +40,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     @IBOutlet weak var lblTimerMessage: UILabel!
     
     @IBOutlet weak var goldDisplayLabel: UILabel!
-        
     
     private var secondsElapsed:Int = 3
     private var timer:NSTimer!
@@ -53,26 +52,44 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     var interstitialAdView: UIView = UIView()
     var closeButton:UIButton!
     
+    // 显示loading ->等待场景加载完成-> 消失loading
     func showLoading() {
+        self.loadingBGView.hidden = false
+        self.loadingLogoView.hidden = false
+        self.loadingLogoView.center.x = -loadingLogoView.bounds.size.width * 0.5
         
-        UIView.animateWithDuration(2.0, animations: {
+        print("self.view.bounds.size \(self.view.bounds.size)")
+        print("loadingLogoView.bounds.size  \(loadingLogoView.bounds.size)")
+        
+        UIView.animateWithDuration(1.0, animations: {
             self.loadingBGView.alpha = 1
-            self.loadingLogoView.alpha = 1
-            
+            self.loadingLogoView.center.x += self.loadingLogoView.bounds.size.width * 0.5 + self.view.bounds.size.width * 0.5
+
             }, completion: { (done) in
                 print("showLoading")
-                
-                self.loadingLogoView.center.x += 100
         })
     }
     
     func disappearLoading() {
         
-        UIView.animateWithDuration(2.0, animations: {
+        self.loadingLogoView.center.x = self.view.bounds.size.width * 0.5
+        
+        UIView.animateWithDuration(1.0, animations: {
             self.loadingBGView.alpha = 0
-            self.loadingLogoView.alpha = 0
+            
             }, completion: { (done) in
-                self.loadingLogoView.center.x += 500
+                
+                UIView.animateWithDuration(1.0, animations: {
+                    self.loadingLogoView.center.x += self.view.bounds.size.width * 1.5
+                    
+                    }, completion: { (done) in
+                        
+                        self.loadingBGView.hidden = true
+                        self.loadingLogoView.hidden = true
+                        
+                        GameState.sharedInstance.isLoadingDone = true
+                })
+                
                 print("disappearLoading")
         })
     }
@@ -80,7 +97,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
-
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -137,30 +153,44 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //            
 //            scene.gameSceneDelegate = self
 //        }
-        self.showLoading()
         
-        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
+//        self.showLoading()
+        
+        
+        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
+        
+        if let scene = GameState.sharedInstance.gameScene {
             
-            // this blocks the thread it is on
+            scene.scaleMode = .AspectFill
+            skView.presentScene(scene)
             
-            GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
-            
-            if let scene = GameState.sharedInstance.gameScene {
-                
-                scene.scaleMode = .AspectFill
-                skView.presentScene(scene)
-                
-                scene.gameSceneDelegate = self
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                if GameState.sharedInstance.isLoadingDone {
-                    self.disappearLoading()
-                }
-            }
+            scene.gameSceneDelegate = self
         }
+        
+        
+//        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+//        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
+//            
+//            // this blocks the thread it is on
+//            
+//            GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
+//    
+//            if let scene = GameState.sharedInstance.gameScene {
+//    
+//                scene.scaleMode = .AspectFill
+//                skView.presentScene(scene)
+//    
+//                scene.gameSceneDelegate = self
+//            }
+//            
+//            dispatch_async(dispatch_get_main_queue()) {
+//                
+//                if GameState.sharedInstance.isLoadingDone {
+//                    self.disappearLoading()
+//                    
+//                }
+//            }
+//        }
         
         // 获取game center 存档最高分数
         EGC.getHighScore(leaderboardIdentifier: Leader_Board_Identifier) { (tupleHighScore) in
@@ -263,41 +293,24 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
+        self.showLoading()
+        
         self.hiddenGameOverButtons()
         self.resetHomeUINotificationAction()
         
-        NSNotificationCenter.defaultCenter().postNotificationName("restartGameNotification", object: nil)
+        //等待场景加载完成后 消失
+        let delayInSeconds:Double = 2
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
         
+        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("restartGameNotification", object: nil)
+        }
         
     }
     
     
     func loadingisDoneAction() {
-        
-//        UIView.animateWithDuration(2.0, animations: {
-//            self.loadingLogoView.center.x += 500
-//            
-//            }, completion: { (done) in
-//                self.loadingBGView.alpha = 0
-//                self.loadingLogoView.alpha = 0
-//                
-//                self.hiddenGameOverButtons()
-//                self.resetHomeUINotificationAction()
-//        })
-        
-        
-//        let gameView = self.view as! SKView
-//        gameView.presentScene(GameState.sharedInstance.gameScene)
-
-//        if (self.loadingView != nil) {
-//            UIView.animateWithDuration(0.2, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-//                self.loadingView.alpha = 0
-//                self.loadingView.removeFromSuperview()
-//                }) { (done ) -> Void in
-//                    
-//            }
-//        }
-
+        self.disappearLoading()
     }
     
     //MARK: 分享游戏Aciton
@@ -676,14 +689,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.settingsButton.hidden = false
         
         self.replayButton.hidden = false
-//        self.characterButton.hidden = false
-        
-        //  用dispatch_after推迟任务
-//        let delayInSeconds = 0.5
-//        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-//        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-//            GameState.sharedInstance.isLoadingDone = true
-//        }
+
     }
     
     func updateHUD(score:Int) {

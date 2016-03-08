@@ -245,8 +245,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.figerNode()
 
 //        GameState.sharedInstance.gameOver = true
-        GameState.sharedInstance.isLoadingDone = true
-        GameState.sharedInstance.lifeTimeCount = 1.2
         
         // 2. 游戏开始后的音乐
         let music = GameState.sharedInstance.musicState
@@ -255,6 +253,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.NormalAudioName.rawValue)
         }
         
+        GameState.sharedInstance.lifeTimeCount = 1.2
+//        GameState.sharedInstance.isLoadingDone = true
+
         NSNotificationCenter.defaultCenter().postNotificationName("loadingisDoneNotification", object: nil)
 
     }
@@ -759,7 +760,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithFloor(self.land)
                 
-                _node.physicsBody?.restitution = 0
+//                _node.physicsBody?.restitution = 0
                 
                 //                _node.physicsBody?.friction = 0
                 //                _node.physicsBody?.charge = 0
@@ -787,7 +788,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
                 _node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None //  对任何物体碰撞直接穿过
 
-                _node.physicsBody?.restitution = 0
+//                _node.physicsBody?.restitution = 0
                 
                 //                _node.physicsBody?.friction = 0
                 //                _node.physicsBody?.charge = 0
@@ -801,11 +802,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             if let keyNode = node.childNodeWithName("doorkeynode") {
                 
-                keyNode.physicsBody?.friction = 0
-                keyNode.physicsBody?.charge = 0
-                keyNode.physicsBody?.restitution = 0
-                keyNode.physicsBody?.linearDamping = 0
-                keyNode.physicsBody?.angularDamping = 0
+//                keyNode.physicsBody?.friction = 0
+                
+//                keyNode.physicsBody?.charge = 0
+//                keyNode.physicsBody?.restitution = 0
+//                keyNode.physicsBody?.linearDamping = 0
+//                keyNode.physicsBody?.angularDamping = 0
                 
                 let ketX:CGFloat = {
                     switch arc4random() % 2 {
@@ -896,7 +898,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.color = UIColor.clearColor()
 
-                _node.physicsBody?.restitution = 0
+//                _node.physicsBody?.restitution = 0
                 
                 //                _node.physicsBody?.friction = 0
                 //                _node.physicsBody?.charge = 0
@@ -909,7 +911,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             for _node in nodes.children {
                 
-                _node.physicsBody?.restitution = 0
+                _node.physicsBody?.restitution = 0.2
                 
                 //                _node.physicsBody?.friction = 0
                 //                _node.physicsBody?.charge = 0
@@ -2371,27 +2373,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 点击事件
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
-//        // 加载完成 才可点击屏幕
-//        if GameState.sharedInstance.isLoadingDone {
-//            
-//            if !GameState.sharedInstance.gameOver {
-//                
-//                if GameState.sharedInstance.canJump {
-//                    
-//                    GameState.sharedInstance.canJump = false
-//                    GameState.sharedInstance.lifeTimeCount = 1.2
-//                    
-//                    self.playerMoveAnimation()
-//                    
-//                    //update分数
-//                    updateGameScore()
-//                }
-//
-//            } else if GameState.sharedInstance.gameOver {
-//                self.startGame()
-//            }
-//        }
         
     }
     
