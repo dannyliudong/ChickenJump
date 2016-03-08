@@ -561,9 +561,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         var lastNodeX:CGFloat = -64
         
         let longSectionNode = createPlatfromNodeWithSKS(self.long_SectionNode)
-        
-        let count = Int(Screen_Width / 64)
-        for _ in 0...count {
+//        let count = Int(Screen_Width / 64)
+        for _ in 0...6 {
             
             let node = longSectionNode.copy() as! SKNode // 复制一排
             
@@ -576,30 +575,49 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             lastNodeX = node.position.x
             
         }
+        
+        
+
+        
+        for _ in 0...4 {
+            
+            // 从模版数组取数据
+//            let platfromNodeTuple = platfromsTupleArray[Int.random(min: 0, max: platfromsTupleArray.count - 1)]
+            
+            let platfromNodeTuple:(SKNode, CGFloat) = {
+                switch arc4random() % 4 {
+                case 0:
+                    return platfromsTupleArray[1]
+                case 1:
+                    return platfromsTupleArray[2]
+                case 2:
+                    return platfromsTupleArray[3]
+                case 3:
+                    return platfromsTupleArray[4]
+                case 4:
+                    return platfromsTupleArray[5]
+                default:
+                    return platfromsTupleArray[1]
+                }
+            }()
+            
+            let node = platfromNodeTuple.0.copy() as! SKNode
+            node.setAnimiation(node)
+            
+            // 获取上一个在场景中的node的位置
+            let lastNode = self.platfromsTupleUpdateArray.last
+            
+            node.position.x = self.platfromsTupleUpdateArray.last!.0.position.x + (lastNode?.1)!
+            
+            self.playergroundNode.addChild(node)
+            
+            self.platfromsTupleUpdateArray.append((node, platfromNodeTuple.1))
+            
+            self.platfromInterval = (self.platfromsTupleUpdateArray.last?.1)!
+        }
+
     }
     
-//    func randomPlatfromNode() ->(SKNode, CGFloat) {
-//        switch arc4random() % 6 {
-//        case 0:
-//            let count = Int(CGFloat.random(min: 0, max: 2))
-//            return (createLongSectionWith(count), Long_SectionWidth * CGFloat(count + 1))
-//        case 1:
-//            return (self.door_SectionNode, Door_SectionWidth)
-//        case 2:
-//            return (self.down_SectionNode, Down_SectionWidth)
-//        case 3:
-//            return (self.bridgeMovingInX_SectionNode, BridgeMovingInX_SectionWidth)
-//        case 4:
-//            return (self.bridgeMovingInY_Section, BridgeMovingInY_SectionWidth)
-//        case 5:
-//            return (self.spring_Section, Spring_SectionWidth)
-//        default:
-//            print("randomPlatfromNode error")
-//            return (SKNode(), 0)
-//        }
-//    }
-    
-
     
     func createLongSectionWith(count:Int, node:SKNode) -> (SKNode, CGFloat) {
         var lastNodeX:CGFloat = -64
@@ -620,6 +638,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         return (nodeParent,  64.0 * CGFloat(count + 1))
         
     }
+    
+    func createPlatfromNodeTupleRandom() {
+        // 从模版数组取数据
+        let platfromNodeTuple = platfromsTupleArray[Int.random(min: 0, max: platfromsTupleArray.count - 1)]
+        
+        // 如果是 Long_Section 复制一排
+        if platfromNodeTuple.1 ==  Long_SectionWidth {
+            let count = Int.random(min: 1, max: 5)
+            let nodeTuple = createLongSectionWith(count, node: platfromNodeTuple.0)
+            
+            let newNode = nodeTuple.0
+            // 获取上一个在场景中的node的位置
+            let lastNode = self.platfromsTupleUpdateArray.last
+            
+            newNode.position.x = self.platfromsTupleUpdateArray.last!.0.position.x + (lastNode?.1)!
+            
+            self.playergroundNode.addChild(nodeTuple.0)
+            
+            self.platfromsTupleUpdateArray.append(nodeTuple)
+            
+            
+        } else {
+            
+            let node = platfromNodeTuple.0.copy() as! SKNode
+            node.setAnimiation(node)
+            
+            // 获取上一个在场景中的node的位置
+            let lastNode = self.platfromsTupleUpdateArray.last
+            
+            node.position.x = self.platfromsTupleUpdateArray.last!.0.position.x + (lastNode?.1)!
+            
+            self.playergroundNode.addChild(node)
+            
+            self.platfromsTupleUpdateArray.append((node, platfromNodeTuple.1))
+            
+        }
+        
+        self.platfromInterval = (self.platfromsTupleUpdateArray.last?.1)!
+    }
 
     
     
@@ -631,54 +688,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             //更新Platfroms
             print("更新Platfroms")
             
-            // 从模版数组取数据
-            let platfromNodeTuple = platfromsTupleArray[Int.random(min: 0, max: platfromsTupleArray.count - 1)]
-            
-//            let nodeTuple:(SKNode, CGFloat)!
-
-            // 如果是 Long_Section 复制一排
-            if platfromNodeTuple.1 ==  Long_SectionWidth {
-                let count = Int.random(min: 1, max: 5)
-                let nodeTuple = createLongSectionWith(count, node: platfromNodeTuple.0)
-                
-                let newNode = nodeTuple.0
-                // 获取上一个在场景中的node的位置
-                let lastNode = self.platfromsTupleUpdateArray.last
-                
-                newNode.position.x = self.platfromsTupleUpdateArray.last!.0.position.x + (lastNode?.1)!
-                
-                self.playergroundNode.addChild(nodeTuple.0)
-                
-                self.platfromsTupleUpdateArray.append(nodeTuple)
-                
-                
-            } else {
-                let node = platfromNodeTuple.0.copy() as! SKNode
-                node.setAnimiation(node)
-                
-                // 获取上一个在场景中的node的位置
-                let lastNode = self.platfromsTupleUpdateArray.last
-                
-                node.position.x = self.platfromsTupleUpdateArray.last!.0.position.x + (lastNode?.1)!
-                
-                self.playergroundNode.addChild(node)
-                
-                self.platfromsTupleUpdateArray.append((node, platfromNodeTuple.1))
-                
-            }
-//            let node = platfromNodeTuple.0.copy() as! SKNode
-            
-
-            
-            
-//            let newNode = nodeTuple.0
-//            newNode.position.x = self.platfromsTupleUpdateArray.last!.0.position.x + (lastNode?.1)!
-//            
-//            self.playergroundNode.addChild(nodeTuple.0)
-//            
-//            self.platfromsTupleUpdateArray.append(nodeTuple)
-            
-            self.platfromInterval = (self.platfromsTupleUpdateArray.last?.1)!
+            self.createPlatfromNodeTupleRandom()
             
         } else {
             
@@ -1861,7 +1871,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: --------------------构建player
     func createPlayer() {
         self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan")) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(Screen_Width * 0.5, PlayerStartHigth) //playerHight + playerNode.height * 0.5
+        self.playerNode.position = CGPointMake(Long_SectionWidth * 6 - 32, PlayerStartHigth) //playerHight + playerNode.height * 0.5
         self.playerNode.xScale = -1
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
