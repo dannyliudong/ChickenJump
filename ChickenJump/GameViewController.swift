@@ -236,7 +236,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         } else {
             print("game center 未登录")
             
-            let alertView = UIAlertView(title: "排行榜", message: "请登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
+            let alertView = UIAlertView(title: "排行榜", message: "登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
             alertView.show()
         }
 
@@ -248,47 +248,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        }
         
     }
-    
-    //MARK: loading Transitions
-    var logo:UIImageView!
-    func loadingTransitionsAnimation() {
         
-        //1. 颜色 0 － 1 logo 从左至右 出现
-        let loadingView = UIView(frame: self.view.frame)
-        loadingView.backgroundColor = UIColor.blackColor()
-        loadingView.alpha = 0
-        self.view.addSubview(loadingView)
-        
-        // 2.
-        logo = UIImageView(image: UIImage(named: "logo"))
-        logo.frame = CGRectMake(-(logo.image?.size.width)!, self.view.frame.height * 0.5, logo.image!.size.width, logo.image!.size.height)
-        self.view.addSubview(logo)
-        
-        
-        UIView.animateWithDuration(1.0, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            loadingView.alpha = 1
-            
-            self.logo.frame =  CGRectMake(Screen_Width * 0.5, Screen_Height * 0.5, self.logo.image!.size.width, self.logo.image!.size.height)
-            
-            }) { (done) -> Void in
-
-        }
-        
-
-        //等待场景加载完成后 消失
-        let delayInSeconds:Double = 1
-        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-        
-        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-            UIView.animateWithDuration(0.5, delay: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                loadingView.alpha = 0
-                }, completion: { (done) -> Void in
-                    loadingView.removeFromSuperview()
-            })
-        }
-        
-    }
-    
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
@@ -651,6 +611,11 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     func showGameOverButtons() {
         print("showGameOverButtons() ")
+        
+        self.leaderboardsButton.center.y = self.view.bounds.size.height * 1.1
+        self.shareGameButton.center.y = self.view.bounds.size.height * 1.1
+        self.tryAgainButton.center.y = self.view.bounds.size.height * 1.1
+        
         self.progressView.hidden = true
         
 //        self.giftButton.hidden = false
@@ -669,6 +634,18 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.goldDisplayLabel.hidden = true
         
         self.replayButton.hidden = true
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
+            self.leaderboardsButton.center.y  -= self.view.bounds.size.height * 0.4
+            self.shareGameButton.center.y  -= self.view.bounds.size.height * 0.4
+            self.tryAgainButton.center.y  -= self.view.bounds.size.height * 0.4
+            
+            }) { (done) in
+                
+        }
+        
+        
+        
         
 //        self.showReplay.hidden = false
 
