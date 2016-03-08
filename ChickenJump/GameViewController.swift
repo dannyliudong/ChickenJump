@@ -55,6 +55,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     func showLoading() {
         self.loadingBGView.hidden = false
         self.loadingLogoView.hidden = false
+        
         self.loadingLogoView.center.x = -loadingLogoView.bounds.size.width * 0.5
         
         print("self.view.bounds.size \(self.view.bounds.size)")
@@ -82,7 +83,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
                     self.loadingLogoView.center.x += self.view.bounds.size.width * 1.5
                     
                     }, completion: { (done) in
-                        
                         self.loadingBGView.hidden = true
                         self.loadingLogoView.hidden = true
                         
@@ -248,7 +248,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
 //        }
         
     }
-        
+    
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
@@ -616,6 +616,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.shareGameButton.center.y = self.view.bounds.size.height * 1.1
         self.tryAgainButton.center.y = self.view.bounds.size.height * 1.1
         
+        self.leaderboardsButton.transform = CGAffineTransformMakeRotation(CGFloat.toAngle(180))
+        self.shareGameButton.transform = CGAffineTransformMakeRotation(CGFloat.toAngle(180))
+        self.tryAgainButton.transform = CGAffineTransformMakeRotation(CGFloat.toAngle(180))
+        
         self.progressView.hidden = true
         
 //        self.giftButton.hidden = false
@@ -635,17 +639,18 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         self.replayButton.hidden = true
         
-        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
             self.leaderboardsButton.center.y  -= self.view.bounds.size.height * 0.4
             self.shareGameButton.center.y  -= self.view.bounds.size.height * 0.4
             self.tryAgainButton.center.y  -= self.view.bounds.size.height * 0.4
             
+            self.leaderboardsButton.transform = CGAffineTransformMakeRotation(CGFloat.toAngle(360))
+            self.shareGameButton.transform = CGAffineTransformMakeRotation(CGFloat.toAngle(360))
+            self.tryAgainButton.transform = CGAffineTransformMakeRotation(CGFloat.toAngle(360))
+            
             }) { (done) in
                 
         }
-        
-        
-        
         
 //        self.showReplay.hidden = false
 
