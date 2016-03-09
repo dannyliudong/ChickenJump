@@ -197,15 +197,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func handleTap(sender:UITapGestureRecognizer){
         print("handle Tap")
-        touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
+        touchControll(Player_JumpImpulse)
 //        showWaterWave(CGRectMake(0, 0, 50, 50), point: convertPoint(self.position, fromNode: playerNode))
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
-            touchControll(CGVectorMake(-Player_Jump_Width, Player_Jump_Hight))
+            touchControll(CGVectorMake(-Player_JumpImpulse.dx, Player_JumpImpulse.dy))
         } else {
-            touchControll(CGVectorMake(Player_Jump_Width, Player_Jump_Hight))
+            touchControll(Player_JumpImpulse)
         }
     }
     
@@ -610,22 +610,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             // 从模版数组取数据
 //            let platfromNodeTuple = platfromsTupleArray[Int.random(min: 0, max: platfromsTupleArray.count - 1)]
             
-            let platfromNodeTuple:(SKNode, CGFloat) = {
-                switch arc4random() % 4 {
-                case 0:
-                    return platfromsTupleArray[1]
-                case 1:
-                    return platfromsTupleArray[2]
-                case 2:
-                    return platfromsTupleArray[3]
-                case 3:
-                    return platfromsTupleArray[4]
-                case 4:
-                    return platfromsTupleArray[5]
-                default:
-                    return platfromsTupleArray[1]
-                }
-            }()
+//            let platfromNodeTuple:(SKNode, CGFloat) = {
+//                switch arc4random() % 4 {
+//                case 0:
+//                    return platfromsTupleArray[1]
+//                case 1:
+//                    return platfromsTupleArray[2]
+//                case 2:
+//                    return platfromsTupleArray[3]
+//                case 3:
+//                    return platfromsTupleArray[4]
+//                case 4:
+//                    return platfromsTupleArray[5]
+//                default:
+//                    return platfromsTupleArray[1]
+//                }
+//            }()
+            
+            
+            let platfromNodeTuple = platfromsTupleArray[1]
             
             let node = platfromNodeTuple.0.copy() as! SKNode
             node.setAnimiation(node)
@@ -768,6 +771,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = floorTexture
+                
+                _node.physicsBody?.restitution = 0
             }
         }
         
@@ -793,7 +798,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.texture = floorTexture//setPlatformTextureWithFloor(self.land)
                 
-//                _node.physicsBody?.restitution = 0
+                _node.physicsBody?.restitution = 0
                 
                 //                _node.physicsBody?.friction = 0
                 //                _node.physicsBody?.charge = 0
@@ -814,13 +819,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 
                 let _node = node as! SKSpriteNode
                 _node.texture = setPlatformTextureWithDownFloor(self.land)
-                _node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(48, 20), center: CGPointMake(0, _node.size.height * 0.3))
-                _node.physicsBody?.dynamic = false
-                _node.physicsBody?.allowsRotation = false
                 
-                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
-                _node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None //  对任何物体碰撞直接穿过
-
+                
+//                _node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(48, 20), center: CGPointMake(0, _node.size.height * 0.3))
+//                _node.physicsBody?.dynamic = false
+//                _node.physicsBody?.allowsRotation = false
+//                
+//                _node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Down_Floor
+//                _node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None //  对任何物体碰撞直接穿过
+//
 //                _node.physicsBody?.restitution = 0
                 
                 //                _node.physicsBody?.friction = 0
@@ -955,8 +962,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 let _node = node as! SKSpriteNode
                 _node.color = UIColor.clearColor()
 
-                _node.physicsBody?.restitution = 0.2
-                
+                _node.physicsBody?.restitution = 0
             }
         }
         
@@ -964,7 +970,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             for _node in nodes.children {
                 
-                _node.physicsBody?.restitution = 0.2
+                _node.physicsBody?.restitution = 0
 
             }
         }
@@ -1914,7 +1920,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.playerNode.xScale = -1
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
-        addChild(playerNode)
+        self.playergroundNode.addChild(playerNode)
         
 //        self.playerNode = Player(texture: SKTexture(imageNamed:"pixelMan"), color: SKColor.whiteColor())
 //        self.playerNode.position = CGPointMake(playerOffset, 400 )
@@ -2188,7 +2194,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                        contactFloorEvent(node)
 //                        playerMagic(node)
                         
-                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 30))
+                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 20))
 
                         self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, 0), duration: 0.2))
                         
@@ -2414,8 +2420,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //        playerNode.moveToParent(self)
         
         //duration 大于等于 0.2 时， 出现错误
-        self.playerNode.physicsBody?.applyImpulse(Player_JumpImpulse)
-        self.playerNode.runAction(SKAction.moveBy(vector, duration: 0.2))
+        self.playerNode.physicsBody?.applyImpulse(vector)
+//        self.playerNode.runAction(SKAction.moveBy(vector, duration: 0.2))
         
         if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
 
@@ -2588,6 +2594,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
 
             self.playergroundNode.position.x -= ScrollBG_Move_Speed
+//            self.playerNode.position.x -= ScrollBG_Move_Speed
+            
+//            if GameState.sharedInstance.canJump {
+//                self.playerNode.position.x -= ScrollBG_Move_Speed
+//            }
+
             
             GameState.sharedInstance.lifeTimeCount -= 0.005
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)

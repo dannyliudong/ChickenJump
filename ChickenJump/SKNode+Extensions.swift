@@ -50,7 +50,7 @@ extension SKNode {
                 //                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 5, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 6, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
                 
                 _node.runAction(sequence)
                 
@@ -71,9 +71,9 @@ extension SKNode {
                 let ketX:CGFloat = {
                     switch arc4random() % 2 {
                     case 0 :
-                        return -64.0
-                    case 1:
                         return -128.0
+                    case 1:
+                        return -192.0
                     default :
                         return 0.0
                     }

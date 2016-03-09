@@ -107,7 +107,6 @@ enum BGDetphType:UInt32 {
     case LayerB     // 远层
 }
 
-
 //MARK: game configuration
 
 //MARK: node 宽度
@@ -129,8 +128,8 @@ let Player_Jump_Width:CGFloat = 48
 let Player_Jump_Hight:CGFloat = 64
 
 //let Player_Jump_HightAdd:CGFloat = 65
-let Scene_Gravity:CGFloat = -60.0
-let Player_JumpImpulse:CGVector = CGVectorMake(0, 30)
+let Scene_Gravity:CGFloat = -55.0
+let Player_JumpImpulse:CGVector = CGVectorMake(5, 12)
 
 let BG_hight:CGFloat = Screen_Height * 0.3
 let PlatformHight:CGFloat = Screen_Height * 0.15

@@ -11,7 +11,6 @@
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
 		A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */; };
 		A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47731C8D215B00919797 /* SKNode+Extensions.swift */; };
-		A02F47761C8D257F00919797 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47751C8D257F00919797 /* LoadingScene.swift */; };
 		A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
 		A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496EB1C818CE50033D1A9 /* chicken.mp3 */; };
@@ -87,7 +86,6 @@
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A02F47731C8D215B00919797 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
-		A02F47751C8D257F00919797 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
 		A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
 		A03496EB1C818CE50033D1A9 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chicken.mp3; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				A08386C71C7AF485008A7502 /* Model */,
 				A075945A1C7AEF18005FF82F /* Resources */,
 				A075943B1C7AEE49005FF82F /* SceneFiles */,
-				A02F47751C8D257F00919797 /* LoadingScene.swift */,
 				A075942F1C7AEE0C005FF82F /* GameScene.swift */,
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
@@ -487,7 +484,6 @@
 				A07594571C7AEF03005FF82F /* Definition.swift in Sources */,
 				A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */,
 				A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */,
-				A02F47761C8D257F00919797 /* LoadingScene.swift in Sources */,
 				A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */,
 				A07594301C7AEE0C005FF82F /* GameScene.swift in Sources */,
 				A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */,

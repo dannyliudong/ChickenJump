@@ -70,7 +70,7 @@ func GameSpriteNodeWithGold(texture:SKTexture) ->SKSpriteNode {
 //MARK: 角色
 func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     
-    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 20))//SKSpriteNode(imageNamed: "pixelMan")
+    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 10))//SKSpriteNode(imageNamed: "pixelMan")
     
     print("pixelMan size \(node.size)")
     
