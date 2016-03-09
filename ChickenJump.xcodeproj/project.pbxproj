@@ -72,6 +72,11 @@
 		A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */; };
 		A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594D91C7AF14D005FF82F /* GameKit.framework */; };
 		A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
+		A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A076A2F61C8FBA8300250432 /* UnityAds.bundle */; };
+		A076A2F91C8FBA8300250432 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2F71C8FBA8300250432 /* UnityAds.framework */; };
+		A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FA1C8FBAED00250432 /* StoreKit.framework */; };
+		A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FC1C8FBAFD00250432 /* AdSupport.framework */; };
+		A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */; };
 		A0B313C21C881D8700E0F164 /* distressParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C01C881D8700E0F164 /* distressParticle.sks */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
@@ -146,6 +151,11 @@
 		A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyGameCenter.swift; sourceTree = "<group>"; };
 		A07594D91C7AF14D005FF82F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A076A2F61C8FBA8300250432 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
+		A076A2F71C8FBA8300250432 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
+		A076A2FA1C8FBAED00250432 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A076A2FC1C8FBAFD00250432 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A0B313C01C881D8700E0F164 /* distressParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = distressParticle.sks; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -156,11 +166,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */,
+				A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */,
+				A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
 				A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */,
 				A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */,
+				A076A2F91C8FBA8300250432 /* UnityAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +184,11 @@
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
+				A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */,
+				A076A2FC1C8FBAFD00250432 /* AdSupport.framework */,
+				A076A2FA1C8FBAED00250432 /* StoreKit.framework */,
+				A076A2F61C8FBA8300250432 /* UnityAds.bundle */,
+				A076A2F71C8FBA8300250432 /* UnityAds.framework */,
 				A05486A51C86BDD9001EB526 /* GameplayKit.framework */,
 				A04AC7401C856D1A0027A83E /* CoreGraphics.framework */,
 				A04AC73E1C856CF70027A83E /* UIKit.framework */,
@@ -438,6 +457,7 @@
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
 				A075948C1C7AEF43005FF82F /* ThunderSound.mp3 in Resources */,
 				A07594AA1C7AEFD3005FF82F /* PlatfromTextureAlats.plist in Resources */,
+				A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */,
 				A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */,
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,
 				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,
@@ -584,6 +604,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ChickenJump/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -606,6 +630,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ChickenJump/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

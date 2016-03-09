@@ -268,14 +268,14 @@
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
-                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="200" y="305" width="200" height="200"/>
                                 </variation>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
+                                <rect key="frame" x="70" y="569" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,23 +330,19 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="4ur-Cv-DgI"/>
+                                <exclude reference="Ydf-fd-nrK"/>
+                                <exclude reference="nCj-8w-aAa"/>
+                                <exclude reference="sLe-m5-nqm"/>
                                 <exclude reference="ZEq-Uc-GM2"/>
                                 <exclude reference="RwZ-AM-JnF"/>
                                 <exclude reference="T5J-bW-X3O"/>
                                 <exclude reference="Tlo-lR-gFR"/>
                                 <exclude reference="g87-dc-479"/>
-                                <exclude reference="4ur-Cv-DgI"/>
-                                <exclude reference="Ydf-fd-nrK"/>
-                                <exclude reference="nCj-8w-aAa"/>
-                                <exclude reference="sLe-m5-nqm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
-                                <exclude reference="AWS-UJ-bSy"/>
-                                <include reference="ZEq-Uc-GM2"/>
-                                <include reference="RwZ-AM-JnF"/>
-                                <include reference="T5J-bW-X3O"/>
                                 <include reference="4ur-Cv-DgI"/>
                                 <exclude reference="CJM-Oa-hvg"/>
                                 <exclude reference="Jhq-05-TTo"/>
@@ -355,6 +351,10 @@
                                 <include reference="nCj-8w-aAa"/>
                                 <include reference="sLe-m5-nqm"/>
                                 <exclude reference="xUT-FR-fHm"/>
+                                <exclude reference="AWS-UJ-bSy"/>
+                                <include reference="ZEq-Uc-GM2"/>
+                                <include reference="RwZ-AM-JnF"/>
+                                <include reference="T5J-bW-X3O"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -629,7 +629,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchLogo" width="150" height="150"/>
+        <image name="LaunchLogo" width="200" height="200"/>
         <image name="avatar_bg_line" width="10" height="384"/>
         <image name="buttonbg" width="60" height="52"/>
         <image name="buttonbgRect" width="40" height="40"/>

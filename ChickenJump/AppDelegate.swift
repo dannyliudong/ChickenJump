@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
 
     var window: UIWindow?
 
@@ -41,6 +41,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
 //        UIViewController.prepareInterstitialAds()
+        
+        
+        //MARK: Unity Ads
+        
+        UnityAds.sharedInstance().delegate = self
+        UnityAds.sharedInstance().setTestMode(true)
+        UnityAds.sharedInstance().startWithGameId("1046579", andViewController: self.window?.rootViewController)
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+        
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            if UnityAds.sharedInstance().canShow() {
+                UnityAds.sharedInstance().show()
+            }
+            else {
+                NSLog("%@","Cannot show it yet!")
+            }
+        }
+        
         return true
     }
 
@@ -65,6 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func unityAdsVideoCompleted(rewardItemKey: String!, skipped: Bool) {
+        print("Video completed: \(rewardItemKey) \(skipped)")
     }
 
     

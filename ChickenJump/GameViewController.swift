@@ -142,16 +142,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
-                
-//        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
-//        
-//        if let scene = GameState.sharedInstance.gameScene {
-//            
-//            scene.scaleMode = .AspectFill
-//            skView.presentScene(scene)
-//            
-//            scene.gameSceneDelegate = self
-//        }
         
 //        self.showLoading()
         
@@ -167,30 +157,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         }
         
         
-//        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-//        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
-//            
-//            // this blocks the thread it is on
-//            
-//            GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
-//    
-//            if let scene = GameState.sharedInstance.gameScene {
-//    
-//                scene.scaleMode = .AspectFill
-//                skView.presentScene(scene)
-//    
-//                scene.gameSceneDelegate = self
-//            }
-//            
-//            dispatch_async(dispatch_get_main_queue()) {
-//                
-//                if GameState.sharedInstance.isLoadingDone {
-//                    self.disappearLoading()
-//                    
-//                }
-//            }
-//        }
-        
         // 获取game center 存档最高分数
         EGC.getHighScore(leaderboardIdentifier: Leader_Board_Identifier) { (tupleHighScore) in
             if let tupleIsOk = tupleHighScore {
@@ -204,6 +170,10 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
                 print("EGC.getHighScore  error")
             }
         }
+        
+        
+//        UnityAds.sharedInstance().setViewController(self)
+        
         
     }
     
@@ -324,14 +294,23 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     // 选择角色
     @IBAction func characterSelectAction(sender: UIButton) {
-        self.settingsButton.hidden = true
-        self.characterButton.hidden = true
-        
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("PeekPagedAVC") as! PeekPagedViewController
-        vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        self.presentViewController(vc, animated: false) { () -> Void in
-            
+        if UnityAds.sharedInstance().canShow() {
+            UnityAds.sharedInstance().show()
         }
+        else {
+            NSLog("%@","Cannot show it yet!")
+        }
+        
+        
+        
+//        self.settingsButton.hidden = true
+//        self.characterButton.hidden = true
+//        
+//        let vc = storyboard?.instantiateViewControllerWithIdentifier("PeekPagedAVC") as! PeekPagedViewController
+//        vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+//        self.presentViewController(vc, animated: false) { () -> Void in
+//            
+//        }
     }
     
     
@@ -488,7 +467,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         self.pauseButton.hidden = false
         
         self.settingsButton.hidden = true
-        self.characterButton.hidden = true
+        self.characterButton.hidden = false
         
 //        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
@@ -588,7 +567,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
         
         self.progressView.hidden = true
 
-        self.characterButton.hidden = true
+        self.characterButton.hidden = false
 
 //        self.giftButton.hidden = true
 //        self.payContinueButton.hidden = true
