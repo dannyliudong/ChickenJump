@@ -26,6 +26,8 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     @IBOutlet weak var leaderboardsButton: UIButton!
     @IBOutlet weak var shareGameButton: UIButton!
     @IBOutlet weak var tryAgainButton: UIButton!
+    @IBAction func changeSceneButton(sender: UIButton) {
+    }
     
 //    @IBOutlet weak var giftButton: UIButton!
 //    @IBOutlet weak var payContinueButton: UIButton!
@@ -132,7 +134,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 //        skView.showsFPS = true
 //        skView.showsNodeCount = true
 //        skView.showsDrawCount = true
-        skView.showsPhysics = true
+//        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
@@ -216,6 +218,13 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
+        if UnityAds.sharedInstance().canShow() {
+            UnityAds.sharedInstance().show()
+        }
+        else {
+            NSLog("%@","Cannot show it yet!")
+        }
+        
         self.scoreLabel.text = "0"
         self.currentScoreLalbel.text = "0"
         
@@ -226,12 +235,26 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         
         //等待场景加载完成后 消失
-        let delayInSeconds:Double = 2
+        let delayInSeconds:Double = 1
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
         
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             NSNotificationCenter.defaultCenter().postNotificationName("restartGameNotification", object: nil)
         }
+        
+    }
+    
+    
+    @IBAction func changeSceneAction(sender: UIButton) {
+        print("更换场景")
+        
+//        if UnityAds.sharedInstance().canShow() {
+//            UnityAds.sharedInstance().show()
+//        }
+//        else {
+//            NSLog("%@","Cannot show it yet!")
+//        }
+//        
         
     }
     
@@ -284,12 +307,12 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
     // 选择角色
     @IBAction func characterSelectAction(sender: UIButton) {
-        if UnityAds.sharedInstance().canShow() {
-            UnityAds.sharedInstance().show()
-        }
-        else {
-            NSLog("%@","Cannot show it yet!")
-        }
+//        if UnityAds.sharedInstance().canShow() {
+//            UnityAds.sharedInstance().show()
+//        }
+//        else {
+//            NSLog("%@","Cannot show it yet!")
+//        }
         
         
 //        self.settingsButton.hidden = true
@@ -484,7 +507,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
                 self.stopRecording()
             }
         } else {
-            
 //            if UnityAds.sharedInstance().canShow() {
 //                UnityAds.sharedInstance().show()
 //            }

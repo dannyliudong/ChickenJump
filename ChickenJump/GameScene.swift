@@ -603,32 +603,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
         
-
-        
         for _ in 0...4 {
             
             // 从模版数组取数据
-//            let platfromNodeTuple = platfromsTupleArray[Int.random(min: 0, max: platfromsTupleArray.count - 1)]
             
-//            let platfromNodeTuple:(SKNode, CGFloat) = {
-//                switch arc4random() % 4 {
-//                case 0:
-//                    return platfromsTupleArray[1]
-//                case 1:
-//                    return platfromsTupleArray[2]
-//                case 2:
-//                    return platfromsTupleArray[3]
-//                case 3:
-//                    return platfromsTupleArray[4]
-//                case 4:
-//                    return platfromsTupleArray[5]
-//                default:
-//                    return platfromsTupleArray[1]
-//                }
-//            }()
-            
-            
-            let platfromNodeTuple = platfromsTupleArray[1]
+            let platfromNodeTuple:(SKNode, CGFloat) = {
+                switch arc4random() % 4 {
+                case 0:
+                    return platfromsTupleArray[1]
+                case 1:
+                    return platfromsTupleArray[2]
+                case 2:
+                    return platfromsTupleArray[3]
+                case 3:
+                    return platfromsTupleArray[4]
+                case 4:
+                    return platfromsTupleArray[5]
+                default:
+                    return platfromsTupleArray[1]
+                }
+            }()
             
             let node = platfromNodeTuple.0.copy() as! SKNode
             node.setAnimiation(node)
