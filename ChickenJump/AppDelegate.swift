@@ -46,19 +46,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
         //MARK: Unity Ads
         
         UnityAds.sharedInstance().delegate = self
-        UnityAds.sharedInstance().setTestMode(true)
+        UnityAds.sharedInstance().setTestMode(false)
+        UnityAds.sharedInstance().setDebugMode(true)
+        
         UnityAds.sharedInstance().startWithGameId("1046579", andViewController: self.window?.rootViewController)
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-        
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            if UnityAds.sharedInstance().canShow() {
-                UnityAds.sharedInstance().show()
-            }
-            else {
-                NSLog("%@","Cannot show it yet!")
-            }
-        }
+//        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+//        
+//        dispatch_after(delayTime, dispatch_get_main_queue()) {
+//            if UnityAds.sharedInstance().canShow() {
+//                UnityAds.sharedInstance().show()
+//            }
+//            else {
+//                NSLog("%@","Cannot show it yet!")
+//            }
+//        }
         
         return true
     }

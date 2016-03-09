@@ -8,10 +8,10 @@
 
 import UIKit
 import SpriteKit
-import iAd
+//import iAd
 import ReplayKit
 
-class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneDelegate, EGCDelegate {
+class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var loadingBGView: UIImageView!
@@ -47,9 +47,9 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     //MARK: iAd
     
-    var interstitialAd:ADInterstitialAd!
-    var interstitialAdView: UIView = UIView()
-    var closeButton:UIButton!
+//    var interstitialAd:ADInterstitialAd!
+//    var interstitialAdView: UIView = UIView()
+//    var closeButton:UIButton!
     
     // 显示loading ->等待场景加载完成-> 消失loading
     func showLoading() {
@@ -183,7 +183,7 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     
     // 观看广告 赚金币 复活一次
     @IBAction func watchAdsAction(sender: UIButton) {
-        loadInterstitialAd()
+//        loadInterstitialAd()
     }
     
     @IBAction func payGoldContinueGame(sender: UIButton) {
@@ -273,10 +273,6 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
             self.presentViewController(activityController, animated: true,completion: nil)
         }
     }
-    
-    
-
-    
 
     // 设置
     @IBAction func settingsAction(sender: UIButton, forEvent event: UIEvent) {
@@ -715,54 +711,54 @@ class GameViewController: UIViewController, ADInterstitialAdDelegate, GameSceneD
     }
     
     //MARK: iAd
-    func loadInterstitialAd() {
-        interstitialAd = ADInterstitialAd()
-        interstitialAd.delegate = self
-    }
-    
-    func interstitialAdWillLoad(interstitialAd: ADInterstitialAd!) {
-        
-    }
-    
-    func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!) {
-        interstitialAdView = UIView()
-        interstitialAdView.frame = self.view.bounds
-        view.addSubview(interstitialAdView)
-        
-        closeButton = UIButton(frame: CGRect(x: 25, y:  25, width: 25, height: 25))
-        //add a cross shaped graphics into your project to use as close button
-        closeButton.setBackgroundImage(UIImage(named: "homeButton_back"), forState: UIControlState.Normal)
-        closeButton.addTarget(self, action: #selector(GameViewController.close), forControlEvents: UIControlEvents.TouchDown)
-        
-        self.view.addSubview(closeButton)
-        
-        interstitialAd.presentInView(interstitialAdView)
-        UIViewController.prepareInterstitialAds()
-    }
-    
-    func close() {
-        interstitialAdView.removeFromSuperview()
-        closeButton.removeFromSuperview()
-        interstitialAd = nil
-        
-    }
-    
-    func interstitialAdActionDidFinish(interstitialAd: ADInterstitialAd!) {
-        interstitialAdView.removeFromSuperview()
-    }
-    
-    
-    func interstitialAdActionShouldBegin(interstitialAd: ADInterstitialAd!, willLeaveApplication willLeave: Bool) -> Bool {
-        return true
-    }
-    
-    func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!) {
-        
-    }
-    
-    func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
-        interstitialAdView.removeFromSuperview()
-    }
+//    func loadInterstitialAd() {
+//        interstitialAd = ADInterstitialAd()
+//        interstitialAd.delegate = self
+//    }
+//    
+//    func interstitialAdWillLoad(interstitialAd: ADInterstitialAd!) {
+//        
+//    }
+//    
+//    func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!) {
+//        interstitialAdView = UIView()
+//        interstitialAdView.frame = self.view.bounds
+//        view.addSubview(interstitialAdView)
+//        
+//        closeButton = UIButton(frame: CGRect(x: 25, y:  25, width: 25, height: 25))
+//        //add a cross shaped graphics into your project to use as close button
+//        closeButton.setBackgroundImage(UIImage(named: "homeButton_back"), forState: UIControlState.Normal)
+//        closeButton.addTarget(self, action: #selector(GameViewController.close), forControlEvents: UIControlEvents.TouchDown)
+//        
+//        self.view.addSubview(closeButton)
+//        
+//        interstitialAd.presentInView(interstitialAdView)
+//        UIViewController.prepareInterstitialAds()
+//    }
+//    
+//    func close() {
+//        interstitialAdView.removeFromSuperview()
+//        closeButton.removeFromSuperview()
+//        interstitialAd = nil
+//        
+//    }
+//    
+//    func interstitialAdActionDidFinish(interstitialAd: ADInterstitialAd!) {
+//        interstitialAdView.removeFromSuperview()
+//    }
+//    
+//    
+//    func interstitialAdActionShouldBegin(interstitialAd: ADInterstitialAd!, willLeaveApplication willLeave: Bool) -> Bool {
+//        return true
+//    }
+//    
+//    func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!) {
+//        
+//    }
+//    
+//    func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
+//        interstitialAdView.removeFromSuperview()
+//    }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         //
