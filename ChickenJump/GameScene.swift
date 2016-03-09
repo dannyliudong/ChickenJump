@@ -2407,12 +2407,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         label.runAction(moveAction)
     }
     
+    
+    
     func playerMoveAnimation(vector:CGVector) {
         
 //        playerNode.moveToParent(self)
         
         //duration 大于等于 0.2 时， 出现错误
-        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 30))
+        self.playerNode.physicsBody?.applyImpulse(Player_JumpImpulse)
         self.playerNode.runAction(SKAction.moveBy(vector, duration: 0.2))
         
         if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}

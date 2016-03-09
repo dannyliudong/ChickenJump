@@ -330,19 +330,23 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="4ur-Cv-DgI"/>
-                                <exclude reference="Ydf-fd-nrK"/>
-                                <exclude reference="nCj-8w-aAa"/>
-                                <exclude reference="sLe-m5-nqm"/>
-                                <exclude reference="ZEq-Uc-GM2"/>
                                 <exclude reference="RwZ-AM-JnF"/>
                                 <exclude reference="T5J-bW-X3O"/>
                                 <exclude reference="Tlo-lR-gFR"/>
                                 <exclude reference="g87-dc-479"/>
+                                <exclude reference="ZEq-Uc-GM2"/>
+                                <exclude reference="4ur-Cv-DgI"/>
+                                <exclude reference="Ydf-fd-nrK"/>
+                                <exclude reference="nCj-8w-aAa"/>
+                                <exclude reference="sLe-m5-nqm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
+                                <include reference="RwZ-AM-JnF"/>
+                                <include reference="T5J-bW-X3O"/>
+                                <exclude reference="AWS-UJ-bSy"/>
+                                <include reference="ZEq-Uc-GM2"/>
                                 <include reference="4ur-Cv-DgI"/>
                                 <exclude reference="CJM-Oa-hvg"/>
                                 <exclude reference="Jhq-05-TTo"/>
@@ -351,10 +355,6 @@
                                 <include reference="nCj-8w-aAa"/>
                                 <include reference="sLe-m5-nqm"/>
                                 <exclude reference="xUT-FR-fHm"/>
-                                <exclude reference="AWS-UJ-bSy"/>
-                                <include reference="ZEq-Uc-GM2"/>
-                                <include reference="RwZ-AM-JnF"/>
-                                <include reference="T5J-bW-X3O"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -386,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1255" y="1118"/>
+            <point key="canvasLocation" x="-1240" y="1126"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="CNM-cC-8S6">

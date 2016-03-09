@@ -8,7 +8,6 @@
 
 import UIKit
 import SpriteKit
-//import iAd
 import ReplayKit
 
 class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
@@ -45,11 +44,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
     var screenshotsImage:UIImage?
     
-    //MARK: iAd
-    
-//    var interstitialAd:ADInterstitialAd!
-//    var interstitialAdView: UIView = UIView()
-//    var closeButton:UIButton!
     
     // 显示loading ->等待场景加载完成-> 消失loading
     func showLoading() {
@@ -138,7 +132,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 //        skView.showsFPS = true
 //        skView.showsNodeCount = true
 //        skView.showsDrawCount = true
-//        skView.showsPhysics = true
+        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
@@ -296,7 +290,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         else {
             NSLog("%@","Cannot show it yet!")
         }
-        
         
         
 //        self.settingsButton.hidden = true
@@ -463,7 +456,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         self.pauseButton.hidden = false
         
         self.settingsButton.hidden = true
-        self.characterButton.hidden = false
+        self.characterButton.hidden = true
         
 //        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
@@ -490,6 +483,14 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
             dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
                 self.stopRecording()
             }
+        } else {
+            
+//            if UnityAds.sharedInstance().canShow() {
+//                UnityAds.sharedInstance().show()
+//            }
+//            else {
+//                NSLog("%@","Cannot show it yet!")
+//            }
         }
         
         // 游戏结束 截屏
@@ -563,7 +564,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         self.progressView.hidden = true
 
-        self.characterButton.hidden = false
+        self.characterButton.hidden = true
 
 //        self.giftButton.hidden = true
 //        self.payContinueButton.hidden = true
@@ -709,56 +710,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
             self.topScroeLabel.hidden = true
         }
     }
-    
-    //MARK: iAd
-//    func loadInterstitialAd() {
-//        interstitialAd = ADInterstitialAd()
-//        interstitialAd.delegate = self
-//    }
-//    
-//    func interstitialAdWillLoad(interstitialAd: ADInterstitialAd!) {
-//        
-//    }
-//    
-//    func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!) {
-//        interstitialAdView = UIView()
-//        interstitialAdView.frame = self.view.bounds
-//        view.addSubview(interstitialAdView)
-//        
-//        closeButton = UIButton(frame: CGRect(x: 25, y:  25, width: 25, height: 25))
-//        //add a cross shaped graphics into your project to use as close button
-//        closeButton.setBackgroundImage(UIImage(named: "homeButton_back"), forState: UIControlState.Normal)
-//        closeButton.addTarget(self, action: #selector(GameViewController.close), forControlEvents: UIControlEvents.TouchDown)
-//        
-//        self.view.addSubview(closeButton)
-//        
-//        interstitialAd.presentInView(interstitialAdView)
-//        UIViewController.prepareInterstitialAds()
-//    }
-//    
-//    func close() {
-//        interstitialAdView.removeFromSuperview()
-//        closeButton.removeFromSuperview()
-//        interstitialAd = nil
-//        
-//    }
-//    
-//    func interstitialAdActionDidFinish(interstitialAd: ADInterstitialAd!) {
-//        interstitialAdView.removeFromSuperview()
-//    }
-//    
-//    
-//    func interstitialAdActionShouldBegin(interstitialAd: ADInterstitialAd!, willLeaveApplication willLeave: Bool) -> Bool {
-//        return true
-//    }
-//    
-//    func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!) {
-//        
-//    }
-//    
-//    func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
-//        interstitialAdView.removeFromSuperview()
-//    }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         //

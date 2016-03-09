@@ -39,15 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
             
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")
         }
-        
-//        UIViewController.prepareInterstitialAds()
-        
-        
+                
         //MARK: Unity Ads
         
         UnityAds.sharedInstance().delegate = self
         UnityAds.sharedInstance().setTestMode(false)
-        UnityAds.sharedInstance().setDebugMode(true)
+        UnityAds.sharedInstance().setDebugMode(false)
         
         UnityAds.sharedInstance().startWithGameId("1046579", andViewController: self.window?.rootViewController)
         
