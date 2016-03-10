@@ -135,7 +135,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 //        skView.showsFPS = true
 //        skView.showsNodeCount = true
 //        skView.showsDrawCount = true
-        skView.showsPhysics = true
+//        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
