@@ -149,7 +149,7 @@ let Font_Name:String = "HelveticaNeue"
 let FloorPhybodyWidth:CGFloat = 48
 let FloorPhybodyHight:CGFloat = 10
 
-let AppStoreURL:String = "https://itunes.apple.com/us/app/frank2016/id941582714?l=zh&ls=1&mt=8"
+let AppStoreURL:String = "https://itunes.apple.com/us/app/mr.j/id933131892?l=zh&ls=1&mt=8"
 
 //MARK: Game Center leaderboardIdentifier
 let Leader_Board_Identifier:String = "ChickenScore"
