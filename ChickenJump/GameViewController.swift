@@ -233,12 +233,12 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
-        if UnityAds.sharedInstance().canShow() {
-            UnityAds.sharedInstance().show()
-        }
-        else {
-            NSLog("%@","Cannot show it yet!")
-        }
+//        if UnityAds.sharedInstance().canShow() {
+//            UnityAds.sharedInstance().show()
+//        }
+//        else {
+//            NSLog("%@","Cannot show it yet!")
+//        }
         
         self.scoreLabel.text = "0"
         self.currentScoreLalbel.text = "0"

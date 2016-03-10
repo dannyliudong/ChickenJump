@@ -616,7 +616,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             // 从模版数组取数据
             
             let platfromNodeTuple:(SKNode, CGFloat) = {
-                switch arc4random() % 4 {
+                switch arc4random() % 5 {
                 case 0:
                     return platfromsTupleArray[1]
                 case 1:
