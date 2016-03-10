@@ -164,10 +164,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: Did Move To View
     override func didMoveToView(view: SKView) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.restartGame), name: "restartGameNotification", object:nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.restartGame), name: "restartGameNotification", object:nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "restartGame", name: "restartGameNotification", object: nil)
         
         // 监测天气变化
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.rainNotificationFunc), name: "RainNotificationNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rainNotificationFunc", name: "RainNotificationNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.rainNotificationFunc), name: "RainNotificationNotification", object: nil)
         
         self.physicsWorld.gravity = CGVectorMake(0.0, Scene_Gravity)
         self.physicsWorld.contactDelegate = self
@@ -182,10 +185,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: 自定义手势
     func addGesture(){
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleTap(_:)))
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleTap(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
+        
+//        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: "handleSwipes:")
+        
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: "handleSwipes:")
         
         leftSwipe.direction = .Left
         rightSwipe.direction = .Right
