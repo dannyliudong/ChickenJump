@@ -116,29 +116,15 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         self.hiddenGameOverButtons()
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showHomeButton), name: "showHomeButtonNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showHomeButton", name: "showHomeButtonNotification", object: nil)
         
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.pauseGame), name: "pauseGameNotification", object: nil) // 后台挂起时发出
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: "pauseGameNotification", object: nil)
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.startGameNotificationAction), name: "startGameAnimationNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: "pauseGameNotification", object: nil)// 后台挂起时发出
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "startGameNotificationAction", name: "startGameAnimationNotification", object: nil)
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.gameOverNotificationAction), name: "gameOverNotification", object: nil)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameOverNotificationAction", name: "gameOverNotification", object: nil)
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.recoveryGameNotificationAction), name: "recoveryGameNotification", object: nil)
-        
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "recoveryGameNotificationAction", name: "recoveryGameNotification", object: nil)
-        
-        
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.loadingisDoneAction), name: "loadingisDoneNotification", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadingisDoneAction", name: "loadingisDoneNotification", object: nil)
 
@@ -149,7 +135,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 //        skView.showsFPS = true
 //        skView.showsNodeCount = true
 //        skView.showsDrawCount = true
-//        skView.showsPhysics = true
+        skView.showsPhysics = true
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true

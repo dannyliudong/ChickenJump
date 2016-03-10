@@ -164,13 +164,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: Did Move To View
     override func didMoveToView(view: SKView) {
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.restartGame), name: "restartGameNotification", object:nil)
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "restartGame", name: "restartGameNotification", object: nil)
         
         // 监测天气变化
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rainNotificationFunc", name: "RainNotificationNotification", object: nil)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.rainNotificationFunc), name: "RainNotificationNotification", object: nil)
+
         
         self.physicsWorld.gravity = CGVectorMake(0.0, Scene_Gravity)
         self.physicsWorld.contactDelegate = self
@@ -185,14 +184,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: 自定义手势
     func addGesture(){
         
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleTap(_:)))
         let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
         
-        
-//        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: "handleSwipes:")
         
-//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: "handleSwipes:")
         
         leftSwipe.direction = .Left
@@ -205,19 +200,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func handleTap(sender:UITapGestureRecognizer){
         print("handle Tap")
-        touchControll(Player_JumpImpulse)
-//        showWaterWave(CGRectMake(0, 0, 50, 50), point: convertPoint(self.position, fromNode: playerNode))
+        self.touchControll(Player_JumpImpulse, move: Player_MoveBy)
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
-            touchControll(CGVectorMake(-Player_JumpImpulse.dx, Player_JumpImpulse.dy))
-        } else {
-            touchControll(Player_JumpImpulse)
+            
+            self.touchControll(Player_JumpImpulse, move: CGVectorMake(-Player_MoveBy.dx, Player_MoveBy.dy))
+            
+        } else {            
+            self.touchControll(Player_JumpImpulse, move: Player_MoveBy)
+            
         }
     }
     
-    func touchControll(vector:CGVector) {
+    func touchControll(impulse:CGVector, move:CGVector) {
         
         // 加载完成 才可点击屏幕
         if GameState.sharedInstance.isLoadingDone {
@@ -229,7 +226,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     GameState.sharedInstance.canJump = false
                     GameState.sharedInstance.lifeTimeCount = 1.2
                     
-                    self.playerMoveAnimation(vector)
+                    //duration 大于等于 0.2 时， 出现错误
+                    self.playerNode.physicsBody?.applyImpulse(impulse)
+                    self.playerNode.runAction(SKAction.moveBy(move, duration: 0.2))
+                    
+                    if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
+                    
                     
                     //update分数
                     updateGameScore()
@@ -240,6 +242,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
         }
     }
+    
+    
+//    func playerMoveAnimation(impulse:CGVector, move:CGVector) {
+//        
+//        //        playerNode.moveToParent(self)
+//        
+//        //duration 大于等于 0.2 时， 出现错误
+//        self.playerNode.physicsBody?.applyImpulse(impulse)
+//        self.playerNode.runAction(SKAction.moveBy(move, duration: 0.2))
+//        
+//        if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
+//        
+//    }
+    
     
     //MARK:-----------------------------  SetupGame
     func setupGame() {
@@ -2416,18 +2432,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     
-    
-    func playerMoveAnimation(vector:CGVector) {
-        
-//        playerNode.moveToParent(self)
-        
-        //duration 大于等于 0.2 时， 出现错误
-        self.playerNode.physicsBody?.applyImpulse(vector)
-//        self.playerNode.runAction(SKAction.moveBy(vector, duration: 0.2))
-        
-        if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
 
-    }
     
     
     //MARK: 点击事件
