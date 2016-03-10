@@ -613,7 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08ea2545-654a-4143-81cc-71f238e50832";
+				PROVISIONING_PROFILE = "89fccbe3-13b5-4e04-a377-993bdb79a048";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,7 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dee50a0b-2548-4e01-9d2c-4637caa48787";
+				PROVISIONING_PROFILE = "e56ff606-27ff-4742-a859-e51718102466";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
