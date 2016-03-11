@@ -855,7 +855,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
         // 设置钥匙的 随机高度
-        if let node = platfromNode.childNodeWithName("door") {
+        if let nodes = platfromNode.childNodeWithName("doorNode") {
+            
+            if let doorWalls = nodes.childNodeWithName("doorWalls") {
+                for node in doorWalls.children {
+                    let node = node as! SKSpriteNode
+                    
+                    let texture:SKTexture = {
+                        
+                        switch arc4random() % 5 {
+                        case 0:
+                            return self.wallTexture1
+                        case 1:
+                            return self.wallTexture2
+                        case 2:
+                            return self.wallTexture3
+                        case 3:
+                            return self.wallTexture4
+                        default:
+                            return self.wallTexture1
+                        }
+                    }()
+                    
+                    node.texture = texture
+                }
+                
+            }
+            
+
+//            for node in nodes.children {
+//                let _node = node as! SKSpriteNode
+//                _node.texture = wallTexture1
+//            }
             
             if let keyNode = node.childNodeWithName("doorkeynode") {
                 
@@ -877,7 +908,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     }
                 }()
                 
-                let ketY = CGFloat.random(min: -100, max: 50)
+                let ketY = CGFloat.random(min: -100, max: 0)
 
                 keyNode.position = CGPointMake(ketX, ketY)//CGFloat.random(min: -100, max: 50)
             }
@@ -2182,8 +2213,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         if GameState.sharedInstance.musicState { self.runAction(getdoorKeySoundAction)}
                         
-                        let door = node.parent as! SKSpriteNode
-                        door.runAction(doorOpenAction)
+                        if let parentNode = node.parent {
+                            parentNode.runAction(doorOpenAction)
+                        }
+//                        let door = node.parent! as SKNode
                         
                     case CollisionCategoryBitmask.Down_Floor:
                         print("Contact 踩踏 下落")
@@ -2538,7 +2571,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             // 如果当前分数大于game center 分数 上传新的游戏分数
             EGC.reportScoreLeaderboard(leaderboardIdentifier: Leader_Board_Identifier, score: GameState.sharedInstance.gamecenterSelfTopScore!)
             
-            exceedTopScroeTip()
+//            exceedTopScroeTip()
 
         }
 

@@ -344,8 +344,8 @@
 		A08386C71C7AF485008A7502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A07594581C7AEF0A005FF82F /* GameState.swift */,
 				A07594561C7AEF03005FF82F /* Definition.swift */,
+				A07594581C7AEF0A005FF82F /* GameState.swift */,
 				A012BD971C7D8D7000E5061D /* GameColor.swift */,
 				A018A2821C7D4263004FF1B2 /* Player.swift */,
 				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
@@ -613,7 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "46b80490-9a55-4102-9d47-43ee8eb60303";
+				PROVISIONING_PROFILE = "744355b1-6d0d-4f05-9101-fc69dc77921b";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,7 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "06419288-f720-41e0-a8cf-3fe7cad52dd5";
+				PROVISIONING_PROFILE = "9b403de1-8ded-4df1-bb0a-222ac112c7e1";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
