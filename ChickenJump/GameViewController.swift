@@ -283,7 +283,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     func shareGameActivity() {
         if let myWebsite = NSURL(string: AppStoreURL)
         {
-            let messageStr:String  = "#\(Game_NameString)# \(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore!)分"
+            let messageStr:String  = "#\(Game_NameString)# 获得\(GameState.sharedInstance.currentScore)分, 我的纪录是\(GameState.sharedInstance.gamecenterSelfTopScore!)分"
             //            let WXimg: UIImage = UIImage(named: "wxlogo")!
 //            var screenView:UIImage! // = UIImage(named: "LaunchLogo")!
             
