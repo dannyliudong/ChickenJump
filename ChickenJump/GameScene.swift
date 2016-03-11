@@ -894,7 +894,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     }
                 }()
                 
-                let ketY = CGFloat.random(min: -100, max: 0)
+                let ketY = CGFloat.random(min: -100, max: 50)
 
                 keyNode.position = CGPointMake(ketX, ketY)//CGFloat.random(min: -100, max: 50)
             }
