@@ -879,24 +879,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     
                     node.texture = texture
                 }
-                
             }
             
-
-//            for node in nodes.children {
-//                let _node = node as! SKSpriteNode
-//                _node.texture = wallTexture1
-//            }
-            
             if let keyNode = node.childNodeWithName("doorkeynode") {
-                
-//                keyNode.physicsBody?.friction = 0
-                
-//                keyNode.physicsBody?.charge = 0
-//                keyNode.physicsBody?.restitution = 0
-//                keyNode.physicsBody?.linearDamping = 0
-//                keyNode.physicsBody?.angularDamping = 0
-                
+
                 let ketX:CGFloat = {
                     switch arc4random() % 2 {
                     case 0 :
