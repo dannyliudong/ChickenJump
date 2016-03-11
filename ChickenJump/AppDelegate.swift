@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
             
             GameState.sharedInstance.gamecenterSelfTopScore = userDefaults.integerForKey("gamecenterSelfTopScore")
             GameState.sharedInstance.gameCenterPlayerName = userDefaults.stringForKey("gameCenterPlayerName")
+            
             GameState.sharedInstance.musicState = userDefaults.boolForKey("musicState")
             
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")

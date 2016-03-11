@@ -2,15 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "BGLayer.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "linkinglogoa@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "linkinglogoa@3x.png",
       "scale" : "3x"
     }
   ],

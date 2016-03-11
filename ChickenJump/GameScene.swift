@@ -232,7 +232,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     
                     if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
                     
-                    
                     //update分数
                     updateGameScore()
                 }

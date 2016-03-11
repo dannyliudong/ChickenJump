@@ -57,20 +57,26 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         print("self.view.bounds.size \(self.view.bounds.size)")
         print("loadingLogoView.bounds.size  \(loadingLogoView.bounds.size)")
         
-        UIView.animateWithDuration(1.0, animations: {
+        UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 1
             self.loadingLogoView.center.x += self.loadingLogoView.bounds.size.width * 0.5 + self.view.bounds.size.width * 0.5
 
             }, completion: { (done) in
                 print("showLoading")
+                
+                print("logo center \(self.loadingLogoView.center)")
+
         })
     }
     
     func disappearLoading() {
         
-        self.loadingLogoView.center.x = self.view.bounds.size.width * 0.5
+//        self.loadingLogoView.center.x = self.view.bounds.size.width * 0.5
         
-        UIView.animateWithDuration(1.0, animations: {
+        self.loadingBGView.hidden = false
+        self.loadingLogoView.hidden = false
+        
+        UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 0
             
             }, completion: { (done) in
@@ -101,6 +107,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.showLoading()
+        
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
         EGC.sharedInstance(self)
@@ -140,7 +150,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
         
-//        self.showLoading()
         
         
         GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
@@ -226,10 +235,11 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 //            NSLog("%@","Cannot show it yet!")
 //        }
         
+        self.showLoading()
+        
         self.scoreLabel.text = "0"
         self.currentScoreLalbel.text = "0"
         
-        self.showLoading()
         
         self.hiddenGameOverButtons()
         self.resetHomeUINotificationAction()

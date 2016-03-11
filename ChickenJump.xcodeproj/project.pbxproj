@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
-		A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */; };
 		A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47731C8D215B00919797 /* SKNode+Extensions.swift */; };
 		A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
@@ -78,13 +77,13 @@
 		A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */; };
 		A0B313C21C881D8700E0F164 /* distressParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C01C881D8700E0F164 /* distressParticle.sks */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
+		A0FA87E61C926E9A00831248 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FA87E51C926E9A00831248 /* Launch Screen.storyboard */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A02F47731C8D215B00919797 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A0B313C01C881D8700E0F164 /* distressParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = distressParticle.sks; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		A0FA87E51C926E9A00831248 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,7 +218,7 @@
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
-				A01BD3EA1C84163000DDE320 /* Launch Screen.storyboard */,
+				A0FA87E51C926E9A00831248 /* Launch Screen.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
 				A075942A1C7AED47005FF82F /* ChickenJump-Bridging-Header.h */,
@@ -448,6 +448,7 @@
 				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
+				A0FA87E61C926E9A00831248 /* Launch Screen.storyboard in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
@@ -464,7 +465,6 @@
 				A07594A41C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png in Resources */,
 				A07594821C7AEF43005FF82F /* inGame_event_deathMonster_1.mp3 in Resources */,
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
-				A01BD3EB1C84163000DDE320 /* Launch Screen.storyboard in Resources */,
 				A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */,
 				A075947A1C7AEF43005FF82F /* dieSound.mp3 in Resources */,
 				A07594B31C7AF000005FF82F /* Bow.sks in Resources */,
@@ -613,7 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "89fccbe3-13b5-4e04-a377-993bdb79a048";
+				PROVISIONING_PROFILE = "fd16ab7f-1335-4801-a94c-bd576beb68b2";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,7 +639,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e56ff606-27ff-4742-a859-e51718102466";
+				PROVISIONING_PROFILE = "9044dd5a-11cb-4d10-a35a-1db34f55bd96";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

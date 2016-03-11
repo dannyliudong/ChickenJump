@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -268,14 +268,14 @@
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
+                                <rect key="frame" x="70" y="569" width="600" height="600"/>
+                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="200" y="305" width="200" height="200"/>
                                 </variation>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
-                                <rect key="frame" x="70" y="569" width="600" height="600"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTd-Ry-kBx">
                                 <rect key="frame" x="20" y="343" width="560" height="48"/>
@@ -405,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1240" y="1126"/>
+            <point key="canvasLocation" x="-1240" y="1079"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="CNM-cC-8S6">
@@ -645,6 +645,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ext-yO-Vuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-497" y="399"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FNY-t1-CBt">
+            <objects>
+                <viewController id="1lK-gG-s1O" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VCF-f0-Bgo"/>
+                        <viewControllerLayoutGuide type="bottom" id="POD-B1-FIw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xkK-Eq-LSD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="SO1-l8-0St">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5Ba-Ay-yHr">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SO1-l8-0St" firstAttribute="leading" secondItem="xkK-Eq-LSD" secondAttribute="leading" id="8hb-4c-lkX"/>
+                            <constraint firstItem="5Ba-Ay-yHr" firstAttribute="centerX" secondItem="xkK-Eq-LSD" secondAttribute="centerX" id="C7P-F2-BUd"/>
+                            <constraint firstAttribute="trailing" secondItem="SO1-l8-0St" secondAttribute="trailing" id="GLz-Kt-x6L"/>
+                            <constraint firstItem="SO1-l8-0St" firstAttribute="bottom" secondItem="POD-B1-FIw" secondAttribute="top" id="Y2x-N7-h5g"/>
+                            <constraint firstItem="5Ba-Ay-yHr" firstAttribute="centerY" secondItem="xkK-Eq-LSD" secondAttribute="centerY" id="g36-mu-0NZ"/>
+                            <constraint firstItem="SO1-l8-0St" firstAttribute="top" secondItem="xkK-Eq-LSD" secondAttribute="top" id="hZM-Xv-eMc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jzH-iE-Dqy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2062" y="1126"/>
         </scene>
     </scenes>
     <resources>

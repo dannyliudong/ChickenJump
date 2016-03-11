@@ -41,9 +41,7 @@ class GameState {
         self.currentScore = 0
         self.gamecenterSelfTopScore = 0
         self.lifeTimeCount = 1.0
-    
-        self.musicState = true
-        
+
     }
     
     func saveState() {
