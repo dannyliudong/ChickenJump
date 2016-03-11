@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+
 import ReplayKit
 
 class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
@@ -97,7 +98,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 
     
     override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+        
+//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+        self.prefersStatusBarHidden()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -108,10 +111,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.showLoading()
-        
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+        self.prefersStatusBarHidden()
+//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
         EGC.sharedInstance(self)
         EGC.debugMode = true
@@ -212,10 +214,20 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         } else {
             print("game center 未登录")
             
-            let alertView = UIAlertView(title: "排行榜", message: "登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
-            alertView.show()
-        }
+//            let alertView = UIAlertView(title: "排行榜", message: "登录GameCenter查看游戏排名", delegate: nil, cancelButtonTitle: "好")
+//            alertView.show()
+            
+            let alertController = UIAlertController(title: "Leader Board", message: "Please sign in GameCenter", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let cancel = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+                
+            })
+            
+            alertController.addAction(cancel)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
 
+        }
         
 //        let vc = storyboard?.instantiateViewControllerWithIdentifier("LeaderBoardVC") as! LeaderBoardViewController
 //        vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -343,16 +355,26 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         if !GameState.sharedInstance.isRecording {
             self.startRecording()
-
+            
         } else if GameState.sharedInstance.isRecording {
             self.stopRecording()
         }
+        
+//        switch UIDevice.currentDevice().systemVersion.compare("9.0.0", options: NSStringCompareOptions.NumericSearch) {
+//        case .OrderedSame, .OrderedDescending:
+//            print("iOS >= 9.0")
+//            
+//            
+//
+//            
+//        case .OrderedAscending:
+//            print("iOS < 9.0")
+//        }
         
     }
     
     //开始录像
     func startRecording() {
-        
         
         let recorder = RPScreenRecorder.sharedRecorder()
         recorder.delegate = self;
@@ -362,12 +384,13 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
                 print(error.localizedDescription)
                 self.alert(error.localizedDescription)
             } else {
-//                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
+                //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
                 self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
-
+                
                 GameState.sharedInstance.isRecording = true
             }
         }
+
     }
     
     //停止录像
