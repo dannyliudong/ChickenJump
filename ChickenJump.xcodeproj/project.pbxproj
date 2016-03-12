@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
+		A022C80E1C93D29200F19AB8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A022C80D1C93D29200F19AB8 /* Launch Screen.storyboard */; };
 		A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47731C8D215B00919797 /* SKNode+Extensions.swift */; };
 		A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
@@ -69,7 +70,6 @@
 		A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */; };
 		A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */; };
 		A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594D91C7AF14D005FF82F /* GameKit.framework */; };
-		A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
 		A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A076A2F61C8FBA8300250432 /* UnityAds.bundle */; };
 		A076A2F91C8FBA8300250432 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2F71C8FBA8300250432 /* UnityAds.framework */; };
 		A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FA1C8FBAED00250432 /* StoreKit.framework */; };
@@ -77,13 +77,18 @@
 		A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */; };
 		A0B313C21C881D8700E0F164 /* distressParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C01C881D8700E0F164 /* distressParticle.sks */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
-		A0FA87E61C926E9A00831248 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FA87E51C926E9A00831248 /* Launch Screen.storyboard */; };
+		A0BB7C011C93D69E00B37A96 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */; };
+		A0BB7C021C93D69E00B37A96 /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */; };
+		A0BB7C031C93D69E00B37A96 /* MediumRectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */; };
+		A0BB7C041C93D69E00B37A96 /* PreRollVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */; };
+		A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A022C80D1C93D29200F19AB8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A02F47731C8D215B00919797 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
@@ -155,7 +160,10 @@
 		A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A0B313C01C881D8700E0F164 /* distressParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = distressParticle.sks; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		A0FA87E51C926E9A00831248 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
+		A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumRectViewController.swift; sourceTree = "<group>"; };
+		A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreRollVideoViewController.swift; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,13 +172,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */,
 				A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */,
 				A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */,
 				A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
-				A07594DC1C7AF153005FF82F /* iAd.framework in Frameworks */,
 				A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */,
 				A076A2F91C8FBA8300250432 /* UnityAds.framework in Frameworks */,
 			);
@@ -208,6 +216,7 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
+				A0BB7BFC1C93D66D00B37A96 /* iAd */,
 				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A08386C91C7AF511008A7502 /* Motion */,
 				A08386C81C7AF49C008A7502 /* UI */,
@@ -218,7 +227,7 @@
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
-				A0FA87E51C926E9A00831248 /* Launch Screen.storyboard */,
+				A022C80D1C93D29200F19AB8 /* Launch Screen.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
 				A075942A1C7AED47005FF82F /* ChickenJump-Bridging-Header.h */,
@@ -372,6 +381,17 @@
 			name = Motion;
 			sourceTree = "<group>";
 		};
+		A0BB7BFC1C93D66D00B37A96 /* iAd */ = {
+			isa = PBXGroup;
+			children = (
+				A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */,
+				A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */,
+				A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */,
+				A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */,
+			);
+			name = iAd;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -448,7 +468,7 @@
 				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
-				A0FA87E61C926E9A00831248 /* Launch Screen.storyboard in Resources */,
+				A022C80E1C93D29200F19AB8 /* Launch Screen.storyboard in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
@@ -498,9 +518,13 @@
 				A07594C61C7AF094005FF82F /* SKAction+Extensions.swift in Sources */,
 				A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */,
 				A07594C51C7AF094005FF82F /* MyUtils.swift in Sources */,
+				A0BB7C011C93D69E00B37A96 /* BannerViewController.swift in Sources */,
+				A0BB7C031C93D69E00B37A96 /* MediumRectViewController.swift in Sources */,
+				A0BB7C021C93D69E00B37A96 /* InterstitialViewController.swift in Sources */,
 				A07594591C7AEF0A005FF82F /* GameState.swift in Sources */,
 				A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */,
 				A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */,
+				A0BB7C041C93D69E00B37A96 /* PreRollVideoViewController.swift in Sources */,
 				A07594551C7AEEE3005FF82F /* GameSpriteNode.swift in Sources */,
 				A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */,
 			);
@@ -599,7 +623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ling jing (9KEW46EUPF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -611,9 +635,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "744355b1-6d0d-4f05-9101-fc69dc77921b";
+				PROVISIONING_PROFILE = "fd16ab7f-1335-4801-a94c-bd576beb68b2";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,7 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ling jing (P7ZXCTUGLG)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -637,9 +661,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b403de1-8ded-4df1-bb0a-222ac112c7e1";
+				PROVISIONING_PROFILE = "9044dd5a-11cb-4d10-a35a-1db34f55bd96";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

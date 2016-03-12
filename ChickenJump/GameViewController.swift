@@ -8,8 +8,8 @@
 
 import UIKit
 import SpriteKit
-
 import ReplayKit
+import iAd
 
 class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
@@ -101,11 +101,14 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
 //        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         self.prefersStatusBarHidden()
+        
+        self.requestInterstitialAdPresentation()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         EGC.delegate = self
+        
     }
     
     override func viewDidLoad() {
@@ -180,7 +183,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         }
         
         
-//        UnityAds.sharedInstance().setViewController(self)
+        //MARK: iAd
+        
+        /* Automatic presentation , you can't control when the ad loads */
+        self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Automatic
         
         
     }

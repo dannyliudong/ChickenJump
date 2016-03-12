@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
@@ -39,6 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
             
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")
         }
+        
+        //MARK:iAds
+        UIViewController.prepareInterstitialAds()
+        MPMoviePlayerController.preparePrerollAds()
+        
                 
         //MARK: Unity Ads
         
