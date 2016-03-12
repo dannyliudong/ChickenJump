@@ -184,7 +184,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         
         //MARK: iAd
+        // 底部横幅广告
+//        self.canDisplayBannerAds = true
         
+        // 
         /* Automatic presentation , you can't control when the ad loads */
         self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Automatic
         
@@ -435,6 +438,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     //MARK: 暂停游戏场景
     @IBAction func pauseGameAction(sender: UIButton, forEvent event: UIEvent) {
         pauseGame()
+        
+        //MARK: iAd
+        // 底部横幅广告
+//        self.canDisplayBannerAds = true
     }
     
     func pauseGame() {

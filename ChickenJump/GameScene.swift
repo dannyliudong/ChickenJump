@@ -1695,7 +1695,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func rainNotificationFunc() {
         // 雨
         sceneWithRain()
-        SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.RainAudioName.rawValue)
+        if !GameState.sharedInstance.musicState {
+            SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.RainAudioName.rawValue)
+        }
     }
     
     // 雨
