@@ -189,7 +189,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         // 
         /* Automatic presentation , you can't control when the ad loads */
-        self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Automatic
+        self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Manual
         
         
     }
@@ -593,6 +593,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
+            
+            NSLog("Requesting")
+            self.requestInterstitialAdPresentation()
         }
         
 //        let delayInSeconds = 0.5

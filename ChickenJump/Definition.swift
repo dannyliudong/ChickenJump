@@ -148,12 +148,12 @@ let FloorPhybodyWidth:CGFloat = 48
 let FloorPhybodyHight:CGFloat = 10
 
 
-let Game_NameString = "Just Jump"
+let Game_NameString = "Mr.J"
 
-let AppStoreURL:String = "https://itunes.apple.com/us/app/just-jump/id1092406165?l=zh&ls=1&mt=8"
+let AppStoreURL:String = "https://itunes.apple.com/us/app/mr.j/id933131892?l=zh&ls=1&mt=8"
 
 //MARK: Game Center leaderboardIdentifier
-let Leader_Board_Identifier:String = "HightScore"
+let Leader_Board_Identifier:String = "ChickenScore"
 
 //MARK: light color
 let Light_AmbientColor_Day:UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
