@@ -594,8 +594,11 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
             
-            NSLog("Requesting")
-            self.requestInterstitialAdPresentation()
+            if !GameState.sharedInstance.isRecording {
+                NSLog("Requesting")
+                self.requestInterstitialAdPresentation()
+            }
+
         }
         
 //        let delayInSeconds = 0.5
@@ -819,7 +822,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }    
-
     
 }
 
