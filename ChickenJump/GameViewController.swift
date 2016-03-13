@@ -99,7 +99,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         self.prefersStatusBarHidden()
         
         self.requestInterstitialAdPresentation()
@@ -596,7 +596,11 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
             
             if !GameState.sharedInstance.isRecording {
                 NSLog("Requesting")
-                self.requestInterstitialAdPresentation()
+                
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.requestInterstitialAdPresentation()
+
+                })
             }
 
         }
@@ -819,9 +823,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }    
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }    
     
 }
 
