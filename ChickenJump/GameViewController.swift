@@ -99,8 +99,11 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+        
         self.prefersStatusBarHidden()
+        
+        self.setNeedsStatusBarAppearanceUpdate()
         
         self.requestInterstitialAdPresentation()
     }
@@ -115,7 +118,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         super.viewDidLoad()
         
         self.showLoading()
-        self.prefersStatusBarHidden()
+//        self.prefersStatusBarHidden()
 //        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
         EGC.sharedInstance(self)
@@ -264,6 +267,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         self.hiddenGameOverButtons()
         self.resetHomeUINotificationAction()
+        
+        GameState.sharedInstance.isRecording = false
+        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+        
         
         
         //等待场景加载完成后 消失
@@ -734,7 +741,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         self.settingsButton.hidden = false
         
-        self.replayButton.hidden = false
+        
 
     }
     
@@ -823,9 +830,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
-//    override func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }    
     
 }
 
