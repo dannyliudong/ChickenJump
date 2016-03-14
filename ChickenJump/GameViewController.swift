@@ -882,19 +882,29 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 
     
     func completeTransaction(transaction:SKPaymentTransaction) {
-        print("交易完成")
+        print("交易完成 \(transaction)")
+        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }
     
     func restoreTransaction(transaction: SKPaymentTransaction) {
-        print("已经购买过改商品 恢复交易")
+        print("已经购买过改商品 恢复交易  \(transaction)")
     }
     
     func failedTransaction(transaction: SKPaymentTransaction) {
-        print("交易失败")
+        print("交易失败  \(transaction)")
     }
     
     func purchasing(transaction: SKPaymentTransaction) {
-        print("商品添加进列表")
+        print("商品添加进列表  \(transaction)")
+    }
+    
+    
+    let VERIFY_RECEIPT_URL = "https://buy.itunes.apple.com/verifyReceipt"
+    let ITMS_SANDBOX_VERIFY_RECEIPT_URL = "https://sandbox.itunes.apple.com/verifyReceipt"
+    
+    //MARK: 验证购买
+    func verifyPruchase() {
+        
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
