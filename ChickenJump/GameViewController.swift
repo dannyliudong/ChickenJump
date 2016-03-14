@@ -10,8 +10,14 @@ import UIKit
 import SpriteKit
 import ReplayKit
 import iAd
+import StoreKit
 
-class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
+class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate, GameSceneDelegate, EGCDelegate {
+    
+    //MARK: 购买项目
+    enum IAPItem {
+        case IAP
+    }
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var loadingBGView: UIImageView!
@@ -146,6 +152,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadingisDoneAction", name: "loadingisDoneNotification", object: nil)
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "payRemoveAds", name: "removeAdsPayNotification", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "restorePay", name: "restoreAdsPayNotification", object: nil)
         
         let skView = self.view as! SKView
         
@@ -194,8 +203,14 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
         /* Automatic presentation , you can't control when the ad loads */
         self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Manual
         
-        
+        //
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
     }
+    
+//    deinit {
+//        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+//
+//    }
     
     // Init iAd
     
@@ -801,6 +816,85 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate {
             print("game center 未授权登陆")
             self.topScroeLabel.hidden = true
         }
+    }
+    
+    //MARK: Pay Delegate Method
+    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .Purchasing:
+                self.purchasing(transaction)
+                break
+                
+            case .Purchased:
+                self.completeTransaction(transaction)
+                break
+                
+            case .Failed:
+                self.failedTransaction(transaction)
+                break
+                
+            case .Restored:
+                self.restoreTransaction(transaction)
+                break
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    func payRemoveAds() {
+        if SKPaymentQueue.canMakePayments() {
+            self.getProductInfo()
+        } else {
+            print("发起支付失败， 用户禁止应用内付费购买")
+        }
+    }
+    
+    func restorePay() {
+        print("恢复购买")
+        SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+    }
+
+    //MARK: SKProductsRequest Delegate Method
+    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+        let product = response.products
+        if product.count == 0 {
+            print("无法获取产品信息，购买失败。")
+            return
+        }
+        
+        let payment = SKPayment(product: product[0])
+        SKPaymentQueue.defaultQueue().addPayment(payment)
+        
+    }
+    
+    func getProductInfo() {
+        let set:Set<String> = NSSet(array: ["com.lingjing.justjump.removeads"]) as! Set<String>
+        let request = SKProductsRequest(productIdentifiers: set)
+        
+        request.delegate = self
+        request.start()
+    }
+    
+
+    
+    func completeTransaction(transaction:SKPaymentTransaction) {
+        print("交易完成")
+    }
+    
+    func restoreTransaction(transaction: SKPaymentTransaction) {
+        print("已经购买过改商品 恢复交易")
+    }
+    
+    func failedTransaction(transaction: SKPaymentTransaction) {
+        print("交易失败")
+    }
+    
+    func purchasing(transaction: SKPaymentTransaction) {
+        print("商品添加进列表")
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {

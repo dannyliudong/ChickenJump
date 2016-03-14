@@ -16,21 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-xC-1fN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Jff-s6-vez">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="linkinglogoa" translatesAutoresizingMaskIntoConstraints="NO" id="uOC-aK-gaM">
+                                <rect key="frame" x="200" y="234" width="200" height="133"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kMp-xC-1fN" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="8Ml-55-sxF"/>
-                            <constraint firstItem="Jff-s6-vez" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Emp-dr-9YS"/>
-                            <constraint firstItem="Jff-s6-vez" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JPK-yK-G3p"/>
-                            <constraint firstItem="kMp-xC-1fN" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="NSi-9X-DQF"/>
-                            <constraint firstItem="kMp-xC-1fN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Oe3-5R-69G"/>
-                            <constraint firstAttribute="trailing" secondItem="kMp-xC-1fN" secondAttribute="trailing" id="zPk-iw-dKZ"/>
+                            <constraint firstItem="uOC-aK-gaM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dxk-WF-rdX"/>
+                            <constraint firstItem="uOC-aK-gaM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ijX-Fl-hxh"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,7 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchLogo" width="200" height="200"/>
-        <image name="avatar_bg_line" width="10" height="384"/>
+        <image name="linkinglogoa" width="200" height="133"/>
     </resources>
 </document>

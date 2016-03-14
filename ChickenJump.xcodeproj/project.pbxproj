@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
+		A01723A91C966A8F0049B3EA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01723A81C966A8F0049B3EA /* Launch Screen.storyboard */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
-		A022C80E1C93D29200F19AB8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A022C80D1C93D29200F19AB8 /* Launch Screen.storyboard */; };
 		A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47731C8D215B00919797 /* SKNode+Extensions.swift */; };
 		A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
@@ -87,8 +87,8 @@
 
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
+		A01723A81C966A8F0049B3EA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		A022C80D1C93D29200F19AB8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A02F47731C8D215B00919797 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
@@ -172,10 +172,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */,
 				A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */,
 				A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */,
 				A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */,
-				A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
@@ -187,9 +187,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A06C3DEC1C964D74000C9AA6 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
+				A01723A81C966A8F0049B3EA /* Launch Screen.storyboard */,
 				A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */,
 				A076A2FC1C8FBAFD00250432 /* AdSupport.framework */,
 				A076A2FA1C8FBAED00250432 /* StoreKit.framework */,
@@ -216,6 +224,7 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
+				A06C3DEC1C964D74000C9AA6 /* Store */,
 				A0BB7BFC1C93D66D00B37A96 /* iAd */,
 				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A08386C91C7AF511008A7502 /* Motion */,
@@ -227,7 +236,6 @@
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
-				A022C80D1C93D29200F19AB8 /* Launch Screen.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
 				A075942A1C7AED47005FF82F /* ChickenJump-Bridging-Header.h */,
@@ -468,7 +476,7 @@
 				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
-				A022C80E1C93D29200F19AB8 /* Launch Screen.storyboard in Resources */,
+				A01723A91C966A8F0049B3EA /* Launch Screen.storyboard in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
@@ -623,7 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ling jing (9KEW46EUPF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -635,9 +643,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd16ab7f-1335-4801-a94c-bd576beb68b2";
+				PROVISIONING_PROFILE = "744355b1-6d0d-4f05-9101-fc69dc77921b";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -649,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ling jing (P7ZXCTUGLG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -661,9 +669,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9044dd5a-11cb-4d10-a35a-1db34f55bd96";
+				PROVISIONING_PROFILE = "9b403de1-8ded-4df1-bb0a-222ac112c7e1";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

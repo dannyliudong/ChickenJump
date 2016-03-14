@@ -111,6 +111,14 @@ class SettingsViewController: UIViewController {
         
     }
 
+    @IBAction func removeAdsPayAction(sender: UIButton) {
+        NSNotificationCenter.defaultCenter().postNotificationName("removeAdsPayNotification", object: nil)
+    }
+    
+    @IBAction func restoreAdsPayAction(sender: UIButton) {
+        NSNotificationCenter.defaultCenter().postNotificationName("restoreAdsPayNotification", object: nil)
+    }
+    
     
     /*
     // MARK: - Navigation
