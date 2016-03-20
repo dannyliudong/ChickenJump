@@ -82,6 +82,7 @@
 		A0BB7C031C93D69E00B37A96 /* MediumRectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */; };
 		A0BB7C041C93D69E00B37A96 /* PreRollVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */; };
 		A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
+		A0CBF0B61C9EF0C40081B615 /* README in Resources */ = {isa = PBXBuildFile; fileRef = A0CBF0B51C9EF0C40081B615 /* README */; };
 		A0DDAA941C9ED3E1001545E2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DDAA931C9ED3E1001545E2 /* Launch Screen.storyboard */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
@@ -165,6 +166,7 @@
 		A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
 		A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumRectViewController.swift; sourceTree = "<group>"; };
 		A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreRollVideoViewController.swift; sourceTree = "<group>"; };
+		A0CBF0B51C9EF0C40081B615 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A0DDAA931C9ED3E1001545E2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +246,7 @@
 				A075945A1C7AEF18005FF82F /* Resources */,
 				A075943B1C7AEE49005FF82F /* SceneFiles */,
 				A075942F1C7AEE0C005FF82F /* GameScene.swift */,
+				A0CBF0B51C9EF0C40081B615 /* README */,
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
@@ -497,6 +500,7 @@
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
 				A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */,
 				A075947A1C7AEF43005FF82F /* dieSound.mp3 in Resources */,
+				A0CBF0B61C9EF0C40081B615 /* README in Resources */,
 				A07594B31C7AF000005FF82F /* Bow.sks in Resources */,
 				A01D3BB81C994BEA008CAB60 /* BGSpriteTextureAlats.1.png in Resources */,
 				A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */,
