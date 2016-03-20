@@ -30,14 +30,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     private var ScrollBG_Move_Speed:CGFloat = 1.0
 
     // MARK: private game data
-    
+    private var dayTime = DayType.Day
     private var land = SceneLandType.Amazon
     private var weather = WeatherType.Sunny
     
     //MARK: 场景node
     private var guideFigerNode: SKNode! // 指引手指
     
-    private var skyColor:    UIColor!
+    private var skyColor:UIColor!
+    
+    var sunshineTimer:NSTimer!
     
     var flashLightNode:SKNode!
     
@@ -57,14 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
     private var platfromInterval:CGFloat = 0 // 等于组件的宽度, 不短减小 当值小于0 视为移动了宽度的距离 与playergroundNode 移动的位置同步
     
-    private var playerNode: SKSpriteNode!
+    private var playerNode: SKNode!
     private var magicNode: SKEmitterNode!
     
-    var rainstormSceneRainSP: SKNode!
-    
-    
     //MARK: 共享纹理
-    
     private var floorTexture:SKTexture! //= setPlatformTextureWithFloor(self.land)
     
     private var wallTexture1:SKTexture!
@@ -160,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     let eagleSoundAction = SKAction.playSoundFileNamed("eagleSound.mp3", waitForCompletion: false)
     let chickenSoundAction = SKAction.playSoundFileNamed("chicken.mp3", waitForCompletion: false)
     
-    let thunderSoundAction = SKAction.playSoundFileNamed("ThunderSound.mp3", waitForCompletion: false)
+    let thunderSoundAction = SKAction.playSoundFileNamed("thunderSound.mp3", waitForCompletion: false)
     
     //MARK: Did Move To View
     override func didMoveToView(view: SKView) {
@@ -227,8 +225,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     GameState.sharedInstance.lifeTimeCount = 1.2
                     
                     //duration 大于等于 0.2 时， 出现错误
-                    self.playerNode.physicsBody?.applyImpulse(impulse)
-                    self.playerNode.runAction(SKAction.moveBy(move, duration: 0.2))
+//                    self.playerNode.physicsBody?.applyImpulse(impulse)
+                    self.playerNode.runAction(SKAction.moveBy(move, duration: 0.1))
                     
                     if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
                     
@@ -259,6 +257,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK:-----------------------------  SetupGame
     func setupGame() {
         
+        if sunshineTimer != nil {
+            self.sunshineTimer.invalidate()
+            self.sunshineTimer = nil
+        }
+        
         self.platfromInterval = 0
         GameState.sharedInstance.currentScore = 0
         
@@ -279,18 +282,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
 //        self.sceneEdgeBottom()
         
-        self.createWaterBackgroud()
+        self.createWater()
         
         self.createPlayer()
         self.figerNode()
+        
+        if self.weather != .Rain && self.dayTime != .Night {
+            self.sunshineTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CGFloat.random(min: 3, max: 6)),
+                                                                        target: self,
+                                                                        selector: "createDynamicSunshine",
+                                                                        userInfo: nil,
+                                                                        repeats: true)
+            
+            let dt1 = Int(arc4random_uniform(200))
+            if dt1 == 1 { createDynamicSunshine() } // 动态光线
+        }
 
 //        GameState.sharedInstance.gameOver = true
         
         // 2. 游戏开始后的音乐
-        let music = GameState.sharedInstance.musicState
-        if music {
-            // 播放音乐
-            SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.NormalAudioName.rawValue)
+//        let music = GameState.sharedInstance.musicState
+        if GameState.sharedInstance.musicState {
+            // 播放背景音乐
+            if self.weather == .Rain {
+                SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.RainAudioName.rawValue)
+            } else {
+                SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.NormalAudioName.rawValue)
+            }
+            
         }
         
         GameState.sharedInstance.lifeTimeCount = 1.2
@@ -311,7 +330,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 设置天气
     func setupColorsAndSceneLandAndWeather() {
-
+        
         self.land = {
             switch arc4random() % 10 {
             case 0: return .Amazon
@@ -328,8 +347,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             }
             }()
         
-        print("self.land : \(self.land)")
-        
         self.weather = {
             switch arc4random() % 4 {
             case 0: return .Sunny
@@ -339,90 +356,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             default: return .Sunny
             }
             }()
-
+        
+        self.dayTime = {
+            switch arc4random() % 2 {
+            case 0: return .Day
+            case 1: return .Night
+            default: return .Day
+            }
+        }()
+        
         print("self.land : \(self.land)")
-
-        switch self.land {
-        case .Amazon:
-            
-            //                switch arc4random() % 5 {
-            //                case 0: skyColor = SkyColor_Amazon
-            //                case 1: skyColor = SkyColor_Blue_A
-            //                case 2: skyColor = SkyColor_Blue_B
-            //                case 3: skyColor = SkyColor_Blue_C
-            //                case 4: skyColor = SkyColor_Blue_D
-            //                default: skyColor = SkyColor_Amazon
-            //                }
-            
-            skyColor = SkyColor_Amazon
-            
-        case .Grove:
-            //                switch arc4random() % 5 {
-            //                case 0: skyColor = SkyColor_Grove
-            //                case 1: skyColor = SkyColor_Green_A
-            //                case 2: skyColor = SkyColor_Green_B
-            //                case 3: skyColor = SkyColor_Green_C
-            //                case 4: skyColor = SkyColor_Green_D
-            //                default: skyColor = SkyColor_Grove
-            //                }
-            skyColor = SkyColor_Grove
-            
-        case .Volcanic:
-            //                switch arc4random() % 5 {
-            //                case 0: skyColor = SkyColor_Volcanic
-            //                case 1: skyColor = SkyColor_Orange_A
-            //                case 2: skyColor = SkyColor_Orange_B
-            //                case 3: skyColor = SkyColor_Orange_C
-            //                case 4: skyColor = SkyColor_Orange_D
-            //                default: skyColor = SkyColor_Volcanic
-            //                }
-            
-            skyColor = SkyColor_Volcanic
-            
-            
-        case .LahontanValley:
-            //                switch arc4random() % 5 {
-            //                case 0: skyColor = SkyColor_Volcanic
-            //                case 1: skyColor = SkyColor_Orange_A
-            //                case 2: skyColor = SkyColor_Orange_B
-            //                case 3: skyColor = SkyColor_Orange_C
-            //                case 4: skyColor = SkyColor_Orange_D
-            //                default: skyColor = SkyColor_Volcanic
-            //                }
-            
-            skyColor = SkyColor_LahontanValley
-            
-            
-        case .SnowMountain:
-            //                switch arc4random() % 2 {
-            //                case 0: skyColor = randomColor(Hue.Blue, luminosity: Luminosity.Light)
-            //                case 1: skyColor = randomSkyColorsDay()
-            //                default: skyColor = randomColor(Hue.Blue, luminosity: Luminosity.Light)
-            //
-            //                }
-            skyColor = SkyColor_SnowMountain
-            
-            
-        case .MayaPyramid:
-            
-            skyColor = SkyColor_MayaPyramid
-            
-        case .Iceberg:
-            skyColor = SkyColor_Iceberg
-            
-        case .BuildingShenshe:
-            skyColor = SkyColor_BuildingShenshe
-            
-        case .Cemetery:
-            skyColor = SkyColor_Cemetery
-            
-        case .Nightsky:
-            skyColor = SkyColor_Nightsky
+        print("self.weather : \(self.weather)")
+        print("self.dayTime : \(self.dayTime)")
+        
+        if self.dayTime == .Day {
+            skyColor = setSceneSkyColor_Day(self.land)
+        } else {
+            skyColor = setSceneSkyColor_Night(self.land)
         }
         
-        self.backgroundColor = skyColor
+        self.setSceneWeather(self.weather)
+//        self.setSceneDay(self.dayTime)
         
-        observerWeather()
+        self.backgroundColor = skyColor
+    }
+    
+    //MARK: 天气
+    func setSceneWeather(type:WeatherType) {
+        
+        switch type {
+        case .Sunny:
+            print("晴天......")
+        case .Rain:
+            print("雨......")
+            NSNotificationCenter.defaultCenter().postNotificationName("RainNotificationNotification", object: nil)
+        case .Snow:
+            print("雪......")
+        case .Sandstorm:
+            print("沙尘......")
+        }
+        
+    }
+    
+    func setSceneDay(type: DayType) {
+        
+        switch type {
+        case .Day:
+            print("Day......")
+        case .Night:
+            print("Night......")
+        }
     }
     
     func setGlobalPlatfrmoTexture() {
@@ -546,7 +529,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     // 背景
     func initBackgroud() {
 //        createBG_layer()
-        
 //        if self.land == .Amazon || self.land == .Volcanic || self.land == .SnowMountain || self.land == .Iceberg || self.land == .Nightsky {
 //            createBG_HillDepth0_Layer()
 //        }
@@ -574,7 +556,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //            createBG_CloudLayerA(Int(CGFloat.random(min: 3, max: 8)), position: CGPointMake(0, 0))
 //            createBG_CloudLayerB(Int(CGFloat.random(min: 3, max: 8)), position: CGPointMake(Screen_Width, 0))
 //        }
-        print("BG_hight \(BG_hight)")
         
     }
     
@@ -708,6 +689,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         } else {
             
             let node = platfromNodeTuple.0.copy() as! SKNode
+            
+            //MARK: 设置关卡动画时间
             node.setAnimiation(node)
             
             // 获取上一个在场景中的node的位置
@@ -753,22 +736,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
     }
     
-    //MARK: 天气场景
-    func observerWeather() {
-        
-        switch self.weather {
-        case .Sunny:
-            print("晴天......")
-        case .Rain:
-            print("雨......")
-            NSNotificationCenter.defaultCenter().postNotificationName("RainNotificationNotification", object: nil)
-        case .Snow:
-            print("雪......")
-        case .Sandstorm:
-            print("沙尘......")
-        }
-        
-    }
+
 
     //MARK: 从SKS文件创建场景 设置场景纹理
     func createPlatfromNodeWithSKS(node:SKNode) ->SKNode {
@@ -898,7 +866,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
                 keyNode.position = CGPointMake(ketX, ketY)//CGFloat.random(min: -100, max: 50)
             }
-            print("finde child doorkeynode ")
         }
         
         // 设置纹理层次
@@ -1039,7 +1006,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 构建场景相关
     //MARL:  水
-    func createWaterBackgroud() {
+    func createWater() {
         
         let waterColor: UIColor = {
             switch self.land {
@@ -1075,12 +1042,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         let texture = SKTexture(imageNamed: "BGLayerLine")
         let bg = SKSpriteNode(texture: texture, color: self.skyColor, size: CGSizeMake(Screen_Width * 1.01, texture.size().height))
-        bg.position = CGPointMake(Screen_Width * 0.5, Screen_Height * 1.01)
+        bg.position = CGPointMake(Screen_Width * 0.5, Screen_Height * 0.3)
         bg.anchorPoint = CGPointMake(0.5, 1)
         bg.zPosition = -300
         bg.colorBlendFactor = SceneSprite_ColorBlendFactor_Mountain
         addChild(bg)
     }
+    
+
     
     //最远景层
     func createBG_HillDepth0_Layer() {
@@ -1128,119 +1097,117 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         case .Amazon:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)//Int(CGFloat.random(min: 1, max: 2)) CGFloat.random
-                dt = CGFloat.random(min:100, max: 200)
+                count = Int.random(min: 1, max: 3)//Int(CGFloat.random(min: 1, max: 2)) CGFloat.random
+                dt = CGFloat.random(min:200, max: 300)
                 ScaleRadio = CGFloat.random(min: 1.6, max: 1.8)
 
             case .LayerB:
-                count =  Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 1, max: 1.4)
+                count =  Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             }
 
         case .Grove:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 2, max: 3)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
-                
+                count = Int.random(min: 2, max: 4)
+                dt = CGFloat.random(min: 200, max: 300)
+                ScaleRadio = CGFloat.random(min: 1.6, max: 1.8)
+  
             case .LayerB:
-                count =  Int.random(min: 3, max: 5)
-                dt = CGFloat.random(min: 30, max: 50)
-                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
+                count =  Int.random(min: 4, max: 6)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             }
             
         case .Volcanic:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min:100, max: 200)
-                ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min:200, max: 300)
+                ScaleRadio = CGFloat.random(min: 1.6, max: 1.8)
             case .LayerB:
-                count =  Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
+                count =  Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             }
         case .LahontanValley:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min:100, max: 150)
-                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min:200, max: 300)
+                ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count =  Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
+                count =  Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             }
         case .SnowMountain:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min:100, max: 200)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min:200, max: 300)
                 ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count =  Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
+                count =  Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             }
         case .MayaPyramid:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min:100, max: 200)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min:200, max: 300)
                 ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count =  Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
+                count =  Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
                 ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
         case .Iceberg:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min:100, max: 200)
-                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min:200, max: 300)
+                ScaleRadio = CGFloat.random(min: 1.4, max: 1.6)
             case .LayerB:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             }
         case .BuildingShenshe:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 100, max: 200)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 200, max: 300)
                 ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
             case .LayerB:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 80)
+                count = Int.random(min: 1, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
                 ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
             }
         case .Cemetery:
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
+                count = Int.random(min: 2, max: 4)
+                dt = CGFloat.random(min: 200, max: 300)
+                ScaleRadio = CGFloat.random(min: 0.8, max: 1.0)
+            case .LayerB:
+                count = Int.random(min: 2, max: 4)
                 dt = CGFloat.random(min: 100, max: 200)
                 ScaleRadio = CGFloat.random(min: 0.6, max: 0.8)
-            case .LayerB:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 0.4, max: 0.5)
             }
-            
-
         case .Nightsky:
             
             switch depth {
             case .LayerA:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min:100, max: 200)
+                count = Int.random(min: 2, max: 3)
+                dt = CGFloat.random(min:200, max: 300)
                 ScaleRadio = CGFloat.random(min: 1.2, max: 1.4)
             case .LayerB:
-                count = Int.random(min: 1, max: 2)
-                dt = CGFloat.random(min: 50, max: 100)
-                ScaleRadio = CGFloat.random(min: 1, max: 1.2)
+                count = Int.random(min: 2, max: 3)
+                dt = CGFloat.random(min: 100, max: 200)
+                ScaleRadio = CGFloat.random(min: 1.0, max: 1.2)
             }
         }
         
@@ -1690,36 +1657,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     
     
-    //MARK:天气 监听
+    //MARK:天气 效果
     
     func rainNotificationFunc() {
         // 雨
-        sceneWithRain()
-        if !GameState.sharedInstance.musicState {
+        self.sceneWithRain()
+        
+        if GameState.sharedInstance.musicState {
             SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.RainAudioName.rawValue)
         }
     }
     
     // 雨
     func sceneWithRain() {
-        rainstormSceneRainSP = SKNode()
-        rainstormSceneRainSP.zPosition = 50
-        rainstormSceneRainSP.alpha = 0.3
-        rainstormSceneRainSP.zRotation = CGFloat(-15 * M_PI / 180)
-        rainstormSceneRainSP.position = CGPointMake(Screen_Width/2, Screen_Height)
-        addChild(rainstormSceneRainSP)
-        
         let rainEmitter = SKEmitterNode.emitterNamed("Rain")
-        rainEmitter.position = CGPointMake(0, Screen_Height * 3)
-        rainEmitter.alpha = 0.5
-        self.rainstormSceneRainSP.addChild(rainEmitter)
+        rainEmitter.position = CGPointMake(Screen_Width/2, Screen_Height * 1.1)
+        rainEmitter.zPosition = 50
+        rainEmitter.alpha = 0.3
+        rainEmitter.zRotation = CGFloat(-15 * M_PI / 180)
         
-        SKTAudio.sharedInstance().playBackgroundMusic(GameBGSongAudioName.NormalAudioName.rawValue)
-        
-//        self.runAction(SKAction.playSoundFileNamed("RainSound.mp3", waitForCompletion: false))
-        
-        
-        
+        self.addChild(rainEmitter)
     }
     
     
@@ -1745,41 +1702,122 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
 
     
-    func createLightning() {
+    // 背景闪烁星
+    func createStarStar() {
+        // 在屏幕上随机生成100-200个星星
+        // 星星自身闪烁
+        // 跟随背景移动
         
+        let width = CGFloat.random(min: 3, max: 8)
+        let star = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(width, width))
+        let rotation = CGFloat(Double(CGFloat.random(min: -35, max: 35) + 35) * M_PI / 180)
+        var zpo:CGFloat = 0// -30 - 10
+        
+        switch arc4random() % 2 {
+        case 0: zpo = -220
+        case 1: zpo = -260
+        default :zpo = -200
+        }
+        
+        star.zPosition = zpo
+        star.zRotation = rotation
+        star.alpha = 0
+        // CGPointMake(CGFloat(arc4random() % UInt32 (Screen_Width)), CGFloat(arc4random() % UInt32 (Screen_Height)))
+        star.position = CGPointMake(CGFloat(arc4random() % UInt32 (Screen_Width)), CGFloat.random(min: Screen_Height/2, max: Screen_Height))
+        self.addChild(star)
+        
+        let dt = NSTimeInterval(arc4random_uniform(10))
+        let wait = SKAction.waitForDuration(dt)
+        
+        let aphla0 = SKAction.fadeAlphaTo(0, duration: 1.5)
+        let aphla1 = SKAction.fadeAlphaTo(1, duration: 1.5)
+        
+        let remove = SKAction.removeFromParent()
+        
+        star.runAction(SKAction.repeatActionForever(SKAction.sequence([aphla1, wait, aphla0,remove])))
+        
+    }
+    
+    // 流星
+    func createMeteor() {
+        let emitter = SKEmitterNode.emitterNamed("Meteor")
+        emitter.advanceSimulationTime(NSTimeInterval(10))
+        emitter.position = CGPointMake(0, Screen_Height * 1.5)
+        emitter.zRotation = CGFloat(60 * M_PI / 180)
+        emitter.zPosition = -150
+        emitter.alpha = 0.5
+        addChild(emitter)
+        
+        emitter.runAction(SKAction.removeFromParentAfterDelay(2.8))
+    }
+    
+    // 闪电
+    func createLightning() {
+        // CGFloat.random(min: Screen_Width * 0.2, max: Screen_Width * 0.8)
         flashLightNode = SKNode()
+        flashLightNode.position = CGPointMake(Screen_Width * 0.5, Screen_Height * 1.1)
         addChild(flashLightNode)
         //        flashLightNode.hidden = true
         
         //        let flashX = CGFloat.random(min: 20, max: Screen_Width)
-        let flashscale = CGFloat.random(min: 0.6, max: 0.8)
         
         let flash = SKSpriteNode(texture: randomFlashTexture())
-        flash.setScale(flashscale)
-        flash.anchorPoint = CGPointMake(0.5, -0.1)
-//        let angle = Double(CGFloat.random(min: -25, max: 35))
-        flash.zRotation = CGFloat.toAngle(Double(CGFloat.random(min: -25, max: 35)))//CGFloat( angle * M_PI / 180)
-        flash.zPosition = -100
-        flash.position = CGPointMake(CGFloat.random(min: Screen_Width * 0.2, max: Screen_Width * 0.8), Screen_Height * 1.01)
+        flash.setScale(CGFloat.random(min: 0.8, max: 1.0))
+        flash.anchorPoint = CGPointMake(0.5, 1.1)
+        flash.zRotation = CGFloat.toAngle(Double(CGFloat.random(min: -25, max: 35)))
+        flash.zPosition = -50
         flashLightNode.addChild(flash)
         
         let halo = SKSpriteNode(imageNamed: "flashhalo")
-        halo.alpha = 1.0
-        halo.setScale(flashscale * 1.5)
+        halo.alpha = 0.8
+        halo.setScale(1.5)
         halo.anchorPoint = CGPointMake(0.5, 1)
-        halo.zPosition = -100
-        halo.position = CGPointMake(Screen_Width/2, Screen_Height)
+        halo.zPosition = -50
         flashLightNode.addChild(halo)
         
         let alpha = SKAction.fadeAlphaTo(0, duration: 1.0)
         let remove = SKAction.removeFromParentAfterDelay(0.5)
         
         flashLightNode.runAction(SKAction.sequence([alpha, remove]))
+    }
+    
+    
+    //  背景动态光线
+    func createDynamicSunshine() {
         
+        let lineNode = SKNode()
+        lineNode.position = CGPointMake(Screen_Width, Screen_Height * 0.7)
+        lineNode.zPosition = -200
+        self.addChild(lineNode)
         
+        let lineSpriteA = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(120, Screen_Height * 1.2))
+        let lineSpriteB = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(120, Screen_Height * 1.2))
+        lineNode.addChild(lineSpriteA)
+        lineNode.addChild(lineSpriteB)
         
+        lineSpriteA.colorBlendFactor  = 0.5
+        lineSpriteB.colorBlendFactor  = 0.5
+        
+        lineSpriteA.alpha = 0.0
+        lineSpriteB.alpha = 0.0
+        
+        lineSpriteA.zRotation = CGFloat.toAngle(-30)
+        lineSpriteB.zRotation = CGFloat.toAngle(-30)
+        
+        lineSpriteA.position.x = -60
+        
+        lineSpriteA.runAction(SKAction.moveAnimationToDisappear(CGFloat.random(min: -Screen_Width, max: -Screen_Width * 0.2),
+            waitTime: NSTimeInterval(CGFloat.random(min: 3, max: 5)),
+            removeDelay: 1))
+        
+        lineSpriteB.runAction(SKAction.moveAnimationToDisappear(CGFloat.random(min: -Screen_Width, max: -Screen_Width * 0.2),
+            waitTime: NSTimeInterval(CGFloat.random(min: 3, max: 5)),
+            removeDelay: 1))
         
     }
+    
+
+    
     
     // 金币
     func createGold(){
@@ -1994,6 +2032,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             bullet.alpha = 0.6
             bullet.colorBlendFactor = 1
             bullet.blendMode = SKBlendMode.Add
+            
             //            bullet.zRotation = CGFloat.toAngle(-25)
             
             //            bullet.physicsBody = SKPhysicsBody(rectangleOfSize: bullet.size)
@@ -2038,71 +2077,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         fingerSprite.runAction(fingerTouchSequence)
     }
     
-    func createStarStar() {
-        // 在屏幕上随机生成100-200个星星
-        // 星星自身闪烁
-        // 跟随背景移动
-        
-        let width = CGFloat.random(min: 3, max: 8)
-        let star = SKSpriteNode(color: UIColor.whiteColor(), size: CGSizeMake(width, width))
-        let rotation = CGFloat(Double(CGFloat.random(min: -35, max: 35) + 35) * M_PI / 180)
-        var zpo:CGFloat = 0// -30 - 10
-        
-        switch arc4random() % 2 {
-        case 0: zpo = -220
-        case 1: zpo = -260
-        default :zpo = -200
-        }
-        
-        star.zPosition = zpo
-        star.zRotation = rotation
-        star.alpha = 0
-        // CGPointMake(CGFloat(arc4random() % UInt32 (Screen_Width)), CGFloat(arc4random() % UInt32 (Screen_Height)))
-        star.position = CGPointMake(CGFloat(arc4random() % UInt32 (Screen_Width)), CGFloat.random(min: Screen_Height/2, max: Screen_Height))
-        self.addChild(star)
-        
-        let dt = NSTimeInterval(arc4random_uniform(10))
-        let wait = SKAction.waitForDuration(dt)
-        
-        let aphla0 = SKAction.fadeAlphaTo(0, duration: 1.5)
-        let aphla1 = SKAction.fadeAlphaTo(1, duration: 1.5)
-        
-        let remove = SKAction.removeFromParent()
-        
-        star.runAction(SKAction.repeatActionForever(SKAction.sequence([aphla1, wait, aphla0,remove])))
-        
-    }
-    
-    // 流星
-    func createMeteor() {
-        
-        let emitter = SKEmitterNode.emitterNamed("Meteor")
-        emitter.advanceSimulationTime(NSTimeInterval(10))
-        emitter.position = CGPointMake(0, Screen_Height * 1.5)
-        emitter.zRotation = CGFloat(60 * M_PI / 180)
-        emitter.zPosition = -150
-        emitter.alpha = 0.5
-        addChild(emitter)
-        
-        emitter.runAction(SKAction.removeFromParentAfterDelay(2.8))
-        
-    }
-    
-    
-    //MARK: 踩踏地面
+     //MARK: 踩踏地面
     func contactFloorEvent(node:SKNode) {
-        
-        print("contactFloorEvent")
         
         GameState.sharedInstance.canJump = true
         
         self.playerNode.removeFromParent()
         self.playerNode.position = CGPointMake(0, 32)
-        
+
         node.addChild(playerNode)
         
+        print(self.playerNode.position)
     }
-    
     
     var lastContactNode:SKPhysicsBody?
     // MARK:碰撞委托方法 protocol Method
@@ -2116,7 +2102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             if let node = otherA.node {
                 
                 if otherA == lastContactNode {
-                    print("contact body is equal ")
                     return
                 } else {
 
@@ -2127,7 +2112,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                         contactFloorEvent(node)
                         showplayerMagic(convertPoint(self.position, fromNode: self.playerNode))
-                        
                         
                         // 角色长时间不动时 会发出叫声
                         
@@ -2248,7 +2232,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 }
                 
             }
-            
         }
         
     }
@@ -2503,26 +2486,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
     }
     
-    var playerLastPostionX:CGFloat = 0
-    
-    
     //MARK: 天气
     func updateWater() {
         // 夜 没有下雨
-        if self.weather != .Rain {
+        if self.weather != .Rain && self.dayTime != .Day {
             let dt1 = Int(arc4random_uniform(20))
             if dt1 == 1 { createStarStar() } // 星星
             
             let dt2 = Int(arc4random_uniform(1000))
             if dt2 == 1 { createMeteor() } // 流星
         }
-        // 下雨
+        
+        
+        
+//        if self.weather != .Rain && self.dayTime != .Night {
+//            let dt1 = Int(arc4random_uniform(200))
+//            if dt1 == 1 { createDynamicSunshine() } // 动态光线
+//        }
+        
+        // 闪电
         if self.weather == .Rain {
             let dt1 = Int(arc4random_uniform(500))
             if dt1 == 1 {
                 self.createLightning()
-                self.runAction(thunderSoundAction)
-            } // 闪电
+                if GameState.sharedInstance.musicState { self.runAction(thunderSoundAction) }
+            }
         }
         
     }
@@ -2588,12 +2576,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
     }
     
-    func updateScene(){
-        
-    }
-    
-
-//    var isFloor = false
     
     //MARK: update
     override func update(currentTime: CFTimeInterval) {

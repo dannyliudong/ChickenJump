@@ -17,7 +17,7 @@ func GameSpriteNodeWithWaterBackgroud(clolor:UIColor) ->SKSpriteNode {
                               color: clolor,
                               size: CGSizeMake(Screen_Width * 1.01, Screen_Height * 0.3))
     wather.zPosition = -30
-    wather.position = CGPointMake(Screen_Width * 0.5, BG_hight)
+    wather.position = CGPointMake(Screen_Width * 0.5, Screen_Height * 0.3)
     wather.anchorPoint = CGPointMake(0.5, 1)
     wather.colorBlendFactor = 1.0
     wather.alpha = 1
@@ -68,25 +68,24 @@ func GameSpriteNodeWithGold(texture:SKTexture) ->SKSpriteNode {
 }
 
 //MARK: 角色
-func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
+func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKNode {
     
-    let node = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(32, 10))//SKSpriteNode(imageNamed: "pixelMan")
+//    let node = SKNode()
     
-    print("pixelMan size \(node.size)")
-    
-//    node.setScale(0.9)
+    // 脚部分 , 用于站在地面上，包括角色的所有碰撞。
+    let foot = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(30, 25))//SKSpriteNode(imageNamed: "pixelMan")
 //    node.shadowCastBitMask = ShadowCastBitMask.MainShadow
-    node.zPosition = 60
-    node.colorBlendFactor = 0
+    foot.zPosition = 60
+//    foot.colorBlendFactor = 0
     
-    node.physicsBody = SKPhysicsBody(rectangleOfSize: node.size) //CGSizeMake(28, 64)
-    node.physicsBody?.dynamic = true
-    node.physicsBody?.allowsRotation = false
+    foot.physicsBody = SKPhysicsBody(rectangleOfSize: foot.size) //CGSizeMake(28, 64)
+    foot.physicsBody?.dynamic = true
+    foot.physicsBody?.allowsRotation = false
     
-    node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
+    foot.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
     
     //  碰撞事件通知
-    node.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Normal_Floor |
+    foot.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Normal_Floor |
                                             CollisionCategoryBitmask.Down_Floor |
                                             CollisionCategoryBitmask.Wather |
                                             CollisionCategoryBitmask.Enemy |
@@ -97,18 +96,50 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKSpriteNode {
     
 //    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
     
-    node.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
+    foot.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
                                             CollisionCategoryBitmask.Down_Floor |
                                             CollisionCategoryBitmask.Wather |
                                             CollisionCategoryBitmask.Spring
     
-    node.physicsBody?.restitution = 0
+    foot.physicsBody?.restitution = 0
+
+    
+    // 身体部分, 仅用于与障碍物金币等发生碰撞， 不用于站在地面上
+//    let body = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(30, 40))//SKSpriteNode(imageNamed: "pixelMan")
+//    //    node.shadowCastBitMask = ShadowCastBitMask.MainShadow
+//    body.zPosition = 60
+////    body.colorBlendFactor = 0
+////    body.position = CGPointMake(0, body.size.height * 0.5 - foot.size.height * 0.5)
+//    
+//    body.physicsBody = SKPhysicsBody(rectangleOfSize: body.size) //CGSizeMake(28, 64)
+//    body.physicsBody?.dynamic = true
+//    body.physicsBody?.allowsRotation = false
+//    
+//    body.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
+//    
+//    //  碰撞事件通知
+//    body.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Enemy |
+//                                            CollisionCategoryBitmask.DoorKey_Button |
+//                                            CollisionCategoryBitmask.Gold
+//    //  碰撞位置影响
+//    
+//        body.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+//    
+////    body.physicsBody?.collisionBitMask = CollisionCategoryBitmask.Normal_Floor |
+////        CollisionCategoryBitmask.Down_Floor |
+////        CollisionCategoryBitmask.Wather |
+////        CollisionCategoryBitmask.Spring
+//    
+//    body.physicsBody?.restitution = 0
+//    
+//    foot.addChild(body)
+    
     
     let sprite = SKSpriteNode(imageNamed: "pixelMan")
-    sprite.position = CGPointMake(0, sprite.size.height * 0.5 - node.size.height * 0.5)
-    node.addChild(sprite)
+    sprite.position = CGPointMake(0, sprite.size.height * 0.5 - foot.size.height * 0.5)
+    foot.addChild(sprite)
     
-    return node
+    return foot
 }
 
 

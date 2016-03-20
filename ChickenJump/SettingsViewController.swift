@@ -14,28 +14,38 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var RecordButton: UIButton!
+    @IBOutlet weak var removeAdsButton: UIButton!
+    @IBOutlet weak var restorePayButton: UIButton!
 
+    @IBOutlet weak var chickenButton: UIButton!
+    
     override func viewWillAppear(animated: Bool) {
         
-        self.closeButton.alpha = 0
-        self.musicButton.alpha = 0
-        self.languageButton.alpha = 0
-        self.RecordButton.alpha = 0
+//        self.view.backgroundColor = BackgroudMaskColor
+        
+//        self.closeButton.alpha = 0
+//        self.musicButton.alpha = 0
+//        self.languageButton.alpha = 0
+//        self.RecordButton.alpha = 0
+//        self.removeAdsButton.alpha = 0
+//        self.restorePayButton.alpha = 0
 
-        UIView.animateWithDuration(0.1) { () -> Void in
-            self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: View_MaskAlpha)
+        UIView.animateWithDuration(0.5) { () -> Void in
+//            self.view.backgroundColor = BackgroudMaskColor//UIColor(red: 0, green: 0, blue: 0, alpha: View_MaskAlpha)
             
-            self.closeButton.alpha = 1
-            self.musicButton.alpha = 1
-            self.languageButton.alpha = 1
-            self.RecordButton.alpha = 1
+//            self.closeButton.alpha = 1
+//            self.musicButton.alpha = 1
+//            self.languageButton.alpha = 1
+//            self.RecordButton.alpha = 1
+//            self.removeAdsButton.alpha = 1
+//            self.restorePayButton.alpha = 1
 
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.modalPresentationStyle = UIModalPresentationStyle.Custom
+//        self.modalPresentationStyle = UIModalPresentationStyle.Custom
         
 //        self.musicButton.setImage(UIImage(named: "homeButton_sound_off"), forState: UIControlState.Normal)
         
@@ -60,21 +70,28 @@ class SettingsViewController: UIViewController {
     
 
     @IBAction func backToHomeAction(sender: UIButton) {
-        
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
-            self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-            self.closeButton.alpha = 0
-            self.musicButton.alpha = 0
-            self.languageButton.alpha = 0
-            self.RecordButton.alpha = 0
-            
-            NSNotificationCenter.defaultCenter().postNotificationName("showHomeButtonNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().postNotificationName("showHomeButtonNotification", object: nil)
 
-            }) { (done) -> Void in
-                
-                self.dismissViewControllerAnimated(true) { () -> Void in
-                }
+        self.dismissViewControllerAnimated(true) { () -> Void in
         }
+        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+//            self.closeButton.alpha = 0
+//            self.musicButton.alpha = 0
+//            self.languageButton.alpha = 0
+//            self.RecordButton.alpha = 0
+//            self.removeAdsButton.alpha = 0
+//            self.restorePayButton.alpha = 0
+//            
+//            NSNotificationCenter.defaultCenter().postNotificationName("showHomeButtonNotification", object: nil)
+//
+//            }) { (done) -> Void in
+//                
+//                self.dismissViewControllerAnimated(true) { () -> Void in
+//                    
+//                }
+//        }
         
 
     }
@@ -119,6 +136,10 @@ class SettingsViewController: UIViewController {
         NSNotificationCenter.defaultCenter().postNotificationName("restoreAdsPayNotification", object: nil)
     }
     
+    @IBAction func chickenSong(sender: UIButton) {
+        
+        SKTAudio.sharedInstance().playSoundEffect("chicken.mp3")
+    }
     
     /*
     // MARK: - Navigation

@@ -21,9 +21,12 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var loadingBGView: UIImageView!
+//    @IBOutlet weak var loadingBgUIView: UIView!
     @IBOutlet weak var loadingLogoView: UIImageView!
+    @IBOutlet weak var gameOverMaskView: UIView!
     
-    @IBOutlet weak var characterButton: UIButton!
+    
+//    @IBOutlet weak var characterButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
@@ -61,18 +64,12 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         self.loadingLogoView.center.x = -loadingLogoView.bounds.size.width * 0.5
         
-        print("self.view.bounds.size \(self.view.bounds.size)")
-        print("loadingLogoView.bounds.size  \(loadingLogoView.bounds.size)")
         
         UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 1
             self.loadingLogoView.center.x += self.loadingLogoView.bounds.size.width * 0.5 + self.view.bounds.size.width * 0.5
 
             }, completion: { (done) in
-                print("showLoading")
-                
-                print("logo center \(self.loadingLogoView.center)")
-
         })
     }
     
@@ -104,14 +101,8 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 
     
     override func viewWillAppear(animated: Bool) {
-        
-//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
-        
-        self.prefersStatusBarHidden()
-        
-        self.setNeedsStatusBarAppearanceUpdate()
-        
-        self.requestInterstitialAdPresentation()
+        // 隐藏状态栏....
+        UIApplication.sharedApplication().statusBarHidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -123,14 +114,14 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.isSupportReplay()
+        
         self.showLoading()
-//        self.prefersStatusBarHidden()
-//        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
         EGC.sharedInstance(self)
         EGC.debugMode = true
         
-        self.characterButton.layer.cornerRadius  = Button_CornerRadius
+//        self.characterButton.layer.cornerRadius  = Button_CornerRadius
         self.settingsButton.layer.cornerRadius  = Button_CornerRadius
         self.pauseButton.layer.cornerRadius  = Button_CornerRadius
         
@@ -156,28 +147,28 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "restorePay", name: "restoreAdsPayNotification", object: nil)
         
-        let skView = self.view as! SKView
-        
-        // Configure the view.
-//        skView.showsFPS = true
-//        skView.showsNodeCount = true
-//        skView.showsDrawCount = true
-//        skView.showsPhysics = true
-        
         /* Sprite Kit applies additional optimizations to improve rendering performance */
-        skView.ignoresSiblingOrder = true
         
+//        GameState.sharedInstance.gameScene = nil
+//        
+//        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
         
+        let scene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))
+
+            let skView = self.view as! SKView
+            
+//     Configure the view.
+//            skView.showsFPS = true
+//            skView.showsNodeCount = true
+//            skView.showsDrawCount = true
+//            skView.showsPhysics = true
         
-        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
-        
-        if let scene = GameState.sharedInstance.gameScene {
+            skView.ignoresSiblingOrder = true
             
             scene.scaleMode = .AspectFill
             skView.presentScene(scene)
             
             scene.gameSceneDelegate = self
-        }
         
         
         // 获取game center 存档最高分数
@@ -204,13 +195,11 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Manual
         
         //
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+//        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+//        
+//        requestProducts()
     }
     
-//    deinit {
-//        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
-//
-//    }
     
     // Init iAd
     
@@ -267,26 +256,16 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
-//        if UnityAds.sharedInstance().canShow() {
-//            UnityAds.sharedInstance().show()
-//        }
-//        else {
-//            NSLog("%@","Cannot show it yet!")
-//        }
         
         self.showLoading()
         
         self.scoreLabel.text = "0"
         self.currentScoreLalbel.text = "0"
         
-        
         self.hiddenGameOverButtons()
-        self.resetHomeUINotificationAction()
         
         GameState.sharedInstance.isRecording = false
         self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
-        
-        
         
         //等待场景加载完成后 消失
         let delayInSeconds:Double = 1
@@ -302,19 +281,14 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     @IBAction func changeSceneAction(sender: UIButton) {
         print("更换场景")
         
-//        if UnityAds.sharedInstance().canShow() {
-//            UnityAds.sharedInstance().show()
-//        }
-//        else {
-//            NSLog("%@","Cannot show it yet!")
-//        }
-//        
-        
     }
     
     
     func loadingisDoneAction() {
         self.disappearLoading()
+        
+        self.resetHomeUINotificationAction()
+
     }
     
     //MARK: 分享游戏Aciton
@@ -348,25 +322,19 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     // 设置
     @IBAction func settingsAction(sender: UIButton, forEvent event: UIEvent) {
         
-        self.settingsButton.hidden = true
-        self.characterButton.hidden = true
+//        self.settingsButton.hidden = true
+//        self.characterButton.hidden = true
         
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("SettingsVC") as! SettingsViewController
-        vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        self.presentViewController(vc, animated: false) { () -> Void in
-            
-        }
+//        let vc = storyboard?.instantiateViewControllerWithIdentifier("SettingsVC") as! SettingsViewController
+//        vc.view.backgroundColor = BackgroudMaskColor//UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+//        self.presentViewController(vc, animated: true) { () -> Void in
+//            
+//        }
         
     }
     
     // 选择角色
     @IBAction func characterSelectAction(sender: UIButton) {
-//        if UnityAds.sharedInstance().canShow() {
-//            UnityAds.sharedInstance().show()
-//        }
-//        else {
-//            NSLog("%@","Cannot show it yet!")
-//        }
         
         
 //        self.settingsButton.hidden = true
@@ -382,25 +350,19 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     
     //MARK: 录像
     @IBAction func replayAction(sender: UIButton) {
-        print("replayAction")
         
-        if !GameState.sharedInstance.isRecording {
-            self.startRecording()
+        if isSupportReplay() {
             
-        } else if GameState.sharedInstance.isRecording {
-            self.stopRecording()
+            print("replayAction")
+            
+            if !GameState.sharedInstance.isRecording {
+                self.startRecording()
+                
+            } else if GameState.sharedInstance.isRecording {
+                self.stopRecording()
+            }
+            
         }
-        
-//        switch UIDevice.currentDevice().systemVersion.compare("9.0.0", options: NSStringCompareOptions.NumericSearch) {
-//        case .OrderedSame, .OrderedDescending:
-//            print("iOS >= 9.0")
-//            
-//            
-//
-//            
-//        case .OrderedAscending:
-//            print("iOS < 9.0")
-//        }
         
     }
     
@@ -427,7 +389,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     //停止录像
     func stopRecording() {
 //        pauseGame()
-        
         
         let recorder = RPScreenRecorder.sharedRecorder()
         
@@ -494,9 +455,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimerMessage", userInfo: nil, repeats: true)
-
-        
-        
         
 //        let delayInSeconds:Double = 1
 //        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
@@ -554,14 +512,14 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         self.pauseButton.hidden = false
         
         self.settingsButton.hidden = true
-        self.characterButton.hidden = true
+//        self.characterButton.hidden = true
         
 //        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
-        self.replayButton.hidden = false
+        if isSupportReplay() {
+            self.replayButton.hidden = false
+        }
         
-//        self.showReplay.hidden = true
-
     }
     
     //MARK: 主页按钮
@@ -582,12 +540,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                 self.stopRecording()
             }
         } else {
-//            if UnityAds.sharedInstance().canShow() {
-//                UnityAds.sharedInstance().show()
-//            }
-//            else {
-//                NSLog("%@","Cannot show it yet!")
-//            }
         }
         
         // 游戏结束 截屏
@@ -617,12 +569,27 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
             self.showGameOverButtons()
             
             if !GameState.sharedInstance.isRecording {
-                NSLog("Requesting")
                 
-                dispatch_async(dispatch_get_main_queue(), { 
+                let sometimes = Int(arc4random_uniform(10))
+                if sometimes == 0 {
                     self.requestInterstitialAdPresentation()
-
-                })
+                    print("iAd InterstitialAd ")
+                    
+                } else if sometimes == 1 {
+                    if UnityAds.sharedInstance().canShow() {
+                        UnityAds.sharedInstance().show()
+                        print("UnityAds  show ")
+                    }
+                    else {
+                        NSLog("%@","Cannot show it yet!")
+                    }
+                }
+                
+//                if GameState.sharedInstance.isHaveAds {
+//                    self.requestInterstitialAdPresentation()
+//                    print("没有移除广告 ，播放广告")
+//                }
+                
             }
 
         }
@@ -667,11 +634,12 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     }
     
     func hiddenGameOverButtons(){
-        print("hiddenGameOverButtons() ")
+        
+        self.gameOverMaskView.hidden = true
         
         self.progressView.hidden = true
 
-        self.characterButton.hidden = true
+//        self.characterButton.hidden = true
 
 //        self.giftButton.hidden = true
 //        self.payContinueButton.hidden = true
@@ -690,14 +658,25 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         self.goldDisplayLabel.hidden = true
         
-        self.replayButton.hidden = false
+        if isSupportReplay() {
+            self.replayButton.hidden = true
+        }
+        
+//        self.replayButton.hidden = false
         
 //        self.showReplay.hidden = true
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.gameOverMaskView.alpha = 0.0
+        }) { (done) in
+            
+        }
     
     }
     
     func showGameOverButtons() {
-        print("showGameOverButtons() ")
+        
+        self.gameOverMaskView.hidden = true
         
         self.leaderboardsButton.center.y = self.view.bounds.size.height * 1.1
         self.shareGameButton.center.y = self.view.bounds.size.height * 1.1
@@ -713,6 +692,8 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 //        self.payContinueButton.hidden = false
 //        self.watchAdsButton.hidden = false
         
+        self.gameOverMaskView.hidden = false
+        
         self.leaderboardsButton.hidden = false
         self.shareGameButton.hidden = false
         self.tryAgainButton.hidden = false
@@ -726,7 +707,14 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         self.replayButton.hidden = true
         
+        UIView.animateWithDuration(0.5, animations: {
+            self.gameOverMaskView.alpha = 0.3
+            }) { (done) in
+                
+        }
+        
         UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            
             self.leaderboardsButton.center.y  -= self.view.bounds.size.height * 0.4
             self.shareGameButton.center.y  -= self.view.bounds.size.height * 0.4
             self.tryAgainButton.center.y  -= self.view.bounds.size.height * 0.4
@@ -755,9 +743,8 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         self.pauseButton.hidden = true
         
         self.settingsButton.hidden = false
+        self.replayButton.hidden = false
         
-        
-
     }
     
     func updateHUD(score:Int) {
@@ -802,8 +789,13 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                 (tupleHighScore) -> Void in
                 /// tupleHighScore = (playerName:String, score:Int,rank:Int)?
                 if let tupleIsOk = tupleHighScore {
+                    if GameState.sharedInstance.gamecenterSelfTopScore < tupleIsOk.score{
+                        GameState.sharedInstance.gamecenterSelfTopScore = tupleIsOk.score
+                    } else {
+                        EGC.reportScoreLeaderboard(leaderboardIdentifier: Leader_Board_Identifier,
+                                                   score: GameState.sharedInstance.gamecenterSelfTopScore!)
+                    }
                     
-                    GameState.sharedInstance.gamecenterSelfTopScore = tupleIsOk.score
                     GameState.sharedInstance.gameCenterPlayerName = tupleIsOk.playerName
                                         
                     print("Player Name : \(tupleIsOk.playerName)")
@@ -816,6 +808,12 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
             print("game center 未授权登陆")
             self.topScroeLabel.hidden = true
         }
+    }
+    
+    //MARK: 支付相关
+    // 询问苹果的服务器能够销售哪些商品
+    func requestProducts() {
+        getProductInfo()
     }
     
     //MARK: Pay Delegate Method
@@ -845,13 +843,25 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         }
     }
     
+    //MARK: 发起支付
     func payRemoveAds() {
+        //判断是否支持内购
         if SKPaymentQueue.canMakePayments() {
-            self.getProductInfo()
+//            self.getProductInfo()
+//            buyProduct(SKProduct)
+            
         } else {
             print("发起支付失败， 用户禁止应用内付费购买")
         }
     }
+    
+    // 购买对应的产品
+    func buyProduct(product: SKProduct){
+        
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.defaultQueue().addPayment(payment)
+    }
+    
     
     func restorePay() {
         print("恢复购买")
@@ -862,7 +872,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
         let product = response.products
         if product.count == 0 {
-            print("无法获取产品信息，购买失败。")
+            print("无法获取产品信息,请检查itunes connect 中配置的商品ID是否与代码中一致")
             return
         }
         
@@ -872,7 +882,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     }
     
     func getProductInfo() {
-        let set:Set<String> = NSSet(array: ["com.lingjing.justjump.removeads"]) as! Set<String>
+        let set:Set<String> = NSSet(array: [iAdProductID]) as! Set<String>
         let request = SKProductsRequest(productIdentifiers: set)
         
         request.delegate = self
@@ -884,14 +894,22 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     func completeTransaction(transaction:SKPaymentTransaction) {
         print("交易完成 \(transaction)")
         SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+        
+        GameState.sharedInstance.isHaveAds = false
+        NSUserDefaults.standardUserDefaults().setBool(GameState.sharedInstance.isHaveAds, forKey: "isHaveAds")
     }
     
     func restoreTransaction(transaction: SKPaymentTransaction) {
         print("已经购买过改商品 恢复交易  \(transaction)")
+        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+        
+        GameState.sharedInstance.isHaveAds = false
+        NSUserDefaults.standardUserDefaults().setBool(GameState.sharedInstance.isHaveAds, forKey: "isHaveAds")
     }
     
     func failedTransaction(transaction: SKPaymentTransaction) {
         print("交易失败  \(transaction)")
+        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }
     
     func purchasing(transaction: SKPaymentTransaction) {
@@ -903,18 +921,64 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     let ITMS_SANDBOX_VERIFY_RECEIPT_URL = "https://sandbox.itunes.apple.com/verifyReceipt"
     
     //MARK: 验证购买
-    func verifyPruchase() {
-        
-    }
-    
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        //
-        print("willRotateToInterfaceOrientation")
-    }
-    
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        print("willAnimateRotationToInterfaceOrientation")
-    }
+//    func verifyPruchase(){
+//        // 验证凭据，获取到苹果返回的交易凭据
+//        // appStoreReceiptURL iOS7.0增加的，购买交易完成后，会将凭据存放在该地址
+//        let receiptURL = NSBundle.mainBundle().appStoreReceiptURL
+//        // 从沙盒中获取到购买凭据
+//        let receiptData = NSData(contentsOfURL: receiptURL!)
+//        // 发送网络POST请求，对购买凭据进行验证
+//        let url = NSURL(string: ITMS_SANDBOX_VERIFY_RECEIPT_URL)
+//        // 国内访问苹果服务器比较慢，timeoutInterval需要长一点
+//        let request = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 10.0)
+//        request.HTTPMethod = "POST"
+//        // 在网络中传输数据，大多情况下是传输的字符串而不是二进制数据
+//        // 传输的是BASE64编码的字符串
+//        /**
+//         BASE64 常用的编码方案，通常用于数据传输，以及加密算法的基础算法，传输过程中能够保证数据传输的稳定性
+//         BASE64是可以编码和解码的
+//         */
+//        let encodeStr = receiptData?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)
+//        
+//        let payload = NSString(string: "{\"receipt-data\" : \"" + encodeStr! + "\"}")
+//        print(payload)
+//        let payloadData = payload.dataUsingEncoding(NSUTF8StringEncoding)
+//        
+//        request.HTTPBody = payloadData;
+//        
+//        // 提交验证请求，并获得官方的验证JSON结果
+////                let result = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+//        
+//        _ = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+//            if error != nil {
+//                print("验证失败")
+//                print(error)
+//                return
+//            }
+//            
+//            let dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+//            if (dict != nil) {
+//                // 比对字典中以下信息基本上可以保证数据安全
+//                // bundle_id&application_version&product_id&transaction_id
+//                // 验证成功
+//                print(dict)
+//            }
+//        }
+//        
+//        // 官方验证结果为空
+////        if (result == nil) {
+////            //验证失败
+////            print("验证失败")
+////            return
+////        }
+////        var dict: AnyObject? = NSJSONSerialization.JSONObjectWithData(result, options: NSJSONReadingOptions.AllowFragments)
+////        if (dict != nil) {
+////            // 比对字典中以下信息基本上可以保证数据安全
+////            // bundle_id&application_version&product_id&transaction_id
+////            // 验证成功
+////            print(dict)
+////        }
+//    }
     
     
     override func shouldAutorotate() -> Bool {
@@ -936,7 +1000,32 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 
     override func prefersStatusBarHidden() -> Bool {
         return true
-    }    
+    }
+    
+    deinit {
+        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+    }
+    
+    
+    //判断设备系统版本 9.0以上才支持录屏幕，否则按钮不会出现...
+    func isSupportReplay() ->Bool {
+        let version = UIDevice.currentDevice().systemVersion
+        let iOS9orNewer = version.compare(version)
+        
+        switch iOS9orNewer {
+            
+        case .OrderedAscending:
+            print("> iOS 9.0")
+            return true
+        case .OrderedDescending:
+            print("< iOS 9.0")
+            return false
+        case .OrderedSame:
+            print("= iOS 9.0")
+            return true
+        }
+   
+    }
     
 }
 

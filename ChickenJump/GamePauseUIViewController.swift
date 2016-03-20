@@ -25,7 +25,6 @@ class GamePauseUIViewController: UIViewController {
         super.viewDidLoad()
 
         self.modalPresentationStyle = UIModalPresentationStyle.Custom
-        
 
         // Do any additional setup after loading the view.
     }

@@ -15,6 +15,8 @@ class GameState {
     var gamecenterSelfTopScore:Int?
     var gameCenterPlayerName:String?
     
+    var isHaveAds:Bool = true
+    
     var lifeTimeCount:Float
     
     var gameOver:Bool = true // 游戏结束
@@ -23,7 +25,7 @@ class GameState {
     
     var isRecording:Bool = false
     
-    var gameScene:GameScene?
+//    var gameScene:GameScene?
     
     // 用户设置的状态
     var musicState: Bool = true// 游戏场景背景音乐开关

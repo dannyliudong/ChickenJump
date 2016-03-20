@@ -9,388 +9,86 @@
 import UIKit
 
 //MARK: Sky Color
-let SkyColor_Amazon:UIColor = SKColorWithRGB(23, g: 109, b: 158) // 普通山
-let SkyColor_Amazon_A:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-let SkyColor_Amazon_B:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-let SkyColor_Amazon_C:UIColor = SKColorWithRGB(113, g: 215, b: 243)
+//  白天
+let SkyColor_Amazon_A:UIColor = SKColorWithRGB(18, g: 170, b: 214) // 普通山
+let SkyColor_Amazon_B:UIColor = SKColorWithRGB(30, g: 128, b: 229)
+let SkyColor_Amazon_C:UIColor = SKColorWithRGB(11, g: 189, b: 215)
 
-let SkyColor_Grove:UIColor = SKColorWithRGB(171, g: 169, b: 14) // 树林
-let SkyColor_Grove_A:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-let SkyColor_Grove_B:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-let SkyColor_Grove_C:UIColor = SKColorWithRGB(213, g: 211, b: 38)
+let SkyColor_Grove_A:UIColor = SKColorWithRGB(195, g: 174, b: 41) // 树林
+let SkyColor_Grove_B:UIColor = SKColorWithRGB(230, g: 153, b: 20)
+let SkyColor_Grove_C:UIColor = SKColorWithRGB(107, g: 54, b: 173)
 
-let SkyColor_Volcanic:UIColor = SKColorWithRGB(163, g: 66, b: 8) // 火山
-let SkyColor_Volcanic_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_Volcanic_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_Volcanic_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
+let SkyColor_Volcanic_A:UIColor = SKColorWithRGB(163, g: 66, b: 8) // 火山
+let SkyColor_Volcanic_B:UIColor = SKColorWithRGB(183, g: 57, b: 8)
+let SkyColor_Volcanic_C:UIColor = SKColorWithRGB(149, g: 65, b: 23)
 
-let SkyColor_LahontanValley:UIColor = SKColorWithRGB(176, g: 99, b: 0) // 大峡谷
-let SkyColor_LahontanValley_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_LahontanValley_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_LahontanValley_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
+let SkyColor_LahontanValley_A:UIColor = SKColorWithRGB(192, g: 127, b: 25) // 大峡谷
+let SkyColor_LahontanValley_B:UIColor = SKColorWithRGB(215, g: 120, b: 8)
+let SkyColor_LahontanValley_C:UIColor = SKColorWithRGB(188, g: 66, b: 7)
 
-let SkyColor_SnowMountain:UIColor = SKColorWithRGB(3, g: 96, b: 127) // 积雪覆盖
-let SkyColor_SnowMountain_A:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-let SkyColor_SnowMountain_B:UIColor = SKColorWithRGB(254, g: 255, b: 188)
+let SkyColor_SnowMountain_A:UIColor = SKColorWithRGB(41, g: 132, b: 179) // 积雪覆盖
+let SkyColor_SnowMountain_B:UIColor = SKColorWithRGB(75, g: 55, b: 222)
+let SkyColor_SnowMountain_C:UIColor = SKColorWithRGB(78, g: 75, b: 215)
 
-let SkyColor_MayaPyramid:UIColor = SKColorWithRGB(56, g: 190, b: 244) // 玛雅金字塔
-let SkyColor_MayaPyramid_A:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-let SkyColor_MayaPyramid_B:UIColor = SKColorWithRGB(248, g: 233, b: 159)
+let SkyColor_MayaPyramid_A:UIColor = SKColorWithRGB(40, g: 165, b: 215) // 玛雅金字塔
+let SkyColor_MayaPyramid_B:UIColor = SKColorWithRGB(215, g: 168, b: 40)
+let SkyColor_MayaPyramid_C:UIColor = SKColorWithRGB(157, g: 194, b: 30)
 
-let SkyColor_Nightsky:UIColor = SKColorWithRGB(14, g: 0, b: 70)  // 夜晚
-let SkyColor_Nightsky_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_Nightsky_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
+let SkyColor_Iceberg_A:UIColor = SKColorWithRGB(12, g: 111, b: 167) // 冰山
+let SkyColor_Iceberg_B:UIColor = SKColorWithRGB(49, g: 109, b: 183)
+let SkyColor_Iceberg_C:UIColor = SKColorWithRGB(84, g: 108, b: 211)
 
-let SkyColor_Iceberg:UIColor = SKColorWithRGB(5, g: 70, b: 109) // 冰山
-let SkyColor_Iceberg_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_Iceberg_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
+let SkyColor_BuildingShenshe_A:UIColor = SKColorWithRGB(232, g: 162, b: 14) // 神社建筑
+let SkyColor_BuildingShenshe_B:UIColor = SKColorWithRGB(162, g:44, b: 237)
+let SkyColor_BuildingShenshe_C:UIColor = SKColorWithRGB(242, g: 91, b: 9)
 
-let SkyColor_BuildingShenshe:UIColor = SKColorWithRGB(153, g: 106, b: 6) // 神社建筑
-let SkyColor_BuildingShenshe_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-let SkyColor_BuildingShenshe_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
+let SkyColor_Cemetery_A:UIColor = SKColorWithRGB(112, g: 91, b: 153) // 墓地
+let SkyColor_Cemetery_B:UIColor = SKColorWithRGB(80, g: 68, b: 106)
+let SkyColor_Cemetery_C:UIColor = SKColorWithRGB(107, g: 72, b: 63)
 
-let SkyColor_Cemetery:UIColor = SKColorWithRGB(42, g: 45, b: 62) // 墓地
-let SkyColor_Cemetery_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-let SkyColor_Cemetery_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
+let SkyColor_Nightsky_A:UIColor = SKColorWithRGB(51, g: 34, b: 125) // 夜晚
+let SkyColor_Nightsky_B:UIColor = SKColorWithRGB(46, g: 16, b: 124)
+let SkyColor_Nightsky_C:UIColor = SKColorWithRGB(17, g: 32, b: 123)
 
+//MARK: 夜
+let SkyColor_Amazon_Night_A:UIColor = SKColorWithRGB(9, g: 76, b: 96) // 普通山
+let SkyColor_Amazon_Night_B:UIColor = SKColorWithRGB(8, g: 43, b: 80)
+let SkyColor_Amazon_Night_C:UIColor = SKColorWithRGB(5, g: 52, b: 59)
 
-//MARK:
-//MARK: Floor Color
-//let FloorColor_Amazon_A:UIColor = SKColorWithRGB(113, g: 215, b: 243) // 普通山
-//let FloorColor_Amazon_B:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-//let FloorColor_Amazon_C:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-//
-//let FloorColor_Grove:UIColor = SKColorWithRGB(171, g: 169, b: 14) // 树林
-//let FloorColor_Grove_A:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-//let FloorColor_Grove_B:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-//let FloorColor_Grove_C:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-//
-//let FloorColor_Volcanic:UIColor = SKColorWithRGB(163, g: 66, b: 8) // 火山
-//let FloorColor_Volcanic_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let FloorColor_Volcanic_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let FloorColor_Volcanic_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//
-//let FloorColor_LahontanValley:UIColor = SKColorWithRGB(176, g: 99, b: 0) // 大峡谷
-//let FloorColor_LahontanValley_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let FloorColor_LahontanValley_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let FloorColor_LahontanValley_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//
-//let FloorColor_SnowMountain:UIColor = SKColorWithRGB(3, g: 96, b: 127) // 积雪覆盖
-//let FloorColor_SnowMountain_A:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-//let FloorColor_SnowMountain_B:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-//let FloorColor_SnowMountain_C:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-//
-//let FloorColor_MayaPyramid:UIColor = SKColorWithRGB(56, g: 190, b: 244) // 玛雅金字塔
-//let FloorColor_MayaPyramid_A:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-//let FloorColor_MayaPyramid_B:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-//let FloorColor_MayaPyramid_C:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-//
-//let FloorColor_Iceberg:UIColor = SKColorWithRGB(5, g: 70, b: 109) // 冰山
-//let FloorColor_Iceberg_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let FloorColor_Iceberg_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let FloorColor_Iceberg_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//
-//let FloorColor_BuildingShenshe:UIColor = SKColorWithRGB(153, g: 106, b: 6) // 神社建筑
-//let FloorColor_BuildingShenshe_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let FloorColor_BuildingShenshe_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let FloorColor_BuildingShenshe_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//
-//let FloorColor_Cemetery:UIColor = SKColorWithRGB(76, g: 79, b: 95) // 墓地
-//let FloorColor_Cemetery_A:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let FloorColor_Cemetery_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let FloorColor_Cemetery_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//
-//let FloorColor_Nightsky:UIColor = SKColorWithRGB(14, g: 0, b: 70)  // 夜晚
-//let FloorColor_Nightsky_A:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let FloorColor_Nightsky_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let FloorColor_Nightsky_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
+let SkyColor_Grove_Night_A:UIColor = SKColorWithRGB(81, g: 72, b: 9) // 树林
+let SkyColor_Grove_Night_B:UIColor = SKColorWithRGB(92, g: 61, b: 8)
+let SkyColor_Grove_Night_C:UIColor = SKColorWithRGB(55, g: 35, b: 81)
 
-//MARK:
-//MARK: Wall Color
-//let WallColor_Amazon_A:UIColor = SKColorWithRGB(23, g: 109, b: 158) // 普通山
-//let WallColor_Amazon_B:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-//let WallColor_Amazon_C:UIColor = SKColorWithRGB(113, g: 215, b: 243)
-//
-//let WallColor_Grove_A:UIColor = SKColorWithRGB(171, g: 169, b: 14) // 树林
-//let WallColor_Grove_B:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-//let WallColor_Grove_C:UIColor = SKColorWithRGB(213, g: 211, b: 38)
-//
-//let WallColor_Volcanic_A:UIColor = SKColorWithRGB(163, g: 66, b: 8) // 火山
-//let WallColor_Volcanic_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let WallColor_Volcanic_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//
-//let WallColor_LahontanValley_A:UIColor = SKColorWithRGB(120, g: 53, b: 255) // 大峡谷
-//let WallColor_LahontanValley_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let WallColor_LahontanValley_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//
-//let WallColor_SnowMountain_A:UIColor = SKColorWithRGB(3, g: 96, b: 127) // 积雪覆盖
-//let WallColor_SnowMountain_B:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-//let WallColor_SnowMountain_C:UIColor = SKColorWithRGB(254, g: 255, b: 188)
-//
-//let WallColor_MayaPyramid_A:UIColor = SKColorWithRGB(56, g: 190, b: 244) // 玛雅金字塔
-//let WallColor_MayaPyramid_B:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-//let WallColor_MayaPyramid_C:UIColor = SKColorWithRGB(248, g: 233, b: 159)
-//
-//let WallColor_Iceberg_A:UIColor = SKColorWithRGB(5, g: 70, b: 109) // 冰山
-//let WallColor_Iceberg_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let WallColor_Iceberg_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//
-//let WallColor_BuildingShenshe_A:UIColor = SKColorWithRGB(153, g: 106, b: 6) // 神社建筑
-//let WallColor_BuildingShenshe_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let WallColor_BuildingShenshe_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//
-//let WallColor_Cemetery_A:UIColor = SKColorWithRGB(76, g: 79, b: 95) // 墓地
-//let WallColor_Cemetery_B:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//let WallColor_Cemetery_C:UIColor = SKColorWithRGB(255, g: 251, b: 226)
-//
-//let WallColor_Nightsky_A:UIColor = SKColorWithRGB(14, g: 0, b: 70)  // 夜晚
-//let WallColor_Nightsky_B:UIColor = SKColorWithRGB(234, g: 218, b: 167)
-//let WallColor_Nightsky_C:UIColor = SKColorWithRGB(234, g: 218, b: 167)
+let SkyColor_Volcanic_Night_A:UIColor = SKColorWithRGB(76, g: 31, b: 4) // 火山
+let SkyColor_Volcanic_Night_B:UIColor = SKColorWithRGB(79, g: 27, b: 4)
+let SkyColor_Volcanic_Night_C:UIColor = SKColorWithRGB(49, g: 4, b: 17)
 
-//func getFloorColorWith(type:SceneLandType) -> UIColor {
-//    switch type {
-//    case .Amazon:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_Amazon_A
-//        case 1:
-//            return FloorColor_Amazon_B
-//        case 2:
-//            return FloorColor_Amazon_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//    case .Grove:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_Grove_A
-//        case 1:
-//            return FloorColor_Grove_B
-//        case 2:
-//            return FloorColor_Grove_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//    case .Volcanic:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_Volcanic_A
-//        case 1:
-//            return FloorColor_Volcanic_B
-//        case 2:
-//            return FloorColor_Volcanic_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .LahontanValley:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_LahontanValley_A
-//        case 1:
-//            return FloorColor_LahontanValley_B
-//        case 2:
-//            return FloorColor_LahontanValley_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .SnowMountain:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_SnowMountain_A
-//        case 1:
-//            return FloorColor_SnowMountain_B
-//        case 2:
-//            return FloorColor_SnowMountain_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .MayaPyramid:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_MayaPyramid_A
-//        case 1:
-//            return FloorColor_MayaPyramid_B
-//        case 2:
-//            return FloorColor_MayaPyramid_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .Iceberg:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_Iceberg_A
-//        case 1:
-//            return FloorColor_Iceberg_B
-//        case 2:
-//            return FloorColor_Iceberg_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .BuildingShenshe:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_BuildingShenshe_A
-//        case 1:
-//            return FloorColor_BuildingShenshe_B
-//        case 2:
-//            return FloorColor_BuildingShenshe_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .Cemetery:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_Cemetery_A
-//        case 1:
-//            return FloorColor_Cemetery_B
-//        case 2:
-//            return FloorColor_Cemetery_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .Nightsky:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return FloorColor_Nightsky_A
-//        case 1:
-//            return FloorColor_Nightsky_B
-//        case 2:
-//            return FloorColor_Nightsky_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    }
-//}
+let SkyColor_LahontanValley_Night_A:UIColor = SKColorWithRGB(78, g: 51, b: 9) // 大峡谷
+let SkyColor_LahontanValley_Night_B:UIColor = SKColorWithRGB(85, g: 28, b: 5)
+let SkyColor_LahontanValley_Night_C:UIColor = SKColorWithRGB(84, g: 32, b: 8)
 
-//func getWallColorWith(type:SceneLandType) -> UIColor {
-//    switch type {
-//    case .Amazon:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_Amazon_A
-//        case 1:
-//            return WallColor_Amazon_B
-//        case 2:
-//            return WallColor_Amazon_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//    case .Grove:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_Grove_A
-//        case 1:
-//            return WallColor_Grove_B
-//        case 2:
-//            return WallColor_Grove_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//    case .Volcanic:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_Volcanic_A
-//        case 1:
-//            return WallColor_Volcanic_B
-//        case 2:
-//            return WallColor_Volcanic_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .LahontanValley:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_LahontanValley_A
-//        case 1:
-//            return WallColor_LahontanValley_B
-//        case 2:
-//            return WallColor_LahontanValley_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .SnowMountain:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_SnowMountain_A
-//        case 1:
-//            return WallColor_SnowMountain_B
-//        case 2:
-//            return WallColor_SnowMountain_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .MayaPyramid:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_MayaPyramid_A
-//        case 1:
-//            return WallColor_MayaPyramid_B
-//        case 2:
-//            return WallColor_MayaPyramid_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .Iceberg:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_Iceberg_A
-//        case 1:
-//            return WallColor_Iceberg_B
-//        case 2:
-//            return WallColor_Iceberg_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .BuildingShenshe:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_BuildingShenshe_A
-//        case 1:
-//            return WallColor_BuildingShenshe_B
-//        case 2:
-//            return WallColor_BuildingShenshe_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .Cemetery:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_Cemetery_A
-//        case 1:
-//            return WallColor_Cemetery_B
-//        case 2:
-//            return WallColor_Cemetery_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//        
-//    case .Nightsky:
-//        switch arc4random() % 3 {
-//        case 0:
-//            return WallColor_Nightsky_A
-//        case 1:
-//            return WallColor_Nightsky_B
-//        case 2:
-//            return WallColor_Nightsky_C
-//        default:
-//            return UIColor.redColor()
-//        }
-//    }
-//}
+let SkyColor_SnowMountain_Night_A:UIColor = SKColorWithRGB(14, g: 57, b: 79) // 积雪覆盖
+let SkyColor_SnowMountain_Night_B:UIColor = SKColorWithRGB(31, g: 26, b: 69)
+let SkyColor_SnowMountain_Night_C:UIColor = SKColorWithRGB(36, g: 38, b: 75)
 
+let SkyColor_MayaPyramid_Night_A:UIColor = SKColorWithRGB(9, g: 53, b: 70) // 玛雅金字塔
+let SkyColor_MayaPyramid_Night_B:UIColor = SKColorWithRGB(79, g: 61, b: 14)
+let SkyColor_MayaPyramid_Night_C:UIColor = SKColorWithRGB(42, g: 52, b: 6)
+
+let SkyColor_Iceberg_Night_A:UIColor = SKColorWithRGB(5, g: 60, b: 92) // 冰山
+let SkyColor_Iceberg_Night_B:UIColor = SKColorWithRGB(23, g: 46, b: 74)
+let SkyColor_Iceberg_Night_C:UIColor = SKColorWithRGB(35, g: 41, b: 67)
+
+let SkyColor_BuildingShenshe_Night_A:UIColor = SKColorWithRGB(232, g: 162, b: 14) // 神社建筑
+let SkyColor_BuildingShenshe_Night_B:UIColor = SKColorWithRGB(162, g:44, b: 237)
+let SkyColor_BuildingShenshe_Night_C:UIColor = SKColorWithRGB(242, g: 91, b: 9)
+
+let SkyColor_Cemetery_Night_A:UIColor = SKColorWithRGB(102, g: 71, b: 6) // 墓地
+let SkyColor_Cemetery_Night_B:UIColor = SKColorWithRGB(38, g: 32, b: 53)
+let SkyColor_Cemetery_Night_C:UIColor = SKColorWithRGB(49, g: 29, b: 24)
+
+let SkyColor_Nightsky_Night_A:UIColor = SKColorWithRGB(36, g: 25, b: 86) // 夜晚
+let SkyColor_Nightsky_Night_B:UIColor = SKColorWithRGB(29, g: 8, b: 84)
+let SkyColor_Nightsky_Night_C:UIColor = SKColorWithRGB(5, g: 4, b: 48)
 
 

@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        application.statusBarHidden = true
+        
         // Override point for customization after application launch.
         
         //  判断是否第一次启动
@@ -39,32 +41,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
             
             GameState.sharedInstance.musicState = userDefaults.boolForKey("musicState")
             
+//            GameState.sharedInstance.isHaveAds = userDefaults.boolForKey("isHaveAds")
+//            
+//            print("GameState.sharedInstance.isHaveAds  \(GameState.sharedInstance.isHaveAds)")
+            
 //            GameState.sharedInstance.gold = userDefaults.integerForKey("myGold")
         }
         
+        
+        
         //MARK:iAds
         UIViewController.prepareInterstitialAds()
-        
         AVPlayerViewController.preparePrerollAds()
-                
-        //MARK: Unity Ads
         
+        
+        //MARK: Unity Ads
         UnityAds.sharedInstance().delegate = self
         UnityAds.sharedInstance().setTestMode(false)
         UnityAds.sharedInstance().setDebugMode(false)
         
         UnityAds.sharedInstance().startWithGameId("1046579", andViewController: self.window?.rootViewController)
-        
-//        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-//        
-//        dispatch_after(delayTime, dispatch_get_main_queue()) {
-//            if UnityAds.sharedInstance().canShow() {
-//                UnityAds.sharedInstance().show()
-//            }
-//            else {
-//                NSLog("%@","Cannot show it yet!")
-//            }
-//        }
         
         return true
     }

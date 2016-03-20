@@ -8,15 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
-		A01723A91C966A8F0049B3EA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01723A81C966A8F0049B3EA /* Launch Screen.storyboard */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
+		A01D3BB31C9939AD008CAB60 /* BGSunshineParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */; };
+		A01D3BB81C994BEA008CAB60 /* BGSpriteTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */; };
+		A01D3BB91C994BEA008CAB60 /* BGSpriteTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */; };
+		A01D3BBA1C994BEA008CAB60 /* BGSpriteTextureAltas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D3BB71C994BEA008CAB60 /* BGSpriteTextureAltas.swift */; };
 		A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47731C8D215B00919797 /* SKNode+Extensions.swift */; };
 		A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */; };
 		A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496E91C818B600033D1A9 /* eagleSound.mp3 */; };
 		A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03496EB1C818CE50033D1A9 /* chicken.mp3 */; };
+		A04522271C9A60CE006147A9 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04522261C9A60CE006147A9 /* GameData.swift */; };
 		A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC73E1C856CF70027A83E /* UIKit.framework */; };
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
 		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
+		A06C471C1C9D905700815FC6 /* thunderSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A06C471B1C9D905700815FC6 /* thunderSound.mp3 */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
 		A07594271C7AECFC005FF82F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594261C7AECFC005FF82F /* Main.storyboard */; };
 		A075942C1C7AED47005FF82F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075942B1C7AED47005FF82F /* AppDelegate.swift */; };
@@ -46,11 +51,7 @@
 		A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A075946D1C7AEF43005FF82F /* luoshui.mp3 */; };
 		A07594881C7AEF43005FF82F /* RainSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A075946F1C7AEF43005FF82F /* RainSound.mp3 */; };
 		A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A07594711C7AEF43005FF82F /* springSound.mp3 */; };
-		A075948C1C7AEF43005FF82F /* ThunderSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A07594731C7AEF43005FF82F /* ThunderSound.mp3 */; };
-		A075949E1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075949D1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift */; };
 		A07594A01C7AEFC0005FF82F /* PlatfromTextureAlats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A075949F1C7AEFC0005FF82F /* PlatfromTextureAlats.swift */; };
-		A07594A41C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594A21C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png */; };
-		A07594A51C7AEFC9005FF82F /* BGSpriteTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594A31C7AEFC9005FF82F /* BGSpriteTextureAlats.plist */; };
 		A07594A91C7AEFD3005FF82F /* PlatfromTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594A71C7AEFD3005FF82F /* PlatfromTextureAlats.1.png */; };
 		A07594AA1C7AEFD3005FF82F /* PlatfromTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07594A81C7AEFD3005FF82F /* PlatfromTextureAlats.plist */; };
 		A07594AD1C7AEFE9005FF82F /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A07594AC1C7AEFE9005FF82F /* star.png */; };
@@ -75,27 +76,32 @@
 		A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FA1C8FBAED00250432 /* StoreKit.framework */; };
 		A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FC1C8FBAFD00250432 /* AdSupport.framework */; };
 		A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */; };
-		A0B313C21C881D8700E0F164 /* distressParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C01C881D8700E0F164 /* distressParticle.sks */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
 		A0BB7C011C93D69E00B37A96 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */; };
 		A0BB7C021C93D69E00B37A96 /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */; };
 		A0BB7C031C93D69E00B37A96 /* MediumRectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */; };
 		A0BB7C041C93D69E00B37A96 /* PreRollVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */; };
 		A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
+		A0DDAA941C9ED3E1001545E2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DDAA931C9ED3E1001545E2 /* Launch Screen.storyboard */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
-		A01723A81C966A8F0049B3EA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BGSunshineParticle.sks; sourceTree = "<group>"; };
+		A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGSpriteTextureAlats.1.png; sourceTree = "<group>"; };
+		A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BGSpriteTextureAlats.plist; sourceTree = "<group>"; };
+		A01D3BB71C994BEA008CAB60 /* BGSpriteTextureAltas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BGSpriteTextureAltas.swift; path = ../BGSpriteTextureAltas.swift; sourceTree = "<group>"; };
 		A02F47731C8D215B00919797 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
 		A03496EB1C818CE50033D1A9 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chicken.mp3; sourceTree = "<group>"; };
+		A04522261C9A60CE006147A9 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		A04AC73E1C856CF70027A83E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
+		A06C471B1C9D905700815FC6 /* thunderSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderSound.mp3; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A075941B1C7AECBB005FF82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A07594201C7AECBB005FF82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,11 +134,7 @@
 		A075946D1C7AEF43005FF82F /* luoshui.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = luoshui.mp3; sourceTree = "<group>"; };
 		A075946F1C7AEF43005FF82F /* RainSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RainSound.mp3; sourceTree = "<group>"; };
 		A07594711C7AEF43005FF82F /* springSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = springSound.mp3; sourceTree = "<group>"; };
-		A07594731C7AEF43005FF82F /* ThunderSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ThunderSound.mp3; sourceTree = "<group>"; };
-		A075949D1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BGSpriteTextureAltas.swift; path = ../BGSpriteTextureAltas.swift; sourceTree = "<group>"; };
 		A075949F1C7AEFC0005FF82F /* PlatfromTextureAlats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlatfromTextureAlats.swift; path = ../PlatfromTextureAlats.swift; sourceTree = "<group>"; };
-		A07594A21C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGSpriteTextureAlats.1.png; sourceTree = "<group>"; };
-		A07594A31C7AEFC9005FF82F /* BGSpriteTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BGSpriteTextureAlats.plist; sourceTree = "<group>"; };
 		A07594A71C7AEFD3005FF82F /* PlatfromTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlatfromTextureAlats.1.png; sourceTree = "<group>"; };
 		A07594A81C7AEFD3005FF82F /* PlatfromTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PlatfromTextureAlats.plist; sourceTree = "<group>"; };
 		A07594AC1C7AEFE9005FF82F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
@@ -158,12 +160,12 @@
 		A076A2FA1C8FBAED00250432 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A076A2FC1C8FBAFD00250432 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		A0B313C01C881D8700E0F164 /* distressParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = distressParticle.sks; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
 		A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumRectViewController.swift; sourceTree = "<group>"; };
 		A0BB7C001C93D69E00B37A96 /* PreRollVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreRollVideoViewController.swift; sourceTree = "<group>"; };
+		A0DDAA931C9ED3E1001545E2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A01D3BB41C994BEA008CAB60 /* BGSpriteTextureAlats.atlasc */ = {
+			isa = PBXGroup;
+			children = (
+				A01D3BB71C994BEA008CAB60 /* BGSpriteTextureAltas.swift */,
+				A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */,
+				A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */,
+			);
+			path = BGSpriteTextureAlats.atlasc;
+			sourceTree = "<group>";
+		};
 		A06C3DEC1C964D74000C9AA6 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +209,6 @@
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
-				A01723A81C966A8F0049B3EA /* Launch Screen.storyboard */,
 				A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */,
 				A076A2FC1C8FBAFD00250432 /* AdSupport.framework */,
 				A076A2FA1C8FBAED00250432 /* StoreKit.framework */,
@@ -236,6 +247,7 @@
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
+				A0DDAA931C9ED3E1001545E2 /* Launch Screen.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
 				A075942A1C7AED47005FF82F /* ChickenJump-Bridging-Header.h */,
@@ -283,7 +295,7 @@
 				A075946D1C7AEF43005FF82F /* luoshui.mp3 */,
 				A075946F1C7AEF43005FF82F /* RainSound.mp3 */,
 				A07594711C7AEF43005FF82F /* springSound.mp3 */,
-				A07594731C7AEF43005FF82F /* ThunderSound.mp3 */,
+				A06C471B1C9D905700815FC6 /* thunderSound.mp3 */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -291,20 +303,10 @@
 		A075949C1C7AEFAD005FF82F /* BGSprite */ = {
 			isa = PBXGroup;
 			children = (
+				A01D3BB41C994BEA008CAB60 /* BGSpriteTextureAlats.atlasc */,
 				A07594A61C7AEFD3005FF82F /* PlatfromTextureAlats.atlasc */,
-				A07594A11C7AEFC9005FF82F /* BGSpriteTextureAlats.atlasc */,
 			);
 			name = BGSprite;
-			sourceTree = "<group>";
-		};
-		A07594A11C7AEFC9005FF82F /* BGSpriteTextureAlats.atlasc */ = {
-			isa = PBXGroup;
-			children = (
-				A075949D1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift */,
-				A07594A21C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png */,
-				A07594A31C7AEFC9005FF82F /* BGSpriteTextureAlats.plist */,
-			);
-			path = BGSpriteTextureAlats.atlasc;
 			sourceTree = "<group>";
 		};
 		A07594A61C7AEFD3005FF82F /* PlatfromTextureAlats.atlasc */ = {
@@ -323,8 +325,8 @@
 				A07594BC1C7AF04E005FF82F /* Sparky.sks */,
 				A07594BA1C7AF037005FF82F /* Snow.sks */,
 				A07594B81C7AF01D005FF82F /* Rain.sks */,
+				A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */,
 				A07594B61C7AF014005FF82F /* playerMagic.sks */,
-				A0B313C01C881D8700E0F164 /* distressParticle.sks */,
 				A0B313C11C881D8700E0F164 /* spark.png */,
 				A07594B41C7AF00E005FF82F /* Meteor.sks */,
 				A07594AC1C7AEFE9005FF82F /* star.png */,
@@ -362,8 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				A07594561C7AEF03005FF82F /* Definition.swift */,
-				A07594581C7AEF0A005FF82F /* GameState.swift */,
 				A012BD971C7D8D7000E5061D /* GameColor.swift */,
+				A07594581C7AEF0A005FF82F /* GameState.swift */,
+				A04522261C9A60CE006147A9 /* GameData.swift */,
 				A018A2821C7D4263004FF1B2 /* Player.swift */,
 				A07594541C7AEEE3005FF82F /* GameSpriteNode.swift */,
 			);
@@ -464,7 +467,6 @@
 				A07594881C7AEF43005FF82F /* RainSound.mp3 in Resources */,
 				A07594841C7AEF43005FF82F /* inGame_function_star.mp3 in Resources */,
 				A075947C1C7AEF43005FF82F /* inGame_action_jump.mp3 in Resources */,
-				A07594A51C7AEFC9005FF82F /* BGSpriteTextureAlats.plist in Resources */,
 				A07594AF1C7AEFF2005FF82F /* pixe.png in Resources */,
 				A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */,
 				A07594751C7AEF43005FF82F /* bg_country.mp3 in Resources */,
@@ -476,26 +478,27 @@
 				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
-				A01723A91C966A8F0049B3EA /* Launch Screen.storyboard in Resources */,
+				A01D3BB91C994BEA008CAB60 /* BGSpriteTextureAlats.plist in Resources */,
+				A0DDAA941C9ED3E1001545E2 /* Launch Screen.storyboard in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
-				A075948C1C7AEF43005FF82F /* ThunderSound.mp3 in Resources */,
 				A07594AA1C7AEFD3005FF82F /* PlatfromTextureAlats.plist in Resources */,
 				A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */,
+				A06C471C1C9D905700815FC6 /* thunderSound.mp3 in Resources */,
 				A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */,
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,
 				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,
-				A0B313C21C881D8700E0F164 /* distressParticle.sks in Resources */,
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */,
-				A07594A41C7AEFC9005FF82F /* BGSpriteTextureAlats.1.png in Resources */,
+				A01D3BB31C9939AD008CAB60 /* BGSunshineParticle.sks in Resources */,
 				A07594821C7AEF43005FF82F /* inGame_event_deathMonster_1.mp3 in Resources */,
 				A07594861C7AEF43005FF82F /* luoshui.mp3 in Resources */,
 				A03496EA1C818B600033D1A9 /* eagleSound.mp3 in Resources */,
 				A075947A1C7AEF43005FF82F /* dieSound.mp3 in Resources */,
 				A07594B31C7AF000005FF82F /* Bow.sks in Resources */,
+				A01D3BB81C994BEA008CAB60 /* BGSpriteTextureAlats.1.png in Resources */,
 				A03496EC1C818CE50033D1A9 /* chicken.mp3 in Resources */,
 				A07594BB1C7AF037005FF82F /* Snow.sks in Resources */,
 			);
@@ -517,9 +520,9 @@
 				A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */,
 				A075942E1C7AEE03005FF82F /* GameViewController.swift in Sources */,
 				A07594C81C7AF094005FF82F /* SKEmitterNode+Extras.swift in Sources */,
+				A01D3BBA1C994BEA008CAB60 /* BGSpriteTextureAltas.swift in Sources */,
 				A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */,
 				A018A2831C7D4263004FF1B2 /* Player.swift in Sources */,
-				A075949E1C7AEFB8005FF82F /* BGSpriteTextureAltas.swift in Sources */,
 				A07594321C7AEE19005FF82F /* Shake.swift in Sources */,
 				A075942C1C7AED47005FF82F /* AppDelegate.swift in Sources */,
 				A07594A01C7AEFC0005FF82F /* PlatfromTextureAlats.swift in Sources */,
@@ -533,6 +536,7 @@
 				A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */,
 				A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */,
 				A0BB7C041C93D69E00B37A96 /* PreRollVideoViewController.swift in Sources */,
+				A04522271C9A60CE006147A9 /* GameData.swift in Sources */,
 				A07594551C7AEEE3005FF82F /* GameSpriteNode.swift in Sources */,
 				A07594361C7AEE28005FF82F /* SettingsViewController.swift in Sources */,
 			);
@@ -631,7 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ling jing (9KEW46EUPF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -643,9 +647,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "744355b1-6d0d-4f05-9101-fc69dc77921b";
+				PROVISIONING_PROFILE = "fd16ab7f-1335-4801-a94c-bd576beb68b2";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -657,7 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ling jing (P7ZXCTUGLG)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -669,9 +673,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b403de1-8ded-4df1-bb0a-222ac112c7e1";
+				PROVISIONING_PROFILE = "9044dd5a-11cb-4d10-a35a-1db34f55bd96";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

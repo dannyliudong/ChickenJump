@@ -83,7 +83,6 @@ extension SKNode {
                 
                 keyNode.position = CGPointMake(ketX, ketY)//CGFloat.random(min: -100, max: 50)
             }
-            print("finde child doorkeynode ")
         }
         
         if let nodes = platfromNode.childNodeWithName("knifeNodes") {
@@ -100,7 +99,12 @@ extension SKNode {
                 //                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(380, time: NSTimeInterval(CGFloat.random(min: 2.5, max: 4.0)))])
+                
+//                let changedirectionUp:SKAction = SKAction.scaleYTo(-1, duration: 0.2)
+//                let changedirectionDown:SKAction = SKAction.scaleYTo(1, duration: 0.2)
+
+                
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle_ChangeDirection(64 * 6, time: NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))])
                 _node.runAction(sequence)
                 
             }

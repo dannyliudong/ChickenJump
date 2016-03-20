@@ -60,6 +60,7 @@ enum SceneLandType: Int {
     case BuildingShenshe    // 神社建筑
     case Cemetery           // 墓地
     case Nightsky           // 空寂夜晚
+    
 }
 
 //MARK: 昼夜
@@ -88,7 +89,6 @@ enum GameBGSongAudioName: String {
     case NormalAudioName = "bg_country.mp3"
     case RainAudioName = "RainSound.mp3"
 }
-
 
 /**
  角色 类型
@@ -129,10 +129,10 @@ let Player_Jump_Hight:CGFloat = 64
 
 //let Player_Jump_HightAdd:CGFloat = 65
 let Scene_Gravity:CGFloat = -50.0
-let Player_JumpImpulse:CGVector = CGVectorMake(0, 10)
-let Player_MoveBy:CGVector = CGVectorMake(64, 10)
+let Player_JumpImpulse:CGVector = CGVectorMake(0, 20)
+let Player_MoveBy:CGVector = CGVectorMake(48, 96)
 
-let BG_hight:CGFloat = Screen_Height * 0.3
+let BG_hight:CGFloat = Screen_Height * 0.25
 let PlatformHight:CGFloat = Screen_Height * 0.15
 let PlayerStartHigth:CGFloat = 64.0 * 10
 
@@ -147,9 +147,10 @@ let Font_Name:String = "HelveticaNeue"
 let FloorPhybodyWidth:CGFloat = 48
 let FloorPhybodyHight:CGFloat = 10
 
+let BackgroudMaskColor = UIColor(red: 100, green: 202, blue: 243, alpha: View_MaskAlpha)
 
 let Game_NameString = "Mr.J"
-
+let iAdProductID = "com.lingjing.justjump.removeads"
 let AppStoreURL:String = "https://itunes.apple.com/us/app/mr.j/id933131892?l=zh&ls=1&mt=8"
 
 //MARK: Game Center leaderboardIdentifier
