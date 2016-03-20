@@ -581,7 +581,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                         print("UnityAds  show ")
                     }
                     else {
-                        NSLog("%@","Cannot show it yet!")
+                        NSLog("%@","Cannot show it yet!。。")
                     }
                 }
                 
