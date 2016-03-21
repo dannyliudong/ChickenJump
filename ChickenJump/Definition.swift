@@ -149,12 +149,12 @@ let FloorPhybodyHight:CGFloat = 10
 
 let BackgroudMaskColor = UIColor(red: 100, green: 202, blue: 243, alpha: View_MaskAlpha)
 
-let Game_NameString = "Mr.J"
+let Game_NameString = "Just Jump"
 let iAdProductID = "com.lingjing.justjump.removeads"
-let AppStoreURL:String = "https://itunes.apple.com/us/app/mr.j/id933131892?l=zh&ls=1&mt=8"
+let AppStoreURL:String = "https://itunes.apple.com/us/app/just-jump/id1092406165?l=zh&ls=1&mt=8"
 
 //MARK: Game Center leaderboardIdentifier
-let Leader_Board_Identifier:String = "ChickenScore"
+let Leader_Board_Identifier:String = "HightScore"
 
 //MARK: light color
 let Light_AmbientColor_Day:UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)

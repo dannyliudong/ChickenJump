@@ -108,7 +108,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         EGC.delegate = self
-        
     }
     
     override func viewDidLoad() {
@@ -404,8 +403,11 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                 
                 if let preview = previewController {
                     preview.previewControllerDelegate = self
-                    preview.prefersStatusBarHidden()
-                    self.presentViewController(preview, animated: true, completion: nil)
+                    
+                    self.presentViewController(preview, animated: true, completion: {
+//                        self.navigationController?.navigationBarHidden = true
+//                        self.navigationController?.setNavigationBarHidden(true, animated: false)
+                    })
                 }
             }
         }
@@ -576,13 +578,13 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                     print("iAd InterstitialAd ")
                     
                 } else if sometimes == 1 {
-                    if UnityAds.sharedInstance().canShow() {
-                        UnityAds.sharedInstance().show()
-                        print("UnityAds  show ")
-                    }
-                    else {
-                        NSLog("%@","Cannot show it yet!.")
-                    }
+//                    if UnityAds.sharedInstance().canShow() {
+//                        UnityAds.sharedInstance().show()
+//                        print("UnityAds  show ")
+//                    }
+//                    else {
+//                        NSLog("%@","Cannot show it yet!.")
+//                    }
                 }
                 
 //                if GameState.sharedInstance.isHaveAds {

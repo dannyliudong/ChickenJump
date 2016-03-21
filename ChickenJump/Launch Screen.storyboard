@@ -16,31 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="PRZ-18-gFE">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hxB-Ye-XTj">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="linkinglogoa" translatesAutoresizingMaskIntoConstraints="NO" id="8Wd-Wo-eO3">
+                                <rect key="frame" x="200" y="234" width="200" height="133"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PRZ-18-gFE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="9fk-wi-8ZD"/>
-                            <constraint firstItem="PRZ-18-gFE" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="EQV-33-qnk"/>
-                            <constraint firstItem="PRZ-18-gFE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="dVJ-7a-WkL"/>
-                            <constraint firstAttribute="trailing" secondItem="PRZ-18-gFE" secondAttribute="trailing" id="h26-VH-98s"/>
-                            <constraint firstItem="hxB-Ye-XTj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="k1s-d2-NIN"/>
-                            <constraint firstItem="hxB-Ye-XTj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="naa-BZ-bf6"/>
+                            <constraint firstItem="8Wd-Wo-eO3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="QRo-RT-hQO"/>
+                            <constraint firstItem="8Wd-Wo-eO3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WEQ-O1-HGk"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="236"/>
+            <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchLogo" width="200" height="200"/>
-        <image name="avatar_bg_line" width="10" height="384"/>
+        <image name="linkinglogoa" width="200" height="133"/>
     </resources>
 </document>
