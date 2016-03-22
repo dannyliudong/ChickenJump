@@ -577,13 +577,13 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                     print("iAd InterstitialAd ")
                     
                 } else if sometimes == 1 {
-//                    if UnityAds.sharedInstance().canShow() {
-//                        UnityAds.sharedInstance().show()
-//                        print("UnityAds  show ")
-//                    }
-//                    else {
-//                        NSLog("%@","Cannot show it yet!.")
-//                    }
+                    if UnityAds.sharedInstance().canShow() {
+                        UnityAds.sharedInstance().show()
+                        print("UnityAds  show ")
+                    }
+                    else {
+                        NSLog("%@","Cannot show it yet!.")
+                    }
                 }
                 
 //                if GameState.sharedInstance.isHaveAds {

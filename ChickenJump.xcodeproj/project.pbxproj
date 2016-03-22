@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
-		A019FA2E1C9F8F8700F4DD5D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A019FA2D1C9F8F8700F4DD5D /* Launch Screen.storyboard */; };
 		A01D3BB31C9939AD008CAB60 /* BGSunshineParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */; };
 		A01D3BB81C994BEA008CAB60 /* BGSpriteTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */; };
 		A01D3BB91C994BEA008CAB60 /* BGSpriteTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */; };
@@ -23,6 +22,7 @@
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
 		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
 		A059B3911CA1227B00EC679B /* independent.sks in Resources */ = {isa = PBXBuildFile; fileRef = A059B3901CA1227B00EC679B /* independent.sks */; };
+		A05D694E1CA15EAF00E10961 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05D694D1CA15EAF00E10961 /* Launch Screen.storyboard */; };
 		A06C471C1C9D905700815FC6 /* thunderSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A06C471B1C9D905700815FC6 /* thunderSound.mp3 */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
 		A07594271C7AECFC005FF82F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594261C7AECFC005FF82F /* Main.storyboard */; };
@@ -90,7 +90,6 @@
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		A019FA2D1C9F8F8700F4DD5D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BGSunshineParticle.sks; sourceTree = "<group>"; };
 		A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGSpriteTextureAlats.1.png; sourceTree = "<group>"; };
 		A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BGSpriteTextureAlats.plist; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		A059B3901CA1227B00EC679B /* independent.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = independent.sks; sourceTree = "<group>"; };
+		A05D694D1CA15EAF00E10961 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A06C471B1C9D905700815FC6 /* thunderSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderSound.mp3; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A075941B1C7AECBB005FF82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,8 +241,8 @@
 				A0CBF0B51C9EF0C40081B615 /* README */,
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
-				A019FA2D1C9F8F8700F4DD5D /* Launch Screen.storyboard */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
+				A05D694D1CA15EAF00E10961 /* Launch Screen.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
 				A075942A1C7AED47005FF82F /* ChickenJump-Bridging-Header.h */,
@@ -462,6 +462,7 @@
 				A07594881C7AEF43005FF82F /* RainSound.mp3 in Resources */,
 				A07594841C7AEF43005FF82F /* inGame_function_star.mp3 in Resources */,
 				A075947C1C7AEF43005FF82F /* inGame_action_jump.mp3 in Resources */,
+				A05D694E1CA15EAF00E10961 /* Launch Screen.storyboard in Resources */,
 				A07594AF1C7AEFF2005FF82F /* pixe.png in Resources */,
 				A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */,
 				A07594751C7AEF43005FF82F /* bg_country.mp3 in Resources */,
@@ -485,7 +486,6 @@
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,
 				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,
 				A059B3911CA1227B00EC679B /* independent.sks in Resources */,
-				A019FA2E1C9F8F8700F4DD5D /* Launch Screen.storyboard in Resources */,
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */,
 				A01D3BB31C9939AD008CAB60 /* BGSunshineParticle.sks in Resources */,
@@ -631,7 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ling jing (9KEW46EUPF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -643,9 +643,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "744355b1-6d0d-4f05-9101-fc69dc77921b";
+				PROVISIONING_PROFILE = "fd16ab7f-1335-4801-a94c-bd576beb68b2";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -657,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ling jing (P7ZXCTUGLG)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -669,9 +669,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b403de1-8ded-4df1-bb0a-222ac112c7e1";
+				PROVISIONING_PROFILE = "9044dd5a-11cb-4d10-a35a-1db34f55bd96";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

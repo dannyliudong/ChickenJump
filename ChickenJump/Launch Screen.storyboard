@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,23 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="linkinglogoa" translatesAutoresizingMaskIntoConstraints="NO" id="8Wd-Wo-eO3">
-                                <rect key="frame" x="200" y="234" width="200" height="133"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-bl-ABX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rfk-ek-rW6">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8Wd-Wo-eO3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="QRo-RT-hQO"/>
-                            <constraint firstItem="8Wd-Wo-eO3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WEQ-O1-HGk"/>
+                            <constraint firstItem="Rfk-ek-rW6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5ga-8Q-LUP"/>
+                            <constraint firstItem="hGN-bl-ABX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ANB-Xj-8GH"/>
+                            <constraint firstItem="hGN-bl-ABX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MBJ-Tx-Opa"/>
+                            <constraint firstItem="hGN-bl-ABX" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="NzX-sw-c3X"/>
+                            <constraint firstAttribute="trailing" secondItem="hGN-bl-ABX" secondAttribute="trailing" id="USR-49-S69"/>
+                            <constraint firstItem="Rfk-ek-rW6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lMU-xj-LF6"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="259" y="232"/>
         </scene>
     </scenes>
     <resources>
-        <image name="linkinglogoa" width="200" height="133"/>
+        <image name="LaunchLogo" width="200" height="200"/>
+        <image name="avatar_bg_line" width="10" height="384"/>
     </resources>
 </document>
