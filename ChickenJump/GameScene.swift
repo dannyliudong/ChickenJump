@@ -163,10 +163,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: Did Move To View
     override func didMoveToView(view: SKView) {
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "restartGame", name: "restartGameNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.restartGame), name: "restartGameNotification", object: nil)
         
         // 监测天气变化
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rainNotificationFunc", name: "RainNotificationNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameScene.rainNotificationFunc), name: "RainNotificationNotification", object: nil)
 
         
         self.physicsWorld.gravity = CGVectorMake(0.0, Scene_Gravity)
@@ -182,11 +182,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     //MARK: 自定义手势
     func addGesture(){
         
-        let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleTap(_:)))
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: "handleSwipes:")
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
         
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: "handleSwipes:")
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.handleSwipes(_:)))
         
         leftSwipe.direction = .Left
         rightSwipe.direction = .Right
@@ -290,7 +290,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         if self.weather != .Rain && self.dayTime != .Night {
             self.sunshineTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(CGFloat.random(min: 3, max: 6)),
                                                                         target: self,
-                                                                        selector: "createDynamicSunshine",
+                                                                        selector: #selector(GameScene.createDynamicSunshine),
                                                                         userInfo: nil,
                                                                         repeats: true)
             

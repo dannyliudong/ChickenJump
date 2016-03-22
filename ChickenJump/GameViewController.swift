@@ -130,21 +130,21 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         self.hiddenGameOverButtons()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showHomeButton", name: "showHomeButtonNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.showHomeButton), name: "showHomeButtonNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGame", name: "pauseGameNotification", object: nil)// 后台挂起时发出
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.pauseGame), name: "pauseGameNotification", object: nil)// 后台挂起时发出
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startGameNotificationAction", name: "startGameAnimationNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.startGameNotificationAction), name: "startGameAnimationNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameOverNotificationAction", name: "gameOverNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.gameOverNotificationAction), name: "gameOverNotification", object: nil)
         
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recoveryGameNotificationAction", name: "recoveryGameNotification", object: nil)
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.recoveryGameNotificationAction), name: "recoveryGameNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadingisDoneAction", name: "loadingisDoneNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.loadingisDoneAction), name: "loadingisDoneNotification", object: nil)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "payRemoveAds", name: "removeAdsPayNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.payRemoveAds), name: "removeAdsPayNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "restorePay", name: "restoreAdsPayNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.restorePay), name: "restoreAdsPayNotification", object: nil)
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         
@@ -456,7 +456,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 //       self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameViewController.showTimerMessage), userInfo: nil, repeats: true)
         
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimerMessage", userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameViewController.showTimerMessage), userInfo: nil, repeats: true)
         
 //        let delayInSeconds:Double = 1
 //        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
@@ -571,20 +571,19 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
             self.showGameOverButtons()
             
             if !GameState.sharedInstance.isRecording {
-                
-                let sometimes = Int(arc4random_uniform(10))
+                let sometimes = Int(arc4random_uniform(3))
                 if sometimes == 0 {
                     self.requestInterstitialAdPresentation()
                     print("iAd InterstitialAd ")
                     
                 } else if sometimes == 1 {
-//                    if UnityAds.sharedInstance().canShow() {
-//                        UnityAds.sharedInstance().show()
-//                        print("UnityAds  show ")
-//                    }
-//                    else {
-//                        NSLog("%@","Cannot show it yet!.")
-//                    }
+                    if UnityAds.sharedInstance().canShow() {
+                        UnityAds.sharedInstance().show()
+                        print("UnityAds  show ")
+                    }
+                    else {
+                        NSLog("%@","Cannot show it yet!.")
+                    }
                 }
                 
 //                if GameState.sharedInstance.isHaveAds {
