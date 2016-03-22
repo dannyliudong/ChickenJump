@@ -2025,8 +2025,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         self.addChild(terrorPillar)
         
-//        let down = SKAction.moveBy(CGVectorMake(0, -(64 * 10 - 32)), duration: 0.5)
-        let down = SKAction.moveTo(CGPointMake(playerPostion.x, playerPostion.y + 32), duration: 0.5)
+        let down = SKAction.moveBy(CGVectorMake(0, -(64 * 10 - 32)), duration: 0.5)
+//        let down = SKAction.moveTo(CGPointMake(playerPostion.x, playerPostion.y + 32), duration: 0.5)
         
 //        let remove = SKAction.removeFromParentAfterDelay(1.5)
         terrorPillar.runAction(SKAction.sequence([down]))
@@ -2647,11 +2647,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
 //            }
             
-            if playerPostionInScene.x >= Screen_Width * 0.7 {
-                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
+            if playerPostionInScene.x <= Screen_Width * 0.35 {
+                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.0015
             } else {
                 self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             }
+            
+            
             
             self.playergroundNode.position.x -= ScrollBG_Move_Speed
 //            self.playerNode.position.x -= ScrollBG_Move_Speed

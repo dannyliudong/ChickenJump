@@ -27,7 +27,7 @@ extension SKNode {
                 //                _node.physicsBody?.angularDamping = 0
                 
                 let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
+                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 0.8, max: 1.2)))])
                 
                 _node.runAction(sequence)
                 
