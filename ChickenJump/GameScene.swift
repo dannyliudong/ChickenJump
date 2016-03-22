@@ -114,6 +114,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         return node
     }()
     
+    // 独立组件
+    // 带刺柱子
+    let terrorPillar:SKNode = {
+        let scene = SKScene(fileNamed: "independent.sks")!
+        let node = scene.childNodeWithName("pillarNode")! //as! PlatfromNode
+        return node
+    }()
+    
     //MARK: SKAction
 
     let getGoldAction:SKAction = {
@@ -215,14 +223,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     func touchControll(impulse:CGVector, move:CGVector) {
         
         // 加载完成 才可点击屏幕
-        if GameState.sharedInstance.isLoadingDone {
+        if GameState.sharedInstance.isLoadingDone && !GameState.sharedInstance.tiemsUp {
             
-            if !GameState.sharedInstance.gameOver {
+            if !GameState.sharedInstance.gameOver  {
                 
                 if GameState.sharedInstance.canJump {
                     
                     GameState.sharedInstance.canJump = false
-                    GameState.sharedInstance.lifeTimeCount = 1.2
+                    GameState.sharedInstance.lifeTimeCount = 1.0
                     
                     //duration 大于等于 0.2 时， 出现错误
 //                    self.playerNode.physicsBody?.applyImpulse(impulse)
@@ -263,6 +271,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
         self.platfromInterval = 0
+        GameState.sharedInstance.tiemsUp = false
+
         GameState.sharedInstance.currentScore = 0
         
         self.platfromsTupleUpdateArray.removeAll()
@@ -312,7 +322,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
         }
         
-        GameState.sharedInstance.lifeTimeCount = 1.2
+        GameState.sharedInstance.lifeTimeCount = 1.0
 //        GameState.sharedInstance.isLoadingDone = true
 
         NSNotificationCenter.defaultCenter().postNotificationName("loadingisDoneNotification", object: nil)
@@ -1813,10 +1823,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         lineSpriteB.runAction(SKAction.moveAnimationToDisappear(CGFloat.random(min: -Screen_Width, max: -Screen_Width * 0.2),
             waitTime: NSTimeInterval(CGFloat.random(min: 3, max: 5)),
             removeDelay: 1))
-        
     }
-    
-
     
     
     // 金币
@@ -1839,8 +1846,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         gold.runAction(SKAction.repeatActionForever(seuqueAction))
         
     }
-    
-    //MARK: 开场危险物
+
     
     
     //MARK:随机障碍物
@@ -1979,18 +1985,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let moveUp4 = SKAction.moveTo(CGPointMake(-Screen_Width * 0.2, fireBall.position.y * 1.2), duration: 1)
         let moveDonw4 = SKAction.moveTo(CGPointMake(-Screen_Width * 0.2, fireBall.position.y * 0.8), duration: 1)
         
-        
         //        let movex = SKAction.moveToX(-Screen_Width * 0.5, duration: 1.5)
         let done = SKAction.removeFromParentAfterDelay(0.5)
         
         fireBall.runAction(SKAction.sequence([moveUp1, moveDonw1, moveUp2, moveDonw2, moveUp3, moveDonw3, moveUp4, moveDonw4,done]))
     }
     
+    // 停留时间过长 被掉落的尖柱刺死
+    func flopTerrorPillar() {
+        let terrorPillar = self.terrorPillar.copy() as! SKNode
+        
+        if let doorWalls = terrorPillar.childNodeWithName("doorWalls") {
+            for node in doorWalls.children {
+                let node = node as! SKSpriteNode
+                
+                let texture:SKTexture = {
+                    
+                    switch arc4random() % 5 {
+                    case 0:
+                        return self.wallTexture1
+                    case 1:
+                        return self.wallTexture2
+                    case 2:
+                        return self.wallTexture3
+                    case 3:
+                        return self.wallTexture4
+                    default:
+                        return self.wallTexture1
+                    }
+                }()
+                
+                node.texture = texture
+            }
+        }
+        
+        let playerPostion = convertPoint(self.position, fromNode: self.playerNode)
+        
+        terrorPillar.position = CGPointMake(playerPostion.x, Screen_Height)
+        
+        self.addChild(terrorPillar)
+        
+//        let down = SKAction.moveBy(CGVectorMake(0, -(64 * 10 - 32)), duration: 0.5)
+        let down = SKAction.moveTo(CGPointMake(playerPostion.x, playerPostion.y + 32), duration: 0.5)
+        
+//        let remove = SKAction.removeFromParentAfterDelay(1.5)
+        terrorPillar.runAction(SKAction.sequence([down]))
+    }
     
     //MARK: --------------------构建player
     func createPlayer() {
         self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan")) //choseChaterName(playertype)
-        self.playerNode.position = CGPointMake(Long_SectionWidth * 6 - 32, PlayerStartHigth) //playerHight + playerNode.height * 0.5
+        self.playerNode.position = CGPointMake(Long_SectionWidth * 7 - 32, PlayerStartHigth) //playerHight + playerNode.height * 0.5
         self.playerNode.xScale = -1
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
@@ -2584,7 +2629,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         updateWater()
         
         // 游戏开始
-        if !GameState.sharedInstance.gameOver {
+        if !GameState.sharedInstance.gameOver && !GameState.sharedInstance.tiemsUp {
             // 滚动远处背景
             self.scrollBackground()
             
@@ -2592,16 +2637,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             
             let playerPostionInScene = convertPoint(self.position, fromNode: self.playerNode) // 角色在场景坐标系的位置
             
-            if playerPostionInScene.x <= Screen_Width * 0.3 {
-                self.ScrollBG_Move_Speed = 0.5
-
-            } else if playerPostionInScene.x >= Screen_Width * 0.6 {
+//            if playerPostionInScene.x <= Screen_Width * 0.6 {
+//                self.ScrollBG_Move_Speed = 0.5
+//
+//            } else if playerPostionInScene.x >= Screen_Width * 0.8 {
+//                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
+//
+//            } else {
+//                self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
+//            }
+            
+            if playerPostionInScene.x >= Screen_Width * 0.7 {
                 self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.01
-
             } else {
                 self.ScrollBG_Move_Speed = playerPostionInScene.x * 0.005
             }
-
+            
             self.playergroundNode.position.x -= ScrollBG_Move_Speed
 //            self.playerNode.position.x -= ScrollBG_Move_Speed
             
@@ -2613,31 +2664,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             GameState.sharedInstance.lifeTimeCount -= 0.005
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)
             
-            // 如果停留时间过长 游戏结束
+            //MARK: 如果停留时间过长 被掉落物刺死
             if GameState.sharedInstance.lifeTimeCount <= 0 {
-
-                if GameState.sharedInstance.musicState { self.runAction(self.eagleSoundAction) }
                 
-                self.gameEnd()
+                self.flopTerrorPillar()
                 
-                self.playerNode.physicsBody?.applyImpulse(CGVectorMake(5, 30))
+                GameState.sharedInstance.tiemsUp = true
 
-                let delay:Double = 0.1
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+
+//                if GameState.sharedInstance.musicState { self.runAction(self.eagleSoundAction) }
                 
-                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                    self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
-                    
-                    self.playerNode.physicsBody?.dynamic = false
-
-                    let delay:Double = 0.5
-                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-                    
-                    dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                        self.playerNode.physicsBody?.dynamic = true
-                    }
-
-                }
+//                self.gameEnd()
+//                
+//                self.playerNode.physicsBody?.applyImpulse(CGVectorMake(5, 30))
+//
+//                let delay:Double = 0.1
+//                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+//                
+//                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//                    self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
+//                    
+//                    self.playerNode.physicsBody?.dynamic = false
+//
+//                    let delay:Double = 0.5
+//                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+//                    
+//                    dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//                        self.playerNode.physicsBody?.dynamic = true
+//                    }
+//
+//                }
             }
             
         } else {

@@ -22,6 +22,7 @@
 		A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC73E1C856CF70027A83E /* UIKit.framework */; };
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
 		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
+		A059B3911CA1227B00EC679B /* independent.sks in Resources */ = {isa = PBXBuildFile; fileRef = A059B3901CA1227B00EC679B /* independent.sks */; };
 		A06C471C1C9D905700815FC6 /* thunderSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A06C471B1C9D905700815FC6 /* thunderSound.mp3 */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
 		A07594271C7AECFC005FF82F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594261C7AECFC005FF82F /* Main.storyboard */; };
@@ -102,6 +103,7 @@
 		A04AC73E1C856CF70027A83E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
+		A059B3901CA1227B00EC679B /* independent.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = independent.sks; sourceTree = "<group>"; };
 		A06C471B1C9D905700815FC6 /* thunderSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderSound.mp3; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A075941B1C7AECBB005FF82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,13 +201,6 @@
 			path = BGSpriteTextureAlats.atlasc;
 			sourceTree = "<group>";
 		};
-		A06C3DEC1C964D74000C9AA6 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Store;
-			sourceTree = "<group>";
-		};
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
@@ -235,7 +230,6 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
-				A06C3DEC1C964D74000C9AA6 /* Store */,
 				A0BB7BFC1C93D66D00B37A96 /* iAd */,
 				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A08386C91C7AF511008A7502 /* Motion */,
@@ -265,6 +259,7 @@
 				A075944E1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks */,
 				A07594501C7AEEB7005FF82F /* BridgeMovingInY_Section.sks */,
 				A07594521C7AEEC8005FF82F /* Spring_Section.sks */,
+				A059B3901CA1227B00EC679B /* independent.sks */,
 				A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */,
 			);
 			name = SceneFiles;
@@ -489,6 +484,7 @@
 				A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */,
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,
 				A075944F1C7AEEAE005FF82F /* BridgeMovingInX_Section.sks in Resources */,
+				A059B3911CA1227B00EC679B /* independent.sks in Resources */,
 				A019FA2E1C9F8F8700F4DD5D /* Launch Screen.storyboard in Resources */,
 				A07594831C7AEF43005FF82F /* inGame_event_relayReach.mp3 in Resources */,
 				A075948A1C7AEF43005FF82F /* springSound.mp3 in Resources */,

@@ -19,6 +19,7 @@ class GameState {
     
     var lifeTimeCount:Float
     
+    var tiemsUp:Bool = false // 停留超时
     var gameOver:Bool = true // 游戏结束
     var isLoadingDone:Bool = true // 场景加载完成
     var canJump:Bool = true

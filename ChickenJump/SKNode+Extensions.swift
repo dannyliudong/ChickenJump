@@ -26,7 +26,7 @@ extension SKNode {
                 //                _node.physicsBody?.linearDamping = 0
                 //                _node.physicsBody?.angularDamping = 0
                 
-                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
                 let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
                 
                 _node.runAction(sequence)
@@ -49,8 +49,8 @@ extension SKNode {
                 //                _node.physicsBody?.linearDamping = 0
                 //                _node.physicsBody?.angularDamping = 0
                 
-                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 6, time: NSTimeInterval(CGFloat.random(min: 1.5, max: 2.5)))])
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 6, time: NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))])
                 
                 _node.runAction(sequence)
                 
