@@ -25,7 +25,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         case IAP
     }
     
-    var interstitial:GADInterstitial = GADInterstitial(adUnitID: GoogleAdUnitID)
+    var interstitial:GADInterstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var loadingBGView: UIImageView!
@@ -214,7 +214,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     }
     
     func createAndLoadInterstitial() ->GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-6593071569003999/5675187464")
+        let interstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
         interstitial.delegate = self
         interstitial.loadRequest(GADRequest())
         return interstitial
@@ -278,7 +278,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
-        
         
         self.showLoading()
         
@@ -595,11 +594,9 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
-            
 
             if !GameState.sharedInstance.isRecording {
 
-                
                 let sometimes = Int(arc4random_uniform(3))
                 if sometimes == 0 {
                     if self.interstitial.isReady {
@@ -608,13 +605,13 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                     }
                     
                 } else if sometimes == 1 {
-//                    if UnityAds.sharedInstance().canShow() {
-//                        UnityAds.sharedInstance().show()
-//                        print("UnityAds  show ")
-//                    }
-//                    else {
-//                        NSLog("%@","Cannot show it yet!.")
-//                    }
+                    if UnityAds.sharedInstance().canShow() {
+                        UnityAds.sharedInstance().show()
+                        print("UnityAds  show ")
+                    }
+                    else {
+                        NSLog("%@","Cannot show it yet!.")
+                    }
                 }
                 
 //                if GameState.sharedInstance.isHaveAds {
