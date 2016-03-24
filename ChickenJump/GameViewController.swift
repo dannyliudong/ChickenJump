@@ -11,13 +11,21 @@ import SpriteKit
 import ReplayKit
 import iAd
 import StoreKit
+import GoogleMobileAds
 
-class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate, GameSceneDelegate, EGCDelegate {
+class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate, GameSceneDelegate, EGCDelegate, GADInterstitialDelegate {
+    
+    /* AdMob Unit Id */
+    let ADMOB_UNIT_ID:String = "xxxxxxxxx"
+    /* AdMob Test  */
+    let ADMOB_TEST_FLG:Bool = true
     
     //MARK: 购买项目
     enum IAPItem {
         case IAP
     }
+    
+    var interstitial:GADInterstitial = GADInterstitial(adUnitID: GoogleAdUnitID)
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var loadingBGView: UIImageView!
@@ -163,7 +171,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 //            skView.showsPhysics = true
         
             skView.ignoresSiblingOrder = true
-            
             scene.scaleMode = .AspectFill
             skView.presentScene(scene)
             
@@ -197,8 +204,25 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 //        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
 //        
 //        requestProducts()
+        
+        
+        //MARK: GoogleAds
+//        let request = GADRequest()
+//        request.testDevices = [""]
+//        self.interstitial.loadRequest(request)
+        self.interstitial = createAndLoadInterstitial()
     }
     
+    func createAndLoadInterstitial() ->GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-6593071569003999/5675187464")
+        interstitial.delegate = self
+        interstitial.loadRequest(GADRequest())
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(ad: GADInterstitial!) {
+        self.interstitial = self.createAndLoadInterstitial()
+    }
     
     // Init iAd
     
@@ -533,6 +557,8 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     //MARK: 游戏结束 结束界面
     func gameOverNotificationAction() {
         
+        self.interstitial = self.createAndLoadInterstitial()
+
         if GameState.sharedInstance.isRecording {
             
             let delayInSeconds = 1.0
@@ -570,11 +596,16 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
             
+
             if !GameState.sharedInstance.isRecording {
+
+                
                 let sometimes = Int(arc4random_uniform(3))
                 if sometimes == 0 {
-                    self.requestInterstitialAdPresentation()
-                    print("iAd InterstitialAd ")
+                    if self.interstitial.isReady {
+                        print("AdMob interstitial")
+                        self.interstitial.presentFromRootViewController(self)
+                    }
                     
                 } else if sometimes == 1 {
 //                    if UnityAds.sharedInstance().canShow() {
