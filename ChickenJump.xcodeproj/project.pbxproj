@@ -675,7 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ling jing (9KEW46EUPF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: dong liu (S9WB576XWR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -688,9 +688,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "744355b1-6d0d-4f05-9101-fc69dc77921b";
+				PROVISIONING_PROFILE = "fd16ab7f-1335-4801-a94c-bd576beb68b2";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -702,7 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ling jing (P7ZXCTUGLG)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dong liu (QK9335G8AK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -715,9 +715,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ChickenJump",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.linjing.MrJ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudong.tagsappTestlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b403de1-8ded-4df1-bb0a-222ac112c7e1";
+				PROVISIONING_PROFILE = "9044dd5a-11cb-4d10-a35a-1db34f55bd96";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChickenJump/ChickenJump-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
