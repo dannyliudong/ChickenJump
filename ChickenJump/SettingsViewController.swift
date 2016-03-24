@@ -129,11 +129,11 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func removeAdsPayAction(sender: UIButton) {
-        NSNotificationCenter.defaultCenter().postNotificationName("removeAdsPayNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().postNotificationName("removeAdsPayNotification", object: nil)
     }
     
     @IBAction func restoreAdsPayAction(sender: UIButton) {
-        NSNotificationCenter.defaultCenter().postNotificationName("restoreAdsPayNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().postNotificationName("restoreAdsPayNotification", object: nil)
     }
     
     @IBAction func chickenSong(sender: UIButton) {

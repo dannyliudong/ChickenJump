@@ -10,10 +10,10 @@ import UIKit
 import SpriteKit
 import ReplayKit
 //import iAd
-import StoreKit
+//import StoreKit
 import GoogleMobileAds
 
-class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate, GameSceneDelegate, EGCDelegate, GADInterstitialDelegate {
+class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADInterstitialDelegate {
     
 
     var interstitial:GADInterstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
@@ -140,9 +140,9 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.loadingisDoneAction), name: "loadingisDoneNotification", object: nil)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.payRemoveAds), name: "removeAdsPayNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.payRemoveAds), name: "removeAdsPayNotification", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.restorePay), name: "restoreAdsPayNotification", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.restorePay), name: "restoreAdsPayNotification", object: nil)
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         
@@ -846,113 +846,113 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     
     //MARK: 支付相关
     // 询问苹果的服务器能够销售哪些商品
-    func requestProducts() {
-        getProductInfo()
-    }
+//    func requestProducts() {
+//        getProductInfo()
+//    }
     
     //MARK: Pay Delegate Method
-    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        
-        for transaction in transactions {
-            switch transaction.transactionState {
-            case .Purchasing:
-                self.purchasing(transaction)
-                break
-                
-            case .Purchased:
-                self.completeTransaction(transaction)
-                break
-                
-            case .Failed:
-                self.failedTransaction(transaction)
-                break
-                
-            case .Restored:
-                self.restoreTransaction(transaction)
-                break
-                
-            default:
-                break
-            }
-        }
-    }
+//    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+//        
+//        for transaction in transactions {
+//            switch transaction.transactionState {
+//            case .Purchasing:
+//                self.purchasing(transaction)
+//                break
+//                
+//            case .Purchased:
+//                self.completeTransaction(transaction)
+//                break
+//                
+//            case .Failed:
+//                self.failedTransaction(transaction)
+//                break
+//                
+//            case .Restored:
+//                self.restoreTransaction(transaction)
+//                break
+//                
+//            default:
+//                break
+//            }
+//        }
+//    }
     
     //MARK: 发起支付
-    func payRemoveAds() {
-        //判断是否支持内购
-        if SKPaymentQueue.canMakePayments() {
-//            self.getProductInfo()
-//            buyProduct(SKProduct)
-            
-        } else {
-            print("发起支付失败， 用户禁止应用内付费购买")
-        }
-    }
+//    func payRemoveAds() {
+//        //判断是否支持内购
+//        if SKPaymentQueue.canMakePayments() {
+////            self.getProductInfo()
+////            buyProduct(SKProduct)
+//            
+//        } else {
+//            print("发起支付失败， 用户禁止应用内付费购买")
+//        }
+//    }
     
     // 购买对应的产品
-    func buyProduct(product: SKProduct){
-        
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.defaultQueue().addPayment(payment)
-    }
-    
-    
-    func restorePay() {
-        print("恢复购买")
-        SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
-    }
+//    func buyProduct(product: SKProduct){
+//        
+//        let payment = SKPayment(product: product)
+//        SKPaymentQueue.defaultQueue().addPayment(payment)
+//    }
+//    
+//    
+//    func restorePay() {
+//        print("恢复购买")
+//        SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+//    }
 
     //MARK: SKProductsRequest Delegate Method
-    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
-        let product = response.products
-        if product.count == 0 {
-            print("无法获取产品信息,请检查itunes connect 中配置的商品ID是否与代码中一致")
-            return
-        }
-        
-        let payment = SKPayment(product: product[0])
-        SKPaymentQueue.defaultQueue().addPayment(payment)
-        
-    }
+//    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+//        let product = response.products
+//        if product.count == 0 {
+//            print("无法获取产品信息,请检查itunes connect 中配置的商品ID是否与代码中一致")
+//            return
+//        }
+//        
+//        let payment = SKPayment(product: product[0])
+//        SKPaymentQueue.defaultQueue().addPayment(payment)
+//        
+//    }
     
-    func getProductInfo() {
-        let set:Set<String> = NSSet(array: [iAdProductID]) as! Set<String>
-        let request = SKProductsRequest(productIdentifiers: set)
-        
-        request.delegate = self
-        request.start()
-    }
+//    func getProductInfo() {
+//        let set:Set<String> = NSSet(array: [iAdProductID]) as! Set<String>
+//        let request = SKProductsRequest(productIdentifiers: set)
+//        
+//        request.delegate = self
+//        request.start()
+//    }
     
 
     
-    func completeTransaction(transaction:SKPaymentTransaction) {
-        print("交易完成 \(transaction)")
-        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
-        
-        GameState.sharedInstance.isHaveAds = false
-        NSUserDefaults.standardUserDefaults().setBool(GameState.sharedInstance.isHaveAds, forKey: "isHaveAds")
-    }
-    
-    func restoreTransaction(transaction: SKPaymentTransaction) {
-        print("已经购买过改商品 恢复交易  \(transaction)")
-        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
-        
-        GameState.sharedInstance.isHaveAds = false
-        NSUserDefaults.standardUserDefaults().setBool(GameState.sharedInstance.isHaveAds, forKey: "isHaveAds")
-    }
-    
-    func failedTransaction(transaction: SKPaymentTransaction) {
-        print("交易失败  \(transaction)")
-        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
-    }
-    
-    func purchasing(transaction: SKPaymentTransaction) {
-        print("商品添加进列表  \(transaction)")
-    }
-    
-    
-    let VERIFY_RECEIPT_URL = "https://buy.itunes.apple.com/verifyReceipt"
-    let ITMS_SANDBOX_VERIFY_RECEIPT_URL = "https://sandbox.itunes.apple.com/verifyReceipt"
+//    func completeTransaction(transaction:SKPaymentTransaction) {
+//        print("交易完成 \(transaction)")
+//        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+//        
+//        GameState.sharedInstance.isHaveAds = false
+//        NSUserDefaults.standardUserDefaults().setBool(GameState.sharedInstance.isHaveAds, forKey: "isHaveAds")
+//    }
+//    
+//    func restoreTransaction(transaction: SKPaymentTransaction) {
+//        print("已经购买过改商品 恢复交易  \(transaction)")
+//        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+//        
+//        GameState.sharedInstance.isHaveAds = false
+//        NSUserDefaults.standardUserDefaults().setBool(GameState.sharedInstance.isHaveAds, forKey: "isHaveAds")
+//    }
+//    
+//    func failedTransaction(transaction: SKPaymentTransaction) {
+//        print("交易失败  \(transaction)")
+//        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+//    }
+//    
+//    func purchasing(transaction: SKPaymentTransaction) {
+//        print("商品添加进列表  \(transaction)")
+//    }
+//    
+//    
+//    let VERIFY_RECEIPT_URL = "https://buy.itunes.apple.com/verifyReceipt"
+//    let ITMS_SANDBOX_VERIFY_RECEIPT_URL = "https://sandbox.itunes.apple.com/verifyReceipt"
     
     //MARK: 验证购买
 //    func verifyPruchase(){
@@ -1036,9 +1036,9 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         return true
     }
     
-    deinit {
-        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
-    }
+//    deinit {
+//        SKPaymentQueue.defaultQueue().removeTransactionObserver(self)
+//    }
     
     
     //判断设备系统版本 9.0以上才支持录屏幕，否则按钮不会出现...
