@@ -15,7 +15,21 @@ import GoogleMobileAds
 
 class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate, GameSceneDelegate, EGCDelegate, GADInterstitialDelegate {
     
+<<<<<<< HEAD
     var interstitial:GADInterstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
+=======
+    /* AdMob Unit Id */
+    let ADMOB_UNIT_ID:String = "xxxxxxxxx"
+    /* AdMob Test  */
+    let ADMOB_TEST_FLG:Bool = true
+    
+    //MARK: 购买项目
+    enum IAPItem {
+        case IAP
+    }
+    
+    var interstitial:GADInterstitial = GADInterstitial(adUnitID: GoogleAdUnitID)
+>>>>>>> parent of 48508a1... AdMob ads
     
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var loadingBGView: UIImageView!
@@ -203,7 +217,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     }
     
     func createAndLoadInterstitial() ->GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-6593071569003999/5675187464")
         interstitial.delegate = self
         interstitial.loadRequest(GADRequest())
         return interstitial
@@ -267,6 +281,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
+        
         
         self.showLoading()
         
@@ -583,9 +598,11 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
+            
 
             if !GameState.sharedInstance.isRecording {
 
+                
                 let sometimes = Int(arc4random_uniform(3))
                 if sometimes == 0 {
                     if self.interstitial.isReady {
@@ -594,6 +611,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                     }
                     
                 } else if sometimes == 1 {
+<<<<<<< HEAD
                     if UnityAds.sharedInstance().canShow() {
                         UnityAds.sharedInstance().show()
                         print("UnityAds  show ")
@@ -601,6 +619,15 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                     else {
                         print("UnityAds  Cannot show ")
                     }
+=======
+//                    if UnityAds.sharedInstance().canShow() {
+//                        UnityAds.sharedInstance().show()
+//                        print("UnityAds  show ")
+//                    }
+//                    else {
+//                        NSLog("%@","Cannot show it yet!.")
+//                    }
+>>>>>>> parent of 48508a1... AdMob ads
                 }
                 
 //                if GameState.sharedInstance.isHaveAds {

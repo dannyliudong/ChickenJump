@@ -159,7 +159,7 @@ let iAdProductID = "com.lingjing.justjump.removeads"
 //let Leader_Board_Identifier:String = "ChickenScore" //mr.j
 //let iAdProductID = "com.lingjing.justjump.removeads"
 
-let AdMob_AdUnitID = "ca-app-pub-6593071569003999/8653516662" // 广告单元ID
+let GoogleAdUnitID = "ca-app-pub-6593071569003999/1294934260" // 广告单元ID
 
 //MARK: light color
 let Light_AmbientColor_Day:UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
