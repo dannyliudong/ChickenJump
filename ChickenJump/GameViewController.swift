@@ -9,21 +9,11 @@
 import UIKit
 import SpriteKit
 import ReplayKit
-import iAd
+//import iAd
 import StoreKit
 import GoogleMobileAds
 
 class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate, GameSceneDelegate, EGCDelegate, GADInterstitialDelegate {
-    
-    /* AdMob Unit Id */
-    let ADMOB_UNIT_ID:String = "xxxxxxxxx"
-    /* AdMob Test  */
-    let ADMOB_TEST_FLG:Bool = true
-    
-    //MARK: 购买项目
-    enum IAPItem {
-        case IAP
-    }
     
     var interstitial:GADInterstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
     
@@ -32,7 +22,6 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 //    @IBOutlet weak var loadingBgUIView: UIView!
     @IBOutlet weak var loadingLogoView: UIImageView!
     @IBOutlet weak var gameOverMaskView: UIView!
-    
     
 //    @IBOutlet weak var characterButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -198,7 +187,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
         
         // 
         /* Automatic presentation , you can't control when the ad loads */
-        self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Manual
+//        self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Manual
         
         //
 //        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
@@ -610,7 +599,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                         print("UnityAds  show ")
                     }
                     else {
-                        NSLog("%@","Cannot show it yet!.")
+                        print("UnityAds  Cannot show ")
                     }
                 }
                 

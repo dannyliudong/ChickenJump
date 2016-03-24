@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import MediaPlayer
-import AVKit
+//import MediaPlayer
+//import AVKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
@@ -51,8 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
         
         
         //MARK:iAds
-        UIViewController.prepareInterstitialAds()
-        AVPlayerViewController.preparePrerollAds()
+//        UIViewController.prepareInterstitialAds()
+//        AVPlayerViewController.preparePrerollAds()
         
         
         //MARK: Unity Ads
