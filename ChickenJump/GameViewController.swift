@@ -29,6 +29,9 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
     }
     
     var interstitial:GADInterstitial = GADInterstitial(adUnitID: GoogleAdUnitID)
+<<<<<<< HEAD
+>>>>>>> parent of 48508a1... AdMob ads
+=======
 >>>>>>> parent of 48508a1... AdMob ads
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -612,6 +615,7 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                     
                 } else if sometimes == 1 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if UnityAds.sharedInstance().canShow() {
                         UnityAds.sharedInstance().show()
                         print("UnityAds  show ")
@@ -620,6 +624,8 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
                         print("UnityAds  Cannot show ")
                     }
 =======
+=======
+>>>>>>> parent of 48508a1... AdMob ads
 //                    if UnityAds.sharedInstance().canShow() {
 //                        UnityAds.sharedInstance().show()
 //                        print("UnityAds  show ")
@@ -627,6 +633,9 @@ class GameViewController: UIViewController, SKPaymentTransactionObserver, SKProd
 //                    else {
 //                        NSLog("%@","Cannot show it yet!.")
 //                    }
+<<<<<<< HEAD
+>>>>>>> parent of 48508a1... AdMob ads
+=======
 >>>>>>> parent of 48508a1... AdMob ads
                 }
                 
