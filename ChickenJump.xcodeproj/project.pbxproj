@@ -22,7 +22,8 @@
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
 		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
 		A059B3911CA1227B00EC679B /* independent.sks in Resources */ = {isa = PBXBuildFile; fileRef = A059B3901CA1227B00EC679B /* independent.sks */; };
-		A06321161CA21FE900353359 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06321151CA21FE900353359 /* Launch Screen.storyboard */; };
+		A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */; };
+		A0648A381CA4DBC300C210A6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0648A371CA4DBC300C210A6 /* CoreFoundation.framework */; };
 		A06C471C1C9D905700815FC6 /* thunderSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A06C471B1C9D905700815FC6 /* thunderSound.mp3 */; };
 		A075941C1C7AECBB005FF82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A075941B1C7AECBB005FF82F /* Assets.xcassets */; };
 		A07594271C7AECFC005FF82F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07594261C7AECFC005FF82F /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		A09459061CA39432008A21EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09459051CA39432008A21EB /* MessageUI.framework */; };
 		A09459081CA39445008A21EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09459071CA39445008A21EB /* SystemConfiguration.framework */; };
 		A094590C1CA3986E008A21EB /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A094590B1CA3986E008A21EB /* GoogleMobileAds.framework */; };
+		A0A1F19B1CA50E940092655E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A1F19A1CA50E940092655E /* Launch Screen.storyboard */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
 		A0BB7C011C93D69E00B37A96 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */; };
 		A0BB7C021C93D69E00B37A96 /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */; };
@@ -112,7 +114,8 @@
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		A059B3901CA1227B00EC679B /* independent.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = independent.sks; sourceTree = "<group>"; };
-		A06321151CA21FE900353359 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A0648A371CA4DBC300C210A6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		A06C471B1C9D905700815FC6 /* thunderSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderSound.mp3; sourceTree = "<group>"; };
 		A075940D1C7AECBB005FF82F /* ChickenJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A075941B1C7AECBB005FF82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 		A09459051CA39432008A21EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A09459071CA39445008A21EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A094590B1CA3986E008A21EB /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		A0A1F19A1CA50E940092655E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
@@ -194,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A094590C1CA3986E008A21EB /* GoogleMobileAds.framework in Frameworks */,
 				A09459081CA39445008A21EB /* SystemConfiguration.framework in Frameworks */,
 				A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */,
 				A09459061CA39432008A21EB /* MessageUI.framework in Frameworks */,
@@ -207,6 +210,9 @@
 				A09458FC1CA393C1008A21EB /* AVFoundation.framework in Frameworks */,
 				A09458FA1CA393B7008A21EB /* AudioToolbox.framework in Frameworks */,
 				A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */,
+				A0648A381CA4DBC300C210A6 /* CoreFoundation.framework in Frameworks */,
+				A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */,
+				A094590C1CA3986E008A21EB /* GoogleMobileAds.framework in Frameworks */,
 				A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
@@ -231,6 +237,8 @@
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
+				A0648A371CA4DBC300C210A6 /* CoreFoundation.framework */,
+				A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */,
 				A094590B1CA3986E008A21EB /* GoogleMobileAds.framework */,
 				A09459071CA39445008A21EB /* SystemConfiguration.framework */,
 				A09459051CA39432008A21EB /* MessageUI.framework */,
@@ -275,10 +283,11 @@
 				A075945A1C7AEF18005FF82F /* Resources */,
 				A075943B1C7AEE49005FF82F /* SceneFiles */,
 				A075942F1C7AEE0C005FF82F /* GameScene.swift */,
+				A07594561C7AEF03005FF82F /* Definition.swift */,
 				A0CBF0B51C9EF0C40081B615 /* README */,
 				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
-				A06321151CA21FE900353359 /* Launch Screen.storyboard */,
+				A0A1F19A1CA50E940092655E /* Launch Screen.storyboard */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
 				A075941B1C7AECBB005FF82F /* Assets.xcassets */,
 				A07594201C7AECBB005FF82F /* Info.plist */,
@@ -396,7 +405,6 @@
 		A08386C71C7AF485008A7502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A07594561C7AEF03005FF82F /* Definition.swift */,
 				A012BD971C7D8D7000E5061D /* GameColor.swift */,
 				A07594581C7AEF0A005FF82F /* GameState.swift */,
 				A04522261C9A60CE006147A9 /* GameData.swift */,
@@ -506,7 +514,7 @@
 				A07594881C7AEF43005FF82F /* RainSound.mp3 in Resources */,
 				A07594841C7AEF43005FF82F /* inGame_function_star.mp3 in Resources */,
 				A075947C1C7AEF43005FF82F /* inGame_action_jump.mp3 in Resources */,
-				A06321161CA21FE900353359 /* Launch Screen.storyboard in Resources */,
+				A0A1F19B1CA50E940092655E /* Launch Screen.storyboard in Resources */,
 				A07594AF1C7AEFF2005FF82F /* pixe.png in Resources */,
 				A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */,
 				A07594751C7AEF43005FF82F /* bg_country.mp3 in Resources */,

@@ -14,8 +14,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var RecordButton: UIButton!
-    @IBOutlet weak var removeAdsButton: UIButton!
-    @IBOutlet weak var restorePayButton: UIButton!
 
     @IBOutlet weak var chickenButton: UIButton!
     
@@ -126,14 +124,6 @@ class SettingsViewController: UIViewController {
             self.musicButton.setImage(UIImage(named: "homeButton_sound"), forState: UIControlState.Normal)
         }
         
-    }
-
-    @IBAction func removeAdsPayAction(sender: UIButton) {
-//        NSNotificationCenter.defaultCenter().postNotificationName("removeAdsPayNotification", object: nil)
-    }
-    
-    @IBAction func restoreAdsPayAction(sender: UIButton) {
-//        NSNotificationCenter.defaultCenter().postNotificationName("restoreAdsPayNotification", object: nil)
     }
     
     @IBAction func chickenSong(sender: UIButton) {

@@ -2433,55 +2433,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 
         self.playerNode.yScale = -1
         
-//        self.playerNode.moveToParent(self)
-        
-//        self.playerNode.physicsBody?.allowsRotation = true
-//        
-//        self.playerNode.zRotation = 25//CGFloat.random(min: 25, max: 60)
-//
-//        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(-30, 60), duration: 0.5))
-//        
         let delay:Double = 1.0
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
         
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
             self.playerNode.physicsBody?.dynamic = true
         }
-        
-//        self.playerNode.xScale = -1
-//        self.playerNode.yScale = 0.2
-//        self.playerNode.zRotation = CGFloat.random(min: -35, max: 35)
-        
     }
-    
-    //MARK:  游戏结束 显示广告页， 弹出观看广告赢金币按钮
-    func showiAd() {
-        //  进行控制出现广告，有时候出现看广告赚金币按钮，有时候其它 参考天天过马路
-        
-        let iAdNode = SKNode()
-        iAdNode.zPosition = 350
-        iAdNode.position = CGPointMake(Screen_Width/2, Screen_Height/2)
-        addChild(iAdNode)
-        
-        let belt = SKSpriteNode(color: UIColor.blackColor(), size: CGSize(width: Screen_Width, height: 1))
-        belt.alpha = View_MaskAlpha
-        iAdNode.addChild(belt)
-        
-        let scaleAction = SKAction.scaleYTo(80, duration: 0.2)
-        belt.runAction(scaleAction)
-        
-        let label = SKLabelNode(fontNamed: Font_Name)
-        label.text = "本次:\(GameState.sharedInstance.currentScore)"
-        label.position = CGPointMake(-Screen_Width/2, 0)
-        iAdNode.addChild(label)
-        
-        let moveAction = SKAction.moveToX(0, duration: 0.3)
-        label.runAction(moveAction)
-    }
-    
-    
-
-    
     
     //MARK: 点击事件
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -2541,8 +2499,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             let dt2 = Int(arc4random_uniform(1000))
             if dt2 == 1 { createMeteor() } // 流星
         }
-        
-        
         
 //        if self.weather != .Rain && self.dayTime != .Night {
 //            let dt1 = Int(arc4random_uniform(200))

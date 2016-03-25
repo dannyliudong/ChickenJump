@@ -375,36 +375,6 @@
                                     <action selector="backToHomeAction:" destination="BzE-cZ-HLf" eventType="touchUpInside" id="Eht-Us-ejR"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-DL-qa3">
-                                <rect key="frame" x="200" y="210" width="200" height="48"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="BxV-UF-Ke6"/>
-                                    <constraint firstAttribute="height" constant="48" id="qgg-JE-uUC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="25"/>
-                                <state key="normal" title="Remove Ads">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="removeAdsPayAction:" destination="BzE-cZ-HLf" eventType="touchUpInside" id="3il-mL-17b"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-DN-fh3">
-                                <rect key="frame" x="200" y="278" width="200" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="r0z-dP-McE"/>
-                                    <constraint firstAttribute="width" constant="200" id="vNj-vA-tVm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="25"/>
-                                <state key="normal" title="Restore IAP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restoreAdsPayAction:" destination="BzE-cZ-HLf" eventType="touchUpInside" id="8AC-4u-Ksu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qu6-Dr-4ab">
                                 <rect key="frame" x="266" y="90" width="68" height="80"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -430,12 +400,8 @@
                             </constraint>
                             <constraint firstItem="45x-1Q-yD7" firstAttribute="top" secondItem="8Z0-x1-J36" secondAttribute="bottom" constant="10" id="J8P-VT-sWp"/>
                             <constraint firstItem="r5n-LU-cgm" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="KEC-fn-gD3"/>
-                            <constraint firstItem="fVU-DL-qa3" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="Q66-8D-tdO"/>
                             <constraint firstItem="Qu6-Dr-4ab" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="QY5-hh-kQD"/>
-                            <constraint firstItem="EzY-DN-fh3" firstAttribute="top" secondItem="fVU-DL-qa3" secondAttribute="bottom" constant="20" id="ZlA-4K-Z8S"/>
                             <constraint firstItem="3sB-ix-0Ul" firstAttribute="bottom" secondItem="4b2-Ml-RrW" secondAttribute="top" id="d6i-Np-dPH"/>
-                            <constraint firstItem="EzY-DN-fh3" firstAttribute="centerX" secondItem="Itr-7U-GgV" secondAttribute="centerX" id="da6-tO-GjK"/>
-                            <constraint firstItem="fVU-DL-qa3" firstAttribute="top" secondItem="Qu6-Dr-4ab" secondAttribute="bottom" constant="40" id="f1y-jz-NQU"/>
                             <constraint firstItem="3sB-ix-0Ul" firstAttribute="centerX" secondItem="Qu6-Dr-4ab" secondAttribute="centerX" id="iYp-Ev-inB"/>
                             <constraint firstItem="45x-1Q-yD7" firstAttribute="leading" secondItem="Itr-7U-GgV" secondAttribute="leadingMargin" id="x2f-Na-ZgP"/>
                             <constraint firstItem="4b2-Ml-RrW" firstAttribute="top" secondItem="r5n-LU-cgm" secondAttribute="bottom" constant="20" id="xJD-jk-EdU">
@@ -450,8 +416,6 @@
                         <outlet property="chickenButton" destination="r5n-LU-cgm" id="UOS-mX-Xm2"/>
                         <outlet property="closeButton" destination="45x-1Q-yD7" id="her-5c-VUl"/>
                         <outlet property="musicButton" destination="Qu6-Dr-4ab" id="yOY-wL-YOy"/>
-                        <outlet property="removeAdsButton" destination="fVU-DL-qa3" id="Nor-dE-0nv"/>
-                        <outlet property="restorePayButton" destination="EzY-DN-fh3" id="DJy-61-ESw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4s-dD-3Ig" userLabel="First Responder" sceneMemberID="firstResponder"/>

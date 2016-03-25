@@ -153,11 +153,13 @@ let BackgroudMaskColor = UIColor(red: 100, green: 202, blue: 243, alpha: View_Ma
 //let Leader_Board_Identifier:String = "HightScore" //just jump
 //let AppStoreURL:String = "https://itunes.apple.com/us/app/just-jump/id1092406165?l=zh&ls=1&mt=8"
 //let iAdProductID = "com.lingjing.justjump.removeads"
+//let UnityAdsID = "1051983"
 
 let Game_NameString = "Mr.J"
 let AppStoreURL:String = "https://itunes.apple.com/us/app/mr.j/id933131892?l=zh&ls=1&mt=8"
 let Leader_Board_Identifier:String = "ChickenScore" //mr.j
 let iAdProductID = "com.lingjing.justjump.removeads"
+let UnityAdsID = "1046579"
 
 let AdMob_AdUnitID = "ca-app-pub-6593071569003999/8653516662" // 广告单元ID
 

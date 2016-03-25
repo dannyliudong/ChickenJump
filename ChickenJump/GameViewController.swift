@@ -139,16 +139,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.recoveryGameNotificationAction), name: "recoveryGameNotification", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.loadingisDoneAction), name: "loadingisDoneNotification", object: nil)
-
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.payRemoveAds), name: "removeAdsPayNotification", object: nil)
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.restorePay), name: "restoreAdsPayNotification", object: nil)
-        
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
-        
-//        GameState.sharedInstance.gameScene = nil
-//        
-//        GameState.sharedInstance.gameScene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))//GameScene(fileNamed:"GameScene")
         
         let scene = GameScene(size: CGSizeMake(Screen_Width, Screen_Height))
 
@@ -560,26 +550,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         } else {
         }
         
-        // 游戏结束 截屏
-//        self.screenshotsImage = getScreenCapture()        
-        
-        // 合成带logo图片
-
-//        if let image = screenshotsImage {
-//            
-//            let nameLogog:UIImage = UIImage(named: "namelogo")!
-//            
-//            UIGraphicsBeginImageContext(self.view.bounds.size)
-//           image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
-//            nameLogog.drawInRect(CGRectMake(60, 60, nameLogog.size.width, nameLogog.size.height))
-//            
-//            screenshotsImage = UIGraphicsGetImageFromCurrentImageContext()
-//            
-//            UIGraphicsEndImageContext()
-//            
-//        }
-        
-        
         let delayInSeconds = 1.0
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
 
@@ -588,9 +558,8 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
             
 
             if !GameState.sharedInstance.isRecording {
-
                 
-                let sometimes = Int(arc4random_uniform(2))
+                let sometimes = Int(arc4random_uniform(5))
                 if sometimes == 0 {
                     if self.interstitial.isReady {
                         print("AdMob interstitial")
@@ -600,7 +569,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
                     }
                     
                 } else if sometimes == 1 {
-
                     if UnityAds.sharedInstance().canShow() {
                         UnityAds.sharedInstance().show()
                         print("UnityAds  show ")
@@ -608,35 +576,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
                     else {
                         print("UnityAds  Cannot show ")
                     }
-
-//                    if UnityAds.sharedInstance().canShow() {
-//                        UnityAds.sharedInstance().show()
-//                        print("UnityAds  show ")
-//                    }
-//                    else {
-//                        NSLog("%@","Cannot show it yet!.")
-//                    }
-
                 }
-                
-//                if GameState.sharedInstance.isHaveAds {
-//                    self.requestInterstitialAdPresentation()
-//                    print("没有移除广告 ，播放广告")
-//                }
-                
             }
-
         }
-        
-//        let delayInSeconds = 0.5
-//        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-//        
-//        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-//            
-//            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("GameEndUIViewController") as! GameEndUIViewController
-//            vc.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
-//            self.presentViewController(vc, animated: true) { () -> Void in }
-//        }
+
     }
     
     func gameOverScreenshots() {
@@ -673,11 +616,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         
         self.progressView.hidden = true
 
-//        self.characterButton.hidden = true
-
-//        self.giftButton.hidden = true
-//        self.payContinueButton.hidden = true
-//        self.watchAdsButton.hidden = true
         
         self.leaderboardsButton.hidden = true
         self.shareGameButton.hidden = true

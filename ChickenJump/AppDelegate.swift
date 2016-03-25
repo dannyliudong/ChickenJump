@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 //import MediaPlayer
 //import AVKit
 
@@ -60,7 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
         UnityAds.sharedInstance().setTestMode(false)
         UnityAds.sharedInstance().setDebugMode(false)
         
-        UnityAds.sharedInstance().startWithGameId("1046579", andViewController: self.window?.rootViewController)
+        // just jump ID 1051983
+        // 1046579
+        UnityAds.sharedInstance().startWithGameId(UnityAdsID, andViewController: self.window?.rootViewController)
         
         return true
     }
