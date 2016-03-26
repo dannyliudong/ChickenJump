@@ -71,7 +71,6 @@
 		A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C11C7AF094005FF82F /* SKColor+Extensions.swift */; };
 		A07594C81C7AF094005FF82F /* SKEmitterNode+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C21C7AF094005FF82F /* SKEmitterNode+Extras.swift */; };
 		A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C31C7AF094005FF82F /* SKTAudio.swift */; };
-		A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */; };
 		A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */; };
 		A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594D91C7AF14D005FF82F /* GameKit.framework */; };
 		A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A076A2F61C8FBA8300250432 /* UnityAds.bundle */; };
@@ -163,7 +162,6 @@
 		A07594C11C7AF094005FF82F /* SKColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKColor+Extensions.swift"; sourceTree = "<group>"; };
 		A07594C21C7AF094005FF82F /* SKEmitterNode+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKEmitterNode+Extras.swift"; sourceTree = "<group>"; };
 		A07594C31C7AF094005FF82F /* SKTAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
-		A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekPagedViewController.swift; sourceTree = "<group>"; };
 		A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyGameCenter.swift; sourceTree = "<group>"; };
 		A07594D91C7AF14D005FF82F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -368,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				A07594BE1C7AF058005FF82F /* SKTUtils */,
-				A07594CC1C7AF0B2005FF82F /* PeekPagedViewController.swift */,
 				A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */,
 			);
 			name = Helper;
@@ -569,7 +566,6 @@
 			files = (
 				A07594341C7AEE21005FF82F /* CharactersUIViewController.swift in Sources */,
 				A07594571C7AEF03005FF82F /* Definition.swift in Sources */,
-				A07594CD1C7AF0B2005FF82F /* PeekPagedViewController.swift in Sources */,
 				A02F477A1C8D2C2400919797 /* LeaderBoardViewController.swift in Sources */,
 				A07594381C7AEE2F005FF82F /* GamePauseUIViewController.swift in Sources */,
 				A07594301C7AEE0C005FF82F /* GameScene.swift in Sources */,

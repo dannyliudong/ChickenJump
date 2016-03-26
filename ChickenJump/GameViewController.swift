@@ -169,26 +169,8 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
                 print("EGC.getHighScore  error")
             }
         }
-        
-        
-        //MARK: iAd
-        // 底部横幅广告
-//        self.canDisplayBannerAds = true
-        
-        // 
-        /* Automatic presentation , you can't control when the ad loads */
-//        self.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Manual
-        
-        //
-//        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
-//        
-//        requestProducts()
-        
-        
+    
         //MARK: GoogleAds
-//        let request = GADRequest()
-//        request.testDevices = [""]
-//        self.interstitial.loadRequest(request)
         self.interstitial = createAndLoadInterstitial()
     }
     
@@ -204,13 +186,16 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         self.interstitial = self.createAndLoadInterstitial()
     }
     
-    // Init iAd
-    
-    // 三个按钮的作用 1， 不定时 赠送不定量的金币。 2， 10金币， 继续游戏。(在游戏中可以搜集金币)。金币不足时，等待一段时间登录，会赠送金币
-    
     // 观看广告 赚金币 复活一次
     @IBAction func watchAdsAction(sender: UIButton) {
-//        loadInterstitialAd()
+//        if UnityAds.sharedInstance().canShow() {
+//            UnityAds.sharedInstance().show()
+//            print("UnityAds  show ")
+//        }
+//        else {
+//            print("UnityAds  Cannot show ")
+//        }
+        
     }
     
     @IBAction func payGoldContinueGame(sender: UIButton) {
