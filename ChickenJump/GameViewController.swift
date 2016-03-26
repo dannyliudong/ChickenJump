@@ -548,11 +548,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
-            
 
             if !GameState.sharedInstance.isRecording {
                 
-                let sometimes = Int(arc4random_uniform(5))
+                let sometimes = Int(arc4random_uniform(3))
                 if sometimes == 0 {
                     if self.interstitial.isReady {
                         print("AdMob interstitial")
