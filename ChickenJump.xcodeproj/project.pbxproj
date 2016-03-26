@@ -79,6 +79,7 @@
 		A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FA1C8FBAED00250432 /* StoreKit.framework */; };
 		A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FC1C8FBAFD00250432 /* AdSupport.framework */; };
 		A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */; };
+		A08858331CA64B300017869A /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A08858321CA64B300017869A /* GoogleMobileAds.framework */; };
 		A09458FA1CA393B7008A21EB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09458F91CA393B7008A21EB /* AudioToolbox.framework */; };
 		A09458FC1CA393C1008A21EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09458FB1CA393C1008A21EB /* AVFoundation.framework */; };
 		A09458FE1CA393D8008A21EB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09458FD1CA393D8008A21EB /* CoreMedia.framework */; };
@@ -87,12 +88,8 @@
 		A09459041CA39428008A21EB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09459031CA39428008A21EB /* MediaPlayer.framework */; };
 		A09459061CA39432008A21EB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09459051CA39432008A21EB /* MessageUI.framework */; };
 		A09459081CA39445008A21EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09459071CA39445008A21EB /* SystemConfiguration.framework */; };
-		A094590C1CA3986E008A21EB /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A094590B1CA3986E008A21EB /* GoogleMobileAds.framework */; };
 		A0A1F19B1CA50E940092655E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A1F19A1CA50E940092655E /* Launch Screen.storyboard */; };
 		A0B313C31C881D8700E0F164 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A0B313C11C881D8700E0F164 /* spark.png */; };
-		A0BB7C011C93D69E00B37A96 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */; };
-		A0BB7C021C93D69E00B37A96 /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */; };
-		A0BB7C031C93D69E00B37A96 /* MediumRectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */; };
 		A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594DB1C7AF153005FF82F /* iAd.framework */; };
 		A0CBF0B61C9EF0C40081B615 /* README in Resources */ = {isa = PBXBuildFile; fileRef = A0CBF0B51C9EF0C40081B615 /* README */; };
 		A0FFDDCE1C7C0B1E0014B59D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */; };
@@ -170,11 +167,12 @@
 		A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyGameCenter.swift; sourceTree = "<group>"; };
 		A07594D91C7AF14D005FF82F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		A076A2F61C8FBA8300250432 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
-		A076A2F71C8FBA8300250432 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
+		A076A2F61C8FBA8300250432 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UnityAds.bundle; path = ../UnityAds.bundle; sourceTree = "<group>"; };
+		A076A2F71C8FBA8300250432 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityAds.framework; path = ../UnityAds.framework; sourceTree = "<group>"; };
 		A076A2FA1C8FBAED00250432 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A076A2FC1C8FBAFD00250432 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A08858321CA64B300017869A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A09458F91CA393B7008A21EB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A09458FB1CA393C1008A21EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A09458FD1CA393D8008A21EB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -183,12 +181,8 @@
 		A09459031CA39428008A21EB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		A09459051CA39432008A21EB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A09459071CA39445008A21EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A094590B1CA3986E008A21EB /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A0A1F19A1CA50E940092655E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A0B313C11C881D8700E0F164 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
-		A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
-		A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumRectViewController.swift; sourceTree = "<group>"; };
 		A0CBF0B51C9EF0C40081B615 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A0FFDDCD1C7C0B1E0014B59D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,17 +196,17 @@
 				A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */,
 				A09459061CA39432008A21EB /* MessageUI.framework in Frameworks */,
 				A09459041CA39428008A21EB /* MediaPlayer.framework in Frameworks */,
-				A09459011CA39421008A21EB /* EventKit.framework in Frameworks */,
 				A09459021CA39421008A21EB /* EventKitUI.framework in Frameworks */,
+				A09459011CA39421008A21EB /* EventKit.framework in Frameworks */,
 				A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */,
-				A09458FE1CA393D8008A21EB /* CoreMedia.framework in Frameworks */,
 				A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */,
 				A09458FC1CA393C1008A21EB /* AVFoundation.framework in Frameworks */,
 				A09458FA1CA393B7008A21EB /* AudioToolbox.framework in Frameworks */,
 				A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */,
+				A08858331CA64B300017869A /* GoogleMobileAds.framework in Frameworks */,
+				A09458FE1CA393D8008A21EB /* CoreMedia.framework in Frameworks */,
 				A0648A381CA4DBC300C210A6 /* CoreFoundation.framework in Frameworks */,
 				A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */,
-				A094590C1CA3986E008A21EB /* GoogleMobileAds.framework in Frameworks */,
 				A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
@@ -237,27 +231,6 @@
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
-				A0648A371CA4DBC300C210A6 /* CoreFoundation.framework */,
-				A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */,
-				A094590B1CA3986E008A21EB /* GoogleMobileAds.framework */,
-				A09459071CA39445008A21EB /* SystemConfiguration.framework */,
-				A09459051CA39432008A21EB /* MessageUI.framework */,
-				A09459031CA39428008A21EB /* MediaPlayer.framework */,
-				A09458FF1CA39421008A21EB /* EventKit.framework */,
-				A09459001CA39421008A21EB /* EventKitUI.framework */,
-				A09458FD1CA393D8008A21EB /* CoreMedia.framework */,
-				A09458F91CA393B7008A21EB /* AudioToolbox.framework */,
-				A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */,
-				A09458FB1CA393C1008A21EB /* AVFoundation.framework */,
-				A076A2FC1C8FBAFD00250432 /* AdSupport.framework */,
-				A076A2FA1C8FBAED00250432 /* StoreKit.framework */,
-				A076A2F61C8FBA8300250432 /* UnityAds.bundle */,
-				A076A2F71C8FBA8300250432 /* UnityAds.framework */,
-				A05486A51C86BDD9001EB526 /* GameplayKit.framework */,
-				A04AC7401C856D1A0027A83E /* CoreGraphics.framework */,
-				A04AC73E1C856CF70027A83E /* UIKit.framework */,
-				A07594DB1C7AF153005FF82F /* iAd.framework */,
-				A07594D91C7AF14D005FF82F /* GameKit.framework */,
 				A075940F1C7AECBB005FF82F /* ChickenJump */,
 				A075940E1C7AECBB005FF82F /* Products */,
 			);
@@ -274,18 +247,17 @@
 		A075940F1C7AECBB005FF82F /* ChickenJump */ = {
 			isa = PBXGroup;
 			children = (
+				A08858361CA64B870017869A /* GameClass */,
+				A08858351CA64B6A0017869A /* UnityAds */,
+				A08858341CA64B370017869A /* Frameworks */,
 				A09458F41CA392D1008A21EB /* GoogleAds */,
-				A0BB7BFC1C93D66D00B37A96 /* iAd */,
 				A07594CB1C7AF0A8005FF82F /* Helper */,
 				A08386C91C7AF511008A7502 /* Motion */,
 				A08386C81C7AF49C008A7502 /* UI */,
 				A08386C71C7AF485008A7502 /* Model */,
 				A075945A1C7AEF18005FF82F /* Resources */,
 				A075943B1C7AEE49005FF82F /* SceneFiles */,
-				A075942F1C7AEE0C005FF82F /* GameScene.swift */,
-				A07594561C7AEF03005FF82F /* Definition.swift */,
 				A0CBF0B51C9EF0C40081B615 /* README */,
-				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
 				A075942B1C7AED47005FF82F /* AppDelegate.swift */,
 				A0A1F19A1CA50E940092655E /* Launch Screen.storyboard */,
 				A07594261C7AECFC005FF82F /* Main.storyboard */,
@@ -433,21 +405,56 @@
 			name = Motion;
 			sourceTree = "<group>";
 		};
+		A08858341CA64B370017869A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A05486A51C86BDD9001EB526 /* GameplayKit.framework */,
+				A04AC7401C856D1A0027A83E /* CoreGraphics.framework */,
+				A04AC73E1C856CF70027A83E /* UIKit.framework */,
+				A07594DB1C7AF153005FF82F /* iAd.framework */,
+				A07594D91C7AF14D005FF82F /* GameKit.framework */,
+				A0648A371CA4DBC300C210A6 /* CoreFoundation.framework */,
+				A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */,
+				A09459071CA39445008A21EB /* SystemConfiguration.framework */,
+				A09459051CA39432008A21EB /* MessageUI.framework */,
+				A09459031CA39428008A21EB /* MediaPlayer.framework */,
+				A09458FF1CA39421008A21EB /* EventKit.framework */,
+				A09459001CA39421008A21EB /* EventKitUI.framework */,
+				A09458FD1CA393D8008A21EB /* CoreMedia.framework */,
+				A09458F91CA393B7008A21EB /* AudioToolbox.framework */,
+				A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */,
+				A09458FB1CA393C1008A21EB /* AVFoundation.framework */,
+				A076A2FC1C8FBAFD00250432 /* AdSupport.framework */,
+				A076A2FA1C8FBAED00250432 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A08858351CA64B6A0017869A /* UnityAds */ = {
+			isa = PBXGroup;
+			children = (
+				A076A2F61C8FBA8300250432 /* UnityAds.bundle */,
+				A076A2F71C8FBA8300250432 /* UnityAds.framework */,
+			);
+			name = UnityAds;
+			sourceTree = "<group>";
+		};
+		A08858361CA64B870017869A /* GameClass */ = {
+			isa = PBXGroup;
+			children = (
+				A075942F1C7AEE0C005FF82F /* GameScene.swift */,
+				A07594561C7AEF03005FF82F /* Definition.swift */,
+				A075942D1C7AEE03005FF82F /* GameViewController.swift */,
+			);
+			name = GameClass;
+			sourceTree = "<group>";
+		};
 		A09458F41CA392D1008A21EB /* GoogleAds */ = {
 			isa = PBXGroup;
 			children = (
+				A08858321CA64B300017869A /* GoogleMobileAds.framework */,
 			);
 			name = GoogleAds;
-			sourceTree = "<group>";
-		};
-		A0BB7BFC1C93D66D00B37A96 /* iAd */ = {
-			isa = PBXGroup;
-			children = (
-				A0BB7BFD1C93D69E00B37A96 /* BannerViewController.swift */,
-				A0BB7BFE1C93D69E00B37A96 /* InterstitialViewController.swift */,
-				A0BB7BFF1C93D69E00B37A96 /* MediumRectViewController.swift */,
-			);
-			name = iAd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,9 +585,6 @@
 				A07594C61C7AF094005FF82F /* SKAction+Extensions.swift in Sources */,
 				A07594C71C7AF094005FF82F /* SKColor+Extensions.swift in Sources */,
 				A07594C51C7AF094005FF82F /* MyUtils.swift in Sources */,
-				A0BB7C011C93D69E00B37A96 /* BannerViewController.swift in Sources */,
-				A0BB7C031C93D69E00B37A96 /* MediumRectViewController.swift in Sources */,
-				A0BB7C021C93D69E00B37A96 /* InterstitialViewController.swift in Sources */,
 				A07594591C7AEF0A005FF82F /* GameState.swift in Sources */,
 				A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */,
 				A02F47741C8D215B00919797 /* SKNode+Extensions.swift in Sources */,

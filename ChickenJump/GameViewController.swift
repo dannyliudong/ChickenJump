@@ -14,7 +14,6 @@ import ReplayKit
 import GoogleMobileAds
 
 class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADInterstitialDelegate {
-    
 
     var interstitial:GADInterstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
     
@@ -34,9 +33,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     @IBOutlet weak var leaderboardsButton: UIButton!
     @IBOutlet weak var shareGameButton: UIButton!
     @IBOutlet weak var tryAgainButton: UIButton!
-    @IBAction func changeSceneButton(sender: UIButton) {
-    }
+
     
+    @IBOutlet weak var spring: UIActivityIndicatorView!
 //    @IBOutlet weak var giftButton: UIButton!
 //    @IBOutlet weak var payContinueButton: UIButton!
 //    @IBOutlet weak var watchAdsButton: UIButton!
@@ -58,14 +57,14 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     // 显示loading ->等待场景加载完成-> 消失loading
     func showLoading() {
         self.loadingBGView.hidden = false
-        self.loadingLogoView.hidden = false
+//        self.loadingLogoView.hidden = false
         
-        self.loadingLogoView.center.x = -loadingLogoView.bounds.size.width * 0.5
+//        self.loadingLogoView.center.x = -loadingLogoView.bounds.size.width * 0.5
         
         
         UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 1
-            self.loadingLogoView.center.x += self.loadingLogoView.bounds.size.width * 0.5 + self.view.bounds.size.width * 0.5
+//            self.loadingLogoView.center.x += self.loadingLogoView.bounds.size.width * 0.5 + self.view.bounds.size.width * 0.5
 
             }, completion: { (done) in
         })
@@ -76,7 +75,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 //        self.loadingLogoView.center.x = self.view.bounds.size.width * 0.5
         
         self.loadingBGView.hidden = false
-        self.loadingLogoView.hidden = false
+//        self.loadingLogoView.hidden = false
         
         UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 0
@@ -84,11 +83,11 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
             }, completion: { (done) in
                 
                 UIView.animateWithDuration(1.0, animations: {
-                    self.loadingLogoView.center.x += self.view.bounds.size.width * 1.5
+//                    self.loadingLogoView.center.x += self.view.bounds.size.width * 1.5
                     
                     }, completion: { (done) in
                         self.loadingBGView.hidden = true
-                        self.loadingLogoView.hidden = true
+//                        self.loadingLogoView.hidden = true
                         
                         GameState.sharedInstance.isLoadingDone = true
                 })
@@ -110,10 +109,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
         self.isSupportReplay()
         
-        self.showLoading()
+//        self.showLoading()
         
         EGC.sharedInstance(self)
         EGC.debugMode = true
@@ -193,8 +192,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         self.interstitial = createAndLoadInterstitial()
     }
     
+    
     func createAndLoadInterstitial() ->GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-6593071569003999/5675187464")
+        let interstitial = GADInterstitial(adUnitID: AdMob_AdUnitID)
         interstitial.delegate = self
         interstitial.loadRequest(GADRequest())
         return interstitial
@@ -219,6 +219,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     
     @IBAction func giftAction(sender: UIButton) {
         
+    }
+    
+    @IBAction func changeSceneButton(sender: UIButton) {
     }
     
     //MARK: 展示游戏排行榜
@@ -259,6 +262,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     // 重置游戏
     @IBAction func tryAgainGameAction(sender: UIButton, forEvent event: UIEvent) {
         
+        self.spring.startAnimating()
         
         self.showLoading()
         
@@ -288,9 +292,13 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     
     
     func loadingisDoneAction() {
+        
+        self.spring.stopAnimating()
+        
         self.disappearLoading()
         
         self.resetHomeUINotificationAction()
+//        GameState.sharedInstance.isLoadingDone = true
 
     }
     

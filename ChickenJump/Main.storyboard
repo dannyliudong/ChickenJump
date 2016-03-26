@@ -106,7 +106,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="K1M-gU-vch">
-                                <rect key="frame" x="225" y="30" width="150" height="3"/>
+                                <rect key="frame" x="225" y="30" width="150" height="2.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="gCI-2I-26S"/>
                                 </constraints>
@@ -233,11 +233,15 @@
                                     <action selector="showGameCenterLeaderboard:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="gNl-9V-Q3f"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
                                 <rect key="frame" x="79" y="571" width="521" height="29"/>
-                                <color key="backgroundColor" red="0.39215686274509803" green="0.792156862745098" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6AX-nD-JgV">
+                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                             </imageView>
                         </subviews>
@@ -259,9 +263,11 @@
                             </constraint>
                             <constraint firstItem="mLg-d0-F0B" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="CJM-Oa-hvg"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="Wfq-Yd-Lkk" secondAttribute="bottom" constant="120" id="HA9-wk-Kgl"/>
+                            <constraint firstItem="6AX-nD-JgV" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="HG9-I1-gjU"/>
                             <constraint firstItem="aEU-VP-nHh" firstAttribute="leading" secondItem="mLg-d0-F0B" secondAttribute="leading" id="Ilb-rD-J22"/>
                             <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="leading" secondItem="8EP-jd-QXu" secondAttribute="trailing" constant="20" id="Ilr-wf-PqZ"/>
                             <constraint firstItem="mLg-d0-F0B" firstAttribute="centerX" secondItem="Wfq-Yd-Lkk" secondAttribute="centerX" id="Jhq-05-TTo"/>
+                            <constraint firstItem="6AX-nD-JgV" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="Juc-5g-jOR"/>
                             <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="top" secondItem="VTd-Ry-kBx" secondAttribute="bottom" constant="20" id="P38-Zj-wXM"/>
                             <constraint firstItem="fMg-H8-lBq" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="PC2-jB-Qfn"/>
                             <constraint firstItem="mLg-d0-F0B" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="S4N-rs-8TM"/>
@@ -345,6 +351,7 @@
                         <outlet property="scoreLabel" destination="BOu-9h-Hou" id="1mf-SB-tfW"/>
                         <outlet property="settingsButton" destination="mQl-Sc-H5o" id="w6D-sM-kCO"/>
                         <outlet property="shareGameButton" destination="Wfq-Yd-Lkk" id="kNR-vG-xuU"/>
+                        <outlet property="spring" destination="6AX-nD-JgV" id="1Xs-l4-B1k"/>
                         <outlet property="topScroeLabel" destination="EgE-5X-UQj" id="rqK-hT-Vi3"/>
                         <outlet property="tryAgainButton" destination="jEx-70-fdt" id="yKg-uG-bIl"/>
                     </connections>
