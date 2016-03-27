@@ -57,13 +57,14 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     // 显示loading ->等待场景加载完成-> 消失loading
     func showLoading() {
         self.loadingBGView.hidden = false
-//        self.loadingLogoView.hidden = false
+        self.loadingLogoView.hidden = false
         
 //        self.loadingLogoView.center.x = -loadingLogoView.bounds.size.width * 0.5
         
         
         UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 1
+            self.loadingLogoView.alpha = 1
 //            self.loadingLogoView.center.x += self.loadingLogoView.bounds.size.width * 0.5 + self.view.bounds.size.width * 0.5
 
             }, completion: { (done) in
@@ -75,10 +76,11 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 //        self.loadingLogoView.center.x = self.view.bounds.size.width * 0.5
         
         self.loadingBGView.hidden = false
-//        self.loadingLogoView.hidden = false
+        self.loadingLogoView.hidden = false
         
         UIView.animateWithDuration(0.5, animations: {
             self.loadingBGView.alpha = 0
+            self.loadingLogoView.alpha = 0
             
             }, completion: { (done) in
                 
@@ -87,7 +89,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
                     
                     }, completion: { (done) in
                         self.loadingBGView.hidden = true
-//                        self.loadingLogoView.hidden = true
+                        self.loadingLogoView.hidden = true
                         
                         GameState.sharedInstance.isLoadingDone = true
                 })

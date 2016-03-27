@@ -721,7 +721,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: 实时刷新关卡地图 增加一个新的放到最后面
     func updatePlatfroms() {
-        
 
         if platfromInterval <= 10 {
             //更新Platfroms
@@ -730,7 +729,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
             self.createPlatfromNodeTupleRandom()
             
         } else {
-            
             self.platfromInterval -= ScrollBG_Move_Speed
         }
         
@@ -2617,9 +2615,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //            if GameState.sharedInstance.canJump {
 //                self.playerNode.position.x -= ScrollBG_Move_Speed
 //            }
-
             
             GameState.sharedInstance.lifeTimeCount -= 0.005
+
+            
             self.gameSceneDelegate?.updateLifeTime(GameState.sharedInstance.lifeTimeCount)
             
             //MARK: 如果停留时间过长 被掉落物刺死
