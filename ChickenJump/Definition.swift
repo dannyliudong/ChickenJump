@@ -155,8 +155,8 @@ let BackgroudMaskColor = UIColor(red: 100, green: 202, blue: 243, alpha: View_Ma
 //let iAdProductID = "com.lingjing.justjump.removeads"
 //let UnityAdsID = "1051983"
 
-let Game_NameString = "Mr.J"
-let AppStoreURL:String = "https://itunes.apple.com/us/app/mr.j/id933131892?l=zh&ls=1&mt=8"
+let Game_NameString = "Brave Bird"
+let AppStoreURL:String = "https://itunes.apple.com/us/app/bravebird/id933131892?l=zh&ls=1&mt=8"
 let Leader_Board_Identifier:String = "ChickenScore" //mr.j
 let iAdProductID = "com.lingjing.justjump.removeads"
 let UnityAdsID = "1046579"
