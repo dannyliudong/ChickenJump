@@ -162,7 +162,7 @@ let iAdProductID = "com.lingjing.justjump.removeads"
 let UnityAdsID = "1046579"
 
 let AdMob_AdUnitID = "ca-app-pub-6593071569003999/8653516662" // 广告单元ID
-
+                    
 //MARK: light color
 let Light_AmbientColor_Day:UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
 let Light_AmbientColor_Night:UIColor = UIColor(red: 255/255, green: 255/255, blue: 27/255, alpha: 0.9)

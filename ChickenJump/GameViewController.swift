@@ -274,9 +274,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     
     @IBAction func changeSceneAction(sender: UIButton) {
         print("更换场景")
-        
     }
-    
     
     func loadingisDoneAction() {
         
@@ -529,9 +527,10 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 //        self.characterButton.hidden = false
     }
     
+    var adsCount:Int = 0
+    
     //MARK: 游戏结束 结束界面
     func gameOverNotificationAction() {
-        
         self.interstitial = self.createAndLoadInterstitial()
 
         if GameState.sharedInstance.isRecording {
@@ -551,29 +550,45 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
 
-            if !GameState.sharedInstance.isRecording {
+            if self.adsCount <= 3 {
+                self.adsCount += 1
                 
-                let sometimes = Int(arc4random_uniform(3))
-                if sometimes == 0 {
-                    if self.interstitial.isReady {
-                        print("AdMob interstitial")
-                        self.interstitial.presentFromRootViewController(self)
-                    }else {
-                        print("AdMob  Cannot show ")
-                    }
-                    
-                } else if sometimes == 1 {
-                    if UnityAds.sharedInstance().canShow() {
-                        UnityAds.sharedInstance().show()
-                        print("UnityAds  show ")
-                    }
-                    else {
-                        print("UnityAds  Cannot show ")
-                    }
+            } else {
+                print("show ads")
+                
+                if !GameState.sharedInstance.isRecording {
+                    self.showadsRandom()
                 }
+                self.adsCount = 0
             }
+            
+            print("adsCount : \(self.adsCount)")
         }
 
+    }
+    
+    func showadsRandom() {
+        
+
+        let sometimes = Int(arc4random_uniform(2))
+        print("sometimes : \(sometimes)")
+        if sometimes == 0 {
+            if self.interstitial.isReady {
+                print("AdMob interstitial")
+                self.interstitial.presentFromRootViewController(self)
+            }else {
+                print("AdMob  Cannot show ")
+            }
+            
+        } else if sometimes == 1 {
+            if UnityAds.sharedInstance().canShow() {
+                UnityAds.sharedInstance().show()
+                print("UnityAds  show ")
+            }
+            else {
+                print("UnityAds  Cannot show ")
+            }
+        }
     }
     
     func gameOverScreenshots() {
