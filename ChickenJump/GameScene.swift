@@ -2218,7 +2218,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                             
                             dispatch_async(dispatch_get_main_queue(), {
                                 self.shakeCarema() //  震屏
-                                
                                 self.showParticlesForEnemy(self.convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
                                 self.gameEndPlayerDeath()
                             })
@@ -2268,7 +2267,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                             
                             dispatch_async(dispatch_get_main_queue(), {
                                 self.shakeCarema() //  震屏
-                                
                                 self.showParticlesForEnemy(self.convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
                                 self.gameEndPlayerDeath()
                             })
