@@ -21,6 +21,8 @@
 		A04522271C9A60CE006147A9 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04522261C9A60CE006147A9 /* GameData.swift */; };
 		A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC73E1C856CF70027A83E /* UIKit.framework */; };
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
+		A04F14431CB8D9D200367BFD /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A04F14411CB8D9D200367BFD /* UnityAds.bundle */; };
+		A04F14441CB8D9D200367BFD /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04F14421CB8D9D200367BFD /* UnityAds.framework */; };
 		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
 		A059B3911CA1227B00EC679B /* independent.sks in Resources */ = {isa = PBXBuildFile; fileRef = A059B3901CA1227B00EC679B /* independent.sks */; };
 		A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */; };
@@ -74,8 +76,6 @@
 		A07594C91C7AF094005FF82F /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594C31C7AF094005FF82F /* SKTAudio.swift */; };
 		A07594D81C7AF0E9005FF82F /* EasyGameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */; };
 		A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07594D91C7AF14D005FF82F /* GameKit.framework */; };
-		A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A076A2F61C8FBA8300250432 /* UnityAds.bundle */; };
-		A076A2F91C8FBA8300250432 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2F71C8FBA8300250432 /* UnityAds.framework */; };
 		A076A2FB1C8FBAED00250432 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FA1C8FBAED00250432 /* StoreKit.framework */; };
 		A076A2FD1C8FBAFD00250432 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FC1C8FBAFD00250432 /* AdSupport.framework */; };
 		A076A2FF1C8FBB1900250432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */; };
@@ -109,6 +109,8 @@
 		A04522261C9A60CE006147A9 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		A04AC73E1C856CF70027A83E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A04F14411CB8D9D200367BFD /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
+		A04F14421CB8D9D200367BFD /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
 		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		A059B3901CA1227B00EC679B /* independent.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = independent.sks; sourceTree = "<group>"; };
 		A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -166,8 +168,6 @@
 		A07594D71C7AF0E9005FF82F /* EasyGameCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyGameCenter.swift; sourceTree = "<group>"; };
 		A07594D91C7AF14D005FF82F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A07594DB1C7AF153005FF82F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		A076A2F61C8FBA8300250432 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UnityAds.bundle; path = ../UnityAds.bundle; sourceTree = "<group>"; };
-		A076A2F71C8FBA8300250432 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityAds.framework; path = ../UnityAds.framework; sourceTree = "<group>"; };
 		A076A2FA1C8FBAED00250432 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A076A2FC1C8FBAFD00250432 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A076A2FE1C8FBB1900250432 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -205,11 +205,11 @@
 				A02B09A41CAA51DB0075DFF4 /* GoogleMobileAds.framework in Frameworks */,
 				A0648A381CA4DBC300C210A6 /* CoreFoundation.framework in Frameworks */,
 				A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */,
+				A04F14441CB8D9D200367BFD /* UnityAds.framework in Frameworks */,
 				A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
 				A07594DA1C7AF14D005FF82F /* GameKit.framework in Frameworks */,
-				A076A2F91C8FBA8300250432 /* UnityAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,8 +431,8 @@
 		A08858351CA64B6A0017869A /* UnityAds */ = {
 			isa = PBXGroup;
 			children = (
-				A076A2F61C8FBA8300250432 /* UnityAds.bundle */,
-				A076A2F71C8FBA8300250432 /* UnityAds.framework */,
+				A04F14411CB8D9D200367BFD /* UnityAds.bundle */,
+				A04F14421CB8D9D200367BFD /* UnityAds.framework */,
 			);
 			name = UnityAds;
 			sourceTree = "<group>";
@@ -530,13 +530,13 @@
 				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
+				A04F14431CB8D9D200367BFD /* UnityAds.bundle in Resources */,
 				A01D3BB91C994BEA008CAB60 /* BGSpriteTextureAlats.plist in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,
 				A07594BD1C7AF04E005FF82F /* Sparky.sks in Resources */,
 				A07594511C7AEEB7005FF82F /* BridgeMovingInY_Section.sks in Resources */,
 				A07594AA1C7AEFD3005FF82F /* PlatfromTextureAlats.plist in Resources */,
-				A076A2F81C8FBA8300250432 /* UnityAds.bundle in Resources */,
 				A06C471C1C9D905700815FC6 /* thunderSound.mp3 in Resources */,
 				A075943D1C7AEE59005FF82F /* Long_Section.sks in Resources */,
 				A07594781C7AEF43005FF82F /* catch_star02.mp3 in Resources */,

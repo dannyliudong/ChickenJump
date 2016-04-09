@@ -57,13 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
         
         
         //MARK: Unity Ads
-        UnityAds.sharedInstance().delegate = self
-        UnityAds.sharedInstance().setTestMode(false)
-        UnityAds.sharedInstance().setDebugMode(false)
-        
-        // just jump ID 1051983
-        // 1046579
-        UnityAds.sharedInstance().startWithGameId(UnityAdsID, andViewController: self.window?.rootViewController)
+//        UnityAds.sharedInstance().delegate = self
+//        UnityAds.sharedInstance().setTestMode(false)
+//        UnityAds.sharedInstance().setDebugMode(false)
+//        
+//        // just jump ID 1051983
+//        // 1046579
+//        UnityAds.sharedInstance().startWithGameId(UnityAdsID, andViewController: self.window?.rootViewController)
         
         return true
     }
