@@ -24,7 +24,7 @@ class GameState {
     var isLoadingDone:Bool = true // 场景加载完成
     var canJump:Bool = true
     
-    var isRecording:Bool = false
+//    var isRecording:Bool = false
     
 //    var gameScene:GameScene?
     

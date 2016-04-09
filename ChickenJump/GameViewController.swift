@@ -8,8 +8,7 @@
 
 import UIKit
 import SpriteKit
-import ReplayKit
-//import iAd
+//import ReplayKit
 //import StoreKit
 import GoogleMobileAds
 
@@ -112,7 +111,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
-        self.isSupportReplay()
+//        self.isSupportReplay()
         
 //        self.showLoading()
         
@@ -258,7 +257,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         
         self.hiddenGameOverButtons()
         
-        GameState.sharedInstance.isRecording = false
+//        GameState.sharedInstance.isRecording = false
         self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
         //等待场景加载完成后 消失
@@ -345,70 +344,67 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     
     
     //MARK: 录像
-    @IBAction func replayAction(sender: UIButton) {
-        
-        if isSupportReplay() {
-            
-            print("replayAction")
-            
-            if !GameState.sharedInstance.isRecording {
-                self.startRecording()
-                
-            } else if GameState.sharedInstance.isRecording {
-                self.stopRecording()
-            }
-            
-        }
-        
-    }
+//    @IBAction func replayAction(sender: UIButton) {
+//        
+//        if isSupportReplay() {
+//            
+//            print("replayAction")
+//            
+//            if !GameState.sharedInstance.isRecording {
+////                self.startRecording()
+//                
+//            } else if GameState.sharedInstance.isRecording {
+////                self.stopRecording()
+//            }
+//            
+//        }
+//        
+//    }
     
     //开始录像
-    func startRecording() {
-        
-        let recorder = RPScreenRecorder.sharedRecorder()
-        recorder.delegate = self;
-        
-        recorder.startRecordingWithMicrophoneEnabled(true) { (error) -> Void in
-            if let error = error {
-                print(error.localizedDescription)
-                self.alert(error.localizedDescription)
-            } else {
-                //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
-                self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
-                
-                GameState.sharedInstance.isRecording = true
-            }
-        }
-
-    }
+//    func startRecording() {
+//        
+//        let recorder = RPScreenRecorder.sharedRecorder()
+//        recorder.delegate = self;
+//        
+//        recorder.startRecordingWithMicrophoneEnabled(true) { (error) -> Void in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                self.alert(error.localizedDescription)
+//            } else {
+//                //                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: #selector(ViewController.stopRecording))
+//                self.replayButton.setImage(UIImage(named: "cameraOn"), forState: UIControlState.Normal)
+//                
+//                GameState.sharedInstance.isRecording = true
+//            }
+//        }
+//
+//    }
     
     //停止录像
-    func stopRecording() {
-//        pauseGame()
-        
-        let recorder = RPScreenRecorder.sharedRecorder()
-        
-        recorder.stopRecordingWithHandler { (previewController, error) -> Void in
-            if let error = error {
-                print(error.localizedDescription)
-                self.alert(error.localizedDescription)
-            } else {
-//                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .Plain, target: self, action: #selector(ViewController.startRecording))
-                self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
-
-                GameState.sharedInstance.isRecording = false
-                
-                if let preview = previewController {
-                    preview.previewControllerDelegate = self
-                    
-                    self.presentViewController(preview, animated: true, completion: {
-//                        self.navigationController?.navigationBarHidden = true
-//                        self.navigationController?.setNavigationBarHidden(true, animated: false)
-                    })
-                }
-            }
-        }
-    }
+//    func stopRecording() {
+////        pauseGame()
+//        
+//        let recorder = RPScreenRecorder.sharedRecorder()
+//        
+//        recorder.stopRecordingWithHandler { (previewController, error) -> Void in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                self.alert(error.localizedDescription)
+//            } else {
+//                self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
+//
+//                GameState.sharedInstance.isRecording = false
+//                
+//                if let preview = previewController {
+//                    preview.previewControllerDelegate = self
+//                    
+//                    self.presentViewController(preview, animated: true, completion: {
+//                    })
+//                }
+//            }
+//        }
+//    }
     
     func alert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
@@ -516,7 +512,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 //        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
         if isSupportReplay() {
-            self.replayButton.hidden = false
+            self.replayButton.hidden = true
         }
         
     }
@@ -533,16 +529,16 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     func gameOverNotificationAction() {
         self.interstitial = self.createAndLoadInterstitial()
 
-        if GameState.sharedInstance.isRecording {
-            
-            let delayInSeconds = 1.0
-            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-            
-            dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-                self.stopRecording()
-            }
-        } else {
-        }
+//        if GameState.sharedInstance.isRecording {
+//            
+//            let delayInSeconds = 1.0
+//            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
+//            
+//            dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+////                self.stopRecording()
+//            }
+//        } else {
+//        }
         
         let delayInSeconds = 1.0
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
@@ -556,16 +552,23 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
             } else {
                 print("show ads")
                 
-                if !GameState.sharedInstance.isRecording {
-//                    self.showadsRandom()
-                    
-                    if self.interstitial.isReady {
-                        print("AdMob interstitial")
-                        self.interstitial.presentFromRootViewController(self)
-                    }else {
-                        print("AdMob  Cannot show ")
-                    }
+                if self.interstitial.isReady {
+                    print("AdMob interstitial")
+                    self.interstitial.presentFromRootViewController(self)
+                }else {
+                    print("AdMob  Cannot show ")
                 }
+                
+//                if !GameState.sharedInstance.isRecording {
+////                    self.showadsRandom()
+//                    
+//                    if self.interstitial.isReady {
+//                        print("AdMob interstitial")
+//                        self.interstitial.presentFromRootViewController(self)
+//                    }else {
+//                        print("AdMob  Cannot show ")
+//                    }
+//                }
                 self.adsCount = 0
             }
             
@@ -575,7 +578,6 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
     }
     
     func showadsRandom() {
-        
 
         let sometimes = Int(arc4random_uniform(2))
         print("sometimes : \(sometimes)")
@@ -731,7 +733,7 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         self.pauseButton.hidden = true
         
         self.settingsButton.hidden = false
-        self.replayButton.hidden = false
+        self.replayButton.hidden = true
         
     }
     
@@ -1019,30 +1021,30 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 
 
 //MARK: ReplayKit Extension
-extension GameViewController: RPScreenRecorderDelegate {
-    func screenRecorderDidChangeAvailability(screenRecorder: RPScreenRecorder) {
-        print("screen recorder did change availability")
-    }
-    
-    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
-        print("screen recorder did stop recording : \(error.localizedDescription)")
-    }
-}
-
-extension GameViewController: RPPreviewViewControllerDelegate {
-    func previewControllerDidFinish(previewController: RPPreviewViewController) {
-        print("preview controller did finish")
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func previewController(previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
-        print("preview controller did finish with activity types : \(activityTypes)")
-        if activityTypes.contains("com.apple.UIKit.activity.SaveToCameraRoll") {
-            // video has saved to camera roll
-        } else {
-            // cancel
-        }
-    }
-}
+//extension GameViewController: RPScreenRecorderDelegate {
+//    func screenRecorderDidChangeAvailability(screenRecorder: RPScreenRecorder) {
+//        print("screen recorder did change availability")
+//    }
+//    
+//    func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?) {
+//        print("screen recorder did stop recording : \(error.localizedDescription)")
+//    }
+//}
+//
+//extension GameViewController: RPPreviewViewControllerDelegate {
+//    func previewControllerDidFinish(previewController: RPPreviewViewController) {
+//        print("preview controller did finish")
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+//    
+//    func previewController(previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
+//        print("preview controller did finish with activity types : \(activityTypes)")
+//        if activityTypes.contains("com.apple.UIKit.activity.SaveToCameraRoll") {
+//            // video has saved to camera roll
+//        } else {
+//            // cancel
+//        }
+//    }
+//}
 
 
