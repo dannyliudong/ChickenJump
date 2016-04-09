@@ -2177,102 +2177,97 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     case CollisionCategoryBitmask.Enemy :
                         print("Contact Enemy")
                         
-//                        self.shakeCarema() //  震屏
-//                        
-//                        self.showParticlesForEnemy(convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
-//                        self.gameEndPlayerDeath()
+                        self.shakeCarema() //  震屏
+//
+                        self.showParticlesForEnemy(convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
+                        self.gameEndPlayerDeath()
                         
-
-                        
-//                        let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.05 * Double(NSEC_PER_SEC)))
-//                        
-//                        dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
+//                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
 //                            self.gameSceneDelegate?.gameOverScreenshots()
-//                        }
-//
-//                        if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
-//
-//                        let delay:Double = 0.2
-//                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-//                        
-//                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-//                            self.gameEnd()
-//                        }
+//                            
+//                            dispatch_async(dispatch_get_main_queue(), {
+//                                //  震屏
+//                                
+//                                self.showParticlesForEnemy(self.convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
+//                                self.gameEndPlayerDeath()
+//                                self.shakeCarema() //  震屏
+//                                
+//                                if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
+//                                
+//                                let delay:Double = 0.2
+//                                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+//                                
+//                                dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//                                    self.gameEnd()
+//                                }
+//                                
+//                            })
+//                        })
                         
+                        let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
                         
-                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
-                            let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-                            
-                            dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
-                                self.gameSceneDelegate?.gameOverScreenshots()
-                            }
-                            
-                            if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
-                            
-                            let delay:Double = 0.2
-                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-                            
-                            dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                                self.gameEnd()
-                            }
-                            
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.shakeCarema() //  震屏
-                                self.showParticlesForEnemy(self.convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
-                                self.gameEndPlayerDeath()
-                            })
-                            
-                        })
+                        dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
+                            self.gameSceneDelegate?.gameOverScreenshots()
+                        }
+
+                        if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
+
+                        let delay:Double = 0.2
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+                        
+                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                            self.gameEnd()
+                        }
+//
+                        
+                        //////////.....
+                        
+//                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
+//                            let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+//                            
+//                            dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
+//                                self.gameSceneDelegate?.gameOverScreenshots()
+//                            }
+//                            
+//                            if GameState.sharedInstance.musicState { self.runAction(self.enemySoundAction) }
+//                            
+//                            let delay:Double = 0.2
+//                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+//                            
+//                            dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+//                                self.gameEnd()
+//                            }
+//                            
+//                            dispatch_async(dispatch_get_main_queue(), {
+//                                self.shakeCarema() //  震屏
+//                                self.showParticlesForEnemy(self.convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
+//                                self.gameEndPlayerDeath()
+//                            })
+//                            
+//                        })
 
                         
                     case CollisionCategoryBitmask.Wather :
                         print("Contact Wather")
                         
-//                        self.shakeCarema() //  震屏
-//                        
-//                        self.showParticlesForEnemy(convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
-//                        self.gameEndPlayerDeath()
-//                        
-//                        let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.05 * Double(NSEC_PER_SEC)))
-//                        
-//                        dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
-//                            self.gameSceneDelegate?.gameOverScreenshots()
-//                        }
-//                        
-//                        if GameState.sharedInstance.musicState { runAction(waterSoundAction) }
-//
-//                        let delay:Double = 0.2
-//                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-//                        
-//                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-//                            self.gameEnd()
-//                        }
+                        self.shakeCarema() //  震屏
                         
+                        self.showParticlesForEnemy(convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
+                        self.gameEndPlayerDeath()
                         
-                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
-                            let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-                            
-                            dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
-                                self.gameSceneDelegate?.gameOverScreenshots()
-                            }
-                            
-                            if GameState.sharedInstance.musicState { self.runAction(self.waterSoundAction) }
-                            
-                            let delay:Double = 0.2
-                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-                            
-                            dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-                                self.gameEnd()
-                            }
-                            
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.shakeCarema() //  震屏
-                                self.showParticlesForEnemy(self.convertPoint(self.position, fromNode: self.playerNode)) // 爆炸特效
-                                self.gameEndPlayerDeath()
-                            })
-                            
-                        })
+                        let timea = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                        dispatch_after(timea, dispatch_get_main_queue()) { () -> Void in
+                            self.gameSceneDelegate?.gameOverScreenshots()
+                        }
+                        
+                        if GameState.sharedInstance.musicState { runAction(waterSoundAction) }
 
+                        let delay:Double = 0.2
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+                        
+                        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                            self.gameEnd()
+                        }
                         
                     case CollisionCategoryBitmask.DoorKey_Button:
                         print("Contact 开门 按钮")

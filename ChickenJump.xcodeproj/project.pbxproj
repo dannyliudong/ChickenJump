@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A012BD981C7D8D7000E5061D /* GameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012BD971C7D8D7000E5061D /* GameColor.swift */; };
 		A018A2831C7D4263004FF1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018A2821C7D4263004FF1B2 /* Player.swift */; };
+		A01C852F1CB8DB6100ADA569 /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A01C852D1CB8DB6100ADA569 /* UnityAds.bundle */; };
+		A01C85301CB8DB6100ADA569 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01C852E1CB8DB6100ADA569 /* UnityAds.framework */; };
 		A01D3BB31C9939AD008CAB60 /* BGSunshineParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */; };
 		A01D3BB81C994BEA008CAB60 /* BGSpriteTextureAlats.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */; };
 		A01D3BB91C994BEA008CAB60 /* BGSpriteTextureAlats.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */; };
@@ -21,8 +23,6 @@
 		A04522271C9A60CE006147A9 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04522261C9A60CE006147A9 /* GameData.swift */; };
 		A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC73E1C856CF70027A83E /* UIKit.framework */; };
 		A04AC7411C856D1A0027A83E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04AC7401C856D1A0027A83E /* CoreGraphics.framework */; };
-		A04F14431CB8D9D200367BFD /* UnityAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A04F14411CB8D9D200367BFD /* UnityAds.bundle */; };
-		A04F14441CB8D9D200367BFD /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04F14421CB8D9D200367BFD /* UnityAds.framework */; };
 		A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05486A51C86BDD9001EB526 /* GameplayKit.framework */; };
 		A059B3911CA1227B00EC679B /* independent.sks in Resources */ = {isa = PBXBuildFile; fileRef = A059B3901CA1227B00EC679B /* independent.sks */; };
 		A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */; };
@@ -97,6 +97,8 @@
 /* Begin PBXFileReference section */
 		A012BD971C7D8D7000E5061D /* GameColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameColor.swift; sourceTree = "<group>"; };
 		A018A2821C7D4263004FF1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A01C852D1CB8DB6100ADA569 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
+		A01C852E1CB8DB6100ADA569 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
 		A01D3BB21C9939AD008CAB60 /* BGSunshineParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BGSunshineParticle.sks; sourceTree = "<group>"; };
 		A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGSpriteTextureAlats.1.png; sourceTree = "<group>"; };
 		A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BGSpriteTextureAlats.plist; sourceTree = "<group>"; };
@@ -109,8 +111,6 @@
 		A04522261C9A60CE006147A9 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		A04AC73E1C856CF70027A83E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A04AC7401C856D1A0027A83E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A04F14411CB8D9D200367BFD /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UnityAds.bundle; sourceTree = "<group>"; };
-		A04F14421CB8D9D200367BFD /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
 		A05486A51C86BDD9001EB526 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		A059B3901CA1227B00EC679B /* independent.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = independent.sks; sourceTree = "<group>"; };
 		A0648A351CA4DBBA00C210A6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -205,7 +205,7 @@
 				A02B09A41CAA51DB0075DFF4 /* GoogleMobileAds.framework in Frameworks */,
 				A0648A381CA4DBC300C210A6 /* CoreFoundation.framework in Frameworks */,
 				A0648A361CA4DBBA00C210A6 /* CFNetwork.framework in Frameworks */,
-				A04F14441CB8D9D200367BFD /* UnityAds.framework in Frameworks */,
+				A01C85301CB8DB6100ADA569 /* UnityAds.framework in Frameworks */,
 				A0BB7C051C93D8A100B37A96 /* iAd.framework in Frameworks */,
 				A05486A61C86BDD9001EB526 /* GameplayKit.framework in Frameworks */,
 				A04AC73F1C856CF70027A83E /* UIKit.framework in Frameworks */,
@@ -431,8 +431,8 @@
 		A08858351CA64B6A0017869A /* UnityAds */ = {
 			isa = PBXGroup;
 			children = (
-				A04F14411CB8D9D200367BFD /* UnityAds.bundle */,
-				A04F14421CB8D9D200367BFD /* UnityAds.framework */,
+				A01C852D1CB8DB6100ADA569 /* UnityAds.bundle */,
+				A01C852E1CB8DB6100ADA569 /* UnityAds.framework */,
 			);
 			name = UnityAds;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 				A07594531C7AEEC8005FF82F /* Spring_Section.sks in Resources */,
 				A07594AD1C7AEFE9005FF82F /* star.png in Resources */,
 				A07594B51C7AF00E005FF82F /* Meteor.sks in Resources */,
-				A04F14431CB8D9D200367BFD /* UnityAds.bundle in Resources */,
+				A01C852F1CB8DB6100ADA569 /* UnityAds.bundle in Resources */,
 				A01D3BB91C994BEA008CAB60 /* BGSpriteTextureAlats.plist in Resources */,
 				A07594271C7AECFC005FF82F /* Main.storyboard in Resources */,
 				A07594B11C7AEFF9005FF82F /* Bomb.sks in Resources */,

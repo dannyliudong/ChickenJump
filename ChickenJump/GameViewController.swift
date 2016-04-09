@@ -557,7 +557,14 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
                 print("show ads")
                 
                 if !GameState.sharedInstance.isRecording {
-                    self.showadsRandom()
+//                    self.showadsRandom()
+                    
+                    if self.interstitial.isReady {
+                        print("AdMob interstitial")
+                        self.interstitial.presentFromRootViewController(self)
+                    }else {
+                        print("AdMob  Cannot show ")
+                    }
                 }
                 self.adsCount = 0
             }
