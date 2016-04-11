@@ -103,7 +103,7 @@
 		A01D3BB51C994BEA008CAB60 /* BGSpriteTextureAlats.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BGSpriteTextureAlats.1.png; sourceTree = "<group>"; };
 		A01D3BB61C994BEA008CAB60 /* BGSpriteTextureAlats.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BGSpriteTextureAlats.plist; sourceTree = "<group>"; };
 		A01D3BB71C994BEA008CAB60 /* BGSpriteTextureAltas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BGSpriteTextureAltas.swift; path = ../BGSpriteTextureAltas.swift; sourceTree = "<group>"; };
-		A02B09A31CAA51DB0075DFF4 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		A02B09A31CAA51DB0075DFF4 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A02F47731C8D215B00919797 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		A02F47791C8D2C2400919797 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		A03496E91C818B600033D1A9 /* eagleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagleSound.mp3; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 		A07594041C7AECBA005FF82F = {
 			isa = PBXGroup;
 			children = (
-				A02B09A31CAA51DB0075DFF4 /* GoogleMobileAds.framework */,
 				A075940F1C7AECBB005FF82F /* ChickenJump */,
 				A075940E1C7AECBB005FF82F /* Products */,
 			);
@@ -450,6 +449,7 @@
 		A09458F41CA392D1008A21EB /* GoogleAds */ = {
 			isa = PBXGroup;
 			children = (
+				A02B09A31CAA51DB0075DFF4 /* GoogleMobileAds.framework */,
 			);
 			name = GoogleAds;
 			sourceTree = "<group>";
