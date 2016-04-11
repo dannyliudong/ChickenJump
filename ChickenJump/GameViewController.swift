@@ -511,9 +511,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         
 //        self.replayButton.setImage(UIImage(named: "cameraOff"), forState: UIControlState.Normal)
         
-        if isSupportReplay() {
-            self.replayButton.hidden = true
-        }
+//        if isSupportReplay() {
+//            self.replayButton.hidden = true
+//        }
         
     }
     
@@ -648,9 +648,9 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
         
         self.goldDisplayLabel.hidden = true
         
-        if isSupportReplay() {
-            self.replayButton.hidden = true
-        }
+//        if isSupportReplay() {
+//            self.replayButton.hidden = true
+//        }
         
 //        self.replayButton.hidden = false
         
