@@ -545,32 +545,39 @@ class GameViewController: UIViewController, GameSceneDelegate, EGCDelegate, GADI
 
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.showGameOverButtons()
-
-            if self.adsCount <= 3 {
-                self.adsCount += 1
-                
-            } else {
-                print("show ads")
-                
-                if self.interstitial.isReady {
-                    print("AdMob interstitial")
-                    self.interstitial.presentFromRootViewController(self)
-                }else {
-                    print("AdMob  Cannot show ")
-                }
-                
-//                if !GameState.sharedInstance.isRecording {
-////                    self.showadsRandom()
-//                    
-//                    if self.interstitial.isReady {
-//                        print("AdMob interstitial")
-//                        self.interstitial.presentFromRootViewController(self)
-//                    }else {
-//                        print("AdMob  Cannot show ")
-//                    }
-//                }
-                self.adsCount = 0
+            
+            if self.interstitial.isReady {
+                print("AdMob interstitial")
+                self.interstitial.presentFromRootViewController(self)
+            }else {
+                print("AdMob  Cannot show ")
             }
+
+//            if self.adsCount <= 3 {
+//                self.adsCount += 1
+//                
+//            } else {
+//                print("show ads")
+//                
+//                if self.interstitial.isReady {
+//                    print("AdMob interstitial")
+//                    self.interstitial.presentFromRootViewController(self)
+//                }else {
+//                    print("AdMob  Cannot show ")
+//                }
+//                
+////                if !GameState.sharedInstance.isRecording {
+//////                    self.showadsRandom()
+////                    
+////                    if self.interstitial.isReady {
+////                        print("AdMob interstitial")
+////                        self.interstitial.presentFromRootViewController(self)
+////                    }else {
+////                        print("AdMob  Cannot show ")
+////                    }
+////                }
+//                self.adsCount = 0
+//            }
             
             print("adsCount : \(self.adsCount)")
         }

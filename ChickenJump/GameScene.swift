@@ -154,7 +154,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }()
     
     //MARK: Sound Action
-    let jumpSoundAction = SKAction.playSoundFileNamed("inGame_action_jump.mp3", waitForCompletion: false)
+    let jumpSoundAction:SKAction = {
+        switch arc4random() % 11 {
+            
+        case 0: return SKAction.playSoundFileNamed("yeah_01.mp3", waitForCompletion: false)
+            
+        case 1: return SKAction.playSoundFileNamed("yeah_02.mp3", waitForCompletion: false)
+        case 2: return SKAction.playSoundFileNamed("yeah_03.mp3", waitForCompletion: false)
+        case 3: return SKAction.playSoundFileNamed("yeah_04.mp3", waitForCompletion: false)
+        case 4: return SKAction.playSoundFileNamed("yeah_05.mp3", waitForCompletion: false)
+        case 5: return SKAction.playSoundFileNamed("yeah_flam01.mp3", waitForCompletion: false)
+            
+        case 6: return SKAction.playSoundFileNamed("yeah_flam04.mp3", waitForCompletion: false)
+        case 7: return SKAction.playSoundFileNamed("yeah_flam09.mp3", waitForCompletion: false)
+        case 8: return SKAction.playSoundFileNamed("yeah_flam10.mp3", waitForCompletion: false)
+        case 9: return SKAction.playSoundFileNamed("yeah_owell01.mp3", waitForCompletion: false)
+        case 10: return SKAction.playSoundFileNamed("yeah_owell03.mp3", waitForCompletion: false)
+            
+        default : return SKAction.playSoundFileNamed("inGame_action_jump.mp3", waitForCompletion: false)
+        }
+    }()
+    
+    let lostSound:SKAction = SKAction.playSoundFileNamed("fever_lost.mp3", waitForCompletion: false)
+
+    
     let getGlodSoundAction = SKAction.playSoundFileNamed("inGame_function_star.mp3", waitForCompletion: false)
     let getdoorKeySoundAction = SKAction.playSoundFileNamed("catch_star02.mp3", waitForCompletion: false)
     
@@ -236,7 +259,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                    self.playerNode.physicsBody?.applyImpulse(impulse)
                     self.playerNode.runAction(SKAction.moveBy(move, duration: 0.1))
                     
-                    if GameState.sharedInstance.musicState { self.runAction(self.jumpSoundAction)}
+                    if GameState.sharedInstance.musicState { self.runAction(self.jumpSong())}
                     
                     //update分数
                     updateGameScore()
@@ -2325,7 +2348,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
         
     }
-    
+    //MARK: 声音特效
+    func jumpSong() ->SKAction  {
+        switch arc4random() % 11 {
+            
+        case 0: return SKAction.playSoundFileNamed("yeah_owell26.mp3", waitForCompletion: false)
+            
+        case 1: return SKAction.playSoundFileNamed("yeah_02.mp3", waitForCompletion: false)
+        case 2: return SKAction.playSoundFileNamed("yeah_03.mp3", waitForCompletion: false)
+        case 3: return SKAction.playSoundFileNamed("yeah_peli20.mp3", waitForCompletion: false)
+        case 4: return SKAction.playSoundFileNamed("yeah_05.mp3", waitForCompletion: false)
+        case 5: return SKAction.playSoundFileNamed("yeah_owell26.mp3", waitForCompletion: false)
+            
+        case 6: return SKAction.playSoundFileNamed("yeah_flam04.mp3", waitForCompletion: false)
+        case 7: return SKAction.playSoundFileNamed("yeah_flam09.mp3", waitForCompletion: false)
+        case 8: return SKAction.playSoundFileNamed("yeah_flam10.mp3", waitForCompletion: false)
+        case 9: return SKAction.playSoundFileNamed("yeah_owell01.mp3", waitForCompletion: false)
+        case 10: return SKAction.playSoundFileNamed("yeah_owell03.mp3", waitForCompletion: false)
+            
+        default : return SKAction.playSoundFileNamed("inGame_action_jump.mp3", waitForCompletion: false)
+        }
+    }
     //MARK: 粒子特效
     
     //MARK: 踩踏地面特效
@@ -2468,7 +2511,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
     }
     
+    
     func gameEndPlayerDeath() {
+        
+        
         
         self.playerNode.physicsBody?.collisionBitMask = CollisionCategoryBitmask.None
 
@@ -2483,6 +2529,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
             self.playerNode.physicsBody?.dynamic = true
+            
+            if GameState.sharedInstance.musicState { self.runAction(self.lostSound)}
+
         }
     }
     
