@@ -238,7 +238,7 @@
                                 <rect key="frame" x="100" y="500" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.5400182563" green="0.2440361784" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6AX-nD-JgV">
@@ -396,7 +396,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5n-LU-cgm">
                                 <rect key="frame" x="200" y="380" width="200" height="200"/>
-                                <state key="normal" image="LaunchLogo" backgroundImage="LaunchLogo"/>
+                                <state key="normal" image="Logo" backgroundImage="Logo"/>
                                 <state key="focused" backgroundImage="LaunchLogo"/>
                                 <connections>
                                     <action selector="chickenSong:" destination="BzE-cZ-HLf" eventType="touchUpInside" id="b4q-wA-qu7"/>
@@ -589,36 +589,10 @@
             </objects>
             <point key="canvasLocation" x="-441" y="389"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qci-rx-eJa">
-            <objects>
-                <viewController id="i15-K0-tSz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dUc-7T-Cdh"/>
-                        <viewControllerLayoutGuide type="bottom" id="kdW-6i-Tcm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T2Q-MQ-7qv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Kgi-Sv-mqC">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.54117647059999996" green="0.24313725489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Kgi-Sv-mqC" firstAttribute="centerY" secondItem="T2Q-MQ-7qv" secondAttribute="centerY" id="6fq-m3-FQv"/>
-                            <constraint firstItem="Kgi-Sv-mqC" firstAttribute="centerX" secondItem="T2Q-MQ-7qv" secondAttribute="centerX" id="IEy-fw-1bW"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QUa-LR-pxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2164" y="2094"/>
-        </scene>
     </scenes>
     <resources>
         <image name="LaunchLogo" width="200" height="200"/>
+        <image name="Logo" width="200" height="200"/>
         <image name="avatar_bg_line" width="10" height="384"/>
         <image name="buttonbg" width="51" height="60"/>
         <image name="buttonbgRect" width="40" height="40"/>
