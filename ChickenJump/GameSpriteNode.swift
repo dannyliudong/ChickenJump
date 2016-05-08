@@ -72,6 +72,11 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKNode {
     
 //    let node = SKNode()
     
+    
+
+    
+    
+    
     // 脚部分 , 用于站在地面上，包括角色的所有碰撞。
     let foot = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(30, 30))//SKSpriteNode(imageNamed: "pixelMan")
 //    node.shadowCastBitMask = ShadowCastBitMask.MainShadow
@@ -135,9 +140,30 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKNode {
 //    foot.addChild(body)
     
     
-    let sprite = SKSpriteNode(imageNamed: "pixelMan01")
-    sprite.position = CGPointMake(0, sprite.size.height * 0.5 - foot.size.height * 0.5)
-    foot.addChild(sprite)
+//    let sprite = SKSpriteNode(imageNamed: "pixelMan01")
+//    sprite.position = CGPointMake(0, sprite.size.height * 0.5 - foot.size.height * 0.5)
+//    foot.addChild(fingerSprite)
+    
+//    self.playerNode = SKNode()
+    
+    let fingerSprite = SKSpriteNode(imageNamed: "pixelMan01")
+    fingerSprite.position = CGPointMake(0, fingerSprite.size.height * 0.5 - foot.size.height * 0.5)
+//    sprite.addChild(fingerSprite)
+    
+    var fingersps = [SKTexture]()
+    fingersps.append(SKTexture(imageNamed: "pixelMan01"))
+    fingersps.append(SKTexture(imageNamed: "pixelMan02"))
+    fingersps.append(SKTexture(imageNamed: "pixelMan01"))
+    
+    let fingerTouch = SKAction.animateWithTextures(fingersps, timePerFrame: 0.1)
+    let fingerTouchAni = SKAction.repeatAction(fingerTouch, count: 3)
+    let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 1.5, max: 3)))
+    let fingerTouchSequence = SKAction.repeatActionForever(SKAction.sequence([fingerTouchAni,wait]))
+    fingerSprite.runAction(fingerTouchSequence)
+    
+    
+    foot.addChild(fingerSprite)
+
     
     return foot
 }

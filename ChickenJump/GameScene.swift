@@ -229,21 +229,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func handleTap(sender:UITapGestureRecognizer){
         print("handle Tap")
-        self.touchControll(Player_JumpImpulse, move: Player_MoveBy)
+        self.touchControll(CGVector(dx: 10, dy: 40))
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if sender.direction == .Left {
             
-            self.touchControll(Player_JumpImpulse, move: CGVectorMake(-Player_MoveBy.dx, Player_MoveBy.dy))
+            self.touchControll(CGVector(dx: -10, dy: 40))
             
         } else {            
-            self.touchControll(Player_JumpImpulse, move: Player_MoveBy)
+            self.touchControll(CGVector(dx: 10, dy: 40))
             
         }
     }
     
-    func touchControll(impulse:CGVector, move:CGVector) {
+    func touchControll(impulse:CGVector) {
         
         // 加载完成 才可点击屏幕
         if GameState.sharedInstance.isLoadingDone && !GameState.sharedInstance.tiemsUp {
@@ -258,7 +258,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     //duration 大于等于 0.2 时， 出现错误
 //                    self.playerNode.physicsBody?.applyImpulse(impulse)
 //                    self.playerNode.runAction(SKAction.moveBy(move, duration: 0.1))
-                    self.playerNode.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 40))
+                    self.playerNode.physicsBody?.applyImpulse(impulse)
 
                     if GameState.sharedInstance.musicState { self.runAction(self.jumpSong())}
                     
@@ -2056,6 +2056,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: --------------------构建player
     func createPlayer() {
+        
+        
+        
+//        self.playerNode = SKNode()
+//        
+//        let fingerSprite = SKSpriteNode(imageNamed: "pixelMan01")
+//        self.playerNode.addChild(fingerSprite)
+//        
+//        var fingersps = [SKTexture]()
+//        fingersps.append(SKTexture(imageNamed: "pixelMan01"))
+//        fingersps.append(SKTexture(imageNamed: "pixelMan02"))
+//        
+//        let fingerTouch = SKAction.animateWithTextures(fingersps, timePerFrame: 0.3)
+//        let fingerTouchAni = SKAction.repeatAction(fingerTouch, count: 2)
+//        let fingerTouchSequence = SKAction.repeatActionForever(SKAction.sequence([fingerTouchAni]))
+//        fingerSprite.runAction(fingerTouchSequence)
+        
         self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan01")) //choseChaterName(playertype)
         self.playerNode.position = CGPointMake(Long_SectionWidth * 7 - 32, PlayerStartHigth) //playerHight + playerNode.height * 0.5
         self.playerNode.xScale = -1
@@ -2064,7 +2081,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.playergroundNode.addChild(playerNode)
         
         
-        self.birdWink()
+//        self.birdWink()
         
 //        self.playerNode = Player(texture: SKTexture(imageNamed:"pixelMan"), color: SKColor.whiteColor())
 //        self.playerNode.position = CGPointMake(playerOffset, 400 )
@@ -2355,9 +2372,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
 //                        contactFloorEvent(node)
 //                        playerMagic(node)
                         
-                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(0, 20))
+                        self.playerNode.physicsBody?.applyImpulse(CGVectorMake(20, 60))
 
-                        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, 0), duration: 0.2))
+//                        self.playerNode.runAction(SKAction.moveBy(CGVectorMake(64 * 3, 0), duration: 0.2))
                         
                         if GameState.sharedInstance.musicState { self.runAction(springSoundAction) }
 

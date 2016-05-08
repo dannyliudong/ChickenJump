@@ -130,7 +130,7 @@ let Player_Jump_Hight:CGFloat = 64
 //let Player_Jump_HightAdd:CGFloat = 65
 let Scene_Gravity:CGFloat = -60.0
 let Player_JumpImpulse:CGVector = CGVectorMake(0, 20)
-let Player_MoveBy:CGVector = CGVectorMake(48, 96)
+let Player_MoveBy:CGVector = CGVector(dx: 10, dy: 40)//CGVectorMake(48, 96)
 
 let BG_hight:CGFloat = Screen_Height * 0.25
 let PlatformHight:CGFloat = Screen_Height * 0.15

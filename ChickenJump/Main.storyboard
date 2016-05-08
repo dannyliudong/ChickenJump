@@ -312,9 +312,9 @@
                                 <exclude reference="oEL-oB-BE1"/>
                                 <exclude reference="zF6-zh-AwH"/>
                                 <exclude reference="VKe-AT-iK9"/>
-                                <exclude reference="Ag7-cS-NC2"/>
                                 <exclude reference="5TC-d2-6EX"/>
                                 <exclude reference="S4N-rs-8TM"/>
+                                <exclude reference="Ag7-cS-NC2"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -590,38 +590,31 @@
             <point key="canvasLocation" x="-441" y="389"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="cNE-rj-60F">
+        <scene sceneID="qci-rx-eJa">
             <objects>
-                <viewController id="J8L-r5-Ins" sceneMemberID="viewController">
+                <viewController id="i15-K0-tSz" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ole-DX-i9d"/>
-                        <viewControllerLayoutGuide type="bottom" id="6cX-kt-ubR"/>
+                        <viewControllerLayoutGuide type="top" id="dUc-7T-Cdh"/>
+                        <viewControllerLayoutGuide type="bottom" id="kdW-6i-Tcm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e2I-Cg-piJ">
+                    <view key="view" contentMode="scaleToFill" id="T2Q-MQ-7qv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="85d-jm-cW8">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-UI-lnC">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Kgi-Sv-mqC">
                                 <rect key="frame" x="200" y="200" width="200" height="200"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.54117647059999996" green="0.24313725489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="85d-jm-cW8" secondAttribute="trailing" id="CIa-ha-OQa"/>
-                            <constraint firstItem="85d-jm-cW8" firstAttribute="top" secondItem="e2I-Cg-piJ" secondAttribute="top" id="Fpl-kL-gqc"/>
-                            <constraint firstItem="P2B-UI-lnC" firstAttribute="centerY" secondItem="e2I-Cg-piJ" secondAttribute="centerY" id="G9z-Xe-K4W"/>
-                            <constraint firstItem="85d-jm-cW8" firstAttribute="bottom" secondItem="6cX-kt-ubR" secondAttribute="top" id="HX7-O0-wFI"/>
-                            <constraint firstItem="85d-jm-cW8" firstAttribute="leading" secondItem="e2I-Cg-piJ" secondAttribute="leading" id="OBx-Jf-r9Z"/>
-                            <constraint firstItem="P2B-UI-lnC" firstAttribute="centerX" secondItem="e2I-Cg-piJ" secondAttribute="centerX" id="WCX-YC-H7E"/>
+                            <constraint firstItem="Kgi-Sv-mqC" firstAttribute="centerY" secondItem="T2Q-MQ-7qv" secondAttribute="centerY" id="6fq-m3-FQv"/>
+                            <constraint firstItem="Kgi-Sv-mqC" firstAttribute="centerX" secondItem="T2Q-MQ-7qv" secondAttribute="centerX" id="IEy-fw-1bW"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9uX-0o-K9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QUa-LR-pxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2063" y="1182"/>
+            <point key="canvasLocation" x="-2164" y="2094"/>
         </scene>
     </scenes>
     <resources>
