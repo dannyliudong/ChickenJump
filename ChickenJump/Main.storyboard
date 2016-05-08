@@ -102,12 +102,12 @@
                                     <action selector="replayAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hhc-Xt-so2"/>
                                 </connections>
                             </button>
-                            <view alpha="0.29999999999999999" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEU-VP-nHh" userLabel="gameOverMaskView">
-                                <rect key="frame" x="98" y="514" width="502" height="86"/>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEU-VP-nHh" userLabel="gameOverMaskView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="K1M-gU-vch">
-                                <rect key="frame" x="225" y="30" width="150" height="3"/>
+                                <rect key="frame" x="225" y="30" width="150" height="2.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="gCI-2I-26S"/>
                                 </constraints>
@@ -234,15 +234,15 @@
                                     <action selector="showGameCenterLeaderboard:forEvent:" destination="BV1-FR-VrT" eventType="touchUpInside" id="gNl-9V-Q3f"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
-                                <rect key="frame" x="79" y="571" width="521" height="29"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-d0-F0B">
+                                <rect key="frame" x="100" y="500" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.5400182563" green="0.2440361784" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
-                                <rect key="frame" x="200" y="199" width="200" height="200"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fMg-H8-lBq">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6AX-nD-JgV">
-                                <rect key="frame" x="281" y="420" width="37" height="37"/>
+                                <rect key="frame" x="281" y="543" width="37" height="37"/>
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -250,6 +250,7 @@
                         <constraints>
                             <constraint firstItem="fMg-H8-lBq" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="0XX-lm-L2M"/>
                             <constraint firstItem="aEU-VP-nHh" firstAttribute="bottom" secondItem="qHh-Mt-9TT" secondAttribute="top" id="1yq-G6-iXX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="6AX-nD-JgV" secondAttribute="bottom" constant="20" id="28R-Qs-xOl"/>
                             <constraint firstItem="EgE-5X-UQj" firstAttribute="top" secondItem="xqy-pu-jM1" secondAttribute="bottom" id="2jb-UG-Npq"/>
                             <constraint firstAttribute="trailing" secondItem="Xbe-t4-et4" secondAttribute="trailing" constant="8" id="3nb-XF-4dS"/>
                             <constraint firstItem="9IF-uz-VCA" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" id="4CE-yg-8KC"/>
@@ -272,7 +273,6 @@
                             <constraint firstItem="fMg-H8-lBq" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="PC2-jB-Qfn"/>
                             <constraint firstItem="mLg-d0-F0B" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" id="S4N-rs-8TM"/>
                             <constraint firstItem="VTd-Ry-kBx" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="TIo-vw-Pck"/>
-                            <constraint firstItem="6AX-nD-JgV" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="TWq-w4-FUc"/>
                             <constraint firstItem="fMg-H8-lBq" firstAttribute="top" secondItem="SAv-uz-pVl" secondAttribute="bottom" constant="23" id="VKe-AT-iK9"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="8EP-jd-QXu" secondAttribute="bottom" constant="120" id="W0x-vd-otD"/>
                             <constraint firstItem="jEx-70-fdt" firstAttribute="leading" secondItem="Wfq-Yd-Lkk" secondAttribute="trailing" constant="20" id="Ww9-Xm-Yi9"/>
@@ -286,6 +286,7 @@
                             <constraint firstItem="aEU-VP-nHh" firstAttribute="bottom" secondItem="qHh-Mt-9TT" secondAttribute="top" id="fPo-np-EmH"/>
                             <constraint firstItem="K1M-gU-vch" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="gTa-cD-gal"/>
                             <constraint firstItem="aEU-VP-nHh" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="jRh-B1-WO8"/>
+                            <constraint firstItem="6AX-nD-JgV" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="k1n-zJ-ETO"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="mQl-Sc-H5o" secondAttribute="bottom" constant="10" id="mSy-MT-wOZ"/>
                             <constraint firstItem="mQl-Sc-H5o" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="mek-UC-RSt"/>
                             <constraint firstItem="Wfq-Yd-Lkk" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="mkb-V3-zcN"/>
@@ -304,21 +305,20 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="VKe-AT-iK9"/>
                                 <exclude reference="1yq-G6-iXX"/>
                                 <exclude reference="4Rb-L5-gWQ"/>
                                 <exclude reference="Ilb-rD-J22"/>
                                 <exclude reference="cQo-eJ-kKz"/>
                                 <exclude reference="oEL-oB-BE1"/>
                                 <exclude reference="zF6-zh-AwH"/>
+                                <exclude reference="VKe-AT-iK9"/>
+                                <exclude reference="Ag7-cS-NC2"/>
                                 <exclude reference="5TC-d2-6EX"/>
                                 <exclude reference="S4N-rs-8TM"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
-                                <include reference="VKe-AT-iK9"/>
-                                <exclude reference="AWS-UJ-bSy"/>
                                 <include reference="1yq-G6-iXX"/>
                                 <include reference="4Rb-L5-gWQ"/>
                                 <include reference="Ilb-rD-J22"/>
@@ -329,6 +329,8 @@
                                 <include reference="oEL-oB-BE1"/>
                                 <exclude reference="wZT-lC-SsZ"/>
                                 <include reference="zF6-zh-AwH"/>
+                                <include reference="VKe-AT-iK9"/>
+                                <exclude reference="AWS-UJ-bSy"/>
                                 <include reference="5TC-d2-6EX"/>
                                 <exclude reference="CJM-Oa-hvg"/>
                                 <exclude reference="Jhq-05-TTo"/>
@@ -373,8 +375,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="3sB-ix-0Ul">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3sB-ix-0Ul">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.5400182563" green="0.2440361784" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45x-1Q-yD7">
                                 <rect key="frame" x="20" y="10" width="51" height="60"/>
@@ -618,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uX-0o-K9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2123" y="1102"/>
+            <point key="canvasLocation" x="-2063" y="1182"/>
         </scene>
     </scenes>
     <resources>

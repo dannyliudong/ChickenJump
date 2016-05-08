@@ -257,8 +257,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                     
                     //duration 大于等于 0.2 时， 出现错误
 //                    self.playerNode.physicsBody?.applyImpulse(impulse)
-                    self.playerNode.runAction(SKAction.moveBy(move, duration: 0.1))
-                    
+//                    self.playerNode.runAction(SKAction.moveBy(move, duration: 0.1))
+                    self.playerNode.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 40))
+
                     if GameState.sharedInstance.musicState { self.runAction(self.jumpSong())}
                     
                     //update分数
@@ -2055,12 +2056,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     //MARK: --------------------构建player
     func createPlayer() {
-        self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan")) //choseChaterName(playertype)
+        self.playerNode = GameSpriteNodeWithPlayerNode(SKTexture(imageNamed: "pixelMan01")) //choseChaterName(playertype)
         self.playerNode.position = CGPointMake(Long_SectionWidth * 7 - 32, PlayerStartHigth) //playerHight + playerNode.height * 0.5
         self.playerNode.xScale = -1
         //        playerNode.zRotation = CGFloat.toAngle(-10)
         self.playerNode.zPosition = 220
         self.playergroundNode.addChild(playerNode)
+        
+        
+        self.birdWink()
         
 //        self.playerNode = Player(texture: SKTexture(imageNamed:"pixelMan"), color: SKColor.whiteColor())
 //        self.playerNode.position = CGPointMake(playerOffset, 400 )
@@ -2126,7 +2130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         guideFigerNode = SKNode()
         
         self.guideFigerNode.zPosition = 300
-        self.setScale(1.2)
+//        self.setScale(1.2)
         self.guideFigerNode.position = CGPoint(x: Screen_Width * 0.6, y: Screen_Height * 0.3)
         self.addChild(guideFigerNode)
         
@@ -2141,6 +2145,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         let fingerTouchAni = SKAction.repeatAction(fingerTouch, count: 2)
         let fingerTouchSequence = SKAction.repeatActionForever(SKAction.sequence([fingerTouchAni]))
         fingerSprite.runAction(fingerTouchSequence)
+    }
+    
+    //MARK: 角色动画
+    // 眨眼动画
+    func birdWink() -> SKAction {
+        
+        
+//        let birdWinkSprite = SKSpriteNode(imageNamed: "pixelMan01")
+//        
+//        self.playerNode.addChild(birdWinkSprite)
+        
+        var birdWinkTextures = [SKTexture]()
+        birdWinkTextures.append(SKTexture(imageNamed: "pixelMan01"))
+        birdWinkTextures.append(SKTexture(imageNamed: "pixelMan02"))
+        
+        let fingerTouch = SKAction.animateWithTextures(birdWinkTextures, timePerFrame: 0.3)
+        let fingerTouchAni = SKAction.repeatAction(fingerTouch, count: 2)
+        let fingerTouchSequence = SKAction.repeatActionForever(SKAction.sequence([fingerTouchAni]))
+        
+        return fingerTouchSequence
     }
     
      //MARK: 踩踏地面
@@ -2175,6 +2199,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                         
                     case CollisionCategoryBitmask.Normal_Floor :
                         print("Contact Floor")
+                        
+//                        self.playerNode.runAction(self.birdWink())
                         
                         contactFloorEvent(node)
                         showplayerMagic(convertPoint(self.position, fromNode: self.playerNode))

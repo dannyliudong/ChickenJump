@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="Vci-EY-znf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="7b3-G9-JlE">
+        <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="Vci-EY-znf" sceneMemberID="viewController">
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="w32-GA-b7w"/>
-                        <viewControllerLayoutGuide type="bottom" id="cym-ct-zUM"/>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MuE-Xo-BQy">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_bg_line" translatesAutoresizingMaskIntoConstraints="NO" id="avC-2N-lhb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Dva-kW-DiP">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iTt-PE-W5G">
+                                <rect key="frame" x="213.5" y="200" width="173" height="200"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.54001825629657074" green="0.24403617837785652" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="avC-2N-lhb" firstAttribute="bottom" secondItem="cym-ct-zUM" secondAttribute="top" id="Ke7-yE-uYn"/>
-                            <constraint firstItem="avC-2N-lhb" firstAttribute="top" secondItem="MuE-Xo-BQy" secondAttribute="top" id="QLX-Lk-WkA"/>
-                            <constraint firstItem="avC-2N-lhb" firstAttribute="leading" secondItem="MuE-Xo-BQy" secondAttribute="leading" id="RhF-Km-OTr"/>
-                            <constraint firstAttribute="trailing" secondItem="avC-2N-lhb" secondAttribute="trailing" id="Ror-yZ-Kbm"/>
-                            <constraint firstItem="Dva-kW-DiP" firstAttribute="centerX" secondItem="MuE-Xo-BQy" secondAttribute="centerX" id="dtj-HW-Ca8"/>
-                            <constraint firstItem="Dva-kW-DiP" firstAttribute="centerY" secondItem="MuE-Xo-BQy" secondAttribute="centerY" id="znN-YE-oSc"/>
+                            <constraint firstItem="iTt-PE-W5G" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ixv-4d-Gvl"/>
+                            <constraint firstItem="iTt-PE-W5G" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="z8B-eM-9Ul"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vvX-nI-uhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1183" y="372"/>
+            <point key="canvasLocation" x="24" y="278"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchLogo" width="200" height="200"/>
-        <image name="avatar_bg_line" width="10" height="384"/>
+        <image name="LaunchLogo" width="173" height="200"/>
     </resources>
 </document>

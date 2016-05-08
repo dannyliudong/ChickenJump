@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func setSceneSkyColor_Day(type:SceneLandType) ->UIColor{
     

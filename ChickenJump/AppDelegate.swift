@@ -12,7 +12,7 @@ import UIKit
 //import AVKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UnityAdsDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 

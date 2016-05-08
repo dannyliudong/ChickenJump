@@ -26,8 +26,8 @@ extension SKNode {
                 //                _node.physicsBody?.linearDamping = 0
                 //                _node.physicsBody?.angularDamping = 0
                 
-                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 0.8, max: 1.2)))])
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 1.0)))
+                let sequence = SKAction.sequence([wait, SKAction.moveToX_Cycle(128 , time: NSTimeInterval(CGFloat.random(min: 0.4, max: 0.8)))])
                 
                 _node.runAction(sequence)
                 
@@ -49,8 +49,8 @@ extension SKNode {
                 //                _node.physicsBody?.linearDamping = 0
                 //                _node.physicsBody?.angularDamping = 0
                 
-                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 6, time: NSTimeInterval(CGFloat.random(min: 1.0, max: 1.5)))])
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 1.0)))
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle(64 * 7, time: NSTimeInterval(CGFloat.random(min: 0.8, max: 1.2)))])
                 
                 _node.runAction(sequence)
                 
@@ -98,13 +98,13 @@ extension SKNode {
                 //                _node.physicsBody?.linearDamping = 0
                 //                _node.physicsBody?.angularDamping = 0
                 
-                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 2.0)))
+                let wait = SKAction.waitForDuration(NSTimeInterval(CGFloat.random(min: 0.0, max: 1.0)))
                 
 //                let changedirectionUp:SKAction = SKAction.scaleYTo(-1, duration: 0.2)
 //                let changedirectionDown:SKAction = SKAction.scaleYTo(1, duration: 0.2)
 
                 
-                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle_ChangeDirection(64 * 6, time: NSTimeInterval(CGFloat.random(min: 1.0, max: 2.0)))])
+                let sequence = SKAction.sequence([wait, SKAction.moveToY_Cycle_ChangeDirection(64 * 7, time: NSTimeInterval(CGFloat.random(min: 0.8, max: 1.2)))])
                 _node.runAction(sequence)
                 
             }

@@ -73,7 +73,7 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKNode {
 //    let node = SKNode()
     
     // 脚部分 , 用于站在地面上，包括角色的所有碰撞。
-    let foot = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(30, 25))//SKSpriteNode(imageNamed: "pixelMan")
+    let foot = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(30, 30))//SKSpriteNode(imageNamed: "pixelMan")
 //    node.shadowCastBitMask = ShadowCastBitMask.MainShadow
     foot.zPosition = 60
 //    foot.colorBlendFactor = 0
@@ -135,7 +135,7 @@ func GameSpriteNodeWithPlayerNode(texture:SKTexture) ->SKNode {
 //    foot.addChild(body)
     
     
-    let sprite = SKSpriteNode(imageNamed: "pixelMan")
+    let sprite = SKSpriteNode(imageNamed: "pixelMan01")
     sprite.position = CGPointMake(0, sprite.size.height * 0.5 - foot.size.height * 0.5)
     foot.addChild(sprite)
     
